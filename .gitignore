@@ -1,6 +1,11 @@
-# Ignorer pdf filer
+# Ignorer typer af filer
 *.pdf #
 *.docx 
+*.png
+*.jpg
+*.jpeg
+
+# Ignorer DS_Store
 *.DS_Store
 
 "2. Semester"/"Analog elektronik"/
