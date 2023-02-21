@@ -1,0 +1,8 @@
+# Ignorer pdf filer
+*.pdf #
+*.docx 
+*.DS_Store
+
+"2. Semester"/"Analog elektronik"/
+"2. Semester"/"Elektriske kredsløb"/
+"2. Semester"/"Elektroteknologi projekt"/
