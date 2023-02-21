@@ -1,13 +1,12 @@
-# Ignorer typer af filer
-*.pdf #
+*.pdf
 *.docx 
 *.png
 *.jpg
 *.jpeg
 
-# Ignorer DS_Store
-*.DS_Store
+.DS_Store
 
-"2. Semester"/"Analog elektronik"/
-"2. Semester"/"Elektriske kredsløb"/
-"2. Semester"/"Elektroteknologi projekt"/
+2. Semester/Analog elektronik/
+2. Semester/Elektriske kredsløb/
+2. Semester/Elektroteknologi projekt/
+1. Semester/
