@@ -50,4 +50,15 @@ Rotationsvektor:
 
 
 
-
+#                   Konditionstal
+# 
+#   kappa(x) = relativ fejl i f(x) / relativ fejl i x
+#   kappa(x) = |(x*f'(x))/f(x)|
+# 
+#   x**2 => kappa(x) = 2 ( Fejlen er fordoblet )
+#   x**(1/2) => kappa(x) = 1/2 ( Fejlen er halveret )
+#
+#   For en matrice gælder der at: 
+#   kappa(x) = sigma0 / sigma_n-1, hvor sigma er singulære værdier,
+#   og for vores matricer gælder der, at de sigma 0 er den største værdi, og sigma n-1 er den mindste værdi.
+#   kappa(x) = største værdi / mindste værdi.
