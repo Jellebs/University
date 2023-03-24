@@ -21,7 +21,6 @@ def rotation(vinkel: int):
 
 #En funktion til at plotte vektorerne ud fra en startposition: 
 def lavArm(vectors: list[list[float]], startkoordinat: list[float], rotationsVinkel: int = None, rotation_index = None, text = None):
-    i = 0
     x = [startkoordinat[0]]
     y = [startkoordinat[1]]
     v = vectors.copy()
@@ -29,6 +28,7 @@ def lavArm(vectors: list[list[float]], startkoordinat: list[float], rotationsVin
         for i in range(len(v)): 
             if i >= rotation_index: 
                 v[i, :] = np.array(rotation(rotationsVinkel) @ v[i])
+
                 continue
 
     for i in range(len(v)): 
@@ -45,7 +45,7 @@ fig, ax = plt.subplots()
 
 lavArm(vectors, O, text = "Startposition")
 # d. Giv en opskrift for bøjA(S), hvor robotarmen bøjes kun i ledet A. Vis dette i en tegning
-#lavArm(vectors, O, -20, 1, text = "-20 graders rotation") 
+lavArm(vectors, O, -20, 1, text = "-20 graders rotation") 
 
 # e. 
 

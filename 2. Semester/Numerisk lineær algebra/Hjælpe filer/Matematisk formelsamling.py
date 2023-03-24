@@ -53,7 +53,7 @@ Rotationsvektor:
 #                   Konditionstal
 # 
 #   kappa(x) = relativ fejl i f(x) / relativ fejl i x
-#   kappa(x) = |(x*f'(x))/f(x)|
+#   kappa(x) = |(x*f'(x))|/|f(x)|
 # 
 #   x**2 => kappa(x) = 2 ( Fejlen er fordoblet )
 #   x**(1/2) => kappa(x) = 1/2 ( Fejlen er halveret )
