@@ -42,7 +42,7 @@ print(np.trapz(f, dx= h)) # numpy funktion
 
 # Fordobling af h medfører en forbedring af approksimation på 8 ( 2 ** 3 )
 
-n = 199
+n = 100
 
 x, h = np.linspace(0, 2, n, retstep=True)
 f = x**3
@@ -50,8 +50,8 @@ print(np.trapz(f, dx= h))
 
 # Eksempel med cosinus Fourier række
 
-n = 100
 x, h = np.linspace(0, np.pi, n, retstep=True)
+f = x**3
 
 def indre_produkt(f, g, h): 
     return np.trapz(f*g, dx=h)
@@ -67,9 +67,13 @@ print(indre_produkt(np.cos(3*x), np.cos(5*x), h)) # Lidt anderledes med basicall
 def norm_sq(f, h): 
     return indre_produkt(f, f, h) 
 
-print(norm_sq(konstant, h))
+print(f" Konstant^2: {norm_sq(konstant, h)}")
 print(norm_sq(np.cos(5*x), h)) # == 1/2 pi
 print(norm_sq(np.cos(5*x), h) - np.pi/2) # == 0 
+print(np.allclose(f, f * konstant))
+f_k = indre_produkt(f, konstant, h)
+print(f_k)
+#print(np.allclose(f, indre_produkt(f, konstant, h)))
 
 def proj(f, k, x, h): 
     out = (indre_produkt(f, konstant, h)/norm_sq(konstant, h)
@@ -79,12 +83,23 @@ def proj(f, k, x, h):
                 / norm_sq(np.cos(m*x), h)
                 * np.cos(m*x))
     return out
+    
 
-
+print(f * np.ones_like(x))
 print(proj(f, 1, x, h))
-plt.rcParams['Figure.dpi']=50
+print(proj(f, 2, x, h))
+plt.rcParams['figure.dpi']=100
 fig, ax = plt.subplots()
+#ax.set_aspect("equal")
+ax.set_xlim(0, 4)
 ax.plot(x, f)
-ax.plot(proj(f, 1, x, h))
-ax.plot(x, proj(f, 2, x, h))
-ax.plot(x, proj(f, 4, x, h)) # Den bedste fourier approksimation.
+ax.plot(x, proj(f, 1, x, h), label = "1")
+ax.plot(x, proj(f, 2, x, h), label = "2")
+ax.plot(x, proj(f, 4, x, h), label = "4") # Den bedste fourier approksimation.
+ax.plot(x, proj(f, 8, x, h), label = "8") # Den bedste fourier approksimation.
+ax.plot(x, proj(f, 100, x, h), label = "100") # Den bedste fourier approksimation.
+# Konklusion 
+# Jo højere frekvens, jo bedre approksimation 
+
+ax.legend()
+print(np.trapz(np.cos(x), dx = h))

@@ -11,7 +11,7 @@ A = np.array([[2, 35],
 fig, ax = plt.subplots()
 ax.set_xlabel("Tid")
 ax.set_ylabel("Temperatur")
-ax.plot(A[:, 0], A[:, 1], marker='o', markersize=10)
+ax.plot(A[:, 0], A[:, 1], 'o', markersize=10)
 fig.savefig("Datapunkter.pdf")
 # Lav estimations funktion som går gennem de sidste 3 punkter. 
 # p(x) = a + bx + cx**2
@@ -86,7 +86,7 @@ c = -0.83333
 
 ny_x = np.linspace(0, 15, 100)
 ny_y = a + b*ny_x + c*(ny_x**2)
-ax.plot(ny_x, ny_y, label="Approksimeret funktion")
+#ax.plot(ny_x, ny_y, label="Approksimeret funktion")
 
 # Hvad er den mindste polynomium som opfylder, at den går i gennem hvert punkt? 
 
@@ -125,12 +125,10 @@ k3 = -9.09722222
 k4 = 1.03395062
 k5 = -0.03858025
 
-
-
 x_3 = np.linspace(0, 15, 100)
 y_3 = k1 + k2*x_3 + k3*(x_3**2) + k4*(x_3**3) + k5*(x_3**4)
 
-ax.plot(x_3, y_3, label="Fjedre grads pilynomium")
+#ax.plot(x_3, y_3, label="Fjedre grads pilynomium")
 
 # d. opstil f(x) = p_1(x) for 2<= x <= 8, p2(x) for 8 <= x <= 11
 # Hvor p1, p2 er tredjegrads polynomier og p1 indeholder 2, 5, 8 & p2 indeholder 8, 10, 11.
@@ -149,88 +147,20 @@ A = np.array([
     [0, 1,  4,  12, 0,  0,   0,    0]
     ], dtype=float)
 
-b = np.array([35, 40, 50, 50, 65, 70, 0, 0])[:, np.newaxis]
+b = np.array([35, 40, 50, 50, 65, 70, 0, 1.5])[:, np.newaxis]
 
 In = np.eye(8, 8)
 
-aub = np.hstack([A, In, b])
-
-# Print af A matricen er ulæselig på grund af videnskabelig notation: 
-np.set_printoptions(suppress=True) # Det virkede, skønt!
-np.set_printoptions(precision= 2) # Floating point decimaler til kun 2. Perfekt!
-
-skift(aub, 6, 3)
-lægTil(aub, 6, -1, 5)
-skift(aub, 5, 4)
-lægTil(aub, 4, -1, 5)
-lægTil(aub, 6, -1/3, 4)
-skift(aub, 5, 4)
-lægTil(aub, 6, 10/3, 5)
-skaler(aub, 1/6, 6) # nu er k6 fundet og k7 er en fri variabel
-lægTil(aub, 4, -10, 5)
-lægTil(aub, 5, -21, 6)
-lægTil(aub, 4, 110, 6)
-lægTil(aub, 3, 16, 6)
-lægTil(aub, 3, 1, 5)
-lægTil(aub, 2, -1, 0)
-lægTil(aub, 1, -1, 0)
-lægTil(aub, 2, -6, 3)
-skift(aub, 1, 3)
-lægTil(aub, 3, -3, 1)
-lægTil(aub, 0, -2, 1)
-lægTil(aub, 3, -27/36, 2)
-skaler(aub, 1/27, 3)
-skaler(aub, -1/36, 2)
-lægTil(aub, 1, -16, 2)
-lægTil(aub, 0, 28, 2)
-lægTil(aub, 2, -18, 3)
-lægTil(aub, 1, 96, 3)
-lægTil(aub, 0, -128, 3)
-lægTil(aub, 7, -1, 1)
-lægTil(aub, 7, -4, 2)
-lægTil(aub, 7, -12, 3)
-skaler(aub, 1/6, 7) # k 7 er fundet
-lægTil(aub, 6, -29, 7)
-lægTil(aub, 5, 278, 7)
-lægTil(aub, 4, -880, 7)
-lægTil(aub, 3, 1/3, 7)
-lægTil(aub, 2, -5, 7)
-lægTil(aub, 1, 22, 7)
-lægTil(aub, 0, -80/3, 7)
-
-
-I_N = aub[:, 0:8]
-x_inv = aub[:, 8:16]
-x_inv_2 = np.linalg.inv(A)
-b = aub[:, 16]
-
-print(f"{x_inv}\n\n")
-print(x_inv_2)
-#print(b)
-a = x_inv @ b 
-print(np.linalg.solve(A, b))
+a = np.linalg.solve(A, b)
 print(a)
-k0 = 0.19 
-k1 = 43.48
-k2 = -14.53
-k3 = 1.14
-k4 = 154387.61
-k5 = -52800.34
-k6 = 5962.89
-k7 = -221.89
-
-
-
 x_1 = np.linspace(2, 8, 50)
 x_2 = np.linspace(8, 11, 50)
 
-y_1 = k0 + k1*x_1 + k2*(x_1**2) + k3 * (x_1**3)
-y_2 = k4 + k5*x_2 + k6*(x_2**2) + k7 * (x_2**3)
+y_1 = a[0] + a[1]*x_1 + a[2]*(x_1**2) + a[3]* (x_1**3)
+y_2 = a[4] + a[5]*x_2 + a[6]*(x_2**2) + a[7] * (x_2**3)
 
 ax.plot(x_1, y_1, label = "P1(x)")
 ax.plot(x_2, y_2, label = "P2(x)")
 
-ax.set_ylim(-100, 100)
-
 ax.legend()
-fig.savefig("Fejl i beregning.pdf")
+fig.savefig("P1 & P2.pdf")
