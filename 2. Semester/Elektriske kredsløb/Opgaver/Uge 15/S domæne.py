@@ -9,6 +9,6 @@ nulpunkt = sp.solve(rational_func_pol, s)
 expres2 = r + 1/((c*s)/2+ 1/(2*r + 1/(c*s)))
 rational_func = sp.cancel(expres2)
 
-print(rational_func)
+sp.pprint(rational_func)
 rational_func_nulpunkt = 2*c**2*r*s**2 + 3*c*s
 
