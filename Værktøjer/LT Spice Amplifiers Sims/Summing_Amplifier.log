@@ -1,0 +1,51 @@
+Circuit: * C:\Users\mary.west\Desktop\LTspice tutorial\Advanced\SIMS\Summing_Amplifier.asc
+
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-005
+Gmin = 1.6455e-006
+vernier = 0.5
+Gmin = 3.40827e-007
+vernier = 0.25
+vernier = 0.333333
+Gmin = 2.05586e-007
+vernier = 0.444444
+vernier = 0.592592
+Gmin = 7.06201e-008
+vernier = 0.790123
+Gmin = 1.3779e-008
+vernier = 1
+Gmin = 1.47951e-009
+Gmin = 1.58861e-010
+Gmin = 1.70576e-011
+Gmin = 1.83154e-012
+Gmin = 1.9666e-013
+Gmin = 0
+Gmin stepping succeeded in finding the operating point.
+
+
+Date: Tue Apr 25 15:53:14 2017
+Total elapsed time: 0.395 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 3011
+traniter = 2082
+tranpoints = 1042
+accept = 1042
+rejected = 0
+matrix size = 50
+fillins = 44
+solver = Normal
+Thread vector: 25.2/15.6[2] 7.9/6.4[2] 3.7/49.4[1] 1.0/8.1[1]  2592/500
+Matrix Compiler1: 7.42 KB object code size  3.1/2.9/[0.9]
+Matrix Compiler2: 6.27 KB object code size  2.8/3.4/[0.9]
+
+

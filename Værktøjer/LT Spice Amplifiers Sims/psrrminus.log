@@ -1,0 +1,235 @@
+Questionable use of curly braces in ".model sir870adp vdmos(rg=3 vto=2.9 rd=3.2m rs=1.5m rb={m} kp=100 mtriode=1.85 cgdmax=1.4n cgdmin=70p cgs=2.9n cjo=3.6n m=.4 a=.7 vj=.7 lambda=20m is=3p ksubthres=.08 mfg=siliconix vds=100 ron=5.5m qg=53.5n)"
+    Error: undefined symbol in: "[m]"
+Circuit: * C:\Users\mary.west\Desktop\LTspice tutorial\Advanced\SIMS\psrrminus.asc
+
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Early termination of direct N-R iteration.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-005
+Gmin = 1.6455e-006
+Gmin = 1.76685e-007
+Gmin = 1.89714e-008
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+vernier = 0.0625
+vernier = 0.03125
+Gmin = 7.77068e-009
+vernier = 0.015625
+vernier = 0.0078125
+vernier = 0.00390625
+vernier = 0.00195313
+vernier = 0.000976563
+vernier = 0.000488281
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 25.7576%
+Source Step = 33.3333%
+Source Step = 33.7121%
+Source Step = 34.1856%
+Source Step = 34.6591%
+Source Step = 35.1326%
+Source Step = 35.6061%
+vernier = 0.0234375
+Source Step = 36.2453%
+Source Step = 36.9555%
+Source Step = 37.6657%
+Source Step = 38.3759%
+Source Step = 39.0862%
+vernier = 0.0351563
+Source Step = 40.0095%
+Source Step = 41.0748%
+Source Step = 42.1402%
+Source Step = 43.2055%
+Source Step = 44.2708%
+vernier = 0.0527344
+Source Step = 45.0832%
+vernier = 0.0032959
+Source Step = 45.1431%
+Source Step = 45.243%
+Source Step = 45.3428%
+Source Step = 45.4427%
+Source Step = 45.5426%
+vernier = 0.00494385
+Source Step = 45.6824%
+Source Step = 45.8322%
+Source Step = 45.982%
+Source Step = 46.1319%
+Source Step = 46.2817%
+vernier = 0.00741577
+Source Step = 46.4839%
+Source Step = 46.7086%
+Source Step = 46.9334%
+Source Step = 47.1581%
+Source Step = 47.3828%
+vernier = 0.0111237
+Source Step = 47.6749%
+Source Step = 48.012%
+Source Step = 48.3491%
+Source Step = 48.6862%
+Source Step = 49.0233%
+vernier = 0.0166855
+Source Step = 49.4446%
+Source Step = 49.9502%
+Source Step = 50.4558%
+Source Step = 50.9615%
+Source Step = 51.4671%
+vernier = 0.0250282
+Source Step = 52.0738%
+Source Step = 52.8323%
+Source Step = 53.5907%
+Source Step = 54.3491%
+Source Step = 55.1076%
+vernier = 0.0375423
+Source Step = 55.9798%
+Source Step = 57.1174%
+Source Step = 58.255%
+Source Step = 59.3927%
+Source Step = 60.5303%
+vernier = 0.0563135
+Source Step = 61.7818%
+Source Step = 63.4882%
+Source Step = 65.1947%
+Source Step = 66.9012%
+Source Step = 68.6076%
+vernier = 0.0844703
+Source Step = 70.3994%
+Source Step = 72.9591%
+Source Step = 75.5188%
+Source Step = 78.0785%
+Source Step = 80.6382%
+Source Step = 83.198%
+vernier = 0.126705
+Source Step = 87.0375%
+Source Step = 90.8771%
+Source Step = 94.7166%
+Source Step = 98.5562%
+Source stepping succeeded in finding the operating point.
+
+.step x=4
+.step x=5
+.step x=6
+
+Date: Wed Apr 26 17:01:27 2017
+Total elapsed time: 9.203 seconds.
+
+tnom = 27
+temp = 27
+method = trap
+totiter = 5437
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 0
+matrix size = 94
+fillins = 456
+solver = Normal
+Matrix Compiler1:    3582 opcodes
+Matrix Compiler2: 21.16 KB object code size  4.9/5.2/[2.6]
+
+

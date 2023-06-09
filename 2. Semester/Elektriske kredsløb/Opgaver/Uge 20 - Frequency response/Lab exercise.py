@@ -39,9 +39,7 @@ s = 1.0j * w
 p = 62832.0*2*np.pi
 Gjw = 62832.0/(s + 62832.0)
 db_mag = 20*np.log10(np.abs(Gjw))
-phase = np.arctan2(np.imag(Gjw), np.real(Gjw)*180/np.pi)
-# == # 
-phase = np.angle(Gjw, deg= True)
+
 
 def plot(y, ylabel): 
     fig, ax = plt.subplots()
@@ -53,8 +51,11 @@ def plot(y, ylabel):
 # print(db_mag[:50]) # -3db, ved index 35
 # print(f[:50]) # index 35 = 10722.6722201
 
-
+phase = np.degrees(np.arctan2(np.imag(Gjw), np.real(Gjw)*180/np.pi))
+# == # 
 # plot(phase, 'phase')
+angle = np.angle(Gjw, deg= True)
+# plot(angle, 'angle')
 
 # 5. Hvad er tidskonstanten for kredsløbet. 
 # Hvad er en tidskonstant. Efter 5*tidskonstanter, så opnår funktionen sit min eller maximums punkt. 

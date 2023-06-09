@@ -1,0 +1,4 @@
+Circuit: * C:\Users\mary.west\Desktop\LTspice tutorial\Advanced\SIMS\LM741_opamp.asc
+
+Fatal Error: Infinite subckt recursion.
+Maximum allowed nest level is 64 levels.
