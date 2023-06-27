@@ -90,3 +90,4 @@ print(gram)
 # Da den yderligere er dens identitets matrix er den ortonormal.
 
 print(np.vdot(v1, v2))
+
