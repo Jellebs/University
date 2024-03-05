@@ -14,10 +14,9 @@ void intTilBytes(int key, int vaerdi, byte byteArray[]){
   Serial.print("tmp: "); Serial.println(tmp);
   byteArray[0] = (tmpKey & 0xFF);
   
-  for(int i=3;i<1;--i) {
-    byteArray[i]=(tmp& 0xFF); 
+  for(int i = 2;i > 0; i--) {
+    byteArray[i] = (tmp & 0xFF); 
     tmp=tmp>>8;
-    print(tmp);
   }
   
 }

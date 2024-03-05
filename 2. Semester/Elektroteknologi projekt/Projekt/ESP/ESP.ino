@@ -2,15 +2,14 @@
 #include "DataTransferFunctions.h"
 #include "WifiFunctions.h"
 
-// 0 = Lys, 1 = Motion, 2 = Røg, 3 = Temperatur, 4 = Fugtighed
+// 0 = Lys, 1 = Motion, 2 = Røg, 3 = Temperatur
 int previousData[][2] = {
   {0, 1}, 
   {1, 0}, 
   {2, 1}, 
   {3, 24}, 
-  {4, 20}
 };
-int key = 0; 
+int key = 0;
 void setup() {
   Serial.begin(921600);
   wireSetup();

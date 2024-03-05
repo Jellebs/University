@@ -4,7 +4,9 @@
 
 int lys();
 int motion();
-void dht_styring(); 
+int vandKontrol(); 
 int smokeDetector(); 
+void sensorSetup(); 
+void koerSensorer(int previousData[0][2], bool dataChanged); 
 
 #endif

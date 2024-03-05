@@ -1,0 +1,289 @@
+{
+    "id": 4950498256,
+    "created_by": "JesperBertelsen",
+    "creation_time": 1708421397,
+    "simulation_time": 10.0,
+    "scene_width": 4032.0000000000005,
+    "scene_height": 4900.000000000001,
+    "blocks": [
+        {
+            "id": 10737645776,
+            "block_type": "STEP",
+            "title": "Step Block",
+            "pos_x": 0.0,
+            "pos_y": -100.0,
+            "width": 100,
+            "height": 100,
+            "flipped": false,
+            "inputsNum": 0,
+            "outputsNum": 1,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 10737750864,
+                    "index": 0,
+                    "multi_wire": true,
+                    "position": 3,
+                    "socket_type": 2
+                }
+            ],
+            "parameters": [
+                [
+                    "T",
+                    50.0
+                ],
+                [
+                    "off",
+                    0
+                ],
+                [
+                    "on",
+                    25.0
+                ],
+                [
+                    "blockargs",
+                    null
+                ]
+            ]
+        },
+        {
+            "id": 10737707728,
+            "block_type": "SUM",
+            "title": "Sum Block",
+            "pos_x": 200.0,
+            "pos_y": -100.0,
+            "width": 100,
+            "height": 100,
+            "flipped": false,
+            "inputsNum": 2,
+            "outputsNum": 1,
+            "inputs": [
+                {
+                    "id": 6434584656,
+                    "index": 0,
+                    "multi_wire": true,
+                    "position": 1,
+                    "socket_type": 1
+                },
+                {
+                    "id": 10737791696,
+                    "index": 1,
+                    "multi_wire": true,
+                    "position": 1,
+                    "socket_type": 1
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 10737794064,
+                    "index": 0,
+                    "multi_wire": true,
+                    "position": 3,
+                    "socket_type": 2
+                }
+            ],
+            "parameters": [
+                [
+                    "signs",
+                    "+-"
+                ],
+                [
+                    "mode",
+                    null
+                ],
+                [
+                    "blockargs",
+                    null
+                ]
+            ]
+        },
+        {
+            "id": 10738205776,
+            "block_type": "LTI_SISO",
+            "title": "LTI_SISO Block",
+            "pos_x": 400.0,
+            "pos_y": -100.0,
+            "width": 100,
+            "height": 100,
+            "flipped": false,
+            "inputsNum": 1,
+            "outputsNum": 1,
+            "inputs": [
+                {
+                    "id": 6429178064,
+                    "index": 0,
+                    "multi_wire": true,
+                    "position": 1,
+                    "socket_type": 1
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 4886930960,
+                    "index": 0,
+                    "multi_wire": true,
+                    "position": 3,
+                    "socket_type": 2
+                }
+            ],
+            "parameters": [
+                [
+                    "N",
+                    [
+                        500,
+                        16500,
+                        175000,
+                        600000
+                    ]
+                ],
+                [
+                    "D",
+                    [
+                        1,
+                        40,
+                        101,
+                        950,
+                        0
+                    ]
+                ],
+                [
+                    "x0",
+                    null
+                ],
+                [
+                    "blockargs",
+                    null
+                ]
+            ]
+        },
+        {
+            "id": 4942896720,
+            "block_type": "SCOPE",
+            "title": "Scope Block",
+            "pos_x": 600.0,
+            "pos_y": -100.0,
+            "width": 100,
+            "height": 100,
+            "flipped": false,
+            "inputsNum": 1,
+            "outputsNum": 0,
+            "inputs": [
+                {
+                    "id": 10897350992,
+                    "index": 0,
+                    "multi_wire": true,
+                    "position": 1,
+                    "socket_type": 1
+                }
+            ],
+            "outputs": [],
+            "parameters": [
+                [
+                    "nin",
+                    1
+                ],
+                [
+                    "vector",
+                    null
+                ],
+                [
+                    "styles",
+                    null
+                ],
+                [
+                    "stairs",
+                    false
+                ],
+                [
+                    "scale",
+                    "auto"
+                ],
+                [
+                    "labels",
+                    null
+                ],
+                [
+                    "grid",
+                    true
+                ],
+                [
+                    "watch",
+                    false
+                ],
+                [
+                    "title",
+                    null
+                ],
+                [
+                    "loc",
+                    "best"
+                ],
+                [
+                    "blockargs",
+                    null
+                ]
+            ]
+        }
+    ],
+    "wires": [
+        {
+            "id": 10738254288,
+            "start_socket": 10737750864,
+            "end_socket": 6434584656,
+            "wire_type": 3,
+            "custom_routing": false,
+            "wire_coordinates": []
+        },
+        {
+            "id": 10896914896,
+            "start_socket": 10737794064,
+            "end_socket": 6429178064,
+            "wire_type": 3,
+            "custom_routing": false,
+            "wire_coordinates": []
+        },
+        {
+            "id": 10896906128,
+            "start_socket": 4886930960,
+            "end_socket": 10737791696,
+            "wire_type": 3,
+            "custom_routing": true,
+            "wire_coordinates": [
+                [
+                    200.0,
+                    -40.0
+                ],
+                [
+                    160.0,
+                    -40.0
+                ],
+                [
+                    160.0,
+                    40.0
+                ],
+                [
+                    520.0,
+                    40.0
+                ],
+                [
+                    520.0,
+                    -60.0
+                ],
+                [
+                    500.0,
+                    -60.0
+                ]
+            ]
+        },
+        {
+            "id": 10897344272,
+            "start_socket": 4886930960,
+            "end_socket": 10897350992,
+            "wire_type": 3,
+            "custom_routing": false,
+            "wire_coordinates": []
+        }
+    ],
+    "labels": [],
+    "grouping_boxes": []
+}

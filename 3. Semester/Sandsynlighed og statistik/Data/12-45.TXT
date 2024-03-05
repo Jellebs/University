@@ -1,0 +1,13 @@
+Treatment	Block	Y
+T1	B1	9
+T1	B2	10
+T1	B3	2
+T1	B4	7
+T2	B1	6
+T2	B2	13
+T2	B3	1
+T2	B4	12
+T3	B1	9
+T3	B2	16
+T3	B3	9
+T3	B4	14

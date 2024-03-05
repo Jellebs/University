@@ -4,8 +4,8 @@
 #include "addons/RTDBHelper.h"
 #include "WifiFunctions.h"
 
-#define WIFI_SSID "Jesper - iPhone"
-#define WIFI_PASSWORD "Jelle123"
+#define WIFI_SSID "Laptop"
+#define WIFI_PASSWORD "testtest"
 #define API_KEY "AIzaSyDaydxHp5fgtEBNIE2IJ3wRKWq3To11sww"
 #define DATABASE_URL "https://intelligent-home-control-default-rtdb.europe-west1.firebasedatabase.app/"
 

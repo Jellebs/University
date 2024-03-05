@@ -18,17 +18,19 @@ void recieveData(int data[][2], int key) {
   Wire.requestFrom(SLAVE_ADDR, ANSWERSIZE); 
   int value = 0; 
   int i = 0; 
+  int increasement;
   while (Wire.available()) {
     byte c = Wire.read(); 
+    Serial.print("c: "); Serial.println(c);
     switch (i) {
       case 0: 
         key = int((unsigned char)(c)); 
         break; 
       case 1: 
-        if (c == 0) { break; }
-        value += int((unsigned char)(c) << 8); // Hvis 11111111 og den ikke er LSB, må det da betyde, at den skal flyttes med 8 bits. I stedet for 256, bliver den 65532. 256 * (2^(n shifts)). 256 * (2^8) == 65532
+        if (int((unsigned char)(c) == 0)) { break; }
+        value = int((unsigned char)(c) << 8); // Hvis 11111111 og den ikke er LSB, må det da betyde, at den skal flyttes med 8 bits. I stedet for 256, bliver den 65532. 256 * (2^(n shifts)). 256 * (2^8) == 65532
         break; 
-      case 2: 
+      case 2:
         value += int((unsigned char)(c));
         break; 
     }
