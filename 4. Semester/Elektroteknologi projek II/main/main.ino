@@ -21,7 +21,6 @@ void loop() {
   behandl_Pitches(pitches, trykkedeStrenge);
   
   acceleration = modtag_Zdata();
-
   if (abs(acceleration) > 2) {
     afspil_Lyd(pitches, 1000); 
     behandl_Debug(trykkedeStrenge, pitches, acceleration);
