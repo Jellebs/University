@@ -1,0 +1,267 @@
+Questionable use of curly braces in ".model sir870adp vdmos(rg=3 vto=2.9 rd=3.2m rs=1.5m rb={m} kp=100 mtriode=1.85 cgdmax=1.4n cgdmin=70p cgs=2.9n cjo=3.6n m=.4 a=.7 vj=.7 lambda=20m is=3p ksubthres=.08 mfg=siliconix vds=100 ron=5.5m qg=53.5n)"
+    Error: undefined symbol in: "[m]"
+Circuit: * C:\Users\mary.west\Desktop\LTspice tutorial\Advanced\SIMS\OpenLoopGain.asc
+
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Warning: Pd = 0 is less than W.
+Warning: Ps = 0 is less than W.
+Early termination of direct N-R iteration.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-005
+Gmin = 1.6455e-006
+Gmin = 1.76685e-007
+Gmin = 1.89714e-008
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+vernier = 0.0625
+vernier = 0.03125
+Gmin = 2.28092e-008
+vernier = 0.0416667
+vernier = 0.0555555
+Gmin = 2.02836e-008
+vernier = 0.0277778
+vernier = 0.0138889
+vernier = 0.00694444
+vernier = 0.00347222
+vernier = 0.00173611
+vernier = 0.000868055
+vernier = 0.000434028
+Gmin = 0
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 45.4575%
+Source Step = 45.4871%
+Source Step = 45.5167%
+Source Step = 45.5463%
+Source Step = 45.5759%
+Source Step = 45.6055%
+vernier = 0.00146484
+Source Step = 45.6469%
+Source Step = 45.6913%
+Source Step = 45.7357%
+Source Step = 45.7801%
+Source Step = 45.8245%
+vernier = 0.00219727
+Source Step = 45.8844%
+Source Step = 45.951%
+Source Step = 46.0175%
+Source Step = 46.0841%
+Source Step = 46.1507%
+vernier = 0.0032959
+Source Step = 46.2373%
+Source Step = 46.3372%
+Source Step = 46.437%
+Source Step = 46.5369%
+Source Step = 46.6368%
+vernier = 0.00494385
+Source Step = 46.7616%
+Source Step = 46.9114%
+Source Step = 47.0612%
+Source Step = 47.2111%
+Source Step = 47.3609%
+vernier = 0.00741577
+Source Step = 47.5407%
+Source Step = 47.7654%
+Source Step = 47.9901%
+Source Step = 48.2148%
+Source Step = 48.4395%
+vernier = 0.0111237
+Source Step = 48.698%
+Source Step = 49.035%
+Source Step = 49.3721%
+Source Step = 49.7092%
+Source Step = 50.0463%
+vernier = 0.0166855
+Source Step = 50.4171%
+Source Step = 50.9227%
+Source Step = 51.4283%
+Source Step = 51.9339%
+Source Step = 52.4396%
+vernier = 0.0250282
+Source Step = 52.9705%
+Source Step = 53.7289%
+Source Step = 54.4873%
+Source Step = 55.2458%
+Source Step = 56.0042%
+Source Step = 56.7626%
+vernier = 0.0375423
+Source Step = 57.9003%
+Source Step = 59.0379%
+Source Step = 60.1756%
+Source Step = 61.3132%
+Source Step = 62.4508%
+vernier = 0.0563135
+Source Step = 64.1004%
+Source Step = 65.8069%
+Source Step = 67.5134%
+Source Step = 69.2198%
+Source Step = 70.9263%
+vernier = 0.0844703
+Source Step = 73.3154%
+Source Step = 75.8751%
+Source Step = 78.4348%
+Source Step = 80.9945%
+Source Step = 83.5542%
+vernier = 0.126705
+Source Step = 87.0098%
+Source Step = 90.1774%
+vernier = 0.00791909
+Source Step = 90.1354%
+Source Step = 90.1954%
+Source Step = 90.2554%
+Source Step = 90.3154%
+Source Step = 90.3754%
+Source Step = 90.4354%
+Source Step = 90.4954%
+Source Step = 90.5554%
+Source Step = 90.6154%
+Source Step = 90.6754%
+Source Step = 90.7354%
+Source Step = 90.7954%
+Source Step = 90.8554%
+Source Step = 90.9153%
+Source Step = 90.9753%
+Source Step = 91.0353%
+Source Step = 91.0953%
+Source Step = 91.1553%
+Source Step = 91.2153%
+Source Step = 91.2753%
+Source Step = 91.3353%
+Source Step = 91.3953%
+Source Step = 91.4553%
+Source Step = 91.5153%
+Source Step = 91.5753%
+Source Step = 91.6353%
+Source Step = 91.6953%
+Source Step = 91.7553%
+Source Step = 91.8152%
+Source Step = 91.8752%
+Source Step = 91.9352%
+Source Step = 91.9952%
+Source Step = 92.0552%
+Source Step = 92.1152%
+Source Step = 92.1752%
+Source Step = 92.2352%
+Source Step = 92.2952%
+Source Step = 92.3552%
+Source Step = 92.4152%
+Source Step = 92.4752%
+Source Step = 92.5352%
+Source Step = 92.5952%
+Source Step = 92.6551%
+Source Step = 92.7151%
+Source Step = 92.7751%
+Source Step = 92.8351%
+Source Step = 92.8951%
+Source Step = 92.9551%
+vernier = 0.00296966
+Source Step = 93.0271%
+Source Step = 93.1171%
+Source Step = 93.2071%
+Source Step = 93.2971%
+Source Step = 93.3871%
+vernier = 0.00445449
+Source Step = 93.4906%
+Source Step = 93.6255%
+Source Step = 93.7605%
+Source Step = 93.8955%
+Source Step = 94.0305%
+vernier = 0.00668173
+Source Step = 94.179%
+Source Step = 94.3814%
+Source Step = 94.5839%
+Source Step = 94.7864%
+Source Step = 94.9889%
+vernier = 0.0100226
+Source Step = 95.2015%
+Source Step = 95.5052%
+Source Step = 95.8089%
+Source Step = 96.1126%
+Source Step = 96.4163%
+Source Step = 96.7201%
+vernier = 0.0150339
+Source Step = 97.1756%
+Source Step = 97.6312%
+Source Step = 98.0868%
+Source Step = 98.5423%
+Source Step = 98.9979%
+vernier = 0.0225508
+Source Step = 99.6585%
+Source stepping succeeded in finding the operating point.
+
+
+Date: Fri Apr 28 16:40:43 2017
+Total elapsed time: 8.061 seconds.
+
+tnom = 27
+temp = 27
+method = trap
+totiter = 37350
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 0
+matrix size = 48
+fillins = 235
+solver = Normal
+Matrix Compiler1:    1819 opcodes
+Matrix Compiler2: off  [1.8]/2.4/4.3
+
+

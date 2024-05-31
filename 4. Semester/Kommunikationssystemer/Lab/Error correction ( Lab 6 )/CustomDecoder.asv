@@ -1,0 +1,52 @@
+classdef CustomDecoder 
+    properties
+        a = 10; 
+    end 
+    methods
+        function bits = customDecoder(Y) 
+            threshold = 0.8;
+            
+            for i = 1: length(Y)
+                if Y[i] > threshold 
+                    bits(bit) = 1
+                else 
+                    
+                end 
+            end 
+            if len > threshold
+                bit = 1;
+            else 
+                bit = 0;
+            end
+        end 
+        
+        
+
+
+        function bit = decoderMajority(obj, I, Q)
+            lenZeros = 0;
+            lenOnes = 0;
+            for bit = 1: length(I)
+                if customDecode(obj, I(bit), Q(bit)) == 1
+                    lenOnes = lenOnes + 1
+                else  
+                    lenZeros = lenZeros + 1
+                end 
+            end
+            if lenOnes > lenZeros
+                bit = 1;
+            else
+                bit = 0; 
+            end  
+        end 
+        function bit = customDecode(obj, I, Q)
+            threshold = 0.8;
+            len = sqrt(I^2 + Q^2);
+            if len > threshold
+                bit = 1;
+            else 
+                bit = 0;
+            end
+        end
+    end 
+end

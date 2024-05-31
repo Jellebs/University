@@ -1,0 +1,391 @@
+Title: * C:\Users\mary.west\Desktop\LTspice tutorial\Advanced\SIMS\Follower.asc
+Date: Fri Apr 28 15:55:43 2017
+Plotname: Operating Point
+Flags: real stepped
+No. Variables: 366
+No. Points:            1
+Offset:   0.0000000000000000e+000
+Command: Linear Technology Corporation LTspice IV
+Backannotation: x1 + - gnd vdd vout
+Backannotation: x1:x1 gnd vdd vbias1 vbias2 vbias3 vbias4 vhigh vlow vncas vpcas
+Backannotation: x1:x2 + - gnd vbias4 vdd vout
+Backannotation: x1:x3 + - gnd vbias1 vdd vout
+Variables:
+	0	x	param
+	1	V(x1:x1:n004)	voltage
+	2	V(x1:x1:n005)	voltage
+	3	V(x1:x1:n006)	voltage
+	4	V(vdd)	voltage
+	5	V(x1:x1:vbiasp)	voltage
+	6	V(x1:x1:n002)	voltage
+	7	V(x1:vbias3)	voltage
+	8	V(x1:vbias4)	voltage
+	9	V(x1:vlow)	voltage
+	10	V(x1:vbias2)	voltage
+	11	V(x1:x1:n008)	voltage
+	12	V(x1:vbias1)	voltage
+	13	V(x1:vhigh)	voltage
+	14	V(x1:x1:n009)	voltage
+	15	V(x1:x1:n001)	voltage
+	16	V(x1:vncas)	voltage
+	17	V(x1:x1:n007)	voltage
+	18	V(x1:x1:n010)	voltage
+	19	V(x1:x1:n003)	voltage
+	20	V(x1:vpcas)	voltage
+	21	V(x1:x1:n011)	voltage
+	22	V(x1:vnp)	voltage
+	23	V(n001)	voltage
+	24	V(x1:n003)	voltage
+	25	V(x1:n006)	voltage
+	26	V(x1:vnm)	voltage
+	27	V(vin)	voltage
+	28	V(x1:n007)	voltage
+	29	V(x1:vpp)	voltage
+	30	V(x1:n004)	voltage
+	31	V(x1:vpm)	voltage
+	32	V(x1:n005)	voltage
+	33	V(x1:pgain)	voltage
+	34	V(x1:n002)	voltage
+	35	V(x1:n001)	voltage
+	36	V(x1:ngain)	voltage
+	37	V(x1:x2:n002)	voltage
+	38	V(x1:x2:n004)	voltage
+	39	V(x1:x2:n003)	voltage
+	40	V(x1:x2:n001)	voltage
+	41	V(x1:x3:n002)	voltage
+	42	V(x1:x3:n001)	voltage
+	43	V(x1:x3:n003)	voltage
+	44	V(x1:x3:n004)	voltage
+	45	Id(x1:x3:M9)	device_current
+	46	Ig(x1:x3:M9)	device_current
+	47	Ib(x1:x3:M9)	device_current
+	48	Is(x1:x3:M9)	device_current
+	49	Id(x1:x3:M8)	device_current
+	50	Ig(x1:x3:M8)	device_current
+	51	Ib(x1:x3:M8)	device_current
+	52	Is(x1:x3:M8)	device_current
+	53	Id(x1:x3:M7)	device_current
+	54	Ig(x1:x3:M7)	device_current
+	55	Ib(x1:x3:M7)	device_current
+	56	Is(x1:x3:M7)	device_current
+	57	Id(x1:x3:M6)	device_current
+	58	Ig(x1:x3:M6)	device_current
+	59	Ib(x1:x3:M6)	device_current
+	60	Is(x1:x3:M6)	device_current
+	61	Id(x1:x3:M5)	device_current
+	62	Ig(x1:x3:M5)	device_current
+	63	Ib(x1:x3:M5)	device_current
+	64	Is(x1:x3:M5)	device_current
+	65	Id(x1:x3:M4)	device_current
+	66	Ig(x1:x3:M4)	device_current
+	67	Ib(x1:x3:M4)	device_current
+	68	Is(x1:x3:M4)	device_current
+	69	Id(x1:x3:M3)	device_current
+	70	Ig(x1:x3:M3)	device_current
+	71	Ib(x1:x3:M3)	device_current
+	72	Is(x1:x3:M3)	device_current
+	73	Id(x1:x3:M2)	device_current
+	74	Ig(x1:x3:M2)	device_current
+	75	Ib(x1:x3:M2)	device_current
+	76	Is(x1:x3:M2)	device_current
+	77	Id(x1:x3:M1)	device_current
+	78	Ig(x1:x3:M1)	device_current
+	79	Ib(x1:x3:M1)	device_current
+	80	Is(x1:x3:M1)	device_current
+	81	Id(x1:x2:M5)	device_current
+	82	Ig(x1:x2:M5)	device_current
+	83	Ib(x1:x2:M5)	device_current
+	84	Is(x1:x2:M5)	device_current
+	85	Id(x1:x2:M8)	device_current
+	86	Ig(x1:x2:M8)	device_current
+	87	Ib(x1:x2:M8)	device_current
+	88	Is(x1:x2:M8)	device_current
+	89	Id(x1:x2:M9)	device_current
+	90	Ig(x1:x2:M9)	device_current
+	91	Ib(x1:x2:M9)	device_current
+	92	Is(x1:x2:M9)	device_current
+	93	Id(x1:x2:M7)	device_current
+	94	Ig(x1:x2:M7)	device_current
+	95	Ib(x1:x2:M7)	device_current
+	96	Is(x1:x2:M7)	device_current
+	97	Id(x1:x2:M6)	device_current
+	98	Ig(x1:x2:M6)	device_current
+	99	Ib(x1:x2:M6)	device_current
+	100	Is(x1:x2:M6)	device_current
+	101	Id(x1:x2:M4)	device_current
+	102	Ig(x1:x2:M4)	device_current
+	103	Ib(x1:x2:M4)	device_current
+	104	Is(x1:x2:M4)	device_current
+	105	Id(x1:x2:M3)	device_current
+	106	Ig(x1:x2:M3)	device_current
+	107	Ib(x1:x2:M3)	device_current
+	108	Is(x1:x2:M3)	device_current
+	109	Id(x1:x2:M2)	device_current
+	110	Ig(x1:x2:M2)	device_current
+	111	Ib(x1:x2:M2)	device_current
+	112	Is(x1:x2:M2)	device_current
+	113	Id(x1:x2:M1)	device_current
+	114	Ig(x1:x2:M1)	device_current
+	115	Ib(x1:x2:M1)	device_current
+	116	Is(x1:x2:M1)	device_current
+	117	Id(x1:M11)	device_current
+	118	Ig(x1:M11)	device_current
+	119	Ib(x1:M11)	device_current
+	120	Is(x1:M11)	device_current
+	121	Id(x1:M9)	device_current
+	122	Ig(x1:M9)	device_current
+	123	Ib(x1:M9)	device_current
+	124	Is(x1:M9)	device_current
+	125	Id(x1:Mop)	device_current
+	126	Ig(x1:Mop)	device_current
+	127	Ib(x1:Mop)	device_current
+	128	Is(x1:Mop)	device_current
+	129	Id(x1:M5)	device_current
+	130	Ig(x1:M5)	device_current
+	131	Ib(x1:M5)	device_current
+	132	Is(x1:M5)	device_current
+	133	Id(x1:M6)	device_current
+	134	Ig(x1:M6)	device_current
+	135	Ib(x1:M6)	device_current
+	136	Is(x1:M6)	device_current
+	137	Id(x1:M8)	device_current
+	138	Ig(x1:M8)	device_current
+	139	Ib(x1:M8)	device_current
+	140	Is(x1:M8)	device_current
+	141	Id(x1:M7)	device_current
+	142	Ig(x1:M7)	device_current
+	143	Ib(x1:M7)	device_current
+	144	Is(x1:M7)	device_current
+	145	Id(x1:Mon)	device_current
+	146	Ig(x1:Mon)	device_current
+	147	Ib(x1:Mon)	device_current
+	148	Is(x1:Mon)	device_current
+	149	Id(x1:M10)	device_current
+	150	Ig(x1:M10)	device_current
+	151	Ib(x1:M10)	device_current
+	152	Is(x1:M10)	device_current
+	153	Id(x1:Ncas2)	device_current
+	154	Ig(x1:Ncas2)	device_current
+	155	Ib(x1:Ncas2)	device_current
+	156	Is(x1:Ncas2)	device_current
+	157	Id(x1:M13)	device_current
+	158	Ig(x1:M13)	device_current
+	159	Ib(x1:M13)	device_current
+	160	Is(x1:M13)	device_current
+	161	Id(x1:M12)	device_current
+	162	Ig(x1:M12)	device_current
+	163	Ib(x1:M12)	device_current
+	164	Is(x1:M12)	device_current
+	165	Id(x1:M15)	device_current
+	166	Ig(x1:M15)	device_current
+	167	Ib(x1:M15)	device_current
+	168	Is(x1:M15)	device_current
+	169	Id(x1:M14)	device_current
+	170	Ig(x1:M14)	device_current
+	171	Ib(x1:M14)	device_current
+	172	Is(x1:M14)	device_current
+	173	Id(x1:M3rb)	device_current
+	174	Ig(x1:M3rb)	device_current
+	175	Ib(x1:M3rb)	device_current
+	176	Is(x1:M3rb)	device_current
+	177	Id(x1:M3rt)	device_current
+	178	Ig(x1:M3rt)	device_current
+	179	Ib(x1:M3rt)	device_current
+	180	Is(x1:M3rt)	device_current
+	181	Id(x1:M2)	device_current
+	182	Ig(x1:M2)	device_current
+	183	Ib(x1:M2)	device_current
+	184	Is(x1:M2)	device_current
+	185	Id(x1:M3lb)	device_current
+	186	Ig(x1:M3lb)	device_current
+	187	Ib(x1:M3lb)	device_current
+	188	Is(x1:M3lb)	device_current
+	189	Id(x1:M3lt)	device_current
+	190	Ig(x1:M3lt)	device_current
+	191	Ib(x1:M3lt)	device_current
+	192	Is(x1:M3lt)	device_current
+	193	Id(x1:M1)	device_current
+	194	Ig(x1:M1)	device_current
+	195	Ib(x1:M1)	device_current
+	196	Is(x1:M1)	device_current
+	197	Id(x1:x1:M17)	device_current
+	198	Ig(x1:x1:M17)	device_current
+	199	Ib(x1:x1:M17)	device_current
+	200	Is(x1:x1:M17)	device_current
+	201	Id(x1:x1:M16)	device_current
+	202	Ig(x1:x1:M16)	device_current
+	203	Ib(x1:x1:M16)	device_current
+	204	Is(x1:x1:M16)	device_current
+	205	Id(x1:x1:M10)	device_current
+	206	Ig(x1:x1:M10)	device_current
+	207	Ib(x1:x1:M10)	device_current
+	208	Is(x1:x1:M10)	device_current
+	209	Id(x1:x1:M31)	device_current
+	210	Ig(x1:x1:M31)	device_current
+	211	Ib(x1:x1:M31)	device_current
+	212	Is(x1:x1:M31)	device_current
+	213	Id(x1:x1:M30)	device_current
+	214	Ig(x1:x1:M30)	device_current
+	215	Ib(x1:x1:M30)	device_current
+	216	Is(x1:x1:M30)	device_current
+	217	Id(x1:x1:M28)	device_current
+	218	Ig(x1:x1:M28)	device_current
+	219	Ib(x1:x1:M28)	device_current
+	220	Is(x1:x1:M28)	device_current
+	221	Id(x1:x1:M25)	device_current
+	222	Ig(x1:x1:M25)	device_current
+	223	Ib(x1:x1:M25)	device_current
+	224	Is(x1:x1:M25)	device_current
+	225	Id(x1:x1:M24)	device_current
+	226	Ig(x1:x1:M24)	device_current
+	227	Ib(x1:x1:M24)	device_current
+	228	Is(x1:x1:M24)	device_current
+	229	Id(x1:x1:M21)	device_current
+	230	Ig(x1:x1:M21)	device_current
+	231	Ib(x1:x1:M21)	device_current
+	232	Is(x1:x1:M21)	device_current
+	233	Id(x1:x1:M18)	device_current
+	234	Ig(x1:x1:M18)	device_current
+	235	Ib(x1:x1:M18)	device_current
+	236	Is(x1:x1:M18)	device_current
+	237	Id(x1:x1:M11)	device_current
+	238	Ig(x1:x1:M11)	device_current
+	239	Ib(x1:x1:M11)	device_current
+	240	Is(x1:x1:M11)	device_current
+	241	Id(x1:x1:M9)	device_current
+	242	Ig(x1:x1:M9)	device_current
+	243	Ib(x1:x1:M9)	device_current
+	244	Is(x1:x1:M9)	device_current
+	245	Id(x1:x1:M6)	device_current
+	246	Ig(x1:x1:M6)	device_current
+	247	Ib(x1:x1:M6)	device_current
+	248	Is(x1:x1:M6)	device_current
+	249	Id(x1:x1:M5)	device_current
+	250	Ig(x1:x1:M5)	device_current
+	251	Ib(x1:x1:M5)	device_current
+	252	Is(x1:x1:M5)	device_current
+	253	Id(x1:x1:M4)	device_current
+	254	Ig(x1:x1:M4)	device_current
+	255	Ib(x1:x1:M4)	device_current
+	256	Is(x1:x1:M4)	device_current
+	257	Id(x1:x1:M3)	device_current
+	258	Ig(x1:x1:M3)	device_current
+	259	Ib(x1:x1:M3)	device_current
+	260	Is(x1:x1:M3)	device_current
+	261	Id(x1:x1:M15)	device_current
+	262	Ig(x1:x1:M15)	device_current
+	263	Ib(x1:x1:M15)	device_current
+	264	Is(x1:x1:M15)	device_current
+	265	Id(x1:x1:M14)	device_current
+	266	Ig(x1:x1:M14)	device_current
+	267	Ib(x1:x1:M14)	device_current
+	268	Is(x1:x1:M14)	device_current
+	269	Id(x1:x1:M33)	device_current
+	270	Ig(x1:x1:M33)	device_current
+	271	Ib(x1:x1:M33)	device_current
+	272	Is(x1:x1:M33)	device_current
+	273	Id(x1:x1:M32)	device_current
+	274	Ig(x1:x1:M32)	device_current
+	275	Ib(x1:x1:M32)	device_current
+	276	Is(x1:x1:M32)	device_current
+	277	Id(x1:x1:M29)	device_current
+	278	Ig(x1:x1:M29)	device_current
+	279	Ib(x1:x1:M29)	device_current
+	280	Is(x1:x1:M29)	device_current
+	281	Id(x1:x1:M27)	device_current
+	282	Ig(x1:x1:M27)	device_current
+	283	Ib(x1:x1:M27)	device_current
+	284	Is(x1:x1:M27)	device_current
+	285	Id(x1:x1:M26)	device_current
+	286	Ig(x1:x1:M26)	device_current
+	287	Ib(x1:x1:M26)	device_current
+	288	Is(x1:x1:M26)	device_current
+	289	Id(x1:x1:M23)	device_current
+	290	Ig(x1:x1:M23)	device_current
+	291	Ib(x1:x1:M23)	device_current
+	292	Is(x1:x1:M23)	device_current
+	293	Id(x1:x1:M22)	device_current
+	294	Ig(x1:x1:M22)	device_current
+	295	Ib(x1:x1:M22)	device_current
+	296	Is(x1:x1:M22)	device_current
+	297	Id(x1:x1:M20)	device_current
+	298	Ig(x1:x1:M20)	device_current
+	299	Ib(x1:x1:M20)	device_current
+	300	Is(x1:x1:M20)	device_current
+	301	Id(x1:x1:M19)	device_current
+	302	Ig(x1:x1:M19)	device_current
+	303	Ib(x1:x1:M19)	device_current
+	304	Is(x1:x1:M19)	device_current
+	305	Id(x1:x1:M13)	device_current
+	306	Ig(x1:x1:M13)	device_current
+	307	Ib(x1:x1:M13)	device_current
+	308	Is(x1:x1:M13)	device_current
+	309	Id(x1:x1:M12)	device_current
+	310	Ig(x1:x1:M12)	device_current
+	311	Ib(x1:x1:M12)	device_current
+	312	Is(x1:x1:M12)	device_current
+	313	Id(x1:x1:Nmws)	device_current
+	314	Ig(x1:x1:Nmws)	device_current
+	315	Ib(x1:x1:Nmws)	device_current
+	316	Is(x1:x1:Nmws)	device_current
+	317	Id(x1:x1:M8)	device_current
+	318	Ig(x1:x1:M8)	device_current
+	319	Ib(x1:x1:M8)	device_current
+	320	Is(x1:x1:M8)	device_current
+	321	Id(x1:x1:M7)	device_current
+	322	Ig(x1:x1:M7)	device_current
+	323	Ib(x1:x1:M7)	device_current
+	324	Is(x1:x1:M7)	device_current
+	325	Id(x1:x1:M1)	device_current
+	326	Ig(x1:x1:M1)	device_current
+	327	Ib(x1:x1:M1)	device_current
+	328	Is(x1:x1:M1)	device_current
+	329	Id(x1:x1:M2)	device_current
+	330	Ig(x1:x1:M2)	device_current
+	331	Ib(x1:x1:M2)	device_current
+	332	Is(x1:x1:M2)	device_current
+	333	I(C2)	device_current
+	334	I(x1:C2)	device_current
+	335	I(x1:C1)	device_current
+	336	I(x1:x1:R1)	device_current
+	337	I(Vdd)	device_current
+	338	I(V1)	device_current
+	339	Ix(x1:+)	subckt_current
+	340	Ix(x1:-)	subckt_current
+	341	Ix(x1:GND)	subckt_current
+	342	Ix(x1:VDD)	subckt_current
+	343	Ix(x1:VOUT)	subckt_current
+	344	Ix(x1:x1:GND)	subckt_current
+	345	Ix(x1:x1:VDD)	subckt_current
+	346	Ix(x1:x1:VBIAS1)	subckt_current
+	347	Ix(x1:x1:VBIAS2)	subckt_current
+	348	Ix(x1:x1:VBIAS3)	subckt_current
+	349	Ix(x1:x1:VBIAS4)	subckt_current
+	350	Ix(x1:x1:VHIGH)	subckt_current
+	351	Ix(x1:x1:VLOW)	subckt_current
+	352	Ix(x1:x1:VNCAS)	subckt_current
+	353	Ix(x1:x1:VPCAS)	subckt_current
+	354	Ix(x1:x2:+)	subckt_current
+	355	Ix(x1:x2:-)	subckt_current
+	356	Ix(x1:x2:GND)	subckt_current
+	357	Ix(x1:x2:VBIAS4)	subckt_current
+	358	Ix(x1:x2:VDD)	subckt_current
+	359	Ix(x1:x2:VOUT)	subckt_current
+	360	Ix(x1:x3:+)	subckt_current
+	361	Ix(x1:x3:-)	subckt_current
+	362	Ix(x1:x3:GND)	subckt_current
+	363	Ix(x1:x3:VBIAS1)	subckt_current
+	364	Ix(x1:x3:VDD)	subckt_current
+	365	Ix(x1:x3:VOUT)	subckt_current
+Binary:
+      @ó¬t?\ju?´·x>  €@ki<@z¶7@'Ñ¸?T:y?–ŽÇ>|Ï@ªìÑ>D²8@(Ì_@ú…Õ>¹µ^@í‚@Õ³y?-äÆ>œ¯¦?sžÊ??SÍ>¬Q^@õ¦™?QuÅ>4ã”>÷_@š™™?4ã”>ÀãÐ>ê×c?¤8¿>€v?þÙ²?e;@&ï9@tã@”#@±aƒ?­œ@ž9@€ð?IÎG@ñ=ì?Ä£W?Ðn¯7    &’÷¬Ìn¯·sR–7    ò•¬pR–·ýìÐ7   €°=Ù, íÐ·În¯7   €Xv,Ðn¯·qR–7   €m²Ž,sR–·üìÐ7   €£M,ýìÐ·Ÿà"8   €Ÿõù+Ÿà"¸ãÏ7   €.3Ø,ãÏ·ãÏ7   €ž8,ãÏ·Úu·7   €ª%ï+Úu··YI£7   €˜^+YI£·Úu·7    ƒ=l¬Ùu··7Ë7    ïÙ¬4Ë·©Ë7    S¾Ú¬™©Ë·YI£7    †Š¬WI£·™©Ë7    èN¬˜©Ë·˜_-8    íÜ¬—_-¸4Ë7    I°¬3Ë·tS7   €RG‘,!tS··I.7   €M¥”,»I.·qŒ¾;   €?°g0sŒ¾»Û¶ø7   €ûñ–+Ü¶ø·^ö7   €×´+^ö·7]7   € à+9]·ö`7   €Ôôæ+ö`·sŒ¾;    ë Ç¯rŒ¾»y±J6    •<†¬h±J¶ÆQ5    š‰¬Qµ9]7    fä¾«8]·ö`7    ý}¹«ö`·8]7    &áW«7]·ö`7    ]Nk«ö`·
+ˆ7    >U©ª
+ˆ·
+ˆ7    úD«
+ˆ·Ãˆ7    ¿Ï ¯‚ˆ·
+ˆ7    >U©ª
+ˆ·
+ˆ7    úD«
+ˆ·Ò;ˆ7    *íÿ®’;ˆ· ’7   €ÿãy, ’·H“’7   €^mæ+I“’·H“’7   €aq+H“’·¹Õš7   €ÆŠ>,»Õš·   €   €   €    .k“7   €%}*,/k“·.k“7   €ñ9+.k“·H“’7   €^mæ+I“’·H“’7   €aq+H“’·ð¦’7   €x·ó+ñ¦’·T(‘7   €ã«U,U(‘·b_…7   €“4,c_…·NÀ7   €	–+NÀ·aÃ7   €^^ +aÃ·Ñ›‘7   €9ìV,Ò›‘·
+‰‘7   €)¸V,‰‘· ’7    cçª ’· ’7    ›¬ ’·øÃl,    é‰¬$<+»Õš7    8®¸«ºÕš·-k“7    Pàª-k“·.k“7    ÎÂÂ«-k“·/k“7    
+[¬.k“·€&“7    ¡fðª€&“·‚&“7    _Ôi¬€&“·ï¦’7    £qìªï¦’·ñ¦’7    Z”>¬ï¦’·U(‘7    ráªT(‘·U(‘7    Ú®Â«U(‘·c_…7    §Ì«b_…·MÀ7    YÝO¬KÀ·aÃ7    ³²J¬`Ã·‰‘7    ¬ê««‰‘·Ò›‘7    Që‡«Ò›‘·k¿§ù,j‰‘7”öÌ»            |Ç»”öÌ; H§WXT¹WXT9     @Ÿ            ˆŸ     ˜Ÿ        Âa¼¸    Âa¼8  Àž        V¤¹¸    V¤¹8  0Ÿ

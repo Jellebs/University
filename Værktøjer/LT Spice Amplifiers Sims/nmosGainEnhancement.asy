@@ -1,0 +1,22 @@
+Version 4
+SymbolType BLOCK
+RECTANGLE Normal -96 -88 96 88
+WINDOW 0 1 -25 Bottom 2
+PIN -96 -64 LEFT 8
+PINATTR PinName +
+PINATTR SpiceOrder 1
+PIN -96 -16 LEFT 8
+PINATTR PinName -
+PINATTR SpiceOrder 2
+PIN 0 96 BOTTOM 8
+PINATTR PinName GND
+PINATTR SpiceOrder 3
+PIN -96 32 LEFT 8
+PINATTR PinName Vbias4
+PINATTR SpiceOrder 4
+PIN 0 -96 TOP 8
+PINATTR PinName VDD
+PINATTR SpiceOrder 5
+PIN 96 0 RIGHT 8
+PINATTR PinName vout
+PINATTR SpiceOrder 6

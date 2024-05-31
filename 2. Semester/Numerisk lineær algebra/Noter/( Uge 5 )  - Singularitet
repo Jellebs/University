@@ -1,0 +1,116 @@
+import numpy as np 
+import matplotlib.pyplot as plt
+
+# A = U \SIGMA V.T
+
+a = np.array([[3.0, 1.0],
+              [1.5, 1.0]])
+
+# SVD af a
+
+u, s, vt = np.linalg.svd(a)
+print(u)
+print(s)
+print(vt)
+
+sigma = np.diag(s)
+print(sigma)
+
+print(u @ sigma @ vt) # == a, blot en faktorisering af a.
+print(a) # == a
+
+print(u.T @ u, vt.T @ vt) # Ortogonale
+
+rng = np.random.default_rng()
+
+# Anvendelser
+
+n = 3000
+data = a @ rng.standard_normal((2, n))
+print(np.max(data), np.min(data))
+plt.rcParams['figure.dpi'] = 60 # Sætter maks antal punkter til 60
+
+fig, ax = plt.subplots()
+ax.set_xlim(-15, 15)
+ax.set_ylim(-15, 15)
+ax.set_aspect("equal")
+
+ax.plot(*data, 'o', markersize = 2)
+
+u, v, vt = np.linalg.svd(data, full_matrices=False) # full_matrices = False giver en tynd singular værdi, fra (3000, 3000) til (2, 3000)
+print((u.shape, v.shape, vt.shape))
+print(s)
+print(u)
+
+origo = np.zeros((2,1))
+scale = 2 / np.sqrt(n)
+tscale = 1.4 * scale
+
+ax.plot(*data, 'o', markersize=2)
+ax.plot(*(np.hstack([origo, u[:, [0]]*s[0]*scale])), color = 'red', marker='.')
+ax.plot(*(np.hstack([origo, u[:, [1]]*s[1]*scale])), color = 'magenta', marker='.')
+
+# Et billede med støj
+a = np.zeros((20, 14))
+a[2, 2:12] = 1 
+a[3, 2:12] = 1
+a[16, 2:12] = 1
+a[17, 2:12] = 1
+a[2:18, 2] = 1
+a[2:18, 3] = 1
+a[2:18, 10] = 1
+a[2:18, 11] = 1
+
+fig, ax = plt.subplots()
+ax.matshow(a, cmap='coolwarm') # 0 tal
+
+a+= 1.5 * rng.random(a.shape)
+ax.matshow(a, cmap='coolwarm') # støj tilføjet.
+
+u, s, vt = np.linalg.svd(a, full_matrices=False)
+
+def svdapprox(u, s, vt, r): # svd approximation for at fjerne støj.
+    # Forkortet svd r <= k
+    # Givet svd u, s, vt, angiv forkortelsen r. 
+    return u[:, :r] @ np.diag(s[:r]) @ vt[:r, :]
+
+fig, ax = plt.subplots()
+ax.matshow(svdapprox(u, s, vt, 1)) # Det ligner mere et 0 tal, lad os prøve med r = 2
+
+fig, ax = plt.subplots()
+ax.matshow(svdapprox(u, s, vt, 2)) # Bedre, lad os prøve med 2
+
+fig, ax = plt.subplots()
+ax.matshow(svdapprox(u, s, vt, 3)) # Lad os prøve med 4
+
+fig, ax = plt.subplots()
+ax.matshow(svdapprox(u, s, vt, 4)) # Næsten ikke bedre. Lad os stressteste med 10
+
+fig, ax = plt.subplots()
+ax.matshow(svdapprox(u, s, vt, 10)) # Det er væsentlig være end 4. Jeg tror at 2 var den bedste.
+
+
+# Eget billedeksempel
+
+a = plt.imread('( Uge 5 ) - Billedeksempel.jpg')
+
+fig, ax = plt.subplots()
+ax.imshow(a)
+print(a.shape)
+
+# Brug den røde kanal
+
+b = a[:, :, 0]
+print(b.shape)
+
+ax.imshow(b, cmap="Greys_r") # Mapper alt det der får tilført rød
+
+u, s, vt = np.linalg.svd(b, full_matrices=False)
+print(u.shape, s.shape, vt.shape)
+
+fig, ax = plt.subplots()
+ax.plot(s[:5])
+ax.imshow(svdapprox(u, s, vt, 100), cmap="Greys_r") # Fra ≈3000 singulære værdier til 100
+
+print(b.nbytes) # 12mio bytes 
+print(u[:, 100].nbytes + s[:100].nbytes + vt[:,100].nbytes) # 50k bytes. Faktor 240 gange mindre plads brugt.

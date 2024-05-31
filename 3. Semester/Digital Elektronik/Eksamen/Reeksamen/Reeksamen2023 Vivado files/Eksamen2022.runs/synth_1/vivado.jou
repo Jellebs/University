@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Thu May 30 09:00:11 2024
+# Process ID: 1813
+# Current directory: /home/user/Projects/Eksamen/Reeksamen2023/Eksamen2022.runs/synth_1
+# Command line: vivado -log logik.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source logik.tcl
+# Log file: /home/user/Projects/Eksamen/Reeksamen2023/Eksamen2022.runs/synth_1/logik.vds
+# Journal file: /home/user/Projects/Eksamen/Reeksamen2023/Eksamen2022.runs/synth_1/vivado.jou
+# Running On: d1fa98a9f68a, OS: Linux, CPU Frequency: , CPU Physical cores: 1, Host memory: 8338 MB
+#-----------------------------------------------------------
+source logik.tcl -notrace

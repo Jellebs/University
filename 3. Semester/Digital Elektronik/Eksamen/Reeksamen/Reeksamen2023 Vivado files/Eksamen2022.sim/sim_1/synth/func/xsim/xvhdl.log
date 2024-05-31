@@ -1,0 +1,19 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'logik_tb'
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:66]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:70]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:74]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:78]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:82]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:86]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:90]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:94]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:100]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:104]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:108]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:112]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:116]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:120]
+ERROR: [VRFC 10-4982] syntax error near '10' [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:124]
+ERROR: [VRFC 10-9458] unit 'bench' is ignored due to previous errors [/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd:43]
+INFO: [VRFC 10-8704] VHDL file '/home/user/Projects/Eksamen/Eksamen2022/Eksamen2022.srcs/sim_1/new/Logik_tb.vhd' is ignored due to errors

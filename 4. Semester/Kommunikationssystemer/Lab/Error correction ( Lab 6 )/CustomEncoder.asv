@@ -1,0 +1,28 @@
+classdef CustomEncoder
+    properties
+    end
+    methods
+        function repetitionBits = ChannelEncoder(obj, bits) % Repetition code 
+            repit
+            
+        
+        end 
+
+        function [I, Q] = customEncode(obj, bits) % # 1 => vaerdi var over 0.8. 0 => vaerdi var under 0.8
+            for bit = 1: length(bits)
+                if bits(bit) > 0.8 
+                    % c = √(a^2 + b^2) s
+                    len = 0.8 + (1 - 0.8)*abs(rand(1))
+                    I(bit) = len*abs(rand(1));
+                    % b = √(c^2 - a^2) 
+                    Q(bit) = sqrt(len^2 - I(bit)^2);
+                else
+                    len = 0.8*abs(rand(1))
+                    I(bit) = len*abs(rand(1));
+                    Q(bit) = sqrt(len^2 - I(bit)^2);
+                end 
+            end 
+        end 
+    end
+end 
+

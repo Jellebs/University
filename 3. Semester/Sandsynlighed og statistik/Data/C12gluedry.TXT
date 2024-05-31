@@ -1,0 +1,16 @@
+Formula	Time
+A	13
+A	10
+A	8
+A	11
+A	8
+B	13
+B	11
+B	14
+B	14
+C	4
+C	1
+C	3
+C	4
+C	2
+C	4

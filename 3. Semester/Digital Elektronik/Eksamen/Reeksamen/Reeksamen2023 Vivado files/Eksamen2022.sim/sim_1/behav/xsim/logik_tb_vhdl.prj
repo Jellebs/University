@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Eksamen2022.srcs/sources_1/new/Logik.vhd" \
+"../../../../Eksamen2022.srcs/sim_1/new/Logik_tb.vhd" \
+
+# Do not sort compile order
+nosort
