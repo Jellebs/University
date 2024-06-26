@@ -1,0 +1,100 @@
+K = 2; 
+% 
+% clear all
+% s = tf('s');
+% 
+% G = 300/((s+2)*(s+7)*(s+20));
+% Kp = 8.9125; 
+% Glead = (1.767*s+10)/(s+17.67);
+% Glag = (s+0.5)/s;
+% Gc = Glag*Kp*Glead;
+% margin(Gc*G)
+% 
+% Gcl = feedback(G*Gc, 1);
+% % step(Gcl);
+% 
+% wc= 10; 
+% Ts=2*pi/(15*wc); 
+% Gsh = exp(-s*Ts/2)
+% 
+% bode(Gc*G);
+% hold on 
+% margin(Gsh*Gc*G);
+% hold off 
+% 
+% % step(Gsh); Duer ikke
+% [num, den]= pade(Ts/2, 3); % Pade approksimation
+% Gsh = tf(num, den);
+% Gcl_sh = feedback(Gsh*Gc*G, 1)
+% step(Gcl, 'b'); 
+% hold on
+% step(Gcl_sh, 'g');
+% hold off
+
+
+
+
+%% Opgave 1
+% Design Analog regulator 
+clear all 
+s = tf('s'); 
+G = 300/((s+2)*(s+5)*(s+20));
+%margin(G);
+
+
+% Krav: 
+%   Mindst 60° phase margin ( OS% ~10) 
+%   Krydsfrekvens på 8rad/s
+%   Type 1
+
+% Tilstand: 
+%   Phase margin på 109
+%   Krydsfrekvens på 1.94 rad/s 
+
+reg = Regulatorer;
+reg.wc_oensket = 8; 
+Kp1 = proportional(reg, 16)
+
+
+% Kp1 = proportional(regulatorer,16);
+% Kp2 = 10^(16/20)
+% margin(Kp*G); grid on
+% 
+% alfa = (1-sind(45))/(1+sind(45))
+% T = 1/(9* sqrt(alfa)) % 1/wmax*√a
+% Kc = sqrt(alfa)
+% Glead = (Kc/alfa)* ((s + 1/T) / (s + 1/(alfa*T)))
+% margin(Glead*Kp*G); grid on
+% % Gcl = feedback(Glead*Kp*G, 1)
+% 
+% beta = 10^(30/20)
+% T = 10/wc_oensket % 1/T er 10 gange så lille som kryds frekvensen.
+% Glag = (s + 1/T)/(s + 1/(beta*T))
+% margin(Glag*Glead*Kp*G); grid on
+% 
+% Gcl = feedback(Glag*Glead*Kp*G, 1)
+% step(Gcl)
+% 
+% % Digital approksimation 
+% % e^(-s * Ts/2) 
+% % pade approksimation(samplingfrekvens til ordenen. 
+% Ts = 1/wc_oensket
+% [num1, den1] = pade(Ts/4, 3) % 2 gange hurtigere en krydsfrekvensen
+% [num2, den2] = pade(Ts/20, 3) % 10 gange hurtigere en krydsfrekvensen
+% [num3, den3] = pade(Ts/40, 3) % 20 gange hurtigere end krydsfrekvensen.
+% 
+% Gtotal = Glag*Glead*Kp*G;
+% GtotalDigitaliseret = tf(num3, den3)*Gtotal % Til sampling frekvens 20 gange større end krydsfrekvensen
+% margin(GtotalDigitaliseret); grid on
+% % 
+% % Gcl_to = feedback(Gtotal * tf(num1, den1), 1);
+% % Gcl_ti = feedback(Gtotal * tf(num2, den2), 1); 
+% % Gcl_tyve = feedback(Gtotal * tf(num3, den3), 1);
+% % step(Gcl_to, 'b');
+% % hold on
+% % step(Gcl_ti, 'g');
+% % hold on 
+% % step(Gcl_tyve, 'r')
+% % legend('Samplingx2', 'Samplingx10', 'Samplingx20')
+% % hold off
+% 

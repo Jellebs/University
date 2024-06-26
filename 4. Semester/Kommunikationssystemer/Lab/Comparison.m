@@ -31,8 +31,9 @@ classdef Comparison
     
     
                 %% Hamming code
-                n = 31; 
-                k = 26; 
+                n = 15; 
+                k = 11; 
+                bits = [0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1]; 
                 
                 % Channel encoder / modulator
                 encData = encode(bits, n, k, 'hamming/binary');
@@ -42,11 +43,9 @@ classdef Comparison
                 % Channel decoder / demodulator 
                 decData = decode(bits, n, k); 
                 
-                [number, ratio] = biterr(bits, bitsRep) % Number of bits differing and ratio of errors / bits
-                bErrorsRep = [bErrorsRep, ratio]
-
-                [number, ratio] = biterr(bits, decData)
-                bErrorHamming = [bErrorsHamming, ratio]
+                
+                bErrorsRep = [bErrorsRep, biterr(bits, bitsRep)]
+                bErrorHamming = [bErrorsHamming, biterr(bits, decData)]
             end 
             
         end 

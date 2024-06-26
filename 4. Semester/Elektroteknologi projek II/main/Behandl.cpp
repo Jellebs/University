@@ -2,20 +2,6 @@
 #include "Noder.h"
 using namespace std; 
 
-// Hjælpe funktioner
-void __arrayAppend( int arr[], int &i, int e, int arrStoerrelse) {
-   if( i < arrStoerrelse ) {
-      arr[ i ] = e;
-   }
-}
-int samletFrekvens(int listeAfFrekvenser[]) { 
-    int frekvens = 0; 
-    for(int i = 0; i < 4; i++) {
-        frekvens += listeAfFrekvenser[i];
-    }
-    frekvens /= 4;
-    return frekvens;
-}
 void behandl_Pitches(int pitches[4], int trykkedeStrenge[4]) {
   for (int i = 0; i < 4; i++) {
     pitches[i] = __vaelgPitch(trykkedeStrenge[i]);
@@ -26,7 +12,7 @@ int __vaelgPitch(int tryktStreng){ // Raekke-Kolonne (43) 4 række 3 kolonne
     switch(tryktStreng){
         // Åbne strenge
         case 13: 
-            return NOTE_A4;
+            return NOTE_A3;
         case 14: 
             return NOTE_E4;
         case 15:
@@ -37,11 +23,11 @@ int __vaelgPitch(int tryktStreng){ // Raekke-Kolonne (43) 4 række 3 kolonne
         // Trykket strenge 
         // Foerste række
         case 1: 
-            return NOTE_AS4; 
+            return NOTE_AS3; 
         case 2: 
-            return NOTE_B4; 
+            return NOTE_B3; 
         case 3: 
-            return NOTE_C5; 
+            return NOTE_C4; 
         
         // Anden række
         case 4: 

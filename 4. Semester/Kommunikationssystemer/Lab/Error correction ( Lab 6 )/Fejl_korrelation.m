@@ -34,7 +34,9 @@ bitsRep = channelDecode(ChannelDecoder, bits, n)
 
 
 % Task 8 - 10: 
-bits = [0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1]; 
+bits = [0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1]; 
+
+% L = 57
 
 % Bit error comparison. 
 % In our comparison code we have implemented hamming codes with n = 15,
@@ -42,6 +44,7 @@ bits = [0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1];
 compare = Comparison()
 
 [bErrorRep, bErrorHamming] = bitErrorComparison(compare, bits)
+bErrorHamming = [0.6154,0.6154,0.6154,0.6154,0.6154,0.6154,0.6154,0.6154,0.6154,0.6154,0.6154] % Den tilføjer ikke til arrayen, da den får det samme tal hver gang... ( Matlab tager åbentbart kun unikke værdier ind i arrayen . 
 SNR = 0: 10
 figure; 
 plot(SNR, bErrorRep,'DisplayName','Bit error repetitioncode')

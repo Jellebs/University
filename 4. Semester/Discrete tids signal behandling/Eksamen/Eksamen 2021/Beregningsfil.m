@@ -1,0 +1,6 @@
+z = tf('z')
+H = (3*z + 1)/(z + 1/2)
+margin(H)
+bode(H)
+% G = tf([3, 1],[1, 1/2])
+% margin(G)
