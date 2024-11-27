@@ -1,37 +1,40 @@
-from Uni.Formelsamling.Opgaver import Opgave
 import numpy as np
-from sympy import * 
-from scipy import signal as sig
+from sympy import *
+import scipy.signal as sig
 import matplotlib.pyplot as plt
+from Formelsamling import KontrolSystemer
+xn = np.array([0, 4,  5, -6])
+hn = np.array([3, 2, -1,  0])
+xnhn = xn[:, np.newaxis] * hn
+pprint(xnhn)
 
-class Opgave1(Opgave):
-    a = symbols("a")
-    xn = Matrix([[a],
-                 [4],
-                 [5],
-                 [-6]])
-    hn = Matrix([3, 2, -1, 0])
-    # resultat_xnhn = xn * hn
+# alpha = np.linspace(0, 20, 100)
+# magnitude = (1 + alpha/sqrt(2)) +(alpha/sqrt(2))
+alpha, z = symbols('alpha z')
+eq = alpha**2 + (2/sqrt(2)) * alpha + 0.75
+pprint(solve(eq))
 
-class Opgave4(Opgave): 
-    """
-    b = [-1/2, 1]
-    a = [1, -1/2]
-    z = symbols("z")
-    A, p, k = sig.residuez(b, a)
-    resultat_partial = (A, p, k)
-    resultat_Hz = 1.5/(1-(z**(-1))) -2
-    """
-    
-    f = np.linspace(0, 100, 1000)
-    omega = 2*np.pi * f
-    z = np.exp(1j*omega)
-    H = -2 + 1.5/(1 - 1/z)
-    fig, ax = plt.subplots(figsize=(10, 6))
-    ax.plot(omega, abs(H))
-    ax.set_ylim(-1e2, 1e2)
-    plt.show()
-    
+b = [-1/2, 1]
+a = [1, -1/2]
+A, p, k = sig.residuez(b, a)
+Hz = sum([A[i]/(1 - p[i]*z**(-1)) for i in range(max(len(A), len(p)))])
+Hz += k[0]
 
-opg1 = Opgave1()
-opg4 = Opgave4()
+w = np.linspace(-3*np.pi, 3*np.pi, 1000)
+Hz = lambdify(z, Hz); Hz = Hz(np.exp(1j*w))
+Hejw = np.abs(Hz)
+HejwdB = np.log10(Hejw)
+HejwPhase = np.angle(Hz)
+
+
+# plots = KontrolSystemer.Plots()
+# plots.bodePlot(w, HejwdB, HejwPhase)
+
+H = lambda alpha : (-1/2 + (1-alpha/2)*(z**(-1)) + alpha*(z**(-2)))/(1 - (1/2)*(z**(-1)))
+pprint(simplify(H(-1/2)))
+
+# pprint(expand_power_exp(eq))
+
+
+
+
