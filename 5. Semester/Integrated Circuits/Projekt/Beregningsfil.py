@@ -1,0 +1,18 @@
+from sympy import * 
+kn, wl4, Rbias, VThn, iM1, Vo, t, s = symbols("kn wl4 Rbias VThn iM1 Vo t s")
+it = Function("i")(t)
+iM1 = Function('iM1')(t)
+Vo = Function('Vo')(t)
+# a, b = symbols("")
+eq1 = kn * wl4 * it + kn * wl4 * VThn**2 - kn * wl4 * 2 * VThn - 2*iM1 + Derivative(Vo, t)
+Eq1 = laplace_transform(eq1, t, s, noconds=True, evaluate=True)
+eq2 = inverse_laplace_transform(Eq1, s, t, evaluate = True)
+pprint(eq2)
+# pprint(laplace_transform(Derivative(Vo, t), t, s))
+
+# pprint(laplace_transform(Eq(Vo, it), t, s))
+# Eq1 = laplace_transform(eq1, t, s)
+# pprint(Eq1)
+gmb1, gmb2, gm5 = symbols("gmb1 gmb2 gm5")
+eq = ((gmb2)/(gmb1 +gmb2) - 1) * ((gmb1 + gmb2) / ( gmb2 - gm5 * ( gmb1 + gmb2 )))
+pprint(eq)
