@@ -1,0 +1,38 @@
+\graphicspath{{Indhold/Billeder/}}
+% Indstillinger: 
+% Billednr:16
+
+\newcommand{\fetchBillede}[2]{\includegraphics[scale=#2]{#1}}
+\newcommand{\fetchSVG}[2]{\includesvg[scale=#2]{#1}} % width=1.0\textwidth
+\newcommand{\fig}[2]{
+    \begin{figure}[h]
+        \fetchBillede{#1}{#2}
+        \caption{#1}
+        \label{fig:#1}
+    \end{figure}
+}
+\newcommand{\figSVG}[2]{
+    \begin{figure}[h]
+        \fetchSVG{#1}{#2}
+        \caption{#1}
+        \label{fig:#1}
+    \end{figure}
+}
+
+% \figen{0.2} => scaling = 0.2
+\newcommand{\figen}[1]{\fig{Blokdiagram kapitel 2.png}{#1}}
+\newcommand{\figto}[1]{\figSVG{Feedback system.svg}{#1}}
+\newcommand{\figtre}[1]{\fig{Opgave 2.1.png}{#1}}
+\newcommand{\figfire}[1]{\fig{Opgave 2.3.png}{#1}}
+\newcommand{\figfem}[1]{\fig{Opgave 2.5.png}{#1}}
+\newcommand{\figseks}[1]{\fig{Opgave til kapitel 2.png}{#1}}
+\newcommand{\figsyv}[1]{\fig{Opgave 2.17.a.png}{#1}}
+\newcommand{\figotte}[1]{\fig{Opgave 2.17.b.png}{#1}}
+\newcommand{\figni}[1]{\fig{Opgave 2.17.c.png}{#1}}
+\newcommand{\figti}[1]{\fig{Opgave 2.17.png}{#1}}
+\newcommand{\figeleve}[1]{\fig{Opgave 2.33.png}{#1}}
+\newcommand{\figtolv}[1]{\figSVG{Opgave 2.50.svg}{#1}}
+\newcommand{\figtretten}[1]{\fig{Opgave 2.50.png}{#1}}
+\newcommand{\figfjorten}[1]{\fig{Opgave 3.1.a.png}{#1}}
+\newcommand{\figfemten}[1]{\fig{Opgave 3.1.b.png}{#1}}
+\newcommand{\figseksten}[1]{\fig{Opgave 3.1.d.png}{#1}}

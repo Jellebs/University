@@ -1,0 +1,183 @@
+{
+    "latex-workshop.latex.tools": [
+    {
+        "name": "latexmk",
+        "command": "latexmk",
+        "args": [
+            "-pdf",
+            "-shell-escape",
+            "-interaction=nonstopmode",
+            "-synctex=1",
+            "%DOC%"
+        ]
+    }
+],
+"latex-workshop.latex.recipes": [
+    {
+        "name": "latexmk",
+        "tools": [
+            "latexmk"
+        ]
+    }
+]
+}
+// {
+//     "latex-workshop.latex.tools": [
+//         {
+//             "name": "latexmk",
+//             "command": "/Library/TeX/texbin/latexmk",
+//             "args": [
+//                 "-synctex=1",
+//                 "-interaction=nonstopmode",
+//                 "-file-line-error",
+//                 "-pdf",
+//                 "-outdir=%OUTDIR%",
+//                 "%DOC%"
+//             ],
+//             "env": {
+//                 "PATH": "/Applications/Inkscape.app/Contents/MacOS/"
+//             }
+//         },
+//         {
+//             "name": "lualatexmk",
+//             "command": "latexmk",
+//             "args": [
+//                 "-synctex=1",
+//                 "-interaction=nonstopmode",
+//                 "-file-line-error",
+//                 "-lualatex",
+//                 "-outdir=%OUTDIR%",
+//                 "--shell-escape",
+//                 "%DOC%"
+//             ],
+//             "env": {
+//                 "PATH": "/Applications/Inkscape.app/Contents/MacOS/"
+//             }
+//         },
+//         {
+//             "name": "xelatexmk",
+//             "command": "latexmk",
+//             "args": [
+//                 "-synctex=1",
+//                 "-interaction=nonstopmode",
+//                 "-file-line-error",
+//                 "-xelatex",
+//                 "-outdir=%OUTDIR%",
+//                 "pdf",
+//                 "-shell-escape", 
+//                 "%DOC%"
+//             ],
+//             "env": {
+//                 "PATH": "/Applications/Inkscape.app/Contents/MacOS/"
+//             }
+//         },
+//         {
+//             "name": "latexmk_rconly",
+//             "command": "latexmk",
+//             "args": [
+//                 "-pdf",
+//                 "-shell-escape",
+//                 "-rconly",
+//                 "%DOC%"
+//             ],
+//             "env": {
+//                 "PATH": "/Applications/Inkscape.app/Contents/MacOS/"
+//             }
+//         },
+//         {
+//             "name": "pdflatex",
+//             "command": "pdflatex",
+//             "args": [
+//                 "-synctex=1",
+//                 "-interaction=nonstopmode",
+//                 "-file-line-error",
+//                 "--shell-escape", 
+//                 "%DOC%"
+                
+//             ],
+//             "env": {
+//                "PATH": "/Applications/Inkscape.app/Contents/MacOS/"
+//             }
+//         },
+//         {
+//             "name": "bibtex",
+//             "command": "bibtex",
+//             "args": [
+//                 "%DOCFILE%"
+//             ],
+//             "env": {
+//                 "PATH": "/Applications/Inkscape.app/Contents/MacOS/"
+//             }
+//         },
+//         {
+//             "name": "rnw2tex",
+//             "command": "Rscript",
+//             "args": [
+//                 "-e",
+//                 "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
+//             ],
+//             "env": {
+//                 "PATH": "/Applications/Inkscape.app/Contents/MacOS/"
+//             }
+//         },
+//         {
+//             "name": "jnw2tex",
+//             "command": "julia",
+//             "args": [
+//                 "-e",
+//                 "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"
+//             ],
+//             "env": {
+//                 "PATH": "/Applications/Inkscape.app/Contents/MacOS/"
+//             }
+//         },
+//         {
+//             "name": "jnw2texminted",
+//             "command": "julia",
+//             "args": [
+//                 "-e",
+//                 "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
+//             ],
+//             "env": {
+//                 "PATH": "/Applications/Inkscape.app/Contents/MacOS/"
+//             }
+//         },
+//         {
+//             "name": "pnw2tex",
+//             "command": "pweave",
+//             "args": [
+//                 "-f",
+//                 "tex",
+//                 "%DOC_EXT%"
+//             ],
+//             "env": {
+//                 "PATH": "/Applications/Inkscape.app/Contents/MacOS/"
+//             }
+//         },
+//         {
+//             "name": "pnw2texminted",
+//             "command": "pweave",
+//             "args": [
+//                 "-f",
+//                 "texminted",
+//                 "%DOC_EXT%"
+//             ],
+//             "env": {
+//                 "PATH": "/Applications/Inkscape.app/Contents/MacOS/"
+//             }
+//         },
+//         {
+//             "name": "tectonic",
+//             "command": "tectonic",
+//             "args": [
+//                 "--synctex",
+//                 "--keep-logs",
+//                 "--print",
+//                 "%DOC%.tex"
+//             ],
+//             "env": {
+//                 "PATH": "/Applications/Inkscape.app/Contents/MacOS/"
+//             }
+//         }
+//     ]
+// }

@@ -1,0 +1,23 @@
+\newcommand{\filterZ}[2]{
+    \frac{
+        \foreach \b [count=\j from 0] in {#1} {
+            \ifnum\j=0
+                \b
+            \else
+                \pgfmathparse{ifthenelse(\b<0, "", "+")}\pgfmathresult \b z^{-\i}
+                % + \b z^{-\the\numexpr\j-1}
+            \fi
+        }% 
+    }{
+        \foreach \a [count=\i from 0] in {#2} {
+            \ifnum\i=0
+                \a
+            \else
+                \pgfmathparse{ifthenelse(\a<0, "", "+")}\pgfmathresult \a z^{-\i}
+                % + \a z^{-\the\numexpr\i-1}
+            \fi
+        }
+    }
+}
+\newcommand{\cosTilEksponentiel}[1]{ \frac{e^{j#1} + e^{-j#1}}{2} }
+\newcommand{\sinTilEksponentiel}[1]{ \frac{e^{j#1} - e^{-j#1}}{2j} }

@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{amsmath}  % For math support
+\usepackage{xcolor}   % For colors (optional)
+\usepackage{pgffor, pgfmath, siunitx}
+
+
+
+\title{Mit første \LaTeX{} dokument}
+\author{Af Jesper Bertelsen, AU-ID: au689481, Studie nr: 202204617}
+\date{4. Februar. 2025}
+
+
+
+% Custom Problem Environment
+\newcounter{problem}
+\newenvironment{problem}[1][]{%
+    \refstepcounter{problem}%
+    \noindent\textbf{Problem \theproblem: #1}\par
+    \vspace{10pt}  % Add spacing after each problem
+}
+
+
+
+
+
+\begin{document}
+
+\noindent Cosine values as a list:  
+
+\[
+[
+\foreach \x in {0, ..., 9} {
+    \num[round-mode=places,round-precision=4]{\fpeval{cos(\x * pi / 180)}}, ~}
+]
+\]
+
+
+\end{document}

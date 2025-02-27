@@ -1,0 +1,41 @@
+% Tekst redigering 
+\newcommand{\tab}{\quad}
+\newcommand{\transformation}[1]{\tab\overset{\mathscr{#1}}{\leftrightarrow}\tab}
+
+% Counters 
+\newcounter{kapitel}
+\newcounter{alfabetTabular}
+\renewcommand{\thealfabetTabular}{\alph{alfabetTabular}}
+
+% Kapitel Context 
+\newenvironment{kapitel}[1][]{
+    \clearpage
+    \refstepcounter{kapitel} % Increment counter first
+    \subsection*{Kapitel \thekapitel: #1}
+}{}
+
+% Formelsamling / Opgaver / Øvelser mm...
+\newenvironment{rubrik}[1][]{
+    \clearpage
+    \section*{#1}
+    \setcounter{kapitel}{0} % Nulstil counteren, I tilfælde af, at den har været brugt. 
+}{}
+
+\newenvironment{underrubrik}[1][]{
+    \subsection*{#1}
+}{}
+
+% Indhold
+\newenvironment{Formelsamling}{\begin{rubrik}[Formelsamling]\end{rubrik}}{}
+\newenvironment{Udledninger}{\begin{rubrik}[Udledninger]\end{rubrik}}{}
+
+\newenvironment{Opgaver}{\begin{rubrik}[Opgaver]\end{rubrik}}{}
+\newenvironment{Opgave}[1][]{\begin{underrubrik}[#1]\end{underrubrik}\setcounter{alfabetTabular}{0}}{\vspace{100pt}}
+\newenvironment{UnderOpgave}[1][]{
+    \refstepcounter{alfabetTabular}
+    \subsubsection*{\boldmath{\thealfabetTabular. #1}}}{}
+
+\newenvironment{Øvelser}{\begin{rubrik}[Øvelser]\end{rubrik}}{}
+\newenvironment{Øvelse}[1][]{\begin{underrubrik}[#1]\end{underrubrik}}{}
+
+\newenvironment{Udklip}{\color{red}\begin{rubrik}\end{rubrik}}{}              % Skal bruges til når jeg retter opgaver, så fletter jeg de forkerte ind i det her. 

@@ -1,0 +1,447 @@
+\begin{Opgaver}
+    \begin{kapitel}[Introduktion]
+    \end{kapitel}
+    \begin{kapitel}[Diskrete-tids signaler og systemer]
+        \begin{Opgave}[Opgave til kapitel 2 - Convolution plot]
+            \[x[n] = [1, 2, -1, 3] og h[n]= [4, 5, 6]\]
+            Beregn x[n] * h[n] med "papir og blyant" og lav et plot i stil med figur 2.12 og en tabel som figur 2.13
+            Beregning laver jeg i tabellen: 
+            \[y[n] = \sum{k = -\inf}{inf} x[k] * h[k - n]\]
+            h er kausul, h != 0, k - n > 0, k > n. 
+            \[y[0] = \sum{k = -\inf}{inf} x[k] * h[k - n]\]
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{c|c c c c c c c c c c}  % c = centered columns, | adds vertical line
+                    \hline
+                    k               & -3 & -2 & -1 & 0 &  1 &  2 &  3 & 4 &  5 &   \\
+                    \hline
+                    $h[k]$          &    &    &    & 4 &  5 &  6 &    &   &    &   \\
+                    $x[k]$          &    &    &    & 1 &  2 & -1 &  3 &   &    &   \\
+                    \hline
+                    $h[k - (-1)]$   &  6 &  5 &  4 &   &    &    &    &   &    &   \\
+                    $h[k - 0]$      &    &  6 &  5 & 4 &    &    &    &   &    &   \\ 
+                    $h[k - 1]$      &    &    &  6 & 5 &  4 &    &    &   &    &   \\
+                    $h[k - 2]$      &    &    &    & 6 &  5 &  4 &    &   &    &   \\
+                    $h[k - 3]$      &    &    &    &   &  6 &  5 &  4 &   &    &   \\
+                    $h[k - 3]$      &    &    &    &   &    &  6 &  5 & 4 &    &   \\
+                    $h[k - 4]$      &    &    &    &   &    &    &  6 & 5 &  4 &   \\
+                    $h[k - 5]$      &    &    &    &   &    &    &    & 6 &  5 & 4 \\
+                    \hline
+                    $y[n]$          &    &    &    & 4 & 13 & 12 & 19 & 9 & 18 & 
+                \end{tabular}
+                \caption{Convolution}
+                \label{tab:Convolution}
+            \end{table}\clearpage
+            Plottet har jeg lavet ved bare at forskyde h og så beregne y for hvert n
+            \figseks{0.70}        
+        \end{Opgave}\clearpage
+        
+        \begin{Opgave}[Opgave 2.1 - Plots af funktioner]
+            \figtre{0.40}
+        \end{Opgave}
+
+        \begin{Opgave}[Opgave 2.3 - Tidsforsinkelser og tidsmodsætninger]
+            \[x[n] = [-1, 0, 1, 2, 3, 4, 4, 4, 4, 4]\]
+            \figfire{0.275}
+        \end{Opgave}
+
+        \begin{Opgave}[Opgave 2.4 - Sekvenser]
+            Opsætning af en liste og så bruge matlab funktioner til at gentage den. 
+            Billedet siger ikke så meget. Det kan ses i matlab filen. 
+        \end{Opgave}
+
+        \begin{Opgave}[Opgave 2.5 - Periodicitet i signaler]
+            Et signal af \[x[n] = cos(\omega_0n + \theta_0)\] med 
+            \[f_0 = \omega_0/2\pi\] er kun periodisk, hvis f0 er rationel... $\omega_0$ indholder $\pi$
+            \begin{UnderOpgave}[Bevis det]
+                \[\omega_0 = 3/4*\pi,\quad n = [\foreach \i in {0,1,...,8} {\i,}]\]
+            
+                Som teoretisk er periodisk i 8
+                
+                \[\cos(\omega_0*n) = [\foreach \n in {0, ..., 8} {
+                    \num[round-mode=places,round-precision=2]{\fpeval{cos(3/4*pi*\n)}}, ~}
+                    ]\]
+                Sætter den til noget der numerisk er tæt på. 
+                \[\omega_0 = 5/2,\quad n = [\foreach \i in {0,1,...,16} {\i,}]\]
+                \[\cos(\omega_0*n) = [\foreach \n in {0, ..., 16} {
+                    \num[round-mode=places,round-precision=1]{\fpeval{cos(5/2*\n)}}, ~}
+                    ]\]
+                Kun på grund af min afrunding kommer de til at være lige med hinanden. 
+                I virkeligheden vil værdierne aldrig helt komme til at være lige med hinanden.
+                \newline \vspace{10pt}
+            \end{UnderOpgave}
+                
+            \begin{UnderOpgave}[\ensuremath{\cos(n/10), n =[-20, ... 20]} Kan jeg konkludere periodicitet ud fra plot?]
+                Denne vinkelfrekvens medfører ikke en rationel frekvens
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\ensuremath{\cos(\pi/10n), n =[-20, ... 20]} Kan jeg konkludere periodicitet ud fra plot?]
+                Denne vinkelfrekvens medfører en rationel frekvens
+            \end{UnderOpgave}
+            
+        \figfem{0.3} 
+        Det ses, at den første ikke er hurtig nok til at konkludere perioidicitet ud fra billedet. 
+        Den anden kan dog konkluderes til at have perioidicitet bare ved at se på plot. 
+        \end{Opgave}
+
+        \begin{Opgave}[Opgave 2.11 - Convolution vha. dens egenskaber til at beskrive y uden at kende x (Vigtig $\sqrt{}$)]
+            \[y_1 = conv(ones(1, 5), x)\tab y_2 = conv([1, -1, -1, -1, 1], x)\]
+            \[y = conv(ones(1, 3, y_1 + y_2))\]
+            \begin{UnderOpgave}[Givet ovenstående find så det ækvivalente system hvor at $y=conv(h, x)$]
+                Hvis jeg tænker regneregler på den, så er det her nemlig den distributive egenskab i konvolutioner
+                \[x[n] \star (h_1[n] + h_2[n]) = x[n] \star h_1[n] + x[n] \star h_2[n]\]
+                Da $y = y_1 + y_2 = x[n] \star h_1[n] + x[n] \star h_2[n]$
+                Fra et hurtig hovedregning og med bekræftelse af scipy så har jeg at: 
+                \[h = h_1 \star h_2 = [1, 0, -1, -2, -1, -2, -1, 0, 1]\]
+                Så nu har jeg at
+                \[y[n] = [1, 1, 1] \star (x[n] \star h)\]
+                Den associative regel siger så at rækkefølgen ved multiplikation ikke betyder noget, af hvad jeg har forsået på det. 
+                Og da burde
+                \[y[n] = x[n] \star ([1, 1, 1] \star h) = x[n] \star h_3\]
+                Ud fra hurtig øjenkast og bekræftelse af scipy
+                \[h_3 = [1, 1, 0, -3, -4, -5, -4, -3, 0, 1, 1]\]
+                Og uden andet at få at vide, så har jeg antaget, at alle systemer er kausule, og derfor er h3 også kausul. 
+                Den tager derfor værdier fra n = 0 ... 10
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Beregn og sammenlign stepsne af de to ækvivalente system representationer]
+                Det føler jeg allerede, at jeg har gjort. Men ikke helt udvidet. 
+                Hvis jeg havde beregnet det på deres metode, så havde jeg skulle have beregnet for den her: 
+                \[y[n] = x[n] \star ([1, 1, 1] \star (h_1 \star h_2))\]
+                Hvorimod den nye løsning kan gøres ud fra: 
+                \[y[n] = x[n] \star h_3\]
+                Og det må nødvendigvis spare en masse beregninger
+            \end{UnderOpgave}
+
+        \end{Opgave}
+
+        \begin{Opgave}[Opgave 2.17 - A discrete-Time system is described by the following difference equation]
+            \[y[n] = 1,15y[n-1] - 1.5y[n-2] + 0,7y[n-3] - 0,25*y[n-4] + 0,18x[n] +0,1x[n-1] + 0,3x[n-2] + 0.1x[n-3] + 0.18x[n-4]\]
+            med startbetingelserne værende nul. 
+            \begin{UnderOpgave}[Compute and plot the impulse response \text{h[n]}]
+                h[n], \tab $0 \leq n \leq 100$ using the function h = impz(b, a, N)\\
+                Tricket I at vide hvordan vi beskriver systemet er, at se på koefficienterne, og indse hvordan de vil blive beskrevet ved Z transformation.
+                \[y_a[n] = 1,15y[n-1] + x[n] + 0,5x[n-1]\]
+                \[y_a[n] - 1,15y[n-1] = x[n] + 0,5x[n-1]\]
+                \[Y(z)*(1 - 1,15z^-1) = X(z) * (1 + 0,5z^-1)\]
+                \[H(z) = \frac{Y(z)}{X(z)} = \frac{(1 + 0,5z^-1)}{1 - 1,15z^-1}\]
+                \[b = [1, 0.5], \tab a = [1, -1.15]\]
+                Så fra difference ligningen, så kan jeg allerede se at, x koefficienterne kommer til at være i tælleren, y koefficienterne kommer til at være i nævneren
+                \\ \\ Jeg har lavet den både i Python og matlab: 
+                \[b = [0.18, 0.1, 0.3, 0.1, 0.18],\tab a = [1, -1.15, 1.5, -0.7, 0.25]\]
+                N = 100\\
+                For python så:\\
+                n, h = sig.dimpulse((b, a, 1), n = N) $\tab \leftarrow$ sig er scipy.signal\\ 
+                fig, ax = plt.subplots()\\
+                ax.stem(n, h[0])\\
+                plt.show()\\
+                \\
+                For matlab: \\
+                h = impz(b, a, N) \\
+                n = 0:1:99\\
+                stem(n, h)\\
+                \figsyv{0.25}                
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Beregn og plot output med \text{x[n] = u[n]}]
+                Lige til opgave. Det der måske ikke er så intuitivt er så hvordan laver x. 
+                En metode er boolean operationer på n til nyt output. 
+                $x = (n \geq 0)$ <- False hvis mindre end 0 True ellers, og det kan også ses som 0 eller 1. 
+                I python kan man også bare lave liste iteration
+                $x = [1 if i \geq 0 else 0 for i in n]$
+                \\
+                \\y = sig.lfilter(b, a, x) <- Python 
+                \\y = filter(b, a, x) <- Matlab 
+                \\stem(n, y) \\\\
+                Bonus: 
+                Filter er bare convolution. Convolve(x, h)[:100] sørger for at tage y'erne til de første 100 n'er. 
+                Resultatet er det samme 
+                \figotte{0.25}                 
+            \end{UnderOpgave}\clearpage
+            \begin{UnderOpgave}[Beregn og plot, men nu med convolution]
+                Præcis som jeg sluttede b opgaven, så går den her ud på at gøre filtrere med convolution
+                \figni{0.265}
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Filtrer med h direkte og sammenlign med de andre løsninger]
+                \[y[n] = filter(h, 1, x)\]
+                \figti{0.275}\\
+                Konklusionen må være, at Matlab og scipy følger en konvention, hvor at hvis a er 1 dimensionelt, så går den ud fra, at impulsresponsen er givet.
+                \[filter(b, a, x) \equiv filter(h, 1, x)\]
+                Hvad angår konvolution direkte, så skal man selv sørge for, hvad der skal ske med de ekstra n'er.               
+                
+            \end{UnderOpgave}
+        \end{Opgave}
+
+        \begin{Opgave}[Opgave 2.19 - Recursive filter på lydfil]
+            Givet et filter der kan beskrives ved 
+            \[y[n] = x[n] + ay[n - D], \tab F_s = 8192 \frac{samples}{s}, \tab D = \tau * F_s\]
+            \begin{UnderOpgave}[For $\tau = 50ms,\tab a = 0,7$ beskriv filteret og brug den til at processere handel lydfilen.]
+                \[\tau*F_s = 0,050*8192 = 409,6 \approx 410\] 
+                \[y[n] = x[n] + 0,7y[n - 410]\]
+                \[Y(z)/X(z) = 1/(1 - 0.7z^-410)\]
+                \[b = [0.7], a = [1, ..., 0.7]\]
+                I min python fil har jeg filtreret den. Det er meget sjovt at høre, for det lyder bare som en hurtig rumklang, som er uafbrudt.
+            \end{UnderOpgave}
+            Til de resterende opgaver, så har jeg også dem i python filen. Hvad angår hvilken en, som lyder mest naturlig, så må jeg gå med den første.
+            Det giver den her rumklang, og det kan være lidt forstyrrende. 
+            Men en forsinkelse på 500ms er interessant, og det er den fordi det lyder som om, at der bliver sunget i kanon.
+            Det lyder også lidt som om, at man er i en kirke, hvor afstanden er lidt længere, og rumklangen naturligt kommer lidt senere.
+
+            Så en forsinkelse på mere end et halv sekund gør, at det lyder mere som noget, der er meningen, at der bliver gjort.            
+        \end{Opgave}
+
+        \begin{Opgave}[Opgave 2.33 - Filtrer givne signaler]
+            \begin{UnderOpgave}[\text{$x[n] = 10*(u[n+10] - u[n-20])$}]
+                Med dette plot kommer jeg til at indse, at filteret vi har med at gøre her, 
+                er et filter som finder kanter / hældninger. For midten hvor x[n] = x[n-1] = 10, så er outputtet 0.
+                Så her er resultatet to impulser i enden.
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$n(u[n] - u[n-10]) + (20 - n) * (u[n-10] - u[n-20])$}]
+                Dette input er en pyramide form. Den har en ændring på hældningen i n, som er 1. Derfor vil der være forskelle i +- 1. 
+                Derfor giver det også god mening, at filteret medføre +- 1, som så bare viser hældningen til de n'er. 
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$cos(\pi*n/5 - \pi/2) * (u[n]- u[n-40])$}]
+                Den danner en ny harmonisk funktion
+            \end{UnderOpgave}
+            \figeleve{0.4}
+        \end{Opgave}
+
+        \begin{Opgave}[Opgave 2.40 - System egenskaber ud fra differens ligning]
+            \[y[n] = 10x[n]*cos(\pi*n/4 + \theta)\]
+            Hvad kan vi sige om systemet? $\theta$ er en konstant. 
+            LTI? Kausult? Stabilt? Lad mig bryde det op i dele.\\ 
+            $A*cos(b*N + c)$ kan man argumentere for er tids invariant. Den ændre jo størrelsen ud fra hvilken sample den er på. 
+            Men den er periodisk, så på den måde, så vil den være tids invariant ligegyldigt hvor mange perioder den har nået. 
+            Stabilt? Ja, så længe A ikke er uendelig. \\
+            Kausult? Ja, den tager kun værdier i nuværende n. $\frac{\pi}{4}$ ses som vinkelfrekvensen.
+            Lineær? Ja, en konstant ganget på det her, vil medføre en ny A, som er konstant. \\
+            Den vigtige del er så x[n]\\ 
+            Stabilt? $-N < x[n] < N \Rightarrow -M < y[n] < M$, kan jeg sige, så det er den
+            Lineær? $y_1 = x_1 * g, \tab x_2 = a * x_1, \tab y_2 = x_2 * g, \tab y_3 = a*y_1$
+            \[y_2 = y_3 ?\]
+            \[a*x_1 * g = a * x_1 * g\]
+            så det er den.\\
+            Time invariant? På samme måde kunne jeg her ændre samplen i inputtet, så outputtet og sammenligne. 
+            Men jeg kan se, at den ikke ændre sig med tiden. \\\\
+
+            Rettelse: Tids invariancen kan jeg ikke rigtig beskrive ud fra opdeling af systemet: 
+            Tids invariancen ser nemlig på om outputtet har andre dele end inputtet som ændres, med en ændring i sampling
+            Og det gør cos funktionen her også. Så på den måde, kan jeg konkludere, at den ikke er tidsinvariant
+
+            Systemet er: \\
+            - Lineært Ja \\ 
+            - Tids invariant Nej \\
+            - Kausul Ja \\
+            - Stabilt Ja \\
+
+        \end{Opgave}
+
+        \begin{Opgave}[Opgave 2.50 - Recursive System]
+            \[y[n] = ay[n-D] + x[n - D]\]
+            \begin{UnderOpgave}[Forklar forskellen på den her og den i formel 2.103]
+                \[y[n] = ay[n-D] + x[n],\tab \leftarrow 2.103\]
+                Forsinkelsen i inputtet gør, at forsinkelsen i outputtet ikke længere føles som et delay. 
+                \[D = 2\]
+                \[y[2] = ay[0] + x[0]\]
+                \[y[2] = ay[1] + x[1]\]\clearpage
+                \figtolv{0.05}
+                Så i stedet for en rumklang vil det her føles mere som en forstærkning. 
+            \end{UnderOpgave}
+            \begin{UnderOpgave}\end{UnderOpgave}
+            \begin{UnderOpgave}[Beregn og plot for a = 0.7]
+                Opgaven giver ikke meget. D er ikke givet, så jeg ved ikke hvad forsinkelsen er. 
+                Men jeg har sat D til 400 som et eksempel
+                \figtretten{0.30}                
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Gentag opgave 19 med dette nye reverb filter og sammenlign]
+                Måske er det bare indbil, men jeg føler det som jeg også beskrev før, at lyden bare bliver forstærket. \\
+                Jeg har implementeret det i python.                
+            \end{UnderOpgave}
+        \end{Opgave}
+    \end{kapitel}
+    \begin{kapitel}
+        \begin{Opgave}[Opgave 3.1 - Determine the z-transform and sketch the pole-zero plot with the ROC for each of the following sequences]
+            Givet formel 3.9 i bogen
+            \[X(z) = \sum_{n=-\inf}^{\inf}{x[n]*z^{-n}}\]
+            \begin{UnderOpgave}[\text{$x[n] = (\frac{1}{2})^n * (u[n] - u[n - 10])$}]
+                \[X(z) = \sum_{n=0}^{9}{(\frac{1}{2})^n * z^{-n}}\]
+                \[X(z) = \sum_{n=0}^{9}{(\frac{1}{2})^n * z^{-1^{n}}}\]
+                Bruger at $(a*b)^r = a^r * b^r$
+                \[X(z) = \sum_{n=0}^{9}{(\frac{1}{2} * z^{-1})^n}\]
+                ROC: $|\frac{z^{-1}}{2}| < 1,\tab\rightarrow\tab z > 0,5$
+                \[X(z) = \frac{1 - (\frac{z^{-1}}{2})^{10}}{1 - \frac{z^{-1}}{2}}\]
+                \[X(z) = \frac{1 - (\frac{z^{-10}}{2^{10}})}{1 - \frac{z^{-1}}{2}}\]
+                \[X(z) = \frac{1 - \frac{1}{2^{10}}*z^{-10}}{1 - \frac{1}{2}*z^{-1}}\]
+                \figfjorten{0.5}
+            \end{UnderOpgave}\vspace{20pt}
+            \begin{UnderOpgave}[\text{$x[n] = \frac{1}{2}^{|n|}$}]
+                \[X(z) = \sum_{n=-\infty}^{\infty}{\frac{1}{2}^{|n|} * z^{-n}}\]
+                Hvis jeg lægger mærke til symmetrien, så er størrelsen på venstre side af n = 0 lige med højre siden. \\
+                Det er to uendelige summer sat sammen og fratrukket n = 0.\\ 
+
+                \[X(z) = \sum_{n=0}^{\infty}{\frac{1}{2}^n * z^{-n}} + \sum_{m=0}^{\infty}{\frac{1}{2}^m * z^{m}} - (\frac{1}{2})^0 * z^0, \tab m = -n\]
+                \[X(z) = \sum_{n=0}^{\infty}{(\frac{z^{-1}}{2})^n} + \sum_{m=0}^{\infty}{(\frac{z}{2})^m} - 1, \tab m = -n\]
+                
+                For uendelige summer har jeg at: 
+                \[\sum_{n=0}^{\infty}{a^n} = \frac{1}{1 - a}, \tab |a| < 1\]
+                \\
+                Det betyder at $|z^{-1} * 0,5| < 1 og |z * 0,5| < 1$
+                \[0.5 < |z| < 2\]
+                \[X(z) = \frac{1}{1 - 0,5*z^{-1}} + \frac{1}{1 - 0,5*z} - 1\]
+                \[X(z) = \frac{1}{1 - 0,5*z^{-1}} + \frac{1}{1 - 0,5*z} - \frac{1 - 0,5*z}{1 - 0,5*z}\]
+                \[X(z) = \frac{1}{1 - 0,5*z^{-1}} + \frac{0.5z}{1 - 0,5*z}\]
+                Det kan udledes til at være: 
+                \[X(z) = -\frac{3*z}{2z^2 -5z+2},\tab 2 > |z| > \frac{1}{2}\]
+                \figfemten{0.4}             
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$x[n] = 5^{|n|}$}]
+                \[X(z) = \sum_{n=-\infty}^{\infty}{5^{|n|} * z^{-n}}\]
+                Igen kan jeg skrive det op vha. symmetri. \\
+                \[X(z) = \sum_{n=0}^{\infty}{5^{n} * z^{-n}} + \sum_{m=0}^{\infty}{5^{-m} * z^{m}} - 1\]
+                \[X(z) = \sum_{n=0}^{\infty}{(5*z^{-1})^{n}} + \sum_{m=0}^{\infty}{(\frac{z}{5})^m} - 1\]
+                Og med kriteriet for uendelige summer |a| < 1. \\
+                \[|5*z^{-1}| < 1, \tab \frac{z}{5} < 1\]
+                \[5 > z > 5, \tab\rightarrow\tab z = 5\]
+                \[X(z) = \frac{1}{1 - 5*z^{-1}} + \frac{1}{1 - 0.2z} - 1\]
+                \[X(z) = \frac{1}{1 - 5*z^{-1}} + \frac{1}{1 - 0.2z} - \frac{1 - 0.2z}{1 - 0.2z}\]
+                \[X(z) = \frac{1}{1 - 5*z^{-1}} + \frac{0.2z}{1 - 0.2z}\]
+                \[X(z) = \frac{(1 - 0.2z) + 0.2z*(1 - 5z^{-1})}{1+1 - 0.2z - 5z^{-1}}\]
+                \[X(z) = \frac{0}{2 - 0.2z - 5z^{-1}}\]
+                Og her begynder det at se ekstra mærkeligt ud, Wolfram alpha har også bare konkluderet at den ikke konvergerer. 
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$x[n] = (1/2)^n * cos(\pi * n/3)*u[n]$}, forkert]
+                \[X(z) = \sum_{n=\infty}^{\infty}{(1/2)^n * cos(\pi * n/3)*u[n] * z^{-n}}\]
+                \[X(z) = \sum_{n=\infty}^{\infty}{(1/2)^n * \frac{e^{j\pi * n/3} + e^{-j\pi * n/3}}{2}*u[n] * z^{-n}} \tab\leftarrow\tab \cos(\theta) = \frac{e^{j\theta} + e^{-j\theta}}{2}\]
+                \[X(z) = \frac{1}{2} * \sum_{n=\infty}^{\infty}{(1/2)^n * (e^{j\frac{\pi}{3}} + e^{-j\frac{\pi}{3}})^n*u[n] * z^{-n}}\]
+                \[X(z) = \frac{1}{2} * \sum_{n=0}^{\infty}{(0.5 * (e^{j\frac{\pi}{3}} + e^{-j\frac{\pi}{3}}) * z^{-1})^n }\]
+                \[|\frac{z^{-1}}{2} * (e^{j\frac{\pi}{3}} + e^{-j\frac{\pi}{3}})| < 1\]
+                $e^{j\frac{\pi}{3}} + e^{-j\frac{\pi}{3}}$ udligner de imaginære værdier, og der er kun reele værdier tilbage. $\cos(\frac{\pi}{3}) + \cos(\frac{-\pi}{3}) = 1$
+                Så derfor følger de eksponentielle funktioner hinanden, og de tager værdier indenfor $[-1; 1]$.\\
+                Da det er størrelserne jeg er interesserede i, så vil $-1$ give det samme som $1$.\\
+                \[|\frac{z^{-1}}{2}| < 1, \tab |z| > \frac{1}{2}\]
+                \[X(z) = \frac{1}{2} * \frac{1}{1 - (0.5 * (e^{j\frac{\pi}{3}} + e^{-j\frac{\pi}{3}}) * z^{-1})}\]
+                \[X(z) = \frac{1}{2} * \frac{1}{1 - (\cos(\frac{\pi}{3}) * z^{-1})}\]
+                \[X(z) = \frac{1}{2} * \frac{1}{1 - (0.5 * z^{-1})}, \tab \leftarrow \tab \text{specialt tilfælde at } cos(\frac{\pi}{3}) = 0.5\]
+                \[X(z) = \frac{1}{2 - z^{-1}},\tab \leftarrow |z| > \frac{1}{2}\]
+                Jeg har prøvet at løse den med wolfram alpha. Dens resultat ser noget anderledes ud, men er nok det samme. Den har også betingelsen at størrelsen skal være mere end 0,5.
+                \figseksten{0.5}
+            \end{UnderOpgave}
+        \end{Opgave}
+        \begin{Opgave}[Opgave 3.3 - Bevis det følgende z transformerede par, forkert før men rettet]
+            \[x[n] = (r^n * sin(\omega_0 * n)*u[n]) \overset{\mathscr{Z}}{\leftrightarrow} X(z) = \frac{r*sin(\omega_0)*z^{-1}}{1 - 2*(r*cos(\omega_0) * z^{-1}) + r^2*z^{-2}}, |z| > r\]
+            Så lad mig prøve at få det bevist.
+            \[X(z) = \sum_{n=-\infty}^{\infty}{r^n * sin(\omega_0 * n) * u[n] * z^{-n}}\]
+            \[X(z) = \sum_{n=-0}^{\infty}{r^n * sin(\omega_0 * n) * z^{-n}}\]
+            \[X(z) = \sum_{n=-0}^{\infty}{r^n * \sinTilEksponentiel{\omega_0 * n} * z^{-n}}\]
+            \[X(z) = \frac{1}{2j} * \sum_{n=-0}^{\infty}{(r * (e^{j\omega_0} - e^{-j\omega_0}) * z^{-1})^n}\]
+            \[X(z) = \sum_{n=-0}^{\infty}{(r * sin(\omega_0) * z^{-1})^n}\]
+            Så har jeg et udtryk til ROC. Sinus tager 1 som dens største værdi. 
+            \[|r * 1 * z^{-1}| < 1, \tab |z| > r \]
+            \[X(z) = {\frac{1}{1 - r * sin(\omega_0) * z^{-1}}}\]
+            \[X(z) = {\frac{r * sin(\omega_0) * z^{-1}}{r * sin(\omega_0) * z^{-1} - r * sin(\omega_0) * z^{-1} * r * sin(\omega_0) * z^{-1}}}\]
+            ... 
+            Beviset splitter de eksponentielle værdier. Og jeg tror jeg har fundet min fejl i det jeg gør.
+            Først siger jeg :
+            \[\cos(\theta*n) = \cosTilEksponentiel{\theta*n} \text{så}\]  
+            \[\cos(\theta*n) = (\cosTilEksponentiel{\theta})^n \text{og}\]
+            \[\cos(\theta*n) \neq \cos(\theta)^n\]
+            \\\\\\
+            Lad mig prøve igen.
+            \[X(z) = \sum_{n=-0}^{\infty}{r^n * \sinTilEksponentiel{\omega_0 * n} * z^{-n}}\]
+            \[X(z) = \frac{1}{2j} * \sum_{n=-0}^{\infty}{r^n * (e^{j\omega_0*n} - e^{-j\omega_0*n}) * z^{-n}}\]
+            \[X(z) = \frac{1}{2j} * (\sum_{n=-0}^{\infty}{r^n * e^{j\omega_0*n} * z^{-n}} - \sum_{n=-0}^{\infty}{r^n * e^{-j\omega_0*n} * z^{-n}})\]
+            \[X(z) = \frac{1}{2j} * (\sum_{n=-0}^{\infty}{(r * e^{j\omega_0} * z^{-1})^n} - \sum_{n=-0}^{\infty}{(r * e^{-j\omega_0} * z^{-1})^n})\]
+            Så jeg kan finde betingelserne: 
+            \[|r*e^{j\omega_0} * z^{-1}| < 1 \cap |r*e^{-j\omega_0}*z^{-1}| < 1\]
+            \[|z| > re^{j\omega_0} \cap |z| > re^{-j\omega_0}\]
+            Enhedscirklens størrelse er konstant 1, så når man snakker om størrelsen, så ændre det sig ikke. 
+            \[|z| > r\]
+            
+            \[X(z) = \frac{1}{2j} * (\frac{1}{1 - r * e^{j\omega_0} * z^{-1}} - \frac{1}{1 - r * e^{-j\omega_0} * z^{-1}})\]
+            \[X(z) = \frac{1}{2j} * (\frac{1 - r * e^{-j\omega_0} * z^{-1}}{1 - r * e^{-j\omega_0} * z^{-1} - r * e^{j\omega_0} * z^{-1} + r^2 * z^{-2}} - \frac{1 - r * e^{j\omega_0} * z^{-1}}{1 - r * e^{-j\omega_0} * z^{-1} - r * e^{j\omega_0} * z^{-1} + r^2 * z^{-2}})\]
+            \[X(z) = \frac{e^{j\omega_0} + e^{-j\omega_0}}{2j} * (\frac{r * z^{-1}}{1 - r * z^{-1} * (e^{j\omega_0} + e^{-j\omega_0}) + r^2 * z^{-2}})\]
+            \[X(z) = \frac{r * z^{-1} * sin(\omega_0)}{1 - r * z^{-1} * 2*cos(\omega_0) + r^2 * z^{-2}}\]
+            Jeg har forklaret mig til hvorfor min værdi grænser til at være over r. Jeg ved ikke om det er helt gyldigt. \\
+            Men sammenhængen har jeg nu bevist.
+        \end{Opgave}
+        \begin{Opgave}[Opgave 3.4 - Partial fraction til at bestemme input sekvenser ud fra Z transformationerne]
+            \begin{Udklip}
+                \begin{UnderOpgave}[\text{$X(z) = \filterZ{1, -1/3}{1, 1, -2}$, ROC er hele spektret?}]
+                    Det er opsat til selv at beregne det, men jeg får python til det. 
+                    Jeg får at inputtet kan beskrives som: 
+                    \[X(z) = \filterZ{\frac{7}{9}}{1, 2} + \filterZ{\frac{2}{9}}{1, -1}\]
+                    Hvis jeg ser på Z transformations parene, og antager lineæritet. \\
+                    \[\frac{1}{1 - a*z^{-1}} \leftrightarrow a^ku[k] | -a^ku[-k-1]\] 
+                    Så som jeg ser, så kan det være enten eller af de to par. Hvis jeg antager, at systemet er kausult, som de fleste er. 
+                    \[\frac{1}{1 - a*z^{-1}} \leftrightarrow a^ku[k], |z| > a\]
+                    \[x[n] = \frac{7}{9} * (-2)^n * u[n] + \frac{2}{9} * 1^n * u[n] \]
+                    ROC: $|z| > (-2),\tab\cap\tab |z| > 1$\\
+                    Den første ROC er ret mærkelig, fordi jeg har fået en negativ coefficient. Jeg ved ikke hvad jeg skal gøre med den information.
+                \end{UnderOpgave}
+                \begin{UnderOpgave}[\text{$X(z) = \filterZ{1, -1}{1, 0.25}, \tab$x[n] is causal}]
+                    Jeg har brug python til at beskrive den med partial fraction.
+                    \[X(z) = 4 - \frac{3}{1 - 0,25*z^{-1}}\]
+                    \[X(z) \tab\overset{\mathscr{Z}}{\leftrightarrow}\tab x[n] = 4 * \delta[n] -  3*(0,25)^n * u[n]\]
+                    ROC: $|z| > 0.25 \tab\cap\tab$ Hele spektret.\\ Så den er kun begrænset af at være større end 0,25. 
+                \end{UnderOpgave}
+                \begin{UnderOpgave}[\text{$X(z) = \filterZ{1}{1, 0.75, 0.125},\tab$ x[n] is absolutely summable}]
+                    \[X(z) = \filterZ{2}{1, 0.5} - \filterZ{1}{1, 0.25}\]
+                    Hvis jeg antager kausulitet igen: 
+                    \[X(z) \tab\overset{\mathscr{Z}}{\leftrightarrow}\tab x[n] = 2 * (-0,5)^n * u[n] - (-0,25)^n * u[n]\]
+                    ROC: $|z| > -0,25 \tab\cap\tab |z| > -0,5$ \\
+                    Så igen nogle virkelige mærkelige grænser på grund af de negative a'ere. 
+                    \\
+                    Jeg må lige se på hans løsninger... men i morgen
+                \end{UnderOpgave}\setcounter{alfabetTabular}{0}
+            \end{Udklip}
+            
+            \begin{UnderOpgave}[\text{$X(z) = \filterZ{1, -1/3}{1, 1, -2}$, Alle ROCs skal findes}]
+                Jeg har udledt for nogle enkelte eksponetielle funktioner: 
+                \[====================================                                                                                          \]
+                \[x_1[n] = a^n*u[n] \transformation{Z} X_1(z) = \frac{1}{1 - a*z^{-1}}, \tab |z| > |a|                                          \]
+                \[x_2[n] = a^{-n}*u[-1-n] \transformation{Z} X_2(z) = -\frac{1}{1 - \frac{1}{a}*z^{-1}}, \tab |z| < |\frac{1}{a}|                \]
+                \[x_3[n] = a^n*u[-1-n] \transformation{Z} X_3(z) = - \frac{1}{1 - a*z^{-1}}, \tab |z|<|a|                                       \]
+                \[====================================                                                                                          \]
+                Man kan sige at hvis $a_2 = \frac{1}{a_1}$ Så kan man også forklare $x_2$ ud fra $x_3$, men hvor koefficienten har andre grænser. 
+                \[X(z) = \frac{\frac{7}{9}}{1 + 2*z^{-1}} + \frac{\frac{2}{9}}{1 - 1z*^{-1}} \]
+                Jeg skal finde alle dens mulige ROCs. \\
+                Kausult system: 
+                \[x[n] = \frac{7}{9} * (-2)^n * u[n]        + \frac{2}{9} * 1^n * u[n]   , \tab ROC: |z| > 2 \cap |z| > 1 \tab \rightarrow \tab |z| > 1\]
+                Antikausult system: 
+                \[x[n] = -\frac{7}{9} * (-2)^n * u[-1 -n]   - \frac{2}{9} * 1^n * u[-1-n], \tab ROC: |z| < 2 \cap |z| < 1 \tab \rightarrow \tab |z| < 1\]
+                Begge dele: 
+                \[x[n] = \frac{7}{9} * (-2)^n * u[n]        - \frac{2}{9} * 1^n * u[-1-n], \tab ROC: |z| > 2 \cap |z| < 1 \tab \rightarrow \tab 1 > |z| > 2 \tab ?\]
+                Ugyldige grænser, så den vil altid være ustabil, hvad med den anden kombination? 
+                \[x[n] = -\frac{7}{9} * (-2)^n * u[-1 -n]   + \frac{2}{9} * 1^n * u[n]   , \tab ROC: |z| < 2 \cap |z| > 1 \tab \rightarrow \tab 2 > |z| > 1\]
+                Det giver mening, da kausulitet medfører $|z| > |a_1|$, antikausulitet medfører $|z| < |a_2|$
+                \[|a_2| > |z| > |a_1|\]
+                Så kun i det tilfælde hvor at $a_2 > a_1$ kan systemet have begge. Det er det når 2 > 1, så første den er krævet at være antikausult mens anden del kan være kausult. Det er hvad jeg ser. \\\\\\
+                \[===============================================\] 
+                \[x[n] = \frac{7}{9} * (-2)^n * u[n]        + \frac{2}{9} * 1^n * u[n]   , \tab ROC: |z| > 2 \cap |z| > 1 \tab \rightarrow \tab |z| > 1\]
+                \[x[n] = -\frac{7}{9} * (-2)^n * u[-1 -n]   - \frac{2}{9} * 1^n * u[-1-n], \tab ROC: |z| < 2 \cap |z| < 1 \tab \rightarrow \tab |z| < 1\]
+                \[x[n] = -\frac{7}{9} * (-2)^n * u[-1 -n]   + \frac{2}{9} * 1^n * u[n]   , \tab ROC: |z| < 2 \cap |z| > 1 \tab \rightarrow \tab 2 > |z| > 1\]
+                \[===============================================\] 
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$X(z) = \filterZ{1, -1}{1, -0.25}, \tab x[n]$ er kausul.}]
+                \[X(z) = 4 - \frac{3}{1 -0.25z^{-1}}\]
+                Kausulalitet medfører ROC udenfor pol for eksponentielle funktioner. For impuls funktionen, så har den ROC i alt. 
+                \[==============================\]
+                \[x[n] = 3*(0.25)^n*u[n] + 4 * \delta[n], \tab ROC: |z| > 0.25\]
+                \[==============================\]
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$X(z) = \frac{1}{(1 - 0.5z^{-1})*(1 - 0.25z^{-1})}, \tab x[n]$ er absolute summable}]
+                At den er absolute summeringsbar betyder at 
+                \[\sum_{n=-\infty}^{\infty} |x[n]| < \infty \]
+                Men hvad kan jeg bruge det til? Det fortæller at systemet er stabilt. 
+                For kausalitet så har A værdierne positive n'er i eksponenten. $\lim_{n->\infty}{a^n} = 0, \tab |a| < 1$ \\
+                For antikausulitet vil ikke ikke symmetriske eksponentiel aftagende funktion tage negative n'er i eksponenten $\lim_{n->-\infty}{a^n} = \infty, |a| < 1$ \\
+                Da jeg ikke har hørt noget om at inputtet er symmetrisk om n = 0, så må inputtet være kausult. 
+                Fra min formelsamling: 
+                \[x[n] = a^n*u[n] \transformation{Z} X(z) = \frac{1}{1 - a*z^{-1}}, \tab |z| > |a|                                          \]
+                Bruger jeg så som transformationspar for mit tilfælde
+                \[X(z) = \filterZ{2}{1, 0.5} - \filterZ{1}{1, 0.25}\]
+                \[================================\]
+                \[x[n] = 2*(0.5)^n * u[n] - (0.25)^n * u[n], \tab ROC: |z| > 0.5\]
+                \[================================\]
+                Jeg kunne også have udledt den som værende symmetrisk om n = 0, det havde også opfyldt kritieret. Men jeg kommer ikke til at arbejde mere for nu.
+            \end{UnderOpgave}
+        \end{Opgave}
+    \end{kapitel}
+\end{Opgaver}

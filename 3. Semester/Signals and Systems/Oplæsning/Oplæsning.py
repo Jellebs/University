@@ -5,48 +5,6 @@ import scipy.signal as sig
 import numpy as np
 import matplotlib.pyplot as plt
 
-def bodeplot(Xejws, dB = False, wrange = None, *args, **kwargs): 
-    wrange = (-1, 1, 100) if wrange == None else wrange
-    f = np.linspace(wrange[0], wrange[1], wrange[2]) if dB == False else np.logspace(wrange[0], wrange[1], wrange[2])
-    
-    w = 2*np.pi*f
-    
-    if type(Xejws) != list: 
-        fig, ax = plt.subplots(2, 1, sharex= True)
-        Xejw = lambdify(symbols("w"), Xejws)        # Lav numerisk funktion 
-        Xejw = Xejw(w)                              # Lav punkter ud fra w.
-        magnitude = np.abs(Xejw) if dB == False else 20*np.log10(np.abs(Xejw))
-        phase = np.rad2deg(np.angle(Xejw))
-        ax[0].set_ylabel("$|X(e^{jw})|$" if dB == False else "$|X(e^{jw})|_dB$"); ax[1].set_ylabel("$\\angle X(e^{jw})$")
-        ax[0].grid(True); ax[1].grid(True)
-        if dB == True: ax[0].set_xscale("log"); ax[1].set_xscale("log")
-        ax[0].plot(w, magnitude, label = "$X(e^{jw})$", *args, **kwargs) 
-        ax[1].plot(w, phase) 
-        fig.text(0.5, 0.04, '$\omega$', ha='center')
-        fig.legend()
-        plt.show()
-        return
-    
-    # Setup
-    fig, ax = plt.subplots(2, len(Xejws))
-    colors = iter(plt.cm.rainbow(np.linspace(0, 1, len(Xejws) + 1)))
-    fig.text(0.5, 0.04, '$\omega$', ha='center')
-    ax[0, 0].set_ylabel("$|X(e^{jw})|$" if dB == False else "$|X(e^{jw})|_dB$"); ax[1, 0].set_ylabel("$\\angle X(e^{jw})$")
-    # ax[0, 0].set_ylabel("$|X(e^jw)|$" if dB == False else "$|X(e^jw)|_dB$"); ax[1, 0].set_ylabel("$\\angle X(e^jw)$")
-    for i in range(len(Xejws)): 
-        Xejw = lambdify(symbols("w"), Xejws[i])        # Lav numerisk funktion 
-        Xejw = Xejw(w)            
-        magnitude = np.abs(Xejw) if dB == False else 20*np.log10(np.abs(Xejw))
-        phase = np.angle(Xejw)
-        
-        color = next(colors)
-        
-        if dB == True: ax[0, i].set_xscale("log"); ax[1, i].set_xscale("log")
-        ax[0, i].plot(w, magnitude, label = f"$X(e^jw))_{i + 1}$", color = color)
-        ax[1, i].plot(w, phase, color = color)
-    fig.legend()
-    plt.show()
-
 
 class Opgave1_21(Opgave): 
     """ 

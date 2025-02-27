@@ -1,0 +1,87 @@
+\begin{Udledninger}
+    \begin{underrubrik}[Fra convolution til differens ligning]
+        Antaget at responsen kan beskriveses som et eksponentiel impuls respons.
+        \[h[n] = ba^nu[n],\tab -1<a<1\]
+        \[y[n] = x[n] * h[n] = bx[n] + bax[n-1] + ba^2x[n-2] + ... + ba^Nx[n-N]\]
+        \[y[n] = x[n] * h[n] = bx[n] + a*(bx[n-1] + bax[n-2] + ... + ba^{N-1}x[n-N])\]
+        \[y[n] = x[n] * h[n] = bx[n] + a*y[n-1]\]
+        Pa den måde har jeg gået fra en ligning med potentiel krav på uendelig hukommelse,
+        til et system hvor man kun skal kende det tidligere output. 
+        \figto{1}\\
+    \end{underrubrik}
+    \begin{underrubrik}[Z transformation - Kompleks konjugerede poler]
+        En egenskab man kan bruge, når polerne er kompleks konjugerede. 
+        Givet eksemplet. 
+        \[X(z) = \filterZ{1, 1}{1, -1, 1/2}, \tab p = \frac{1}{\sqrt{2}} * e^{\pm j\pi/4}\]
+        Der ses så, at polerne er kompleks konjugerede
+        Så laves der partial fraction på den
+        \[X(z) = \filterZ{1, 1}{1, -1, 1/2} = \frac{A_1}{1 - p_1z^-1} + \frac{A_2}{1 - p_2z^-1}\]
+        Og fra den fåes ligningen: 
+        \[z + 1 = A_1 * (z - p_2) + A_2 * (z - p_1)\]
+        Vi kan udregne, at koefficienterne A1 og A2 også skal være hinandens kompleks konjugerede.
+    
+        Da den Z transfomerede kunne beskrives som to simple funktioner får jeg, med koefficienter ganget på. 
+        Linearitets princippet antages at være gældende her. 
+        \[x[n] = A_1*(p_1)^n*u[n] + A_1^\star * (p_1\star)^n*u[n]\]
+        Udvidet til eksponentiel form \[A_1 = Ae^{j\omega}, \quad p_1 = re^{j\omega_0}\]
+        \[x[n] = Ar^n * (e^{j\omega_0*n} * e^{j\theta} + e^{-j\omega_0*n} * e^{-j\theta})u[n]\]
+        Og da jeg ved at 
+        \[cos(\theta) = \frac{e^{j\theta} + e^{-j\theta}}{2}\]
+        \[x[n] = 2 * Ar^n * \cos(\omega_0 * n + \theta)u[n]\]
+        Og hvis jeg husker hvordan jeg har beskrevet A, theta, omega0 og r
+        \[x[n] = \frac{\sqrt{10}}{\sqrt{2}} * cos(\frac{\pi}{4} -71.56^o)u[n] = \sqrt{5} * cos(\frac{\pi}{4} -71.56^o)u[n]\]
+        Så ved at indse, at der var kompleks konjugerede poler, så kunne jeg have indset, at det skulle have været en harmonisk funktion
+    \end{underrubrik}
+    \begin{underrubrik}[Z transformation - Kausulitet]
+        Givet et z transformeret input: 
+        \[X(z) = \frac{1 + z^-1}{(1 - z^-1)*(1 - 0,5z*-1)}\]
+        Så ved vi at det kan beskrives som to simple funktioner, med linearitet til hver at have en amplitude koefficient på sig. 
+        I så fald så ved vi, at hvis $|z| > |a|$, så er inputtet en kausul serie. Antikausult hvis $|z| < |a|$, med a her værende 1. 
+        Og så kan vi konkludere transformationen.
+        \[x[n] = 4u[n] - 3(\frac{1}{2})^n*u[n]\]
+    \end{underrubrik}
+    \begin{underrubrik}[Z transformation - Eksponentiel aftagende]
+        \[X(z) = \filterZ{7/9}{1, 2} + \filterZ{2/9}{1, -1} \]
+        Og jeg skal bestemme det for alle dens mulige ROCs. Jeg ved at det er en eksponentiel aftagende funktion, så lad mig se hvordan den er beskrevet.
+        
+        \[x_1[n] = a^n*u[n] \transformation{Z} X(z) = \sum_{n=-\infty}^{-\infty}  {a^n*u[n]*z^{-n}} \]
+        \[x_1[n] \transformation{Z} X(z) = \sum_{n=0}^{-\infty}                        {a^n*z^{-n}} \]
+        \[|\frac{a}{z}| < 1, \tab |z| > |a|                                                         \]
+        \[================================                                                          \]
+        \[x_1[n] = a^n*u[n] \transformation{Z} X_1(z) = \frac{1}{1 - a*z^{-1}}, \tab |z| > |a|      \]
+        \[================================                                                          \]
+    \end{underrubrik}
+    \begin{underrubrik}[Z transformation - Anti kausul eksponentiel aftagende]
+        \[x_2[n] = a^{-n}*u[-1-n] \transformation{Z} X_2(z) = \sum_{n=-\infty}^{\infty} {a^{-n}*u[-1-n]*z^{-n}}                     \]
+        \[x_2[n] \transformation{Z} X_2(z) = \sum_{n=-\infty}^{-1}                      {a^{-n}*z^{-n}}                             \]
+        \[X_2(z) = \sum_{m = 1}^{\infty}                                                {a^{m}*z^{m}}                               \]
+        \[X_2(z) = \sum_{m = 0}^{\infty}                                                {(a*z)^m}                                - 1\]
+        \[|a*z| < 1, \tab |z| < |\frac{1}{a}|                                                                                       \]
+        \[X_2(z) = \frac{1}{1 - a*z} - 1                                                                                            \]
+        \[X_2(z) = \frac{1}{1 - a*z} - \frac{1 - a*z}{1 - a*z}                                                                      \]
+        \[X_2(z) = \frac{a*z}{1 - a*z}                                                                                              \]
+        \[X_2(z) = \frac{z}{\frac{1}{a} - z}                                                                                        \]
+        \[X_2(z) = \frac{1}{\frac{1}{a}*z^{-1} - 1}                                                                                 \]
+        \[X_2(z) = -\frac{1}{1 - \frac{1}{a}*z^{-1}}                                                                                \]
+        \[=====================================                                                                                     \]
+        \[x_2[n] = a^{-n}*u[-1-n] \transformation{Z} X_2(z) = -\frac{1}{1 - \frac{1}{a}*z^{-1}}, \tab |z| < |\frac{1}{a}|           \]
+        \[=====================================                                                                                     \]
+
+    \end{underrubrik}
+    \begin{underrubrik}[Z transformation - Anti kausul eksponentiel]
+        \[x_3[n] = a^n*u[-1-n] \transformation{Z} X_3(z) = \sum_{n=-\infty}^{\infty}     {a^n*u[-1-n]*z^{-n}}\]
+        \[x_3[n] \transformation{Z} X_3(z) = \sum_{n=-\infty}^{-1}                               {a^n*z^{-n}}\]
+        \[X_3(z) = \sum_{m = 1}^{-\infty}                                                   {(\frac{z}{a})^m}\]
+        \[X_3(z) = \sum_{m = 0}^{-\infty}                                               {(\frac{z}{a})^m} - 1\]
+        \[|\frac{z}{a}|<1, \tab |z|<|a|\]
+        \[X_3(z) = \frac{1}{1 - \frac{z}{a}} - 1\]
+        \[X_3(z) = \frac{1}{1 - \frac{z}{a}} - \frac{1 - \frac{z}{a}}{1 - \frac{z}{a}}\]
+        \[X_3(z) = \frac{\frac{z}{a}}{1 - \frac{z}{a}}\]
+        \[X_3(z) = \frac{z}{a - z}\]
+        \[X_3(z) = \frac{1}{a*z^{-1} - 1}\]
+        \[X_3(z) = - \frac{1}{1 - a*z^{-1}}\]
+        \[====================================\]
+        \[x_3[n] = a^n*u[-1-n] \transformation{Z} X_3(z) = - \frac{1}{1 - a*z^{-1}}, \tab |z|<|a|\]
+        \[====================================\]
+    \end{underrubrik} 
+\end{Udledninger}
