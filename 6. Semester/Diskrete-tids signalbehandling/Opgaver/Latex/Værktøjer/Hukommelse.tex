@@ -1,0 +1,60 @@
+% Til at folde lister ud med 
+\newcounter{vaerdiet}
+\newcounter{vaerdito}                           % Numerisk 
+\newcounter{vaerditre}
+\newcounter{vaerdifire}
+\newcommand{\vaerdifem}{-\infty}
+\newcommand{\vaerdiseks}{\infty}                % Symbolsk
+\newcommand{\vaerdisyv}{-\infty}
+\newcommand{\vaerdiotte}{\infty}                
+
+\def\register#1#2{\registerAllokering#2\nil{#1}}
+\def\registerAllokering#1,#2\nil#3{
+    \ifcase#3                                   % Register 1 ( Numerisk)
+        \setcounter{vaerdiet}{#2}
+        \setcounter{vaerdito}{#1}
+    \or                                         % Register 2 ( Numerisk)
+        \setcounter{vaerditre}{#2}
+        \setcounter{vaerdifire}{#1}
+    \or                                         % Register 3 ( Symbols)
+        \edef\vaerdifem{#2}                
+        \edef\vaerdiseks{#1}
+    \or 
+        \edef\vaerdisyv{#2}                
+        \edef\vaerdiotte{#1}
+    \else
+        %   
+    \fi
+}
+\def\registeret#1,#2\nil{%
+    \setcounter{vaerdiet}{#1}
+    \setcounter{vaerdito}{#2}
+}%
+\def\registerto#1,#2\nil{%
+    \setcounter{vaerditre}{#1}
+    \setcounter{vaerdifire}{#2}
+}%
+\def\registertre#1,#2\nil{%                     % Symbolsk register
+    \edef\vaerdifem{#1}                
+    \edef\vaerdiseks{#2}
+}%
+\def\registerfire#1,#2\nil{%                     % Symbolsk register
+    \edef\vaerdisyv{#1}                
+    \edef\vaerdiotte{#2}
+}%
+\newcommand{\udfold}[2]{
+    \ifnum#1=1
+        % \registeret#2\nil
+        \registerto#2\nil           % Numerisk
+    \else
+        \ifnum#1=0
+            \registeret#2\nil       % Numerisk
+        \else   
+            \ifnum#1=2
+                \registertre#2\nil  % Symbolsk 
+            \else
+                \registerfire#2\nil % Symbolsk 
+            \fi
+        \fi
+    \fi
+}

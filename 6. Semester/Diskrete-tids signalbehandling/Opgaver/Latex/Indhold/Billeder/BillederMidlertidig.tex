@@ -1,38 +1,79 @@
 \graphicspath{{Indhold/Billeder/}}
 % Indstillinger: 
-% Billednr:15
+% Billednr:46
 
 \newcommand{\fetchBillede}[2]{\includegraphics[scale=#2]{#1}}
 \newcommand{\fetchSVG}[2]{\includesvg[scale=#2]{#1}} % width=1.0\textwidth
 \newcommand{\fig}[2]{
-    \begin{figure}[h]
-        \fetchBillede{#1}{#2}
+    \begin{figure}[h!]
+        % \centering
+        % \top
+        \makebox[\textwidth]{
+            \fetchBillede{#1}{#2}
+        }
         \caption{#1}
         \label{fig:#1}
     \end{figure}
 }
+
+
+
 \newcommand{\figSVG}[2]{
-    \begin{figure}[h]
-        \fetchSVG{#1}{#2}
+    \begin{figure}[h!]
+        \centering
+        \makebox[\textwidth]{
+            \fetchSVG{#1}{#2}
+        }
         \caption{#1}
         \label{fig:#1}
     \end{figure}
 }
+
 
 % \figen{0.2} => scaling = 0.2
-\newcommand{\figen}[1]{\fig{Blokdiagram kapitel 2.png}{#1}}
-\newcommand{\figto}[1]{\figSVG{Feedback system.svg}{#1}}
-\newcommand{\figtre}[1]{\fig{Opgave 2.1.png}{#1}}
-\newcommand{\figfire}[1]{\fig{Opgave 2.3.png}{#1}}
-\newcommand{\figfem}[1]{\fig{Opgave 2.5.png}{#1}}
-\newcommand{\figseks}[1]{\fig{Opgave til kapitel 2.png}{#1}}
-\newcommand{\figsyv}[1]{\fig{Opgave 2.17.a.png}{#1}}
-\newcommand{\figotte}[1]{\fig{Opgave 2.17.b.png}{#1}}
-\newcommand{\figni}[1]{\fig{Opgave 2.17.c.png}{#1}}
-\newcommand{\figti}[1]{\fig{Opgave 2.17.png}{#1}}
-\newcommand{\figeleve}[1]{\fig{Opgave 2.33.png}{#1}}
-\newcommand{\figtolv}[1]{\figSVG{Opgave 2.50.svg}{#1}}
-\newcommand{\figtretten}[1]{\fig{Opgave 2.50.png}{#1}}
-\newcommand{\figfjorten}[1]{\fig{Opgave 3.1.a.png}{#1}}
-\newcommand{\figfemten}[1]{\fig{Opgave 3.1.b.png}{#1}}
-
+\newcommand{\figen}[1]{\fig{Z transformations egenskaber}{#1}}
+\newcommand{\figto}[1]{\fig{Blokdiagram kapitel 2.png}{#1}}
+\newcommand{\figtre}[1]{\figSVG{Feedback system.svg}{#1}}
+\newcommand{\figfire}[1]{\fig{Opgave 2.1.png}{#1}}
+\newcommand{\figfem}[1]{\fig{Opgave 2.3.png}{#1}}
+\newcommand{\figseks}[1]{\fig{Opgave 2.5.png}{#1}}
+\newcommand{\figsyv}[1]{\fig{Opgave til kapitel 2.png}{#1}}
+\newcommand{\figotte}[1]{\fig{Opgave 2.17.a.png}{#1}}
+\newcommand{\figni}[1]{\fig{Opgave 2.17.b.png}{#1}}
+\newcommand{\figti}[1]{\fig{Opgave 2.17.c.png}{#1}}
+\newcommand{\figeleve}[1]{\fig{Opgave 2.17.png}{#1}}
+\newcommand{\figtolv}[1]{\fig{Opgave 2.33.png}{#1}}
+\newcommand{\figtretten}[1]{\figSVG{Opgave 2.50.svg}{#1}}
+\newcommand{\figfjorten}[1]{\fig{Opgave 2.50.png}{#1}}
+\newcommand{\figfemten}[1]{\fig{Opgave 3.1.a.png}{#1}}
+\newcommand{\figseksten}[1]{\fig{Opgave 3.1.b.png}{#1}}
+\newcommand{\figsytten}[1]{\fig{Opgave 3.1.d.png}{#1}}
+\newcommand{\figatten}[1]{\fig{SløretBillede.png}{#1}}
+\newcommand{\fignitten}[1]{\fig{AfsløretBillede.png}{#1}}
+\newcommand{\figtyve}[1]{\fig{AfsløretsFilter.png}{#1}}
+\newcommand{\figenogtyve}[1]{\fig{Opgave 3.15.png}{#1}}
+\newcommand{\figtoogtyve}[1]{\fig{Opgave 3.16.png}{#1}}
+\newcommand{\figtreogtyve}[1]{\fig{Opgave 3.19 - pzmap.png}{#1}}
+\newcommand{\figfireogtyve}[1]{\fig{Opgave 3.19 - Respons.png}{#1}}
+\newcommand{\figfemogtyve}[1]{\fig{Opgave 5.2.png}{#1}}
+\newcommand{\figseksogtyve}[1]{\fig{Opgave 5.2.e.png}{#1}}
+\newcommand{\figsyvogtyve}[1]{\fig{Opgave 5.30.png}{#1}}
+\newcommand{\figotteogtyve}[1]{\fig{Opgave 5.48.png}{#1}}
+\newcommand{\figniogtyve}[1]{\fig{Opgave 5.48.2.png}{#1}}
+\newcommand{\figtredive}[1]{\fig{EKGdata.png}{#1}}
+\newcommand{\figenogtredive}[1]{\fig{EKGfrekvenspektrum.png}{#1}}
+\newcommand{\figtoogtredive}[1]{\fig{EKGnotchfilterAnalyse.png}{#1}}
+\newcommand{\figtreogtredive}[1]{\fig{EKGnotchfilterPZmap.png}{#1}}
+\newcommand{\figfireogtredive}[1]{\fig{EKGsignalfiltreret.png}{#1}}
+\newcommand{\figfemogtredive}[1]{\fig{EKGforbedretNotchfilterAnalyse.png}{#1}}
+\newcommand{\figseksogtredive}[1]{\fig{EKGforbedretNotchfilterPZmap.png}{#1}}
+\newcommand{\figsyvogtredive}[1]{\fig{EKGforbedretSignalFiltrering.png}{#1}}
+\newcommand{\figotteogtredive}[1]{\fig{SignalbehandlingTemperaturdata.png}{#1}}
+\newcommand{\figniogtredive}[1]{\fig{SignalbehandlingTemperaturdataFiltreret.png}{#1}}
+\newcommand{\figfyrre}[1]{\fig{SignalbehandlingTemperaturdataFilteranalyse.png}{#1}}
+\newcommand{\figenogfyrre}[1]{\fig{SignalbehandlingTemperaturdataIIRFiltermodFIRFilter.png}{#1}}
+\newcommand{\figtoogfyrre}[1]{\fig{Signalbehandling3DAudioelev50H50e096a.png}{#1}}
+\newcommand{\figtreogfyrre}[1]{\fig{FilterStabilitet.png}{#1}}
+\newcommand{\figfireogfyrre}[1]{\fig{Opgave 5.16.png}{#1}}
+\newcommand{\figfemogfyrre}[1]{\fig{Opgave 5.31b.png}{#1}}
+\newcommand{\figseksogfyrre}[1]{\fig{Opgave 5.31c.png}{#1}}

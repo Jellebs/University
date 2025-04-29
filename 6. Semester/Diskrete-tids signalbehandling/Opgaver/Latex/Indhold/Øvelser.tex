@@ -9,4 +9,188 @@
             \[y_2[n] = 3x[n] + 2*x[n-1] + x[n - 2]\]
         \end{Øvelse}
     \end{kapitel}
+    \begin{kapitel}[Signaler og systemer]        
+    \end{kapitel}
+    \begin{kapitel}[Z domænet]
+        \begin{Øvelse}[Sløring og afsløring af billede]
+            Billede som bruges til redigering er \\
+            \figtolv{0.275}\\
+            Filteret som bruges er et moving average filter. 
+            \[h[n] = 1/M * (u[n] - u[n - (M+1)])\]
+            \figatten{0.20}\\
+            Og så ønsker jeg at finde en funktion der kan gøre det om. 
+            \[x[n]\star h[n] \transformation{Z} X(z)*H(z)\]
+            Så skal jeg inddrage en ny funktion sådan at: 
+            \[g[n]\star x[n]\star h[n] \transformation{Z} X(z)*H(z)*G(z)\]
+            Og hvor at $G(z)*H(z) = 1$
+            \[g[n]\star x[n]\star h[n] \transformation{Z} X(z)*1\]
+            Så lad mig prøve at finde den. \\
+            \[h[n] = 1/M * (u[n] - u[n - (M+1)]) \transformation{Z} H(z) = 1/M * (\frac{1}{1 - z^{-1}} - \frac{z^{-(M+1)}}{1 - z^{-1}})\]
+            Hvor jeg har brugt tidsforskydnings egenskaben $x[n-k] \transformation{Z}  z^{-k}X(z)$\\
+
+            \[h[n] = 1/M * (u[n] - u[n - (M+1)]) \transformation{Z} H(z) = 1/M * (\frac{1}{1 - z^{-1}} - \frac{z^{-(M+1)}}{1 - z^{-1}})\]
+            \[H(z) = 1/M * (\frac{1 - z^{-1}}{1 - 2z^{-1} + z^{-2}} - \frac{(1 - z^{-1})*z^{-(M+1)}}{1 - 2z^{-1} + z^{-2}})\]
+            \[H(z) = 1/M * (\frac{(1 - z^{-1}) * (1 - z^{-(M+1)})}{1 - 2z^{-1} + z^{-2}} )\]
+            \[H(z) = 1/M * (\frac{1 - z^{-1} - z^{-(M+1)} + z^{-(M+1)-1}}{1 - 2z^{-1} + z^{-2}})\]
+            \[H(z) = 1/M * (\frac{1 - z^{-1} - z^{-(M+1)} + z^{-M}}{1 - 2z^{-1} + z^{-2}})\]
+            Og så kan jeg se hvad den inverse funktion skal være: 
+            \[G(z) = M * (\frac{1 - 2z^{-1} + z^{-2}}{1 - z^{-1} - z^{-(M+1)} + z^{-M}})\]
+            M har Henrik valgt til at være 9
+            \[G(z) = M * (\frac{1 - 2z^{-1} + z^{-2}}{1 - z^{-1} - z^{-10} + z^{-9}})\]
+            Med partial fraction har jeg udledt den til at bestå af 11 førsteordensfiltre, så i teorien mulig at implementere. 
+            Havde jeg beregnet det hele I python så havde jeg måske også givet det et forsøg. 
+            \figtyve{0.3} \\
+            Det er egentlig bare en masse eksponentielle funktioner, skaleret og sat i fase.
+            Jeg ser også den typiske genganger sig. \\
+            a1 er den komplekse partner til a2.
+            \[G(z) = b_1/(1 - a_1z^{-1}) + b_1^{*}/(1 - a_1^{*} z^{-1}) + ...\]
+            \[g[n] = b_1^n * u[n] + (b_1^*)^n * u[n] + ...\]
+            \[g[n] = u[n] * ((b_1)^n + (b_1^*)^n) + ...\]
+            Hvis jeg beskriver koefficienterne ved poleære koordinater. 
+            \[b_1^n = (r*e^{j\theta})^n, \tab{0} (b_1^*)^n = (r*e^{-j\theta})^n \]
+            \[g[n] = u[n] * ((r*e^{j\theta} + r*e^{-j\theta})^n) + ...\]
+            \[g[n] = u[n] * ((r*(e^{j\theta} + e^{-j\theta}))^n) + ...\]
+            \[g[n] = u[n] * ((2*r*cos(\theta))^n) + ...\]
+            Så jeg kan se, at de dele som er kompleks konjugerede med hinanden danner harmoniske funktioner. 
+            Og de er alle sammen med plus på hinanden, så det må være 4 cos funktioner. 
+            Så er det da trods alt kun 9 vinkler jeg skal beregne for. Jeg mangler også lige fra eulers funktionen til sidst.
+            Det kunne jeg hygge mig med, men tænker det er det for nu.
+
+
+
+
+
+
+            
+            \clearpage\[
+                h_{\text{real}}[n] = 2 r^n \operatorname{Re}(b_1 e^{j n\theta})
+            \]
+
+
+
+        \end{Øvelse}
+    \end{kapitel}
+    \begin{kapitel}[Fourier]
+    \end{kapitel}
+    \begin{kapitel}[Transform analysis of LTI systems]
+        Øvelserne er lavet i forbindelse med uge 6, hvor information fra kapitel 2, 3, 4 og 5 bruges til at behandle data
+        \begin{Øvelse}[Hjaerte impulser, opgave om EKG data]
+            Noget data er blevet givet. EKG signalerne kan ses som toppene, men ses som tydelig støj.
+            \figtredive{0.5}\\\\\\
+
+            Frekvensanalyse på den og jeg ser, at der tydeligt er en frekvens der dominere. 
+            \figenogtredive{0.5}\\\\\\
+            Så jeg vil til at lave et Notch filter for at få den sorteret væk. Først med formel 5.125
+            \[H(z) = b_0[1 - 2*cos(\theta)z^{-1} + z^{-2}]\]
+            Formel 5.125 adskiller sig fra 5.124 ved, at ved 5.124 havde man mulighed for at placere nulpunkterne på enhedscirklen. 
+            Ved formel 5.125 er de på enhedscirklen. 
+            50 Hz i forhold til vinkel frekvensen er 
+            \[\theta = 2 * \pi * \frac{f_0}{f_s}, \tab{0} f_0 = 49.75, fs = 500\]
+            b0 bliver sat så dc forstærkning er 1. 
+            \[H(e^0) = b_0 * (2 - 2*cos(2 * \pi * \frac{f_0}{f_s})) = 1\] 
+            \clearpage
+            \figtoogtredive{0.4}
+            \figtreogtredive{0.3}
+            Notch filteret er ikke perfekt, og da jeg har placeret theta så relativt tæt på dc, så kompensere filteret meget, med højere gain omkring enderne af intervalerne.
+            \clearpage
+            Signalet blev mere til et signal, men ved ikke om det er meningen, at der ingen signaler er i midten? Måske personen døde der :D 
+            \figfireogtredive{0.5}\\\\\\
+            Jeg skal så prøve at forbedre den med formel 5.126
+            \[G(z)=b_0 \frac{1-(2\cos\phi)z^{-1}+z^{-2}}{1-(2r\cos\phi)z^{-1}+r^{2}z^{-2}}\]
+            Jeg beholder theta som den er. 
+            r er tæt på 1 men ikke helt. -20 procent plejer jeg at gå med i de fleste ting, så det samme gør jeg her. 
+            r = 0.8 
+            \[G(z)=b_0 \frac{1-(2\cos\phi)z^{-1}+z^{-2}}{1-(1.6\cos\phi)z^{-1}+0.64z^{-2}}\]
+            Finder for dc = 1: 
+            \[G(e^{j*0})=b_0 \frac{1-(2\cos\phi)+1}{1-(1.6\cos\phi)+0.64} = 1\]
+            \[b_0 = \frac{1}{\frac{2-(2\cos\phi)}{1.64-(1.6\cos\phi)}}\]
+            Mit nye forbedre notchfilter vil så se sådan her ud: 
+            \clearpage
+            \figfemogtredive{0.4}
+            \figseksogtredive{0.4}
+            Kan ikke helt forklare kausuliteten her. For step funktioner, så skal er de kausule, hvis $z < p$. Her er nulpunktet uden for polen, så det må betyde, at systemet er antikausult?
+            Resultatet bliver så: 
+            \figsyvogtredive{0.5} 
+            Det ser noget klarere ud end tidligere. Igen er der ingen rigtig værdi i midten, men måske er det meningen? 
+            
+
+        \end{Øvelse}
+        \clearpage
+        \begin{Øvelse}[Temperaturer, opgave om moving average filtrering]
+            Givet noget data på temperaturen, det burde kunne ses, at temperaturen stiger og falder gradvist, men at der er noget støj. 
+            \figotteogtredive{0.4}
+            Jeg har så til opgaven at fjerne støjen, men først \\
+            Skal jeg vise, at et moving average filter essentiel bare er et FIR filter og finde koefficienterne.\\
+            
+            \[y[n] = N^{-1} * \sum_{i = 0}^{N - 1} x[n - i]\]
+            Det ses tydeligt, at filteret ikke afhænger af tidligere værdier. I z transformation vil det da kunne skrives som: 
+            \[H(z) = \frac{N^{-1} * X(z) * \sum_{i = 0}^{N - 1} z^{-i}}{1} = N^{-1} * X(z) * \sum_{i = 0}^{N - 1} z^{-i}\]
+            Så altså bare et FIR filter. 
+            En anden måde at vise det på er, at en fir kan beskrives som. 
+            \[y[n] = \sum_{i = 0}^{N - 1}b_i x[n - i]\]
+            For mit moving average filter har jeg at
+            \[b = [1/N, 1/N, ..., 1/N]\]
+            Så det er bare et FIR filter med samme vægte.\\\\
+            Jeg prøver så at fjerne støj med 10, 20 og 40 vægte.
+            \figniogtredive{0.5}\\\\
+            Jeg ser at 20 og 40 ligner lidt hianden. Der sker ikke så meget derimellem, men ved 10 har den stadigvæk de her pludselige skift.\\
+            Jeg vil sige at 20 er fin, men 40  gør det bedst. \\\\
+            Jeg bliver så spurgt, om idéen med at bruge et moving average filter her, om det kan retfærdiggøres, og det mener jeg bestemt at det kan, da idéen med moving average er at korrigere data fra pludselige udskydere.
+            Og det er netop det det her dataset har. \\\\
+
+            Jeg bliver så spurgt til om filteret er offer for transient distortion. \\
+            Når man tænker over transient response vs natural response, så er det starten der bliver tænkt på. \\
+            Er der noget støj fordi filteret lige skal varme op, og det er der. Der er ikke blevet sat nogle start betingelser, så derfor starter filteret i 0, hvor det burde være startet i 30 grader.\\\\
+
+            Jeg skal så analyse filtrene og se om jeg kan skabe sammenhængen mellem det og så bare den klassiske gennemsnit af målinger metode.
+            \figfyrre{0.5}\\
+            For $H_1(z)$ som har N = 10, $H_2(z)$ 20 og $H_3(z)$ har 40 vægte.
+            Jeg ser, at jo flere vægte jeg har, jo mere går signalet mod en DC værdi. 
+            Men der må også være en øvre grænse for, hvor mange N'er der er gode. 
+            På samme måder vil samme gennemsnittet af målinger gå mod den reele værdi. 
+            Men igen fordi det er et dataset og ikke en DC værdi, så vil der med for mange N'er være data der går tabt.
+            Kredsløbet sampler en gang hver 10'ende sekund. Hver 5 minute vil være fint, at regne temperatur ud fra, vil jeg sige. 
+            $5 * 60s = 300s, 300s/10s = 30 = N$, burde så være det antal vægte jeg burde bruge.\\\\
+
+            Moving average kan også blive repræsenteret som et IIR filter. Jeg skal så diskutere fordele og ulemper.
+            \[H(z) = 1/N * \frac{1 - z^{-N}}{1 - z^{-1}}\]
+
+            Fra block diagrams manipulation så ved jeg at et feedback loop kan blive fjernet vha. 
+            \[G_1 (X + G_2 Y) -> \frac{G_1}{1 - G_1G_2}\]
+            Fortegnet for tilbagekoblingen er så den modsatte som kommer til at være i nævneren.
+            \[G_1 = 1 - z^{-N},\tab{2} G_1G_2 = 1 - z^{-1}\]
+            \[G_2 = \frac{1 - z^{-1}}{G_1} = \frac{1 - z^{-1}}{1 - z^{-N}}\]
+            \[G_2 = \frac{1}{1 - z^{-N}} - \frac{z^{-1}}{1 - z^{-N}}\]
+            \[G_3 = z^{-1}, \tab{2} G_4 = z^{-N + 1}\]
+            \[G_2 = \frac{1}{1 - z^{-N}} - \frac{G_3}{1 - G_3G_4}\]
+            \[G_5 = 1, \tab{2} G_6 = z^{-N}\]
+            \[G_2 = \frac{G_5}{1 - G_5G_6} - \frac{G_3}{1 - G_3G_4}\]
+            Og nu er feedback loopen beskrevet som deres egne feedback loops.
+            \figenogfyrre{0.5}\\
+            Jeg kan se, at med mange vægte, så er det mange forsinkelses komponenter man har brug for med FIR. \\
+            IIR versionen ser kompleks ud nu, men den bliver ikke større.\\
+            Hvis man ser bort fra setupet, så vil IIR praktisk talt aldrig helt falde til ro, hvor FIR der kun er styret af inputtet, vil.\\
+            Det kan begrænses og styres for, men det er noget at tage in mente.            
+            Så konklusionen herfra må være, at IIR har nogle fordele når der er mange vægte. Nok efter 5 vægte, så begynder FIR at være stor.\\\\
+
+            Til sidst bliver jeg spurgt ind til alternative metoder for at fjerne støjen. \\
+            Jeg synes det kunne være oplagt at gå ind at se om det er en frekvens som sørge for alt støjet, som det jo typisk kan være med elektriske apparater. \\
+            Så vil jeg have brugt et filter så den elimenerede den frekvens.           
+        \end{Øvelse}
+        \clearpage
+
+        \begin{Øvelse}[3D audio, opgave om at bruge signalprocessering til at styre hvor lyden kommer fra]
+            Lyd generet i Data/signals mappen.\\
+            Til sidst kigger jeg på venstre og højre hørekanal i et plot. For situationen elevation = 50, azimuth = 96
+            \figtoogfyrre{0.5}\\\\
+            Det kan tydeligt ses, at højre øre har respons tidligere end venstre øre, og det er også hvad jeg regnede med. \\
+            Hvordan det virker som, så er azimuth = $0\deg$ foran, $180\deg$ bagved, i de tilfælde vil forskellen ikke være noget. \\
+            Jeg troede ikke det var sådan i starten, for hvordan skulle man så lave lyd i venstre side.\\
+            Det ser så ud til, at jeg kun har fået HRTF filer til at lave lyd i højre side.
+            Men måske noget med at vende dem om kunne gøre det, så hvad der egentlig er channel 2 skulle være channel 1, og sådan.\clearpage
+            \figtreogfyrre{0.5} 
+            Hvis jeg skal kommmentere på formen så ligner det, at en eksponentiel falende funktion lader op. 
+            Dens poler befinder sig på den reele akse og inden for enhedscirklen
+        \end{Øvelse}
+    \end{kapitel}
 \end{Øvelser}

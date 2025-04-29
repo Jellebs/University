@@ -1,23 +1,231 @@
-\newcommand{\filterZ}[2]{
-    \frac{
-        \foreach \b [count=\j from 0] in {#1} {
-            \ifnum\j=0
-                \b
+%  _____  _____  ___________   ____  ______  ___              _______     __________
+%    |      |               |   | \ /         |              |       \   |          
+%    |      |               |   |  \          |              |        |  |          
+%    |------|               |   |---\------   |              |_______/   |------    
+%    |      |    ____       |   |    \        |       ___    |           |          
+%  __|__  __|__    \_______/   _|_   _\____    \_______/   __|__         |__________
+
+%   __________  ___      ___   _____    _____  _____   ____  ____________  ____________    _______     _____    _____   __________     _______     
+%  |             |        |    |  \      |      |    __/          |             |        /       \     |  \      |    |              |        \   
+%  |             |        |    |   \     |      | __/             |             |       |         |    |   \     |    |              |        |   
+%  |------       |        |    |    \    |      |/\__             |             |       |         |    |    \    |    |------        |________/   
+%  |             |        |    |     \   |      |   \__           |             |       |         |    |     \   |    |              |        \   
+%  |              \______/   __|__    \__|    __|__  __\__       _|_      ______|_____   \_______/   __|__    \__|    |__________  __|__       \__
+
+
+
+
+% ------- Fortegn -------
+% Indstillinger:
+% Vaerdiet = 0  ->  + ax 
+% Vaerdiet = 1  ->  ax
+% 
+% Parametre: 
+% {a}{x} 
+%     
+% Logik: 
+% 1x            ->  x. 
+% -1x           ->  -x
+% 0x            ->  ""
+\newcommand{\fortegn}[2]{                       % {a}{x}
+    \pgfmathparse{abs(#1 - int(#1)) > 0}             % 1.5 - 1 > 0 ? 
+    % \pgfmathparse{#1 - int(#1) < 0}             % -1.5 - (-1) < 0 ? 
+    \ifnum\pgfmathresult=1                      % Integer vs float check
+    % Decimaltal
+        \pgfmathparse{ifthenelse(#1<0, "", ifthenelse(\thevaerdiet==1, "", "+"))} % a < 0 ?    Første tal ? 
+        \pgfmathresult #1#2 
+    \else
+    % Heltal
+        \ifnum#1=0                              % a = 0 
+        % Kommentar så kompiler virker.
+        \else
+            \ifnum#1=1
+                \ifnum\thevaerdiet=1
+                    #2                          % x
+                \else 
+                    + #2                        % +x
+                \fi
             \else
-                \pgfmathparse{ifthenelse(\b<0, "", "+")}\pgfmathresult \b z^{-\i}
-                % + \b z^{-\the\numexpr\j-1}
+                \ifnum#1=-1
+                    - #2                        % -x
+                \else
+                    \ifnum#1>0
+                        \ifnum\thevaerdiet=1
+                            #1#2                % +ax
+                        \else 
+                            + #1#2              % ax
+                        \fi
+                    \else
+                        #1#2                    % -ax
+                    \fi
+                \fi
             \fi
-        }% 
+        \fi
+    \fi
+}
+%\symbolEllerEj{2}  <- Ikke et symbol
+%\symbolEllerEj{a}  <- Symbol
+% Skal have formen \ifcsname #1\endcsname ikke \ifcsname #1 \endcsname
+\newcommand{\erSymbol}[3]{ \ifcsname #1\endcsname                                           #2 \else #3 \fi }
+                                            % |a - int(a)| > 0 ? 
+\newcommand{\erDecimal}[3] { \pgfmathparse{abs(#1 - int(#1)) > 0} \ifnum\pgfmathresult=1    #2 \else #3 \fi }
+  
+
+
+\newcommand{\fortegnTo}[2]{                       % {a}{x}
+    \erSymbol{#1}{
+        % Er symbol
+        - #1#2
     }{
-        \foreach \a [count=\i from 0] in {#2} {
-            \ifnum\i=0
-                \a
+        \erDecimal{#1}{
+            % Er decimal
+            \pgfmathparse{ifthenelse(#1<0, "", ifthenelse(\thevaerdiet==1, "", "+"))} % a < 0 ?    Første tal ? 
+            \pgfmathresult #1#2 
+        }{
+            % Er heltal
+            \ifnum#1=0                              % a = 0 
+            % Kommentar så kompiler virker.
             \else
-                \pgfmathparse{ifthenelse(\a<0, "", "+")}\pgfmathresult \a z^{-\i}
-                % + \a z^{-\the\numexpr\i-1}
+                \ifnum#1=1
+                    \ifnum\thevaerdiet=1
+                        #2                          % x
+                    \else 
+                        + #2                        % +x
+                    \fi
+                \else
+                    \ifnum#1=-1
+                        - #2                        % -x
+                    \else
+                        \ifnum#1>0
+                            \ifnum\thevaerdiet=1
+                                #1#2                % +ax
+                            \else 
+                                + #1#2              % ax
+                            \fi
+                        \else
+                            #1#2                    % -ax
+                        \fi
+                    \fi
+                \fi
             \fi
         }
     }
 }
+
+
+
+
+
+
+
+
+
+% ------- differensLigning -------
+
+% Indstillinger:
+% 
+% Parametre: 
+% {a}{b}{y}{x} 
+%     
+% Logik: 
+% y[n] = sum(ay[n - i]) + b0x[n] + sum(bx[n - i])
+\newcommand{\differensLigning}[4]{ 
+    \register{0}{0, 1}                              % Startværdier sættes til 0. 
+    y[n] = 
+    \foreach \a [count=\i from 1] in {#1} {
+        \fortegn{\a}{#3[n - \i]}
+        \ifnum\thevaerdiet=1\register{0}{0, 0}\fi   % Første værdi sat 
+    }
+    \foreach \b [count=\i from 0] in {#2} {
+        \ifnum\i=0
+            \fortegn{\b}{#4[n]}
+        \else   
+            \fortegn{\b}{#4[n - \i]}
+        \fi
+        \ifnum\thevaerdiet=1\register{0}{0, 0}\fi   % Første værdi sat 
+    }
+}
+
+% -------- filterZ --------
+
+% Indstillinger:
+% 
+% Parametre: 
+% {b_0, ..., b_N}{a_0, ..., a_N}
+%     
+% Logik: 
+% (1 + 2z^-1)/(1 + 2z^-1 + 3z^-2)
+
+% Hvad jeg ønsker. Fortegn virker dog ikke med decimaler.
+\newcommand{\filterZto}[2]{
+    \frac{
+        \register{2}{0, 1}                                  % Første værdi mangler
+        \foreach \b [count=\i from 0] in {#1} {
+            \ifnum\i=0 \b \else \fortegnTo{\b}{z^{-\i}}\fi    % b eller bz^-i ? 
+            \ifnum\vaerdifem=1\register{2}{0, 0}\fi
+            % \ifnum\vaerdifem=1\register{2}{0, 0}\fi       % Værdi er sat
+        }
+    }{
+        \register{2}{0, 1}                                  % Første værdi mangler
+        \foreach \a [count=\i from 0] in {#2} {
+            \ifnum\i=0 \a \else \fortegnTo{\a}{z^{-\i}}\fi    % a eller az^-i ? 
+            \ifnum\vaerdiseks=1\register{2}{0, 0}\fi       % Værdi er sat
+        }
+    }
+}
+\newcommand{\filterZ}[2]{
+    \frac{\foreach \b [count=\i from 0] in {#1}{
+        \ifnum\i=0
+            \b
+        \else
+            \pgfmathparse{ifthenelse(\b<0, "", "+")}\pgfmathresult \b z^{-\i}
+        \fi}
+    }{\foreach \a [count=\i from 0] in {#2}{
+        \ifnum\i=0
+            \a
+        \else
+            \pgfmathparse{ifthenelse(\a<0, "", "+")}\pgfmathresult \a z^{-\i}
+        \fi}
+    }
+}
+
+
+
+
+
+\newcommand{\convolutionNum}[3] { % View, Grænser, indhold. 
+    \udfold{0}{#2}                                  % Udfolder grænser til registre. 
+    y[n]   
+    \ifnum#1=1                                      % View 1
+        = x[n]\star h[n]
+    \else 
+        \ifnum#1=0                                  % View 2
+            = \sum_{n = \thevaerdiet}^{\thevaerdito}{#3}
+        \else                                       % View 3
+            = x[n]\star h[n] = \sum_{n = \thevaerdiet}^{\thevaerdito}{#3}
+        \fi
+    \fi
+}
+\newcommand{\convolutionSym}[3] { % View, Grænser, (x, h) 
+    \udfold{2}{#2}                                  % Udfolder grænser til registre. 
+    \udfold{3}{#3}                                  % Udfolder grænser til registre.
+    \ifnum#1=1                                      % View 1
+        \vaerdisyv[k]\star \vaerdiotte[k]
+    \else 
+        \ifnum#1=0                                  % View 2
+            \sum_{k = \vaerdifem}^{\vaerdiseks}{\vaerdisyv[k] * \vaerdiotte[n-k]}
+        \else                                       % View 3
+            \vaerdisyv[k]\star \vaerdiotte[k] = \sum_{k = \vaerdifem}^{\vaerdiseks}{\vaerdisyv[k] * \vaerdiotte[n-k]}
+        \fi
+    \fi
+}
+\newcommand{\convolution}[2]{
+    y[n] = #1[n]\star #2[n] = \sum_{k = -\infty}^{\infty}{#1[k]* #2[n-k]}   
+}
+
+\newcommand{\infsum}[2]{\sum_{#1 = -\infty}^{\infty}{#2}}
+
+
 \newcommand{\cosTilEksponentiel}[1]{ \frac{e^{j#1} + e^{-j#1}}{2} }
 \newcommand{\sinTilEksponentiel}[1]{ \frac{e^{j#1} - e^{-j#1}}{2j} }
+

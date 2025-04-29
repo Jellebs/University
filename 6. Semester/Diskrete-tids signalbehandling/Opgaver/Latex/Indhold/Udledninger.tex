@@ -1,7 +1,7 @@
 \begin{Udledninger}
     \begin{underrubrik}[Fra convolution til differens ligning]
         Antaget at responsen kan beskriveses som et eksponentiel impuls respons.
-        \[h[n] = ba^nu[n],\tab -1<a<1\]
+        \[h[n] = ba^nu[n],\tab{0} -1<a<1\]
         \[y[n] = x[n] * h[n] = bx[n] + bax[n-1] + ba^2x[n-2] + ... + ba^Nx[n-N]\]
         \[y[n] = x[n] * h[n] = bx[n] + a*(bx[n-1] + bax[n-2] + ... + ba^{N-1}x[n-N])\]
         \[y[n] = x[n] * h[n] = bx[n] + a*y[n-1]\]
@@ -12,7 +12,7 @@
     \begin{underrubrik}[Z transformation - Kompleks konjugerede poler]
         En egenskab man kan bruge, når polerne er kompleks konjugerede. 
         Givet eksemplet. 
-        \[X(z) = \filterZ{1, 1}{1, -1, 1/2}, \tab p = \frac{1}{\sqrt{2}} * e^{\pm j\pi/4}\]
+        \[X(z) = \filterZ{1, 1}{1, -1, 1/2}, \tab{0} p = \frac{1}{\sqrt{2}} * e^{\pm j\pi/4}\]
         Der ses så, at polerne er kompleks konjugerede
         Så laves der partial fraction på den
         \[X(z) = \filterZ{1, 1}{1, -1, 1/2} = \frac{A_1}{1 - p_1z^-1} + \frac{A_2}{1 - p_2z^-1}\]
@@ -32,6 +32,78 @@
         \[x[n] = \frac{\sqrt{10}}{\sqrt{2}} * cos(\frac{\pi}{4} -71.56^o)u[n] = \sqrt{5} * cos(\frac{\pi}{4} -71.56^o)u[n]\]
         Så ved at indse, at der var kompleks konjugerede poler, så kunne jeg have indset, at det skulle have været en harmonisk funktion
     \end{underrubrik}
+    \begin{underrubrik}[Z transformation - Kompleks konjugerede poler og koefficienter]
+        Fra opgave 5.30
+        \[H(z) = 10 + a * \frac{1}{1 - bz^{-1}} + a^\star * \frac{1}{1 - b^\star z^{-1}} + a^\star * \frac{1}{1 - bz^{-1}} + a * \frac{1}{1 - b^\star z^{-1}}\]
+        Jeg ser en symmetri. 
+        \[a^nu[n] \transformation{Z} \frac{1}{1 - a*z^{-1}}\]
+        \[a^nu[n] + (a^\star)^nu[n] = (re^{j\theta})^nu[n] + (re^{-j\theta})^nu[n]\]
+        \[\tab{6}                   = r^nu[n](e^{j\theta})^n + r^nu[n](re^{-j\theta})^n\]
+        \[\tab{6}                   = (r^nu[n])*((e^{j\theta})^n + (e^{-j\theta})^n)\]
+        \[\tab{6}                   = (r^nu[n])*(e^{j\theta n} + e^{-j\theta n})\]
+        \[\tab{6}                   = (r^nu[n])* 2 * cos(\theta n)\]
+        Så jeg har to filtre der kan beskrives på denne måde. 
+        \[b = (0.375 + 0.65i)\]
+        \pgfmathparse{sqrt((0.375)^2 + (0.65)^2)} \edef\radius{\pgfmathresult}
+        \pgfmathparse{atan(0.65/0.375)} \edef\vinkel{\pgfmathresult}
+        \[r_b = \radius\]
+        \[\theta_b = \vinkel\] 
+        Og den er den samme for alle af dem. 
+        \[H(z) = 10 + a * r_b^nu[n] * 2cos[\frac{\pi}{3} * n] + a^\star r_b^nu[n] * 2cos[\frac{\pi}{3} * n]\]
+        Splitter a op i dens komponenter. 
+        \pgfmathparse{sqrt((2.25)^2 + (0.674)^2)} \edef\radius{\pgfmathresult}
+        \pgfmathparse{180 + atan(0.674/(-2.25))} \edef\vinkel{\pgfmathresult} % Anden kvadrant
+        \[r_a = \radius\]
+        \[\theta_a = \vinkel\] 
+        \[H(z) = 10 + (r_a e^{j\theta_a}) * r_b^nu[n] * 2cos[\frac{\pi}{3} * n] + (r_a e^{-j\theta_a}) * r_b^nu[n] * 2cos[\frac{\pi}{3} * n]\]
+        \[H(z) = 10 + r_a r_b^nu[n] * 2cos[\frac{\pi}{3}*n] * (e^{j\theta_a} + e^{-j\theta_a})\]
+        \[H(z) = 10 + 2 * cos(\theta_a) r_a r_b^nu[n] * 2cos[\frac{\pi}{3}*n]\]
+        Så jeg har at for et filter med formen 
+        \[H(z) = a * (\frac{1}{1 - bz^{-1}} + \frac{1}{1 - b^\star z^{-1}}) + a^\star * ( \frac{1}{1 - b^\star z^{-1}} + \frac{1}{1 - bz^{-1}})\]
+        Så kan jeg simplificere den til at være. 
+        \[==================\]
+        \[h[n] = 4 cos(\theta_a) r_a r_b^nu[n] cos[\theta_b n]\]
+        \[==================\]
+    \end{underrubrik}
+
+
+
+    \begin{underrubrik}[Z transformation - Egenskaber]
+        Den kommukative egenskab:
+        \[\convolution{x}{h}\]
+        Ny variabel $l = n - k, \tab{0} k = n - l$
+        Så hvad er mine nye grænser? 
+        Når $k=-\infty, \tab{0} l = \infty$ stortset, for n ikke uendelig.
+        Når $k=\infty, \tab{0} l = -\infty$ stortset, for n ikke uendelig.
+        
+        \[y[n] = \sum_{l = \infty}^{-\infty}{x[n - l]*h[l]}\]
+        Jeg summer over alle de negative værdier sidst, først over de positive. 
+        At gøre det den modsatte vej gør ingenforskel da: $a + b = b + a$
+        \[y[n] = \sum_{l = -\infty}^{\infty}{x[n - l]*h[l]}\]
+        \[y[n] = \sum_{l = -\infty}^{\infty}{h[l]*x[n - l]}\]
+        Som følger samme form som
+        \[\convolution{h}{x}\]
+        Og er derfor det samme som
+        \[\convolution{x}{h}\]
+    \end{underrubrik}
+    \begin{Udklip}
+        \begin{underrubrik}[Z transformation - Egenfunktioner]
+            Motivationen for at finde egenfunktioner er, at vi får os et redskab vi måske kan bruge til at analysere systermer.
+            Egenfunktioner, er funktioner som vi kan beskrive ved multiplikation istedet for konvolution.
+            Jeg tager $x[n] = z^n$ som vores funktion.
+            Jeg bruger den kommukative egenskab at 
+            \[y[n] = x\star h = h\star x\]
+            \[\convolutionSym{2}{-\infty, \infty}{h, x}\]
+            \[x[n-k] = z^{n-k}\]
+            \[y[n] = \infsum{k}{h[k]*z^{n-k}}\]
+            \[y[n] = \infsum{k}{h[k]*z^{-k}*z^n}\]
+            Som leder os til at beskrive en z transformation
+            \[H(z) = h[k]*z^{-k}\]
+            \[y[n] = \infsum{k}{H(z)*z^n}\]
+            Og det var inputtet vi startede med. 
+            \[y[n] = \infsum{k}{H(z)*x[n]}\]
+        \end{underrubrik}
+    \end{Udklip}
     \begin{underrubrik}[Z transformation - Kausulitet]
         Givet et z transformeret input: 
         \[X(z) = \frac{1 + z^-1}{(1 - z^-1)*(1 - 0,5z*-1)}\]
@@ -46,9 +118,9 @@
         
         \[x_1[n] = a^n*u[n] \transformation{Z} X(z) = \sum_{n=-\infty}^{-\infty}  {a^n*u[n]*z^{-n}} \]
         \[x_1[n] \transformation{Z} X(z) = \sum_{n=0}^{-\infty}                        {a^n*z^{-n}} \]
-        \[|\frac{a}{z}| < 1, \tab |z| > |a|                                                         \]
+        \[|\frac{a}{z}| < 1, \tab{0} |z| > |a|                                                         \]
         \[================================                                                          \]
-        \[x_1[n] = a^n*u[n] \transformation{Z} X_1(z) = \frac{1}{1 - a*z^{-1}}, \tab |z| > |a|      \]
+        \[x_1[n] = a^n*u[n] \transformation{Z} X_1(z) = \frac{1}{1 - a*z^{-1}}, \tab{0} |z| > |a|      \]
         \[================================                                                          \]
     \end{underrubrik}
     \begin{underrubrik}[Z transformation - Anti kausul eksponentiel aftagende]
@@ -56,7 +128,7 @@
         \[x_2[n] \transformation{Z} X_2(z) = \sum_{n=-\infty}^{-1}                      {a^{-n}*z^{-n}}                             \]
         \[X_2(z) = \sum_{m = 1}^{\infty}                                                {a^{m}*z^{m}}                               \]
         \[X_2(z) = \sum_{m = 0}^{\infty}                                                {(a*z)^m}                                - 1\]
-        \[|a*z| < 1, \tab |z| < |\frac{1}{a}|                                                                                       \]
+        \[|a*z| < 1, \tab{0} |z| < |\frac{1}{a}|                                                                                       \]
         \[X_2(z) = \frac{1}{1 - a*z} - 1                                                                                            \]
         \[X_2(z) = \frac{1}{1 - a*z} - \frac{1 - a*z}{1 - a*z}                                                                      \]
         \[X_2(z) = \frac{a*z}{1 - a*z}                                                                                              \]
@@ -64,7 +136,7 @@
         \[X_2(z) = \frac{1}{\frac{1}{a}*z^{-1} - 1}                                                                                 \]
         \[X_2(z) = -\frac{1}{1 - \frac{1}{a}*z^{-1}}                                                                                \]
         \[=====================================                                                                                     \]
-        \[x_2[n] = a^{-n}*u[-1-n] \transformation{Z} X_2(z) = -\frac{1}{1 - \frac{1}{a}*z^{-1}}, \tab |z| < |\frac{1}{a}|           \]
+        \[x_2[n] = a^{-n}*u[-1-n] \transformation{Z} X_2(z) = -\frac{1}{1 - \frac{1}{a}*z^{-1}}, \tab{0} |z| < |\frac{1}{a}|           \]
         \[=====================================                                                                                     \]
 
     \end{underrubrik}
@@ -73,7 +145,7 @@
         \[x_3[n] \transformation{Z} X_3(z) = \sum_{n=-\infty}^{-1}                               {a^n*z^{-n}}\]
         \[X_3(z) = \sum_{m = 1}^{-\infty}                                                   {(\frac{z}{a})^m}\]
         \[X_3(z) = \sum_{m = 0}^{-\infty}                                               {(\frac{z}{a})^m} - 1\]
-        \[|\frac{z}{a}|<1, \tab |z|<|a|\]
+        \[|\frac{z}{a}|<1, \tab{0} |z|<|a|\]
         \[X_3(z) = \frac{1}{1 - \frac{z}{a}} - 1\]
         \[X_3(z) = \frac{1}{1 - \frac{z}{a}} - \frac{1 - \frac{z}{a}}{1 - \frac{z}{a}}\]
         \[X_3(z) = \frac{\frac{z}{a}}{1 - \frac{z}{a}}\]
@@ -81,7 +153,29 @@
         \[X_3(z) = \frac{1}{a*z^{-1} - 1}\]
         \[X_3(z) = - \frac{1}{1 - a*z^{-1}}\]
         \[====================================\]
-        \[x_3[n] = a^n*u[-1-n] \transformation{Z} X_3(z) = - \frac{1}{1 - a*z^{-1}}, \tab |z|<|a|\]
+        \[x_3[n] = a^n*u[-1-n] \transformation{Z} X_3(z) = - \frac{1}{1 - a*z^{-1}}, \tab{0} |z|<|a|\]
         \[====================================\]
-    \end{underrubrik} 
+    \end{underrubrik}
+    \begin{underrubrik}[Z evaluering - Egenfunktion brugt til at evaluere harmonisk signal på simpel vis] 
+        \[x[n] = 2cos(0.52n + 60°) = 2 \frac{e^{j(0.52 + 60°)} + e^{j(0.52 + 60°)}}{2}\]
+        \[x[n] = e^{j(0.52n + 60°)} + e^{-j(0.52n + 60°)}\]
+        \[x[n] = e^{j0.52n}e^{j60°} + e^{-j0.52n}e^{-60j°}\]
+        \[x[n] = (e^{j0.52})^ne^{j60°} + (e^{-j0.52})^ne^{-60j°}\]
+        Eigenfunktioner er hvor, at outputtet bliver til et forstærket signal af sig selv ud fra $H(z)$. Med den tankegang så vil et signal med faseskift kunne skrives som. 
+        \[y[n] = H_1(z_0)z_0^ne^\theta\] 
+        \[y[n] = H_2(z_0)z_0^n\]
+        Hvor $H_2(z_0) = H_1(z_0)e^j\theta$, så på den måde, så vil en fase bare kunne beskrives som et nyt systems påvirkning.\\
+        Set i den kontekst, så følger et harmonisk signal med fase stadigvæk formen: 
+        \[x[n] = z_0^n\]
+        Med det prøvet bevist så har jeg nu. 
+        \[y[n] = H_1(z_0)z_0^ne^\theta\] 
+        \[H(z) = \frac{0.19}{1 + 0.81z^{-2}}\]
+        \[y[n] = \frac{0.19}{1 + 0.81(e^{j0.52})^{-2}}(e^{j0.52})^ne^{1/3j\pi} + \frac{0.19}{1 + 0.81(e^{-j0.52})^{-2}}(e^{-j0.52})^ne^{-1/3j\pi}\] 
+        \[y[n] = \frac{0.19*e^{1/3j\pi}}{1 + 0.81e^{-2j0.52}}(e^{j0.52})^n + \frac{0.19*e^{-1/3j\pi}}{1 + 0.81e^{2j0.52}}(e^{-j0.52})^n\] 
+        Med wolfram og python har jeg fundet koefficienterne: 
+        \[y[n] = (0.308 + 0.153j) * e^{0.52jn} + (0.038 - 0.0188j) * e^{-0.52jn}\]
+        \color{red} Jeg ved, at jeg har glemt at konvertere 0.52 til radianer, som jeg gjorde med vinklen, men idéen er den samme.
+        
+    \end{underrubrik}
+
 \end{Udledninger}

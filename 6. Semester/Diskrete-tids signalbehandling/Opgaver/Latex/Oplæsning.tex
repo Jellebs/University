@@ -1,15 +1,27 @@
 \documentclass{article}
-\usepackage{pgffor, pgfmath, siunitx}
+\usepackage{pgffor, siunitx}
 \usepackage{import}
 \usepackage{graphicx} % Allows image inclusion
+\usepackage{wrapfig}
+\usepackage{float}
 \usepackage{svg}
-\usepackage{amsmath}
-\usepackage{mathrsfs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+\usetikzlibrary{matrix}
 
+% Matematik
+\usepackage{amssymb}  % most common
+\usepackage{amsmath, mathrsfs, pgfmath}
+
+\usepackage{ifthen}
 
 % Værktøjer
+\input{Værktøjer/Hukommelse.tex}
 \input{Værktøjer/DesignFunktioner.tex}
 \input{Værktøjer/MatematiskeFunktioner.tex}
+\input{Værktøjer/Egentabel.tex}
 
 % Indhold
 \input{Indhold/Billeder/Billeder.tex}
@@ -18,9 +30,10 @@
 \date{4. Februar. 2025}
 
 \begin{document}
-    \maketitle
-    \input{Indhold/Udledninger.tex}
-    \input{Indhold/Formler.tex}
-    \input{Indhold/Øvelser.tex}
+    \maketitle\clearpage
+    \tableofcontents\clearpage
+    %\input{Indhold/Udledninger.tex}
+    %\input{Indhold/Formler.tex}
+    %\input{Indhold/Øvelser.tex}
     \input{Indhold/Opgaver.tex}
 \end{document}

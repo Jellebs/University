@@ -30,7 +30,7 @@
                     $y[n]$          &    &    &    & 4 & 13 & 12 & 19 & 9 & 18 & 
                 \end{tabular}
                 \caption{Convolution}
-                \label{tab:Convolution}
+                \label{tab{1}:Convolution}
             \end{table}\clearpage
             Plottet har jeg lavet ved bare at forskyde h og så beregne y for hvert n
             \figseks{0.70}        
@@ -83,8 +83,8 @@
         Den anden kan dog konkluderes til at have perioidicitet bare ved at se på plot. 
         \end{Opgave}
 
-        \begin{Opgave}[Opgave 2.11 - Convolution vha. dens egenskaber til at beskrive y uden at kende x (Vigtig $\sqrt{}$)]
-            \[y_1 = conv(ones(1, 5), x)\tab y_2 = conv([1, -1, -1, -1, 1], x)\]
+        \begin{Opgave}[Opgave 2.11 - Egenskaber i konvolution til at finde y uden x (Vigtig $\sqrt{}$)]
+            \[y_1 = conv(ones(1, 5), x)\tab{0} y_2 = conv([1, -1, -1, -1, 1], x)\]
             \[y = conv(ones(1, 3, y_1 + y_2))\]
             \begin{UnderOpgave}[Givet ovenstående find så det ækvivalente system hvor at $y=conv(h, x)$]
                 Hvis jeg tænker regneregler på den, så er det her nemlig den distributive egenskab i konvolutioner
@@ -113,23 +113,23 @@
 
         \end{Opgave}
 
-        \begin{Opgave}[Opgave 2.17 - A discrete-Time system is described by the following difference equation]
+        \begin{Opgave}[Opgave 2.17 - A discrete-Time system by difference equation]
             \[y[n] = 1,15y[n-1] - 1.5y[n-2] + 0,7y[n-3] - 0,25*y[n-4] + 0,18x[n] +0,1x[n-1] + 0,3x[n-2] + 0.1x[n-3] + 0.18x[n-4]\]
             med startbetingelserne værende nul. 
             \begin{UnderOpgave}[Compute and plot the impulse response \text{h[n]}]
-                h[n], \tab $0 \leq n \leq 100$ using the function h = impz(b, a, N)\\
+                h[n], \tab{0} $0 \leq n \leq 100$ using the function h = impz(b, a, N)\\
                 Tricket I at vide hvordan vi beskriver systemet er, at se på koefficienterne, og indse hvordan de vil blive beskrevet ved Z transformation.
                 \[y_a[n] = 1,15y[n-1] + x[n] + 0,5x[n-1]\]
                 \[y_a[n] - 1,15y[n-1] = x[n] + 0,5x[n-1]\]
                 \[Y(z)*(1 - 1,15z^-1) = X(z) * (1 + 0,5z^-1)\]
                 \[H(z) = \frac{Y(z)}{X(z)} = \frac{(1 + 0,5z^-1)}{1 - 1,15z^-1}\]
-                \[b = [1, 0.5], \tab a = [1, -1.15]\]
+                \[b = [1, 0.5], \tab{0} a = [1, -1.15]\]
                 Så fra difference ligningen, så kan jeg allerede se at, x koefficienterne kommer til at være i tælleren, y koefficienterne kommer til at være i nævneren
                 \\ \\ Jeg har lavet den både i Python og matlab: 
-                \[b = [0.18, 0.1, 0.3, 0.1, 0.18],\tab a = [1, -1.15, 1.5, -0.7, 0.25]\]
+                \[b = [0.18, 0.1, 0.3, 0.1, 0.18],\tab{0} a = [1, -1.15, 1.5, -0.7, 0.25]\]
                 N = 100\\
                 For python så:\\
-                n, h = sig.dimpulse((b, a, 1), n = N) $\tab \leftarrow$ sig er scipy.signal\\ 
+                n, h = sig.dimpulse((b, a, 1), n = N) $\tab{0} \leftarrow$ sig er scipy.signal\\ 
                 fig, ax = plt.subplots()\\
                 ax.stem(n, h[0])\\
                 plt.show()\\
@@ -171,8 +171,8 @@
 
         \begin{Opgave}[Opgave 2.19 - Recursive filter på lydfil]
             Givet et filter der kan beskrives ved 
-            \[y[n] = x[n] + ay[n - D], \tab F_s = 8192 \frac{samples}{s}, \tab D = \tau * F_s\]
-            \begin{UnderOpgave}[For $\tau = 50ms,\tab a = 0,7$ beskriv filteret og brug den til at processere handel lydfilen.]
+            \[y[n] = x[n] + ay[n - D], \tab{0} F_s = 8192 \frac{samples}{s}, \tab{0} D = \tau * F_s\]
+            \begin{UnderOpgave}[For $\tau = 50ms,\tab{0} a = 0,7$ beskriv filteret og brug den til at processere handel lydfilen.]
                 \[\tau*F_s = 0,050*8192 = 409,6 \approx 410\] 
                 \[y[n] = x[n] + 0,7y[n - 410]\]
                 \[Y(z)/X(z) = 1/(1 - 0.7z^-410)\]
@@ -214,7 +214,7 @@
             Lineær? Ja, en konstant ganget på det her, vil medføre en ny A, som er konstant. \\
             Den vigtige del er så x[n]\\ 
             Stabilt? $-N < x[n] < N \Rightarrow -M < y[n] < M$, kan jeg sige, så det er den
-            Lineær? $y_1 = x_1 * g, \tab x_2 = a * x_1, \tab y_2 = x_2 * g, \tab y_3 = a*y_1$
+            Lineær? $y_1 = x_1 * g, \tab{0} x_2 = a * x_1, \tab{0} y_2 = x_2 * g, \tab{0} y_3 = a*y_1$
             \[y_2 = y_3 ?\]
             \[a*x_1 * g = a * x_1 * g\]
             så det er den.\\
@@ -236,19 +236,19 @@
         \begin{Opgave}[Opgave 2.50 - Recursive System]
             \[y[n] = ay[n-D] + x[n - D]\]
             \begin{UnderOpgave}[Forklar forskellen på den her og den i formel 2.103]
-                \[y[n] = ay[n-D] + x[n],\tab \leftarrow 2.103\]
+                \[y[n] = ay[n-D] + x[n],\tab{0} \leftarrow 2.103\]
                 Forsinkelsen i inputtet gør, at forsinkelsen i outputtet ikke længere føles som et delay. 
                 \[D = 2\]
                 \[y[2] = ay[0] + x[0]\]
                 \[y[2] = ay[1] + x[1]\]\clearpage
-                \figtolv{0.05}
+                \figtolv{0.35}
                 Så i stedet for en rumklang vil det her føles mere som en forstærkning. 
             \end{UnderOpgave}
             \begin{UnderOpgave}\end{UnderOpgave}
             \begin{UnderOpgave}[Beregn og plot for a = 0.7]
                 Opgaven giver ikke meget. D er ikke givet, så jeg ved ikke hvad forsinkelsen er. 
                 Men jeg har sat D til 400 som et eksempel
-                \figtretten{0.30}                
+                \figtretten{0.075}                
             \end{UnderOpgave}
             \begin{UnderOpgave}[Gentag opgave 19 med dette nye reverb filter og sammenlign]
                 Måske er det bare indbil, men jeg føler det som jeg også beskrev før, at lyden bare bliver forstærket. \\
@@ -256,7 +256,7 @@
             \end{UnderOpgave}
         \end{Opgave}
     \end{kapitel}
-    \begin{kapitel}
+    \begin{kapitel}[Z transformation]
         \begin{Opgave}[Opgave 3.1 - Determine the z-transform and sketch the pole-zero plot with the ROC for each of the following sequences]
             Givet formel 3.9 i bogen
             \[X(z) = \sum_{n=-\inf}^{\inf}{x[n]*z^{-n}}\]
@@ -265,7 +265,7 @@
                 \[X(z) = \sum_{n=0}^{9}{(\frac{1}{2})^n * z^{-1^{n}}}\]
                 Bruger at $(a*b)^r = a^r * b^r$
                 \[X(z) = \sum_{n=0}^{9}{(\frac{1}{2} * z^{-1})^n}\]
-                ROC: $|\frac{z^{-1}}{2}| < 1,\tab\rightarrow\tab z > 0,5$
+                ROC: $|\frac{z^{-1}}{2}| < 1,\tab{0}\rightarrow\tab{0} z > 0,5$
                 \[X(z) = \frac{1 - (\frac{z^{-1}}{2})^{10}}{1 - \frac{z^{-1}}{2}}\]
                 \[X(z) = \frac{1 - (\frac{z^{-10}}{2^{10}})}{1 - \frac{z^{-1}}{2}}\]
                 \[X(z) = \frac{1 - \frac{1}{2^{10}}*z^{-10}}{1 - \frac{1}{2}*z^{-1}}\]
@@ -276,11 +276,11 @@
                 Hvis jeg lægger mærke til symmetrien, så er størrelsen på venstre side af n = 0 lige med højre siden. \\
                 Det er to uendelige summer sat sammen og fratrukket n = 0.\\ 
 
-                \[X(z) = \sum_{n=0}^{\infty}{\frac{1}{2}^n * z^{-n}} + \sum_{m=0}^{\infty}{\frac{1}{2}^m * z^{m}} - (\frac{1}{2})^0 * z^0, \tab m = -n\]
-                \[X(z) = \sum_{n=0}^{\infty}{(\frac{z^{-1}}{2})^n} + \sum_{m=0}^{\infty}{(\frac{z}{2})^m} - 1, \tab m = -n\]
+                \[X(z) = \sum_{n=0}^{\infty}{\frac{1}{2}^n * z^{-n}} + \sum_{m=0}^{\infty}{\frac{1}{2}^m * z^{m}} - (\frac{1}{2})^0 * z^0, \tab{0} m = -n\]
+                \[X(z) = \sum_{n=0}^{\infty}{(\frac{z^{-1}}{2})^n} + \sum_{m=0}^{\infty}{(\frac{z}{2})^m} - 1, \tab{0} m = -n\]
                 
                 For uendelige summer har jeg at: 
-                \[\sum_{n=0}^{\infty}{a^n} = \frac{1}{1 - a}, \tab |a| < 1\]
+                \[\sum_{n=0}^{\infty}{a^n} = \frac{1}{1 - a}, \tab{0} |a| < 1\]
                 \\
                 Det betyder at $|z^{-1} * 0,5| < 1 og |z * 0,5| < 1$
                 \[0.5 < |z| < 2\]
@@ -288,7 +288,7 @@
                 \[X(z) = \frac{1}{1 - 0,5*z^{-1}} + \frac{1}{1 - 0,5*z} - \frac{1 - 0,5*z}{1 - 0,5*z}\]
                 \[X(z) = \frac{1}{1 - 0,5*z^{-1}} + \frac{0.5z}{1 - 0,5*z}\]
                 Det kan udledes til at være: 
-                \[X(z) = -\frac{3*z}{2z^2 -5z+2},\tab 2 > |z| > \frac{1}{2}\]
+                \[X(z) = -\frac{3*z}{2z^2 -5z+2},\tab{0} 2 > |z| > \frac{1}{2}\]
                 \figfemten{0.4}             
             \end{UnderOpgave}
             \begin{UnderOpgave}[\text{$x[n] = 5^{|n|}$}]
@@ -297,8 +297,8 @@
                 \[X(z) = \sum_{n=0}^{\infty}{5^{n} * z^{-n}} + \sum_{m=0}^{\infty}{5^{-m} * z^{m}} - 1\]
                 \[X(z) = \sum_{n=0}^{\infty}{(5*z^{-1})^{n}} + \sum_{m=0}^{\infty}{(\frac{z}{5})^m} - 1\]
                 Og med kriteriet for uendelige summer |a| < 1. \\
-                \[|5*z^{-1}| < 1, \tab \frac{z}{5} < 1\]
-                \[5 > z > 5, \tab\rightarrow\tab z = 5\]
+                \[|5*z^{-1}| < 1, \tab{0} \frac{z}{5} < 1\]
+                \[5 > z > 5, \tab{0}\rightarrow\tab{0} z = 5\]
                 \[X(z) = \frac{1}{1 - 5*z^{-1}} + \frac{1}{1 - 0.2z} - 1\]
                 \[X(z) = \frac{1}{1 - 5*z^{-1}} + \frac{1}{1 - 0.2z} - \frac{1 - 0.2z}{1 - 0.2z}\]
                 \[X(z) = \frac{1}{1 - 5*z^{-1}} + \frac{0.2z}{1 - 0.2z}\]
@@ -308,23 +308,23 @@
             \end{UnderOpgave}
             \begin{UnderOpgave}[\text{$x[n] = (1/2)^n * cos(\pi * n/3)*u[n]$}, forkert]
                 \[X(z) = \sum_{n=\infty}^{\infty}{(1/2)^n * cos(\pi * n/3)*u[n] * z^{-n}}\]
-                \[X(z) = \sum_{n=\infty}^{\infty}{(1/2)^n * \frac{e^{j\pi * n/3} + e^{-j\pi * n/3}}{2}*u[n] * z^{-n}} \tab\leftarrow\tab \cos(\theta) = \frac{e^{j\theta} + e^{-j\theta}}{2}\]
+                \[X(z) = \sum_{n=\infty}^{\infty}{(1/2)^n * \frac{e^{j\pi * n/3} + e^{-j\pi * n/3}}{2}*u[n] * z^{-n}} \tab{0}\leftarrow\tab{0} \cos(\theta) = \frac{e^{j\theta} + e^{-j\theta}}{2}\]
                 \[X(z) = \frac{1}{2} * \sum_{n=\infty}^{\infty}{(1/2)^n * (e^{j\frac{\pi}{3}} + e^{-j\frac{\pi}{3}})^n*u[n] * z^{-n}}\]
                 \[X(z) = \frac{1}{2} * \sum_{n=0}^{\infty}{(0.5 * (e^{j\frac{\pi}{3}} + e^{-j\frac{\pi}{3}}) * z^{-1})^n }\]
                 \[|\frac{z^{-1}}{2} * (e^{j\frac{\pi}{3}} + e^{-j\frac{\pi}{3}})| < 1\]
                 $e^{j\frac{\pi}{3}} + e^{-j\frac{\pi}{3}}$ udligner de imaginære værdier, og der er kun reele værdier tilbage. $\cos(\frac{\pi}{3}) + \cos(\frac{-\pi}{3}) = 1$
                 Så derfor følger de eksponentielle funktioner hinanden, og de tager værdier indenfor $[-1; 1]$.\\
                 Da det er størrelserne jeg er interesserede i, så vil $-1$ give det samme som $1$.\\
-                \[|\frac{z^{-1}}{2}| < 1, \tab |z| > \frac{1}{2}\]
+                \[|\frac{z^{-1}}{2}| < 1, \tab{0} |z| > \frac{1}{2}\]
                 \[X(z) = \frac{1}{2} * \frac{1}{1 - (0.5 * (e^{j\frac{\pi}{3}} + e^{-j\frac{\pi}{3}}) * z^{-1})}\]
                 \[X(z) = \frac{1}{2} * \frac{1}{1 - (\cos(\frac{\pi}{3}) * z^{-1})}\]
-                \[X(z) = \frac{1}{2} * \frac{1}{1 - (0.5 * z^{-1})}, \tab \leftarrow \tab \text{specialt tilfælde at } cos(\frac{\pi}{3}) = 0.5\]
-                \[X(z) = \frac{1}{2 - z^{-1}},\tab \leftarrow |z| > \frac{1}{2}\]
+                \[X(z) = \frac{1}{2} * \frac{1}{1 - (0.5 * z^{-1})}, \tab{0} \leftarrow \tab{0} \text{specialt tilfælde at } cos(\frac{\pi}{3}) = 0.5\]
+                \[X(z) = \frac{1}{2 - z^{-1}},\tab{0} \leftarrow |z| > \frac{1}{2}\]
                 Jeg har prøvet at løse den med wolfram alpha. Dens resultat ser noget anderledes ud, men er nok det samme. Den har også betingelsen at størrelsen skal være mere end 0,5.
                 \figseksten{0.5}
             \end{UnderOpgave}
         \end{Opgave}
-        \begin{Opgave}[Opgave 3.3 - Bevis det følgende z transformerede par, forkert før men rettet]
+        \begin{Opgave}[Opgave 3.3 - Bevis det følgende z transformerede par \% forkert]
             \[x[n] = (r^n * sin(\omega_0 * n)*u[n]) \overset{\mathscr{Z}}{\leftrightarrow} X(z) = \frac{r*sin(\omega_0)*z^{-1}}{1 - 2*(r*cos(\omega_0) * z^{-1}) + r^2*z^{-2}}, |z| > r\]
             Så lad mig prøve at få det bevist.
             \[X(z) = \sum_{n=-\infty}^{\infty}{r^n * sin(\omega_0 * n) * u[n] * z^{-n}}\]
@@ -333,7 +333,7 @@
             \[X(z) = \frac{1}{2j} * \sum_{n=-0}^{\infty}{(r * (e^{j\omega_0} - e^{-j\omega_0}) * z^{-1})^n}\]
             \[X(z) = \sum_{n=-0}^{\infty}{(r * sin(\omega_0) * z^{-1})^n}\]
             Så har jeg et udtryk til ROC. Sinus tager 1 som dens største værdi. 
-            \[|r * 1 * z^{-1}| < 1, \tab |z| > r \]
+            \[|r * 1 * z^{-1}| < 1, \tab{0} |z| > r \]
             \[X(z) = {\frac{1}{1 - r * sin(\omega_0) * z^{-1}}}\]
             \[X(z) = {\frac{r * sin(\omega_0) * z^{-1}}{r * sin(\omega_0) * z^{-1} - r * sin(\omega_0) * z^{-1} * r * sin(\omega_0) * z^{-1}}}\]
             ... 
@@ -361,7 +361,8 @@
             Jeg har forklaret mig til hvorfor min værdi grænser til at være over r. Jeg ved ikke om det er helt gyldigt. \\
             Men sammenhængen har jeg nu bevist.
         \end{Opgave}
-        \begin{Opgave}[Opgave 3.4 - Partial fraction til at bestemme input sekvenser ud fra Z transformationerne]
+        \begin{Opgave}[Opgave 3.4 - Partial fraction til inverse Z transformation]
+            
             \begin{Udklip}
                 \begin{UnderOpgave}[\text{$X(z) = \filterZ{1, -1/3}{1, 1, -2}$, ROC er hele spektret?}]
                     Det er opsat til selv at beregne det, men jeg får python til det. 
@@ -372,76 +373,1121 @@
                     Så som jeg ser, så kan det være enten eller af de to par. Hvis jeg antager, at systemet er kausult, som de fleste er. 
                     \[\frac{1}{1 - a*z^{-1}} \leftrightarrow a^ku[k], |z| > a\]
                     \[x[n] = \frac{7}{9} * (-2)^n * u[n] + \frac{2}{9} * 1^n * u[n] \]
-                    ROC: $|z| > (-2),\tab\cap\tab |z| > 1$\\
+                    ROC: $|z| > (-2),\tab{0}\cap\tab{0} |z| > 1$\\
                     Den første ROC er ret mærkelig, fordi jeg har fået en negativ coefficient. Jeg ved ikke hvad jeg skal gøre med den information.
                 \end{UnderOpgave}
-                \begin{UnderOpgave}[\text{$X(z) = \filterZ{1, -1}{1, 0.25}, \tab$x[n] is causal}]
+                \begin{UnderOpgave}[\text{$X(z) = \filterZ{1, -1}{1, 0.25}, \tab{0}$x[n] is causal}]
                     Jeg har brug python til at beskrive den med partial fraction.
                     \[X(z) = 4 - \frac{3}{1 - 0,25*z^{-1}}\]
-                    \[X(z) \tab\overset{\mathscr{Z}}{\leftrightarrow}\tab x[n] = 4 * \delta[n] -  3*(0,25)^n * u[n]\]
-                    ROC: $|z| > 0.25 \tab\cap\tab$ Hele spektret.\\ Så den er kun begrænset af at være større end 0,25. 
+                    \[X(z) \tab{0}\overset{\mathscr{Z}}{\leftrightarrow}\tab{0} x[n] = 4 * \delta[n] -  3*(0,25)^n * u[n]\]
+                    ROC: $|z| > 0.25 \tab{0}\cap\tab{0}$ Hele spektret.\\ Så den er kun begrænset af at være større end 0,25. 
                 \end{UnderOpgave}
-                \begin{UnderOpgave}[\text{$X(z) = \filterZ{1}{1, 0.75, 0.125},\tab$ x[n] is absolutely summable}]
+                \begin{UnderOpgave}[\text{$X(z) = \filterZ{1}{1, 0.75, 0.125},\tab{0}$ x[n] is absolutely summable}]
                     \[X(z) = \filterZ{2}{1, 0.5} - \filterZ{1}{1, 0.25}\]
                     Hvis jeg antager kausulitet igen: 
-                    \[X(z) \tab\overset{\mathscr{Z}}{\leftrightarrow}\tab x[n] = 2 * (-0,5)^n * u[n] - (-0,25)^n * u[n]\]
-                    ROC: $|z| > -0,25 \tab\cap\tab |z| > -0,5$ \\
+                    \[X(z) \tab{0}\overset{\mathscr{Z}}{\leftrightarrow}\tab{0} x[n] = 2 * (-0,5)^n * u[n] - (-0,25)^n * u[n]\]
+                    ROC: $|z| > -0,25 \tab{0}\cap\tab{0} |z| > -0,5$ \\
                     Så igen nogle virkelige mærkelige grænser på grund af de negative a'ere. 
                     \\
                     Jeg må lige se på hans løsninger... men i morgen
                 \end{UnderOpgave}\setcounter{alfabetTabular}{0}
             \end{Udklip}
-            
             \begin{UnderOpgave}[\text{$X(z) = \filterZ{1, -1/3}{1, 1, -2}$, Alle ROCs skal findes}]
                 Jeg har udledt for nogle enkelte eksponetielle funktioner: 
                 \[====================================                                                                                          \]
-                \[x_1[n] = a^n*u[n] \transformation{Z} X_1(z) = \frac{1}{1 - a*z^{-1}}, \tab |z| > |a|                                          \]
-                \[x_2[n] = a^{-n}*u[-1-n] \transformation{Z} X_2(z) = -\frac{1}{1 - \frac{1}{a}*z^{-1}}, \tab |z| < |\frac{1}{a}|                \]
-                \[x_3[n] = a^n*u[-1-n] \transformation{Z} X_3(z) = - \frac{1}{1 - a*z^{-1}}, \tab |z|<|a|                                       \]
+                \[x_1[n] = a^n*u[n] \transformation{Z} X_1(z) = \frac{1}{1 - a*z^{-1}}, \tab{0} |z| > |a|                                          \]
+                \[x_2[n] = a^{-n}*u[-1-n] \transformation{Z} X_2(z) = -\frac{1}{1 - \frac{1}{a}*z^{-1}}, \tab{0} |z| < |\frac{1}{a}|                \]
+                \[x_3[n] = a^n*u[-1-n] \transformation{Z} X_3(z) = - \frac{1}{1 - a*z^{-1}}, \tab{0} |z|<|a|                                       \]
                 \[====================================                                                                                          \]
                 Man kan sige at hvis $a_2 = \frac{1}{a_1}$ Så kan man også forklare $x_2$ ud fra $x_3$, men hvor koefficienten har andre grænser. 
                 \[X(z) = \frac{\frac{7}{9}}{1 + 2*z^{-1}} + \frac{\frac{2}{9}}{1 - 1z*^{-1}} \]
                 Jeg skal finde alle dens mulige ROCs. \\
                 Kausult system: 
-                \[x[n] = \frac{7}{9} * (-2)^n * u[n]        + \frac{2}{9} * 1^n * u[n]   , \tab ROC: |z| > 2 \cap |z| > 1 \tab \rightarrow \tab |z| > 1\]
+                \[x[n] = \frac{7}{9} * (-2)^n * u[n]        + \frac{2}{9} * 1^n * u[n]   , \tab{0} ROC: |z| > 2 \cap |z| > 1 \tab{0} \rightarrow \tab{0} |z| > 1\]
                 Antikausult system: 
-                \[x[n] = -\frac{7}{9} * (-2)^n * u[-1 -n]   - \frac{2}{9} * 1^n * u[-1-n], \tab ROC: |z| < 2 \cap |z| < 1 \tab \rightarrow \tab |z| < 1\]
+                \[x[n] = -\frac{7}{9} * (-2)^n * u[-1 -n]   - \frac{2}{9} * 1^n * u[-1-n], \tab{0} ROC: |z| < 2 \cap |z| < 1 \tab{0} \rightarrow \tab{0} |z| < 1\]
                 Begge dele: 
-                \[x[n] = \frac{7}{9} * (-2)^n * u[n]        - \frac{2}{9} * 1^n * u[-1-n], \tab ROC: |z| > 2 \cap |z| < 1 \tab \rightarrow \tab 1 > |z| > 2 \tab ?\]
+                \[x[n] = \frac{7}{9} * (-2)^n * u[n]        - \frac{2}{9} * 1^n * u[-1-n], \tab{0} ROC: |z| > 2 \cap |z| < 1 \tab{0} \rightarrow \tab{0} 1 > |z| > 2 \tab{0} ?\]
                 Ugyldige grænser, så den vil altid være ustabil, hvad med den anden kombination? 
-                \[x[n] = -\frac{7}{9} * (-2)^n * u[-1 -n]   + \frac{2}{9} * 1^n * u[n]   , \tab ROC: |z| < 2 \cap |z| > 1 \tab \rightarrow \tab 2 > |z| > 1\]
+                \[x[n] = -\frac{7}{9} * (-2)^n * u[-1 -n]   + \frac{2}{9} * 1^n * u[n]   , \tab{0} ROC: |z| < 2 \cap |z| > 1 \tab{0} \rightarrow \tab{0} 2 > |z| > 1\]
                 Det giver mening, da kausulitet medfører $|z| > |a_1|$, antikausulitet medfører $|z| < |a_2|$
                 \[|a_2| > |z| > |a_1|\]
                 Så kun i det tilfælde hvor at $a_2 > a_1$ kan systemet have begge. Det er det når 2 > 1, så første den er krævet at være antikausult mens anden del kan være kausult. Det er hvad jeg ser. \\\\\\
                 \[===============================================\] 
-                \[x[n] = \frac{7}{9} * (-2)^n * u[n]        + \frac{2}{9} * 1^n * u[n]   , \tab ROC: |z| > 2 \cap |z| > 1 \tab \rightarrow \tab |z| > 1\]
-                \[x[n] = -\frac{7}{9} * (-2)^n * u[-1 -n]   - \frac{2}{9} * 1^n * u[-1-n], \tab ROC: |z| < 2 \cap |z| < 1 \tab \rightarrow \tab |z| < 1\]
-                \[x[n] = -\frac{7}{9} * (-2)^n * u[-1 -n]   + \frac{2}{9} * 1^n * u[n]   , \tab ROC: |z| < 2 \cap |z| > 1 \tab \rightarrow \tab 2 > |z| > 1\]
+                \[x[n] = \frac{7}{9} * (-2)^n * u[n]        + \frac{2}{9} * 1^n * u[n]   , \tab{0} ROC: |z| > 2 \cap |z| > 1 \tab{0} \rightarrow \tab{0} |z| > 1\]
+                \[x[n] = -\frac{7}{9} * (-2)^n * u[-1 -n]   - \frac{2}{9} * 1^n * u[-1-n], \tab{0} ROC: |z| < 2 \cap |z| < 1 \tab{0} \rightarrow \tab{0} |z| < 1\]
+                \[x[n] = -\frac{7}{9} * (-2)^n * u[-1 -n]   + \frac{2}{9} * 1^n * u[n]   , \tab{0} ROC: |z| < 2 \cap |z| > 1 \tab{0} \rightarrow \tab{0} 2 > |z| > 1\]
                 \[===============================================\] 
             \end{UnderOpgave}
-            \begin{UnderOpgave}[\text{$X(z) = \filterZ{1, -1}{1, -0.25}, \tab x[n]$ er kausul.}]
+            \begin{UnderOpgave}[\text{$X(z) = \filterZ{1, -1}{1, -0.25}, \tab{0} x[n]$ er kausul.}]
                 \[X(z) = 4 - \frac{3}{1 -0.25z^{-1}}\]
                 Kausulalitet medfører ROC udenfor pol for eksponentielle funktioner. For impuls funktionen, så har den ROC i alt. 
                 \[==============================\]
-                \[x[n] = 3*(0.25)^n*u[n] + 4 * \delta[n], \tab ROC: |z| > 0.25\]
+                \[x[n] = 3*(0.25)^n*u[n] + 4 * \delta[n], \tab{0} ROC: |z| > 0.25\]
                 \[==============================\]
             \end{UnderOpgave}
-            \begin{UnderOpgave}[\text{$X(z) = \frac{1}{(1 - 0.5z^{-1})*(1 - 0.25z^{-1})}, \tab x[n]$ er absolute summable}]
+            \begin{UnderOpgave}[\text{$X(z) = \frac{1}{(1 - 0.5z^{-1})*(1 - 0.25z^{-1})}, \tab{0} x[n]$ er absolute summable}]
                 At den er absolute summeringsbar betyder at 
                 \[\sum_{n=-\infty}^{\infty} |x[n]| < \infty \]
                 Men hvad kan jeg bruge det til? Det fortæller at systemet er stabilt. 
-                For kausalitet så har A værdierne positive n'er i eksponenten. $\lim_{n->\infty}{a^n} = 0, \tab |a| < 1$ \\
+                For kausalitet så har A værdierne positive n'er i eksponenten. $\lim_{n->\infty}{a^n} = 0, \tab{0} |a| < 1$ \\
                 For antikausulitet vil ikke ikke symmetriske eksponentiel aftagende funktion tage negative n'er i eksponenten $\lim_{n->-\infty}{a^n} = \infty, |a| < 1$ \\
                 Da jeg ikke har hørt noget om at inputtet er symmetrisk om n = 0, så må inputtet være kausult. 
                 Fra min formelsamling: 
-                \[x[n] = a^n*u[n] \transformation{Z} X(z) = \frac{1}{1 - a*z^{-1}}, \tab |z| > |a|                                          \]
+                \[x[n] = a^n*u[n] \transformation{Z} X(z) = \frac{1}{1 - a*z^{-1}}, \tab{0} |z| > |a|                                          \]
                 Bruger jeg så som transformationspar for mit tilfælde
                 \[X(z) = \filterZ{2}{1, 0.5} - \filterZ{1}{1, 0.25}\]
                 \[================================\]
-                \[x[n] = 2*(0.5)^n * u[n] - (0.25)^n * u[n], \tab ROC: |z| > 0.5\]
+                \[x[n] = 2*(0.5)^n * u[n] - (0.25)^n * u[n], \tab{0} ROC: |z| > 0.5\]
                 \[================================\]
                 Jeg kunne også have udledt den som værende symmetrisk om n = 0, det havde også opfyldt kritieret. Men jeg kommer ikke til at arbejde mere for nu.
             \end{UnderOpgave}
+        \end{Opgave}
+        
+        \begin{Opgave}[Opgave 3.6 - Z-transform ud fra egenskaber]
+            \figen{0.5}
+            \begin{UnderOpgave}[\text{$y[n] = x[n - 3]$}]
+                Den bruger time shift egenskaben
+                \[y[n] = x[n - 3] \transformation{Z} Y(z) = z^{-3}X(z) \]
+
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[\text{$y[n] = (\frac{1}{3})^n * x[n]$}]
+                Den her bruger skalerings egenskaben
+                \[a = \frac{1}{3}\]
+                \[y[n] = a^nx[n] \transformation{z} Y(z) = X(a^{-1}z)\]
+                \[y[n] = (\frac{1}{3})^nx[n] \transformation{z} Y(z) = X(3z)\]
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[\text{y[n] = x[n]*x[-n]}]
+                Er det konvolution han vil understrege? Hvis ja: 
+                Foldning: 
+                \[x[-n] \transformation{Z} X(z^{-1})\]
+                \[x[n]\star x[-n] \transformation{Z} X(z)*X(z^{-1})\]
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[\text{y[n] = n*x[-n]}]
+                Det er differentation
+                \[y[n] \transformation{Z} Y(z) = -z\frac{dX(z)}{dz}\]
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[\text{y[n] = x[n-1] + x[n + 2]}]
+                Tids skift og linearitet. 
+                \[y[n] \transformation{Z} Y(z) = z^{-1}X(z) + z^{-2}X(z) = X(z)*(z^{-1} + z{-2}) \]     
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[\text{y[n] = x[n]*x[n - 2]}]
+                Tidsforskydning og convolution
+                \[x[n-2] \transformation{z} z^{-2}X(z)\]
+                \[y[n] \transformation{Z} Y(z) = X(z)*z^{-2}X(z) \]
+                \[y[n] \transformation{Z} Y(z) = z^{-2}X(z)^2 \]
+            \end{UnderOpgave}
+        \end{Opgave}
+        \begin{Opgave}[Opgave 3.11 - Beregn konvolutionen]
+            \begin{UnderOpgave}[\text{$h[n] = a^nu[n], \tab{0} x[n] = b^nu[n], \tab{0} a\neq b$}]
+                \[y[n] = h[n]\star x[n] \transformation{Z} Y(z) = H(z)*X(z)\]
+                h og x er begge eksponentielt funktioner, som jeg har udledt for. 
+                \[h[n] \transformation{Z} H(z) = \frac{1}{1 -a*z^{-1}}, \tab{0} |z| > |a|\]
+                \[x[n] \transformation{Z} X(z) = \frac{1}{1 -b*z^{-1}}, \tab{0} |z| > |b|\]
+                \[Y(z) = \frac{1}{1 -a*z^{-1}} * \frac{1}{1 -b*z^{-1}}, \tab{0} |z| > |b| \cap |z| > |a| \]
+                \[Y(z) = \frac{1}{1 - (a + b)*z^{-1} + ab*z^{-2}}, \tab{0} |z| > max(|b|, |a|) \]                
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$h[n] = a^nu[n],\tab{0} x[n] = b^nu[n],\tab{0} a=b$}]
+                \[Y(z) = \frac{1}{1 - (a + b)*z^{-1} + ab*z^{-2}}, \tab{0} |z| > max(|b|, |a|)\]
+                \[b = a\]
+                \[Y(z) = \frac{1}{1 - 2a*z^{-1} + a^2*z^{-2}}, \tab{0} |z| > |a|\]
+                                
+            \end{UnderOpgave}
+        \end{Opgave}
+        \begin{Opgave}[Opgave 3.14 - Given a causal system, compute its response to inputs]
+            \[y[n]= \frac{1}{2} * y[n - 1] + x[n]\]
+            \[y[n] = y[n-1]/2 + x[n] \transformation{Z} Y(z)*(1 - 0,5*z^{-1}) = X(z)\]
+            \[H(z) = \frac{Y(z)}{X(z)} = \filterZ{1}{1, -0.5}\]
+            \[Y(z) = X(z)*H(z)\]
+            \[X(z) = \infsum{n}{x[n]*z^{-n}}\]
+
+            \begin{UnderOpgave}[\text{$x[n] = e^{j*0.25*\pi * n}, \tab{0} -\infty < n < \infty$}]
+                \[X(z) = \infsum{n}{e^{j*0.25*\pi * n}*z^{-n}}\]
+                \[X(z) = \infsum{n}{(e^{j*0.25*\pi})^n*(z^{-1})^n}\]
+                \[X(z) = \infsum{n}{(z^{-1}*e^{j*0.25*\pi})^n}\]
+                Umiddelbart vil jeg argumentere for, at summen af det her gående fra - uendelig til + uendelig vil være 0. 
+                Det er jo harmoniske funktioner og de er symmetriske omkring n = 0. \\\\
+
+                Jeg fandt ikke en løsning på den her måde. Men i svararket har de brugt en unik egenskab. Hvis jeg skal om det. 
+                Det er for kompleks eksponentielle signaler af formen. 
+                \[x[n] = z_0^n\]
+                Så kan jeg direkte finde outputtet ved: 
+                \[y[n] = x[n]*H(z)|_{z=z_0}, ROC:   ROC_H\]
+                Hvor man så evaluere den i inputtets "fase og frekvens" 
+                Og det er jo præcis sådan at signalet er beskrevet.
+                \[x[n] = (e^{j*0.25*\pi})^n\]
+                \[==============\]
+                \[y[n] = \frac{(e^{j*0.25*\pi})^n}{1 - \frac{0.5}{e^{j*0.25*\pi}}}\]
+                \[==============\]
+                
+
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[\text{$x[n] = e^{j*0.25*\pi * n}u[n]$}]
+                Det er den samme funktion som delopgave a, men den her har andre grænser.
+                \[X(z) = \infsum{n}{u[n]*(z^{-1}*e^{j*0.25*\pi})^n}\]
+                \[X(z) = \sum_{k = 0}^{\infty}{(z^{-1}*e^{j*0.25*\pi})^n}\]
+                Så kan jeg rent faktisk beregne den.
+                Det er en uendelig geometrisk serie. Kriteriet :
+                \[|z^{-1}*e^{j*0.25*\pi}| < 1, \tab{0} |z^{-1}| < 1,\tab{0} |z| > 1\]
+                \[X(z) = \frac{1}{1 - e^{j*0.25*\pi}*z^{-1}}\]
+                \[X(z) = \frac{1}{1 - \frac{\sqrt{2}}{2} * (1 + j) * z^{-1}}\]
+
+                \[Y(z) = X(z)*H(z)\]
+                \[Y(z) = \frac{1}{1 - \frac{\sqrt{2}}{2} * (1 + j) * z^{-1}} * \filterZ{1}{1, -0.5}\]
+                \[Y(z) = \frac{1}{1 - \frac{\sqrt{2}}{2} * (1 + j) * z^{-1} - 0.5z^{-1} + \frac{\sqrt{2}}{2} * (1 + j) * z^{-1}*0.5z^{-1}}\]
+                \[Y(z) = \frac{1}{1 - \frac{\sqrt{2}}{2} * (1 + j) * z^{-1} - 0.5z^{-1} + \frac{1*\sqrt{2}}{2*2} * (1 + j) * z^{-2}}\]
+                \[Y(z) = \frac{1}{1 - (\frac{\sqrt{2}}{2} * (1 + j) + 0.5) * z^{-1} + \frac{\sqrt{2}}{4} * (1 + j) * z^{-2}}\]
+                Og så skal jeg egentlig bare lave partial fraction. Med python finder jeg, at jeg kan beskrive den med 
+                \[Y(z) = (0.191 + 0.651j) * \frac{1}{1 + 0.5z^{-1}} + (1.19 - 0.651j) * \frac{1}{1 + \frac{\sqrt{2}}{2} * (1 + j) * z^{-1}}\]
+                \[y[n] = (0.191 + 0.651j) * (0.5)^nu[n] + (1.19 - 0.651j) * (\frac{\sqrt{2}}{2} * (1 + j))^nu[n]\]\\\\
+                
+                Det var meget regning. 
+                Z transform, finde produkt, simplificere, partial fraction, inverse z transform. 
+                Nu til en anden metode, som man kan bruge.
+
+                I special tilfældet, at inputtet er en kompleks eksponential af formen: 
+                \[x[n] = z_0^n\]
+                Så følger den kravet for en egenfunktioner, og så kan outputtet regnes direkte: 
+                \[y[n] = H(z)*x[n]\]
+                Og responsen evalueres i x værdien. 
+                For det her tilfælde: 
+                \[x[n] = (e^{j * \pi/4})^n\]
+                \[y[n] = x[n]*H(z)|_{z=e^{j\pi/4}}\]
+                \[============\]
+                \[y[n] = \frac{(e^{j\pi/4})^n}{1 - \frac{0.5}{e^{j\pi/4}}} * u[n]\] 
+                \[============\]
+                Og det kan meget vel være, at det er det samme jeg har fået, men på komplekse tals form. 
+            \end{UnderOpgave}
+            
+            \begin{UnderOpgave}[\text{$x[n] = (-1)^n,\tab{0} -\infty < n < \infty$}]
+                \color{red}
+                \[X(z) = \infsum{n}{(-1)^n*z^{-n}}\]
+                \[X(z) = \infsum{n}{(-1)^n*(z^{-1})^n}\]
+                \[X(z) = \infsum{n}{(-1*z^{-1})^n}\]
+                \[X(z) = \infsum{n}{(-z^{-1})^n}\]
+                Jeg tror, at den her skal tages på samme måde som de harmoniske funktioner. 
+                Fra minus uendelig til uendelig, så vil $(-1)^n$ udligne sig selv.
+
+                \color{black}
+                Ny tilgang. Det virker som om, at hele den her opgave går ud på at indse hvor nemt det er at finde output, hvis signalet er af kompleks eksponentiel form. 
+                \[y[n] = x[n]*H(z)|_{z=z_0}\]
+                \[x[n] = z_0^n\]
+                Kan jeg beskrive en alternerende funktion vha. sinus bølger? Ja, for diskret tid så kan jeg det godt.
+                Til n = 0, så skal den være 1. Det passer med en eksponentiel funktion med en vinkelhastighed på $\pi$. 
+                \[x[n] = (e^{j*\pi})^n\]
+                \[=======\]
+                \[y[n] = \frac{(e^{j*\pi})^n}{1 - \frac{0.5}{e^{j*\pi}}}\]
+                \[=======\]
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$x[n] = (-1)^nu[n]$}]
+                \color{red}
+                \[X(z) = \infsum{n}{u[n]*(-z^{-1})^n}\]
+                \[X(z) = \sum_{n=0}^{\infty}{(-z^{-1})^n}\]
+                Så har jeg et kriterie: 
+                \[|-z^{-1}| < 1,\tab{0} |z| > 1\] 
+                \[X(z) = \filterZ{1}{1, -1}\]\\\\
+                \color{black}
+                Ny tilgang. For simplicitetens skyld så bruger jeg egenværdis egenskaben. 
+                Det er det samme som for den sidste, men den er kun kausul. 
+                \[x[n] = (e^{j*\pi})^n\]
+                \[=============\]
+                \[y[n] = \frac{(e^{j*\pi})^n}{1 - \frac{0.5}{e^{j*\pi}}}u[n]\]
+                \[=============\]
+            \end{UnderOpgave}\\
+            Konklusionen var, at egenværdis egenskaben var super nyttig at bruge, men lige hvornår man kan bruge den, det er jeg stadigvæk meget usikker på. 
+            Til de opgaver som var kausule, så løste Henrik, Jakob, Claes eller hvem det end var som lavede svararket, det mere direkte, som den tilgang jeg startede med.
+            Z transformation -> multiplikation, simplifikation, partial fraction, inverse z transformation. 
+
+            
+        \end{Opgave}
+        \begin{Opgave}[Opgave 3.15 - Consider a LTI described by differensequation]
+            \[\differensLigning{0.75, 0.125}{1}{y}{x}\]            
+            \begin{UnderOpgave}[Find the system function H(z) and check whether the system is stable.]
+                \[Y(z)*(1 - 0.75z^{-1} + 0.125z^{-2}) = X(z)\]
+                \[H(z) = \frac{Y(z)}{X(z)} = \filterZto{1}{1, -0.75, 0.125}\]
+                Jeg finder at, jeg kan beskrive det her filter ved to første ordens filtre: 
+                \[H(z) = -\filterZto{1}{1, -0.25} + \filterZto{2}{1, -0.5}\]
+                Lad mig se for både kausule og antikausule systemer: 
+                \[-a^n*u[-1-n]  \transformation{Z} \filterZto{1}{1 - a*z^{-1}},\tab{0} ROC: |z| < |a|\]
+                \[ a^n*u[n]     \transformation{Z} \filterZto{1}{1 - a*z^{-1}}, \tab{0} ROC: |z| > |a|\]\\
+                \[h[n] = (0.25)^nu[-1-n] - 2*(0.5)^nu[-1-n]\]
+                \[h[n] = -(0.25)^nu[n] + 2*(0.5)^nu[n]\]\\
+                \[(a)^n \rightarrow \infty, \tab{0} |a| < 1,\tab{0} n \rightarrow -\infty\]
+                \[(a)^n \rightarrow \tab{0} 0 \tab{0} |a| < 1, \tab{0} n \rightarrow \infty\]
+                \[=============================\]
+                $\tab{5}$Derfor er systemet stabilt, hvis systemet er kausult.
+                \[=============================\]
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[\text{Determine the impulse response h[n] of the system}]
+                Den har jeg allerede fundet til at være.
+                \[======================\]
+                \[h[n] = -(0.25)^nu[n] + 2*(0.5)^nu[n]\]
+                \[======================\]
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[\text{Determine the step response s[n] of the system}]
+                \[s[n] = u[n] \star (2*(0.5)^nu[n] - (0.25)^nu[n])\]
+                Lad mig bruge konvolutionens distributive egenskab. 
+                 \[s[n] = s_1[n] + s_2[n]\]
+                 \[s_1[n] = \convolutionSym{2}{-\infty, \infty}{u, 2*(0.5)^nu}\]
+                 \[s_2[n] = \convolutionSym{2}{-\infty, \infty}{u, -(0.25)^nu}\]
+                 I begge tilfælde gælder der at $s_i \neq 0, \tab{0} k > 0 \tab{0} \cap \tab{0} n - k > 0 \rightarrow n > k $ 
+                 \[s_1[n] = \sum_{k = 0}^{n}{2*(0.5)^n}\]
+                 \[s_2[n] = -\sum_{k = 0}^{n}{(0.25)^n}\]
+                 For eksponenterne som har et grundtal anderledes fra 1, så har jeg en summations identitet. 
+                 \[s[n] = \frac{1 - 0.5^{n + 1}}{1 - 0.5} + \frac{1 - 0.25^{n+1}}{1 - 0.25}\]
+                 \[==================\]
+                 \[s[n] = -0.5^n + \frac{1}{3} * 0.25^n + \frac{10}{3}\]
+                 \[==================\]
+
+            \end{UnderOpgave}
+            \color{red}
+            \begin{UnderOpgave}[\text{Compute $h[n]$ and $s[n]$ for $0 < n < 10$ using (b) and (c) and compare with function filter}]
+                Er hvad jeg fik. Hvad med vha. filter? 
+                Jeg har fået, et anderledes resultat med scipy's filter. Men jeg ser også, at jeg måske har glemt et fortegn. 
+                \[s[n] = \frac{1 - 0.5^{n + 1}}{1 - 0.5} - \frac{1 - 0.25^{n+1}}{1 - 0.25}\]
+                
+                \[s[n] = -0.5^n - \frac{1}{3} * 0.25^n + \frac{2}{3}\]
+                Det er min rent faktiske step funktion. Lad mig prøve at lave min tabel igen. 
+            \end{UnderOpgave}
+            \color{black}
+            Lad mig prøve igen.
+            Fra scipy: 
+            \figenogtyve{0.9}
+
+            \[s[n] = s_1[n] + s_2[n]\]
+            \[s_1[n] = \convolutionSym{2}{-\infty, \infty}{u, 2*(0.5)^nu}\]
+            \[s_2[n] = \convolutionSym{2}{-\infty, \infty}{u, -(0.25)^nu}\]
+            For begge gælder der deres grænser. Responsen er ikke nul for.
+            \[k > 0 \cap n - k > 0 \rightarrow n > k \]
+            \[s[n] = 2*\sum_{k = 0}^{n}{0.5^n} - \sum_{k = 0}^{n}{0.25^n}\]
+            Så længe at grundtallet i den eksponentielle er anderledes fra 0, så kan omskrive det. 
+            \[s[n] = 2 * \frac{1 - (0.5)^{n + 1}}{1 - 0.5} - \frac{1 - (0.25)^n}{1 - 0.25}\]
+            \[s[n] = -2*(0.5)^n + \frac{1}{3} * (0.25)^n + \frac{8}{3}\]
+
+            \begin{EgenTabel}
+                \lavKolonneData{n}{r[n]}{s[n]}
+                \foreach \n in {0, 1, 2, ..., 10} {
+                    % For each n value, compute values for the three columns
+                    \pgfmathparse{-(0.25^\n) + 2 * (0.5^\n)}  
+                    \edef\R{\pgfmathresult}  % Response column
+
+                    \pgfmathparse{-2*(0.5^\n) + (1/3) * (0.25^\n) + (8/3)}  
+                    \edef\S{\pgfmathresult}  % Step Response column
+
+                    \lavKolonneData{\n}{\R}{\S}  % Store n, Response, Step Response in columns
+                }
+            \end{EgenTabel}\\\\  
+            Og så har jeg den, resultaterne er stort set ens.
+            Svararket har valgt at z transformere dem begge først, den vej kunne jeg også have gået 
+        \end{Opgave}
+        \begin{Opgave}[\text{Opgave 3.16 - Response of a LTI system}]
+            Givet $x[n] = u[n], \tab{0} y[n] = 2(1/3)^nu[n]$
+            \begin{UnderOpgave}[\text{Find the impulse response h[n] of the system.}]
+                \[y[n] = 2(1/3)^nu[n]\]
+                \[y[n] = x\star h \transformation{Z} Y(z) = {X*H}\]
+                Jeg tror det nemmeste er at løse for den z transformerede. 
+                \[X(z) = \frac{1}{1 - z} ROC: |z| > |1|\]
+                \[Y(z) = 2 * \frac{1}{1 - (1/3)z^{-1}} ROC: |z| > |1/3|\]
+                \[H(z) = Y(z)/X(z) = \frac{2 * \frac{1}{1 - (1/3)z^{-1}}}{\frac{1}{1 - z^{-1}}}\]
+                \[H(z) = 2 * \frac{1 - z^{-1}}{1 - 1/3 * z^{-1}}\]
+
+                Jeg har brugt partial fraction of finder den til også at kunne skrives som: 
+                \[H(z) = 6 - 4 * \frac{1}{1 - (1/3)z^{-1}},\tab{0} ROC: |z| > 1/3\]
+                \[==========================================\]
+                \[h[n] = 6 * \delta[n] - 4 * \frac{1}{3}^nu[n] \transformation{Z} H(z) = 6 - 4 * \frac{1}{1 - (1/3)z^{-1}}\]
+                \[==========================================\]
+            \end{UnderOpgave}
+            
+            \begin{UnderOpgave}[\text{Find the output $y[n]$ for the input $x[n] = (1/2)^nu[n]$.}]
+                \[y[n] = y_1[n] + y_2[n]\]
+                \[y[n] = \sum_{k = -\infty}^{\infty}{(1/2)^ku[k] \star (6*\delta[n - k] - 4 * \frac{1}{3}^{n - k}u[n - k])}\]
+                Kan skrives som 
+                \[y[n] = \sum_{k = -\infty}^{\infty}{(1/2)^ku[k] * 6*\delta[n - k]} - \sum_{k = -\infty}^{\infty}{(1/2)^ku[k] * 4 * \frac{1}{3}^{n-k}u[n - k]}\]
+                på grund af dens distributive egenskab for konvolution. 
+                Første konvolution har grænsen k = n. 
+                Anden konvolution har grænsen $n - k > 0; n > k$
+                \[y[n] = 6*\sum_{k = n}^{n}{(1/2)^k} - 4 * \sum_{k = 0}^{n}{(1/2)^k * \frac{1}{3}^{n-k}}\]
+                \[y[n] = 6*\sum_{k = n}^{n}{(1/2)^k} - 4 * \sum_{k = 0}^{n}{(1/2)^k * \frac{1}{3}^n\frac{1}{3}^{-k}}\]
+                \[y[n] = 6*\sum_{k = n}^{n}{(1/2)^k} - 4 * \sum_{k = 0}^{n}{(1/2 * (1/3)^{-1})^k * \frac{1}{3}^n}\]
+                \[y[n] = 6*\sum_{k = n}^{n}{(1/2)^k} - 4 * \frac{1}{3}^n * \sum_{k = 0}^{n}{(1/2 * 3)^k }\]
+                \[y[n] = 6*\sum_{k = n}^{n}{(1/2)^k} - 4 * \frac{1}{3}^n * \sum_{k = 0}^{n}{(3/2)^k }\]
+                For grundtallet ikke lige med 1 kan jeg finde dens geometriske identitet. 
+                \[y[n] = 6*\frac{1}{2}^n - 4 * \frac{1}{3}^n * \frac{1 - \frac{3}{2}^{n+ 1}}{1 - \frac{3}{2}}\]
+                \[y[n] = 6*\frac{1}{2}^n + 4 * \frac{1}{3}^n * \frac{1 - \frac{3}{2}^{n+ 1}}{1 - \frac{3}{2}}\]
+                \[=================\]
+                \[y[n] = 6 * \frac{1}{2}^n + 2 * \frac{1}{3}^n - 4 * \frac{1}{3}^n*\frac{3}{2}^{n+1}\] 
+                \[=================\]
+                $y[n] =$ [\foreach \n in {0, ..., 10}{
+                    $\pgfmathparse{-(0.25^\n) + 2 * (0.5^\n)}  
+                    \pgfmathresult$, 
+                }]
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{Check the results in (a) and (b) using the function filter.}]
+                Lad mig så se ud fra scipy's filter funktion. 
+                Jeg får et lidt anderledes resultat.
+                \figtoogtyve{0.8}
+
+                Så jeg har prøvet en anden strategi. 
+                \[H(z) = 2 * \frac{1 - z^{-1}}{1 - 1/3 * z^{-1}}\]
+                \[X_2(Z) = \frac{1}{1 - 0.5z^{-1}}\]
+                \[y[n] = x_2[n] \star h[n] \transformation{Z} Y(z) = X_2(z)*H(z)\]
+                \[Y(z) = X(z)*H(z) = \frac{1}{1 - 0.5z^{-1}} * 2 * \frac{1 - z^{-1}}{1 - 1/3 * z^{-1}}\]
+                \[Y(z) = X(z)*H(z) = 2 * \frac{1 - z^{-1}}{1 - 5/6*z^{-1} + 1/6z^{-2}}\]
+                Partial fraction fortæller mig at det kan beskrives ved: 
+                \[Y(z) = 8*\frac{1}{1 - 1/3 * z^{-1}} - 6 * \frac{1}{1 - 0.5 * z^{-1}}\]
+                \[Y(z) \transformation{z} y[n] = 8 * (1/3)^nu[n] - 6 * (1/2)^nu[n]\] 
+                $y[n] =$ [\foreach \n in {0, ..., 10}{
+                    $\pgfmathparse{8((1/3)^\n) - 6 * (0.5^\n)}  
+                    \pgfmathresult$, 
+                }]\\\\
+                Det er hellere ikke helt det jeg får. 
+                Jeg har ikke svar til den her, så jeg kan ikke sammenligne det. 
+                Men jeg stoler mest på scipy.
+
+            \end{UnderOpgave}
+        \end{Opgave}
+
+        \begin{Opgave}[Opgave 3.19 - Consider a causal LTI system]
+            \[y[n] = 0.5 * y[n - 1] + x[n] - \frac{1}{1024} * x[n - 10]\]
+            
+            \begin{UnderOpgave}[\text{Determine the system function H(z) and plot the pole-zero pattern using the function zplane.}]
+                Så lad mig begynde med at finde H(z)\\
+                \[Y(z)*(1 - 0.5*z^{-1}) = X(z) * (1 - \frac{1}{1024}*z^{-10})\]
+                \[H(z) = \frac{Y(z)}{X(z)} = \frac{1 - \frac{1}{1024}*z^{-10}}{1 - 0.5*z^{-1}}\]
+                Hvad angår ROC, så har vi jo lært at det kun er nulpunktet der beskriver det. 
+                Vi har så også lært, at udadvendt betyder kausule systemer, og indadvendte betyder antikausule systemer. 
+                Det er derfor at vi for et step transformeret siger, at den skal opfylde, at |z| > 1. \\
+                Jeg har fået at vide, at det er et kausult system, og derfor: 
+                \figtreogtyve{0.45}\\\\\\\\
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[Compute and plot the impulse response of the system using impz]
+                Det her er jo bare et impuls signal i konvolution med systemet. Det har han så en funktion for i matlab.\\
+                Jeg har bare lavet det samme i python. 
+                \figfireogtyve{0.45}
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[\text{Explain the length of $h[n]$ using the pole-zero pattern plot.}]
+                Chatten fortæller mig, at det er noget om at beskrive systemet som IIR filter eller FIR filter. 
+                Hvis der ikke er nogle poler, så er filteret finite. Set i forhold til hvad poler repræsentere så giver det mening \\
+                Poler er jo led af feedbacken, så hvis der ingen feedback er, så er systemet begrænset af dens inputs. Hvis dens inputs er begrænsede, så er filteret også \\
+                Chatten kom også ind på, at i det speciale tilfælde, at der er blevet sat en pol i 0, så kunne den også være en FIR filter.
+                \[======================================\]
+                \[\text{Grundet at der findes en pol indenfor enhedscirklen som ikke er 0,}\]
+                \[\text{så vil der altid være lidt feedback tilbage}\]
+                \[======================================\]
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[Find an equivalent difference equation for the description of the system.]
+                \[y[n] = 0.5 * y[n - 2] + 0.5 * x[n-1] + x[n] - \frac{1}{2048} * x[n - 11]\]
+                Er det sådan at det ønskes?
+                \[x[n] = y[n] - 0.5 * y[n - 1] + \frac{1}{1024} * x[n - 10]\]
+                \[y[n] = 0.5 * y[n - 1] + x[n] - \frac{1}{1024} * x[n - 10]\]
+                \[y[n] = 0.5 * y[n - 1] + y[n] - 0.5 * y[n - 1] + \frac{1}{1024} * x[n - 10] - \frac{1}{1024} * x[n - 10]\]
+                \[0 = 0 \]
+                Eller er det en approximation. Lige nu er mit system en IIR filter, men chatten siger, at jeg kan approksimere det med polen og antal samples.
+                \[y[n] = \sum_{k = 0}^{N}{p^kx[n - k]}\]
+                Som vil blive til et FIR filter, da jeg vil slippe for feedbacken. 
+                Jeg har allerede set, at systemet approksimativt er 0 for n = 10, så lad mig tage for de første N = 10 inputs\\
+                $y[n] =$ \foreach \k in {0, ..., 10}{
+                    $\pgfmathparse{0.5^\k}
+                    \pgfmathresult *x[n - \k] \tab{0}+ $
+                }
+                \\\\Svararket har gjort det præcist samme, så spørgsmålet her var at lave et IIR filter om til et FIR filter.
+            \end{UnderOpgave}
+        \end{Opgave}
+        \begin{Opgave}[\text{Opgave 3.20 - Consider a causal system with input $x[n]$ and output $y[n]$}]
+            If the input is given by
+            \[x[n] = —(1/3)(1/2)^nu[n] — (4/3)2^nu[—n — 1],\]
+            the output has a z-transform given by
+            \[Y(z) = \frac{1 - z^{-2}}{(1 - 0.5 z^{-1})*(1 - 2*z^{-1})}\]
+            \begin{UnderOpgave}[\text{Determine the z-transform of the input x[n].}]
+                \[a^ku[n] \rightarrow \frac{1}{1 - a*z^{-1}}, \tab{0} ROC: |z| > |a|\]
+                \[a^ku[-1-n] \rightarrow \frac{1}{1 - a*z^{-1}}, \tab{0} ROC: |z| < |a|\]
+                Med den begrænsning så set i mit tilfælde så har jeg at $ROC: 0.5 < |z| < 2$.
+                \[=========================================\]
+                \[X(z) = -1/3 * \frac{1}{1 - 0.5*z^{-1}} - 4/3 * \frac{1}{1 - 2*z^{-1}},\tab{0} ROC: 0.5 < |z| < 2\]
+                \[=========================================\]
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[Find all possible choices for the impulse response of the system.]
+                Jeg forstod ikke spørgsmålet først, da de skriver impulse responser. Det havde jeg ikke behøvedes at kende outputtet for at finde. Men jeg tror hvad de virkelig ønsker her er systemets response.
+                Så lad mig finde det. \\
+                \[X(z) = -1/3 * \frac{1}{1 - 0.5*z^{-1}} - 4/3 * \frac{1}{1 - 2*z^{-1}}\]
+                \[Y(z) = \frac{1 - z^{-2}}{(1 - 0.5 z^{-1})*(1 - 2*z^{-1})}\]
+                Lad mig finde X's fællesnævner, så regnestykket bliver nemmere. 
+                \[X(z) = -1/3 * \frac{1 - 2*z^{-1}}{1 - 2.5*z^{-1} + z^{-2}} - 4/3 * \frac{1 - 0.5*z^{-1}}{1 - 2.5*z^{-1} + z^{-2}}\]
+                \[X(z) = \frac{-1/3 *(1 - 2*z^{-1}) - 4/3*(1 - 0.5*z^{-1})}{1 - 2.5*z^{-1} + z^{-2}}\]
+                \[X(z) = -\frac{1}{3}\frac{1 - 4z^{-1}}{1 - 2.5z^{-1} + z^{-2}}\]
+                Lad mig så udvide for Y(z). Den har samme nævner som X(z) \\\\\\
+                \[Y(z) = \frac{1 - z^{-2}}{1 - 2.5z^{-1} + z^{-2}}\]
+
+
+                \[H(z) = \frac{Y(z)}{X(z)} = \frac{\frac{1 - z^{-2}}{1 - 2.5z^{-1} + z^{-2}}}{-\frac{1}{3}\frac{1 - 4z^{-1}}{1 - 2.5z^{-1} + z^{-2}}}\]
+                \[H(z) = \frac{Y(z)}{X(z)} = Y(z) * X(z)^{-1} = \frac{1 - z^{-2}}{1 - 2.5z^{-1} + z^{-2}} * (-\frac{3}{1}\frac{1 - 2.5z^{-1} + z^{-2}}{1 - 4z^{-1}})\]
+                Jeg ser at deres fælles led går ud. 
+                \[H(z) = Y(z) * X(z)^{-1} = (1 - z^{-2}) * (-3\frac{1}{1 - 4z^{-1}})\]
+                \[H(z) = Y(z) * X(z)^{-1} = -3 * \frac{1 - z^{-2}}{1 - 4z^{-1}}\]
+                Lad mig så først og fremmest finde dens partial fraction udledte. 
+                Jeg får den til, at den kan omskrives til: 
+                \[H(z) = 0.938 - 3.19 * \frac{1}{1 - 4*z^{-1}}\]
+                \[H(z) = 0.938 - 3.19 * \frac{1}{1 - 4*z^{-1}}\]
+                Jeg får til 2 funktioner, hvor en af dem har mulighed for at være en af to mulige. Givet at jeg har fået at vide, at det er kausul, så kan jeg indsnævre det, så det ikke kan være andet end. 
+                \[H(z) \transformation{Z} h[n] = 0.938 * \delta[n] - 3.19 * (4)^nu[n]\]
+                Men det betyder så også, at systemet er ustabilt pga. grundtallet i den eksponentielle. 
+                \[============================================\]
+                \[H(z) = 0.938 - 3.19 * \frac{1}{1 - 4*z^{-1}}\]
+                \[h[n] = 0.938 * \delta[n] - 3.19 * (4)^nu[n]\]
+                \[\text{Systemet er ustabilt i dens kausule part. 
+                Havde systemet været antikausult,}\]
+                \[\text{så havde den været stabil i det her tilfælde.} \]
+                \[============================================\]
+                \newline
+                \color{teal}
+                Rettelse: 
+                Svararket får simplificeret H(z) til at være
+                \[H(z) = 1 - z^{-2}\]
+                Hvad angår at beskrive "alle mulige" så laver han også bare omvendt z transformation og giver den som resultat. 
+            \end{UnderOpgave}
+        \end{Opgave}
+    \end{kapitel}
+    \begin{kapitel}[Fourier representation of signals]
+        asdasd
+    \end{kapitel}
+    \begin{kapitel}[Transform analysis of LTI systems]
+        \begin{Udklip}
+            \begin{Opgave}[Opgave 5.2 - LTI system ud fra differensligning]
+                \[y[n] = bx[n] - 0.81y[n - 2]\]
+    
+    
+                \begin{UnderOpgave}[Determine the frequency response $H(e^{j\omega})$ of the system in terms of b.]
+                    Ved brug af tidsforskydelses egenskaben så z transformere jeg ligningen. 
+                    \[Y(z)*(1 + 0.81z^{-1}) = X(z)*b\]
+                    \[H(z) = \frac{Y(z)}{X(z)} = \frac{b}{1 + 0.81z^{-1}}\]
+                    \[H(e^{j\omega}) = \frac{b}{1 + 0.81e^{-j\omega}}\]
+                
+                \end{UnderOpgave}
+                \begin{UnderOpgave}[Determine b so that $|H(e^{j\omega})|_max = 1$. Plot the resulting magnitude response.]
+                    \[|H(e^{j\omega})| = \frac{|b|}{|1 + 0.81e^{-j\omega}|}\]
+                    \[1 + 0.81e^{-j\omega} = 1 + 0.81cos(-\omega) + 0.81jsin(-\omega)\] 
+                    \[1 + 0.81e^{-j\omega} = 1 + 0.81cos(\omega) - 0.81jsin(\omega)\] 
+                    \[|1 + 0.81e^{-j\omega}| = \sqrt{(1 + 0.81cos(\omega))^2 + (-0.81sin(\omega))^2}\] 
+                    \[|1 + 0.81e^{-j\omega}| = \sqrt{1 + 2*0.81cos(\omega) + 0.6561*(cos(\omega))^2 + sin(\omega)^2}\] 
+                    \[|1 + 0.81e^{-j\omega}| = \sqrt{1.6561 + 2*0.81cos(\omega)}\] 
+                    Jo mindre nævneren er jo større vil forstærkningen være. Når $0.81*(-1)|_{\omega=\pi}$ er nævneren mindst.
+        
+                    \[|H(e^{j\pi})| = \frac{|b|}{\sqrt{0.0361}}\]
+                    \[========\]
+                    \[b = \pm \sqrt{0.0361}\] 
+                    \[========\]
+    
+                    \[H(z) = \frac{\sqrt{0.0361}}{1 + 0.81z^{-1}}\]
+                    \[H(e^{j\omega}) = \frac{\sqrt{0.0361}}{1 + 0.81e^{-j\omega}}\]
+                    
+                    \figfemogtyve{0.4}
+                \end{UnderOpgave}
+    
+                \begin{UnderOpgave}[Graph the wrapped and the unwrapped phase responses in one plot.]
+                    Så skal jeg til at kummulere det nu. 
+    
+                \end{UnderOpgave}
+    
+                \begin{UnderOpgave}[\text{Determine analytically the response $y[n]$ to the input $x[n] = 2 cos(0.52n + 60°)$.}]
+                    
+                \end{UnderOpgave}
+    
+                \begin{UnderOpgave}[\text{Using MATLAB compute the steady-state response to x[n] above and verify your result}]
+                \end{UnderOpgave}
+            \end{Opgave}
+        \end{Udklip}\setcounter{alfabetTabular}{0}
+        \color{teal} Jeg lavede nogle fejl og derfor fik jeg nogle forkerte resultater. Jeg er klar på at prøve forfra.
+        \color{black}
+        \begin{Opgave}[Opgave 5.2 - LTI system ud fra differensligning (ny)]
+            \[y[n] = bx[n] - 0.81y[n - 2]\]
+
+
+            \begin{UnderOpgave}[Determine the frequency response $H(e^{j\omega})$ of the system in terms of b.]
+                Ved brug af tidsforskydelses egenskaben så z transformere jeg ligningen.
+                \[Y(z) * (1 + 0.81z^{-2}) = X(z) * b\]
+                \[H(z) =  \filterZto{b}{1, 0, 0.81}\]
+                \[H(e^{j\omega}) = \frac{b}{1 + 0.81e^{-2j\omega}}\]
+                
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[Determine b so that $|H(e^{j\omega})|_{max} = 1$. Plot the resulting magnitude response.]
+                \[|H(e^{j\omega})| = \frac{|b|}{|1 + 0.81e^{-2j\omega}|}\]
+                Lad mig se på nævneren.
+                \[|1 + 0.81e^{-2j\omega}| = |(1 + 0.81cos(2\omega)) - 0.81jsin(2\omega)\]
+                \[|1 + 0.81e^{-2j\omega}| = \sqrt{(1 + 0.81cos(2\omega))^2 + 0.81sin(2\omega)}\]
+                \[|1 + 0.81e^{-2j\omega}| = \sqrt{(1 + 0.81cos(2\omega))^2 + 0.81sin(2\omega)}\]
+                \[|1 + 0.81e^{-2j\omega}| = \sqrt{1 + 0.6561(cos(2\omega)^2 + sin(2\omega)^2) + 2*0.81*cos(2\omega)}\]
+                \[|1 + 0.81e^{-2j\omega}| = \sqrt{1 + 0.6561 + 2*0.81*cos(2\omega)}\]
+                Når nævneren er mindst, så er forstærkningen størst. Den største forstærkning findes da når $cos(2\omega) = -1, \tab{0} \omega = \pi$
+                \[|1 + 0.81e^{-2j\pi}| = \sqrt{0.0361}\]
+                \[|1 + 0.81e^{-2j\pi}| = 0.19\]
+                \[|H(e^{j\omega})|_max = \frac{|b|}{|1 + 0.81e^{-2j\omega}|} = 1\]
+                \[|H(e^{j\pi})| = \frac{|b|}{0.19} = 1\]
+                Da må $|b| = 0.19$ for at opfylde maks kravet. 
+                \[======\]
+                \[b = \pm 0.19\]
+                \[======\] 
+                \[H(e^{j\omega}) = \frac{0.19}{1 + 0.81e^{-2j\omega}}\]
+                Forstærkningen vil kunne ses på plot til spørgsmål c. 
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[Graph the wrapped and the unwrapped phase responses in one plot.]
+                \vspace{15pt}\figfemogtyve{0.45}
+            \end{UnderOpgave}
+            \begin{Udklip}
+                \begin{UnderOpgave}[\text{Determine analytically the response $y[n]$ to the input $x[n] = 2 cos(0.52n + 60°)$.}]
+                    Så er overvejelsen bare, om jeg skal transformere inputtet til z domænet eller om jeg skal transformere systemet til tidsdomæne. \\
+                    Jeg vælger at transformere inputtet til z domæne.
+                    Jeg har lige set hvad cos er i z domæne, det er et stort udtryk. Jeg skifter mening igen. 
+                    Systemet er LTI og derfor gælder linearitet. Jeg antager også kausulitet.
+                    \[h[n] = 0.19 * (0.81)^nu[n]\]
+                    \[\convolution{x}{h}\]
+                    \[y[n] = \infsum{k}{2 * cos(0.52*k + 60) * 0.19 * (0.81)^{n - k}u[n - k]}\]
+                    Jeg har en grænse. Ikke 0 for $\tab{0} n - k > 0, \tab{0} n > k$
+                    \[y[n] = \sum_{k = -\infty}^{n}{2 * cos(0.52*k + 60) * 0.19 * (0.81)^{n - k}}\]
+                    Og lad mig så konvertere cos til noget jeg kan bruge. 
+                    \[cosx = \frac{e^{jx} - e^{-jw}}{2}\]
+                    \[y[n] = \sum_{k = -\infty}^{n}{(e^{j(0.52*k + 60)} - e^{j(-0.52*k - 60)}) * 0.19 * (0.81)^{n - k}}\]
+                    Og så har jeg nemlig to kompleks konjugerede koefficienter, så derfor kan jeg ikke bare beskrive det som en sum. 
+                    \[y[n] = y_1[n] - y_2[n]\]
+                    \[y_1[n] = \sum_{k = -\infty}^{n}{e^{j(0.52*k + 60)} * 0.19 * (0.81)^{n - k}}\]
+                    \[y_1[n] = 0.19 * \sum_{k = -\infty}^{n}{e^{0.52j*k} * e^{60j} * (0.81)^n*(0.81)^{-k}}\]
+                    \[y_1[n] = 0.19 * e^{60j} * (0.81)^n * \sum_{k = -\infty}^{n}{(0.81^{-1}*e^{0.52j})^k}\]
+                    Så deler jeg den op i to grænser. $k = -\infty -> 0, \tab{0} k = 1 -> n$
+                    \[y_1[n] = 0.19 * e^{60j} * (0.81)^n * (\sum_{k = -\infty}^{0}{(0.81^{-1}*e^{0.52j})^k} + \sum_{k = 1}^{n}{(0.81^{-1}*e^{0.52j})^k})\]
+                    For den ene laver jeg en ny variable $m = -k$
+                    \[y_1[n] = 0.19 * e^{60j} * (0.81)^n * (\sum_{m = 0}^{\infty}{(0.81^{-1}*e^{0.52j})^{-m}} + \sum_{k = 1}^{n}{(0.81^{-1}*e^{0.52j})^k})\]
+                    \[y_1[n] = 0.19 * e^{60j} * (0.81)^n * (\sum_{m = 0}^{\infty}{((0.81^{-1}*e^{0.52j})^{-1})^{m}} + \sum_{k = 1}^{n}{(0.81^{-1}*e^{0.52j})^k})\]
+                    \[y_1[n] = 0.19 * e^{60j} * (0.81)^n * (\sum_{m = 0}^{\infty}{(0.81*e^{-0.52j})^{m}} + \sum_{k = 1}^{n}{(0.81^{-1}*e^{0.52j})^k})\]
+                    Med summations identiteter kan jeg næsten beskrive det nu. Hvis jeg så også lige siger at k starer i 0 og så bare trækker dens 0' element fra, så er den der. 
+                    \[y_1[n] = 0.19 * e^{60j} * (0.81)^n * (\sum_{m = 0}^{\infty}{(0.81*e^{-0.52j})^{m}} + \sum_{k = 0}^{n}{(0.81^{-1}*e^{0.52j})^k} - 1)\]
+                    \[|0.81 * e^{j\omega}| < 1 \tab{2} \cap \tab{2} |0.81 * e^{j\omega}|\neq 1\] 
+                    \[y_1[n] = 0.19 * e^{60j} * (0.81)^n(\frac{1}{1 - 0.81*e^{-0.52j}} + \frac{1 - (0.81^{-1} * e^{0.52j})^{n + 1}}{1 - (0.81^{-1} * e^{0.52j})} - 1)\]
+                    Og hvordan havde den været for den kompleks konjugerede? Jeg havde en fase forskydning, den vil være kompleks. Så blev min fase bare kompleks konjugeret
+                    \[y[n] = y_1[n] - y_2[n]\]
+                    \[y[n] = 0.19 * (0.81)^n * (e^{60j} * (\frac{1}{1 - 0.81*e^{-0.52j}} + \frac{1 - (0.81^{-1} * e^{0.52j})^{n + 1}}{1 - (0.81^{-1} * e^{0.52j})} - 1) -\]
+                    \[\tab{10} e^{-60j} * (\frac{1}{1 - 0.81*e^{0.52j}} + \frac{1 - (0.81^{-1} * e^{-0.52j})^{n + 1}}{1 - (0.81^{-1} * e^{-0.52j})} - 1))\]
+                \end{UnderOpgave}\setcounter{alfabetTabular}{2} 
+            \end{Udklip}
+
+            \begin{UnderOpgave}[\text{Determine analytically the response $y[n]$ to the input $x[n] = 2 cos(0.52n + 60°)$.}]
+                Jeg fandt ud af, hvor meget beregning jeg skulle igennem for at komme frem til et resultat. Jeg blev også nødt til at prøve at indse sammenhænge, som gjorde min beregning lidt usikker. \\
+                Jeg har senere indset en beregningsmetode som er noget simpler. 
+                \[x[n] = 2cos(0.52n + 60°) = 2 \frac{e^{j(0.52 + 60°)} + e^{j(0.52 + 60°)}}{2}\]
+                \[x[n] = e^{j(0.52n + 60°)} + e^{-j(0.52n + 60°)}\]
+                \[x[n] = e^{j0.52n}e^{j60°} + e^{-j0.52n}e^{-60j°}\]
+                \[x[n] = (e^{j0.52})^ne^{j60°} + (e^{-j0.52})^ne^{-60j°}\]
+                Eigenfunktioner er hvor, at outputtet bliver til et forstærket signal af sig selv ud fra $H(z)$. Med den tankegang så vil et signal med faseskift kunne skrives som. 
+                \[y[n] = H_1(z_0)z_0^ne^\theta\] 
+                \[y[n] = H_2(z_0)z_0^n\]
+                Hvor $H_2(z_0) = H_1(z_0)e^j\theta$, så på den måde, så vil en fase bare kunne beskrives som et nyt systems påvirkning.\\
+                Set i den kontekst, så følger et harmonisk signal med fase stadigvæk formen: 
+                \[x[n] = z_0^n\]
+                Med det prøvet bevist så har jeg nu. 
+                \[y[n] = H_1(z_0)z_0^ne^\theta\] 
+                \[H(z) = \frac{0.19}{1 + 0.81z^{-2}}\]
+                \[y[n] = \frac{0.19}{1 + 0.81(e^{j0.52})^{-2}}(e^{j0.52})^ne^{1/3j\pi} + \frac{0.19}{1 + 0.81(e^{-j0.52})^{-2}}(e^{-j0.52})^ne^{-1/3j\pi}\] 
+                \[y[n] = \frac{0.19*e^{1/3j\pi}}{1 + 0.81e^{-2j0.52}}(e^{j0.52})^n + \frac{0.19*e^{-1/3j\pi}}{1 + 0.81e^{2j0.52}}(e^{-j0.52})^n\] 
+                Med wolfram og python har jeg fundet koefficienterne:
+                \[=================================\]
+                \[y[n] = (0.00768 + 0.12j) e^{0.52jn} + (0.00768 - 0.12j)e^{-0.52jn}\]
+                \[=================================\]
+
+                \color{red} Jeg ved, at jeg har glemt at konvertere 0.52n til radianer, som jeg konverterede vinklen. \\
+                \color{teal} Med det ændret.\color{black}
+                \[===================================\]
+                \[y[n] \approx (0.052 + 0.091j)e^{0.003j*\pi n} + (0.052 - 0.091j)e^{-0.003j\pi n}\]
+                \[===================================\]
+
+                Med mere beregning. $a + ib = re^{j\theta} = |c|e^{\angle j}$
+                \[y[n] \approx 0.10481 *(e^{(\pi/3)j}e^{0.003j*\pi n} + e^{(-\pi/3)j}e^{-0.003j\pi n})\]
+                \[y[n] \approx 0.10481 *(e^{(\pi/3)j}e^{0.003j*\pi n} + e^{(-\pi/3)j}e^{-0.003j\pi n})\]
+                Og det følger formen 
+                \[cos[n] = (e^{jn} + e^{-jn})/2\]
+                \[========================\]
+                \[y[n] \approx 0.10481 * 2 * cos(0.003j\pi n + \pi/3)\]
+                \[========================\]
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{Using MATLAB compute the steady-state response to $x[n]$ above and verify your result}]
+            \end{UnderOpgave}
+        \end{Opgave}
+        \begin{Opgave}[\text{Opgave 5.2 - LTI system ud fra differensligning (ny ny vigtig $\sqrt{}$)}]
+            \[y[n] = bx[n] - 0.81y[n - 2]\]
+            \begin{UnderOpgave}[\text{Determine the frequency response $H(e^j\omega)$ of the system in terms of b.}]
+                Jeg bruger tidsforskydnings, og linearitets egenskaberne.
+                \[Y(z) * (1 + 0.81z^{-2}) = b*X(z)\]
+                \[H(z) = \frac{b}{1 + 0.81z^{-2}}\]
+                \[=========\]
+                \[H(e^{j\omega}) = \frac{b}{1 + 0.81e^{-2j\omega}}\]
+                \[=========\]
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[Determine b so that $|H(e^{j\omega})|_{max} = 1$. Plot the resulting magnitude response.]
+                \[|H(e^{j\omega})|_max = 1 = \frac{|b|}{|1 + 0.81cos(2j\omega) - 0.81jsin(2j\omega)|}\]
+                \[|b| = |1 + 0.81cos(2j\omega) - 0.81jsin(2j\omega)|\] 
+                For at opfylde at forstærkningen højest er 1.
+                \[|b| = \sqrt{(1 + 0.81cos(2j\omega))^2 + (0.81sin(2j\omega))^2}|\] 
+                \[|b| = \sqrt{1^2 + 0.6561cos(2j\omega)^2 + 2*0.81cos(2j\omega) + 0.6561sin(2j\omega)^2}\]
+                \[|b| = \sqrt{1.6561 + 2*0.81cos(2j\omega)}\]
+                Maks værdien findes, når nævneren er lavest. Det er den når cos medføre minus et. 
+                \[|b| = \sqrt(0.0361)\]
+                \[=======\]
+                \[b = \pm 0.19\]
+                \[=======\]
+
+                Plottet af forstærkningen sker sammen med faserne. 
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Graph the wrapped and unwrapped phase response in one plot]
+                \vspace{10pt}\figfemogtyve{0.40}
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{Determine analytically the response $y[n]$ to the input $x[n] = 2*cos(0.5*pi*n + 60\deg)$}]
+                Jeg har fundet, at når inputtet er harmonisk, eller at systemet er harmonisk, så gælder egenfunktionerne.\\
+                \[x[n] = 2 * \frac{e^{j*(0.5\pi n + 60°)} + e^{-j*(0.5\pi n - 60°)}}{2}\]
+                \[x[n] = e^{j*(0.5\pi n + 60°)} + e^{-j*(0.5\pi n - 60°)}\]
+                Egenfunktionerne er beskrevet ved, at konvolution bare medføre en skalering. Ud fra den definition, så vil et faseskift også bare være en skalering. 
+                \[y[n] = H_1(z_0)z_0^n*e^\theta\]
+                \[y[n] = H_2(z_0)z_0^n, \tab{0} H_2(z_0) = H_1(z_0)e^\theta\]
+                Med sympy indsætter jeg det, og den giver mig et udtryk, som jeg kan bruge
+                \[y[n] = (0.7235 + 0.4638j)e^{0.52j\pi n} + (0.7235 - 0.4638j)e^{-0.52j\pi n}\]
+                Så jeg kan se, at det er kompleks konjugerede par. De har samme længde, men forskel fase.$c = |c|e^{\angle c}$
+                Jeg får at $r \approx 0.86, \tab{0} \theta \approx 30\deg \equiv \pi/6$
+                \[y[n] = 0.86 * (e^{\frac{\pi j}{6}}*e^{0.52j\pi n} + e^{-\frac{\pi j}{6}}*e^{-0.52j\pi n})\]
+                Den følger formen af en cos bølge. 
+                \[y[n] = 0.86 * 2 * cos(0.52\pi n + \frac{\pi}{6})\]
+                \[================\]
+                \[y[n] = 1.76 * cos(0.52\pi n + \frac{\pi}{6})\]
+                \[================\]
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{Using MATLAB compute the steady-state response to $x[n]$ above and verify your result}]
+                \vspace{5pt}\figseksogtyve{0.42} 
+                I min udledning fik jeg kun steady-state responsen, måske tager egenfunktioner egenskaben ikke udgangspunkt i det? Ellers så er der noget jeg har misset. 
+                Jeg kom også til at udlede for $\omega_0 = 0.52\pi * n$, men det burde ikke gøre det store forskel.\\
+                Sammenlignet med svararket, så har de fået A = 2, og fasen til at være pi/3 tilsidst. Men de beskriver ikke hvordan.
+                \color{teal} Jeg indser nu, at opgave b blev løst så gainet var 1 i netop den her vinkelfrekvens, og det er derfor,
+                at han bare kan udvide, og sige, at det er det samme, for så at samle det i samme udtryk. 
+                Da er \[y[n] = x[n]\]
+            \end{UnderOpgave}
+            Konklusion:\\
+            Opgaven havde placeret frekvensen i inputtet, så det her speciele udtryk kunne bruges, at b var sat så at det galte. \\
+            Hvad jeg tager med fra det her er, at jeg hvis det ikke skulle have været analytisk også bare kunne have set på gainet. - Jeg er så bare ikke sikker på fasens påvirkning. 
+            Men mit udtryk blev lavet slavisk, jeg approksimerede nogle ting og måske er det derfor jeg afviger lidt, men approksimativt er det det samme. 
+        \end{Opgave}
+        
+        \begin{Opgave}[Opgave 5.4 - Givet y og x kan jeg sige, at det er et LTI system? mm...]
+            For the following input—output pairs determine whether or not there is an LTI system
+            producing y[n] when the input is x[n]. If such a system exists, determine if it is unique
+            and its frequency response function; otherwise, explain why such a system is not
+            possible:
+            
+            \begin{UnderOpgave}[\text{$x[n] = (1/2)^nu[n] \rightarrow y[n] = (1/3)^nu[n]$}]
+                Så hvad gør systemet her? Den bløder den eksponentiels faldende ud, så den falder langsomt. 
+                Her tror jeg, at differensligninger er måden at gøre det på. 
+                \[Y(z) = X(z)H(z)\]
+                \[Y(z) = \frac{1}{1 - 1/3z^{-1}} = \frac{1}{1 - 0.5z^{-1}} H(z)\]
+                \[H(z) = \frac{Y(z)}{X(z)} = \frac{1 - 0.5z^{-1}}{1 - 1/3z^{-1}}\]
+                \[Y(z) * 1 - 1/3z^{-1} = X(z)(1 - 0.5z^{-1})\]
+                \[y[n] - \frac{1}{3}y[n - 1] = x[n] - \frac{1}{2}x[n - 1]\]
+                \[y[n] = \frac{1}{3}y[n - 1] + x[n] - \frac{1}{2}x[n - 1]\]
+                Hvis det skulle være et LTI system så skulle en ændring i inputtet være lige med en ændring i outputtet. 
+                \[y_1[n] = 1/3y_1[n - 1] + x_1[n] - 1/2x_1[n - 1]\] 
+                \[y_2[n] = 1/3y_2[n - 1] + x_2[n] - 1/2x_2[n - 1], \tab{0} x_2[n] = 3*x_1[n]\] 
+                \[y_3[n] = 3*(1/3y_1[n - 1] + x_1[n] - 1/2x_1[n - 1]), \tab{0} y_3[n] = 3*y_1[n]\] 
+                \[y_2[n] = y_3[n] ? \]
+                Jeg ser, at fordi, at der er et feedback på, så er bliver feedbacken også påvirket ved outputtet, hvor en påvirking på inputtet ikke har den samme direkte påvirkning. 
+                Så det er ikke et LTI system. 
+                Chatten prøvede at gaslighte mig til at det var det først, men efter jeg har forklaret det, så siger den også, at det ikke er :D
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$x[n] = e^{j\pi n/3} \rightarrow y[n] = 2 * e^{j\pi n/3}$}]
+                Inputtet er en egenfunktion. 
+                \[y[n] = H(e^{j\pi/3})*(e^{j\pi/3})^n\]
+                Så jeg ved at $H(e^{j\pi/3}) = 2$
+                Umiddelbart vil jeg kalde linearitet
+                \[y[n] = H(e^{j\pi/3})*(e^{j\pi/3})^n\]
+                
+                \[y[n] = \convolutionSym{2}{-\infty, \infty}{x, h}\]
+                \[y[n] = \infsum{k}{e^{j\pi * k /3} * 2 * e^{j\pi/3 * (n - k)}}\]
+                \[y[n] = \infsum{k}{e^{j\pi * k /3} * 2 * e^{j\pi/3n}{e^{-j\pi k/3}}}\]
+                \[y[n] = 2 * e^{j\pi/3n} * \infsum{k}{1}\]
+                Det kunne jo tyde på, at systemet er stabilt, hvis jeg har beregnet rigtigt. 
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$x[n] = \frac{sin(0.25 \pi n)}{\pi n} \rightarrow y[n] = \frac{sin(0.5 \pi n)}{\pi n}$}] 
+                Så systemet medføre en fordobling i vinkelfrekvens. 
+                I så fald burde jeg kunne sige at, en ændring i n i inputtet så ikke vil medføre de samme ændring i outputtet. 
+                \[y_2[n] = y_1[n - 2] = \frac{sin(\pi * (n - 2) / 2)}{\pi * (n - 2)}\]
+                \[x_2[n] = x[n - 2] = \frac{sin(0.25 \pi (n - 2))}{\pi n}\]
+                Hvis jeg frekvensen så bliver fordoblet gennem systemet: 
+                \[y_3[n - 2] = \frac{sin(0.25 * 2 *\pi (n - 2))}{\pi n}\]
+                \[y_2[n] = y_3[n] ? \]
+                Jeg indser, at på grund af nævneren, så er den ikke tidsinvariant. Og så behøves jeg ikke at se på de andre egenskaber.
+                \[x[n] = u[n] \rightarrow y[n] = \delta[n] \]
+                \[Y(z) = 1 = \frac{1}{1 - z^{-1}} * H(z)\]
+                \[H(z) = \frac{Y(z)}{X(z)} = 1 - z^{-1}\]
+                \[Y(z) = X(z)*(1 - z^{-1})\]
+                \[y[n] = x[n] - x[n - 1]\]
+                :D\\ 
+                Det kunne jeg egentlig have sagt mig selv. 
+                Outputtet tager kun inputs. Det betyder linearitet.
+                Outputtet tager ikke tidsværdier udenfor inputsne, det betyder tidsinvariantet.
+                Systemet er LTI. Umiddelbart vil jeg sige, at den er unik. Hvis fortegne havde ændret sig, vil ændringen være negativ, så det vil man kunne have set. 
+
+            \end{UnderOpgave}
+        \end{Opgave}
+        \begin{Opgave}[Opgave 5.16 - Modulation til at vise at en lavpass kan blive til et højpass filter]
+            \[g[n] = (-1)^nh[n] \overset{DTFT}{\leftrightarrow} G(e^{j\omega}) = H(e^{j[\omega - \pi]})\]
+            \[g[n] = cos(\pi*n) * h[n]\]
+            Modulation siger, at for harmoniske funktioner, så kan det beskrives som en frekvens skifte. 
+            \[g[n] = \frac{1}{2} * (e^{j\pi n} +e^{-j\pi n})h[n]\]
+            \[g[n] \overset{DTFT}{\leftrightarrow} G(e^{j\omega}) = \frac{1}{2} * (H[e^{j(\omega - \pi)}] + H[e^{j(\omega + \pi)}])\]
+            Så på den måde vil H, hvis det var et lovpass filter, i stedet for at tage frekvenser omkring $\omega = 0$ tage frekvenser omkring $\omega \pm \pi$.\\
+            Og det er lige præcis et højpass filter. 
+            Jeg blev bedt om at bevise: 
+            \[g[n] = (-1)^nh[n] \overset{DTFT}{\leftrightarrow} G(e^{j\omega}) = H(e^{j[\omega - \pi]})\]
+            Og eftersom at diskrete spektre er gentagende, så vil mine
+            \[g[n] \overset{DTFT}{\leftrightarrow} G(e^{j\omega}) = \frac{1}{2} * (H[e^{j(\omega - \pi)}] + H[e^{j(\omega + \pi)}])\]
+            gentage sig så begyndelse og slut går sammen. $1/2 + 1/2 = 1$ og da kan jeg beskrive G som. 
+            \[g[n] = (-1)^nh[n] \overset{DTFT}{\leftrightarrow} G(e^{j\omega}) = H(e^{j[\omega - \pi]}) = H(e^{j[\omega + \pi]})\]
+            Og så er det bevist.\\\\\\
+
+
+            Brug denne teknik til at vise både lavpas og højpass af følgende filtre. 
+            \begin{UnderOpgave}[The moving average filter \text{$y[n] = \frac{1}{M} \sum_{k = 0}^{M - 1} x[n - k]$}]
+                For det her moving average så kan filteret beskrives som en masse feedforwarded forsinkelser med samme amplitude, og uden feedback.
+                \[b = [1/M, 1/M, ... 1/M]\in \mathbb{R}, \tab{0} a = [1]\]
+                Lad mig sige en moving average af længden N = 20.
+                Så for moving average filteret havde jeg den direkte i tids domæne. Så kunne jeg gange en cos funktion på med frekvens pi. \\
+                At transformere den med fast fourier transform gjorde det så, og jeg havde mine to filtre.
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$H(z)=\frac{1+1.655z^{-1}+1.655z^{-2}+z^{-3}}{1-1.57z^{-1}+1.264z^{-2}-0.4z^{-3}}$}]
+                Den her havde jeg direkte i frekvens domæne, så der kunne jeg ikke bare gange noget på. 
+                Inden at jeg lavede dataen måtte jeg så sørge for, at den blev lavet med frekvenser som var forskudt med en pi. 
+            \end{UnderOpgave}
+            \figfireogfyrre{0.4}
+            \clearpage
+
+        \end{Opgave}
+        \begin{Opgave}[Opgave 5.30 - Consider a signal]
+            \[x[n] = sin(0.1\pi n) + 1/3 * sin(0.3\pi n) + 1/5 * sin(0.5\pi n)\]
+            For each of the following systems, determine if the system imparts 
+            (i) no distortion,
+            (ii) magnitude distortion, and/or 
+            (iii) phase (or delay) distortion. 
+            In each case, graph the input and the steady state response for 0 < n < 60.
+            \begin{UnderOpgave}[\text{h[n] = [1,-2,3,—4,0,4, —3,2, -1]}]
+                %                         |               \\
+                %             |           |               \\
+                %             |           |       |       \\
+                %     |_______|_______.___|_______|____   \\
+                %        |       |           |       |   \\
+                %        |       |           |           \\
+                %                |           |           \\
+                %                |                       \\
+                Visuelt ser jeg at 
+                \[h[n] = n*cos(\pi n)*(u[n] - u[n - 4]) + (9 - n)cos(\pi n)*(u[n - 5] - u[n - 9])\]
+                Det er meget beregning at for at få det til et resultat jeg rent faktisk kan bruge til noget.\\
+                Jeg ser at de største størrelser fåes omkring n = 4. Det vil betyde, at før n = 5 så har jeg ikke opnået toppunkterne af signalet. 
+                Så med det vil jeg sige at den måske har et gruppedelay på n = 4. 
+                Signalet får også støj i magnituden. 
+                Jeg har lige plottet inputtet, og ser, at den er lavet for at efterligne en step respons. 
+                Så det approksimere jeg den bare til at være.
+                Jeg ser på plottet, at den faktisk laver en sinc funktion ud af det, men alternerende n = 10. 
+                
+                Jeg siger at den er (II) og III.
+                    
+            \end{UnderOpgave}[\text{$y[n] = 10x[n — 10]$}]
+                Den er nem, den har forstærkning og et groupdelay på n = 9
+            \begin{UnderOpgave}[\text{$H(z) = \frac{1}{9}(1 + 2z^{-1} + 3z^{-2} + 2z^{-3} + z^{-4})$}]
+                \[H(z) = Y(z)/X(z) = \frac{1}{9}(1 + 2z^{-1} + 3z^{-2} + 2z^{-3} + z^{-4})\]
+                \[Y(z) = X(z) * \frac{1}{9}(1 + 2z^{-1} + 3z^{-2} + 2z^{-3} + z^{-4})\]
+                \[y[n] = 1/9 *(x[n] + 2x[n - 1] + 3x[n - 2] + 2x[n - 3] + x[n - 4])\]
+                Jeg ser et weighting average filter. Den fjerne støj (II), men ingen group delay. 
+                Forstærket? $ 1 + 2 + 3 + 2 + 1 = 3 + 3 + 3 = 9, \tab{0} 1/9 * 9 = 1$ så alt hvad den vejer summer ud til at have den samme størrelse som inden. 
+
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[\text{$h[n] = {1, -1.1756, 1}$}]
+                \[h[n] \approx cos(\pi * n)\]
+                Og sinus funktioner har betydning på forskellige frekvenser.
+                For mit input, så har jeg
+                \[x_3[n] = \frac{1}{5} * sin(\frac{\pi}{2} * n), 0 for n = 0, 2, 4, ...\]
+                Så for $h[n]$ så vil den være negativ hver gang $x_3$ ikke er 0.
+                \[x_1[n] = sin(\frac{\pi}{10}), 0 for n = 0, 10, 20, ...\]
+                Så meget af dens singnal vil blive beholdt. 
+                \[x_2[n] = \frac{1}{3} * sin(\frac{3 * \pi}{10} * n), 0 for n = 0, 10, 20\]
+                Så jeg kan se, at med det her filter, så vil meget at mit 3 signal blive sorteret fra, hvor kun en lille del af mit andet og tredje signal vil blive sorteret fra. 
+                
+                Hvordan vil det se ud i frekvens spektret? 
+                Jeg ved at cos funktioner den fourier transformerede er et impuls til den frekvens, negativ eller positiv. For diskrete tid er den så gentagende igen efter 2 pi.
+                Så hvordan vil frekvens spektret se ud? Jeg har sinus funktioner i 0.1pi, 0.3pi, 0.5 pi, og så har jeg en cos i pi. 
+                Jeg har prøvet at tegne en sketch af det til at forbedre min forståelse, men det gjorde mig ikke meget klogere. 
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[\text{$H(z) = \filterZto{1, 0, 1.778, 0, 3.1605}{1, 0, 0.5625, 0, 0.3164}$}]
+                \[Y(z)*(1 + 0.5625z^{-2} + 0.3164z^{-4}) = X(z) * (1 + 1.778z^{-2} + 3.1605z^{-4})\]
+                \[y[n] + 0.5625y[n - 2] + 0.3164y[n - 4] = x[n] + 1.778x[n - 2] + 3.1605x[n - 4]\]
+                \[y[n] = - 0.5625y[n - 2] - 0.3164y[n - 4] + x[n] + 1.778x[n - 2] + 3.1605x[n - 4]\]
+                Ved partial fraction får jeg, at det kan beskrives som. 
+                \[H(z) = 10 + a * \frac{1}{1 - bz^{-1}} + a^\star * \frac{1}{1 - b^\star z^{-1}} + a^\star * \frac{1}{1 - bz^{-1}} + a * \frac{1}{1 - b^\star z^{-1}}\]
+                Jeg ser en symmetri. 
+                \[a^nu[n] \transformation{Z} \frac{1}{1 - a*z^{-1}}\]
+                \[a^nu[n] + (a^\star)^nu[n] = (re^{j\theta})^nu[n] + (re^{-j\theta})^nu[n]\]
+                \[\tab{6}                   = r^nu[n](e^{j\theta})^n + r^nu[n](re^{-j\theta})^n\]
+                \[\tab{6}                   = (r^nu[n])*((e^{j\theta})^n + (e^{-j\theta})^n)\]
+                \[\tab{6}                   = (r^nu[n])*(e^{j\theta n} + e^{-j\theta n})\]
+                \[\tab{6}                   = (r^nu[n])* 2 * cos(\theta n)\]
+                Så jeg har to filtre der kan beskrives på denne måde. 
+                \[b = (0.375 + 0.65i)\]
+                \pgfmathparse{sqrt((0.375)^2 + (0.65)^2)} \edef\radius{\pgfmathresult}
+                \pgfmathparse{atan(0.65/0.375)} \edef\vinkel{\pgfmathresult}
+                \[r_b = \radius\]
+                \[\theta_b = \vinkel\] 
+                Og den er den samme for alle af dem. 
+                \[H(z) = 10 + a * r_b^nu[n] * 2cos[\frac{\pi}{3} * n] + a^\star r_b^nu[n] * 2cos[\frac{\pi}{3} * n]\]
+                Splitter a op i dens komponenter. 
+                \pgfmathparse{sqrt((2.25)^2 + (0.674)^2)} \edef\radius{\pgfmathresult}
+                \pgfmathparse{180 + atan(0.674/(-2.25))} \edef\vinkel{\pgfmathresult} % Anden kvadrant
+                \[r_a = \radius\]
+                \[\theta_a = \vinkel\] 
+                \[H(z) = 10 + (r_a e^{j\theta_a}) * r_b^nu[n] * 2cos[\frac{\pi}{3} * n] + (r_a e^{-j\theta_a}) * r_b^nu[n] * 2cos[\frac{\pi}{3} * n]\]
+                \[H(z) = 10 + r_a r_b^nu[n] * 2cos[\frac{\pi}{3}*n] * (e^{j\theta_a} + e^{-j\theta_a})\]
+                \[H(z) = 10 + 2 * cos(\theta_a) r_a r_b^nu[n] * 2cos[\frac{\pi}{3}*n]\]
+                Så jeg har at for et filter med formen 
+                \[H(z) = a * (\frac{1}{1 - bz^{-1}} + \frac{1}{1 - b^\star z^{-1}}) + a^\star * ( \frac{1}{1 - b^\star z^{-1}} + \frac{1}{1 - bz^{-1}})\]
+                Så kan jeg simplificere den til at være. 
+                \[====================\]
+                \[h[n] = 4 cos(\theta_a) r_a r_b^nu[n] cos[\theta_b n]\]
+                
+                \pgfmathparse{4 * cos(163.32549) * 2.34878 * 0.75040} \edef\resultat{\pgfmathresult}
+                \[h[n] = \resultat * u[n] * cos[\frac{\pi}{3} * n]\]
+                \[====================\]
+                $cos(\frac{\pi}{3} * n)$ er ækvivalent til en serie på $[1, 0.5, -0.5, -1, -0.5, 0.5]$ og så gentagende K gange.
+                Derfor ser jeg, at hn laver sådan en moduleret effekt, hvor den trækker noget fra, og noget bliver. Lige bortset fra enderne altså,
+                hvor ikke alle vægtningerne bliver brugt. \\
+            \end{UnderOpgave}
+            Plots af påvirkningerne: \\
+            \figsyvogtyve{0.26}\clearpage
+            Konklusionen må så være, at den er forstærket, og med faseskift. 
+            I svararket har det gået frekvensspektrum på dem. Det kunne jeg også have gjort. 
+        \end{Opgave}
+        \begin{Opgave}[Opgave 5.31 - Båndpass]
+            \[H(e^{j\omega}) =
+                \begin{cases}
+                    e^{-j\omega n_{i}} & \text{if } \frac{\pi}{8} < |\omega| < \frac{2\pi}{8} \\
+                    0.5\,e^{-j\omega n_{i}} & \text{if } \frac{5\pi}{8} < |\omega| < \frac{7\pi}{8} \\
+                    0 & \text{otherwise}
+                \end{cases} 
+            \]
+            \begin{UnderOpgave}[Determine the impulse response of the filter]
+                Så dens båndpass passer ikke med meget matematik jeg kender, så jeg tror at den nemmeste løsning er at lave inverse fourier transform på det. \\
+                Den tanke er så allerede glemt. $n_d$ ved jeg ikke hvad er, så jeg kan ikke beskrive det numerisk. 
+                I svararket har de gang i gode gamle synthesis equation for diskrete signaler. 
+                \[x[n] = \frac{1}{2\pi} \int_{2\pi} X(e^{j\omega})e^{j\omega n}d\omega\]
+                \[h[n] = \frac{1}{2\pi} * (\int_{\frac{\pi}{8}}^{\frac{2\pi}{8}}e^{j\omega n_d}e^{j\omega n}d\omega + \int_{\frac{5\pi}{8}}^{\frac{7\pi}{8}}0.5e^{j\omega n_d}e^{j\omega n}d\omega)\]
+                \[h[n] = \frac{1}{2\pi} * (\int_{\frac{\pi}{8}}^{\frac{2\pi}{8}}e^{j\omega*(n + n_d)}d\omega + \int_{\frac{5\pi}{8}}^{\frac{7\pi}{8}}0.5e^{j\omega(n + n_d)}d\omega)\]
+                \[h[n] = \frac{1}{2\pi} * (\frac{1}{j*(n + n_d)}[e^{j\omega*(n + n_d)}]_{\frac{\pi}{8}}^{\frac{2\pi}{8}} + 0.5 * \frac{1}{j*(n + n_d)} [0.5e^{j\omega(n + n_d)}]_{\frac{5\pi}{8}}^{\frac{7\pi}{8}})\]
+                \[h[n] = \frac{1}{2\pi} * (\frac{e^{j 0.125 \pi (n + n_d)} - e^{j 0.25 (n + n_d)}}{j (n + n_d)} + 0.5 * \frac{e^{j 0.875 (n + n_d)} - e^{j 0.625(n + n_d)}}{j*(n + n_d)})\]
+                Og jeg har ikke fået med endnu, at grænserne også vil gælde for dens negative frekvenser. Og jeg har også glemt, at funktionen var negativ. Derfor skal der gælde at det er $(n - n_d)$ i stedet for
+                \[h[n] = \frac{1}{2\pi} * (\frac{e^{j 0.125 \pi (n - n_d)} - e^{j 0.25 (n - n_d)}}{j (n - n_d)} + 0.5 * \frac{e^{j 0.875 \pi (n - n_d)} - e^{j 0.625 \pi (n - n_d)}}{j*(n - n_d)})\]
+                \[h_2[n] = \frac{1}{2\pi} * (\int_{\frac{-\pi}{8}}^{\frac{-2\pi}{8}}e^{j\omega*(n + n_d)}d\omega + \int_{\frac{-5\pi}{8}}^{\frac{-7\pi}{8}}0.5e^{j\omega(n + n_d)}d\omega)\]
+                Jeg ser, at det vil give det samme resultat, men negativ i eksponenten. Derfor ligner det par. 
+                Derudover kommer begge nævnere til at have $2j$ i sig, det kunne tyde på sinus bølger så. 
+                Så et frekvens komponent på 
+                \[w = 0.125\pi \rightarrow \frac{1}{\pi}\frac{1}{n - n_d} * (sin(0.125\pi(n - n_d)))\]
+                \[w = 0.250\pi \rightarrow -\frac{1}{\pi}\frac{1}{n - n_d} * (sin(0.250\pi(n - n_d)))\]
+                \[w = 0.875\pi \rightarrow \frac{1}{2\pi}\frac{1}{n - n_d} * (sin(0.875\pi(n - n_d)))\]
+                \[w = 0.625\pi \rightarrow - \frac{1}{2\pi} \frac{1}{n - n_d} * (sin(0.625\pi(n - n_d)))\]
+                Hvor minus tegnende kommer fra at de var de nederste grænser. 
+                \[h[n] = \frac{1}{\pi}\frac{1}{n - n_d} *(sin(0.125\pi(n - n_d)) - sin(0.250\pi(n - n_d))) + \frac{1}{2\pi}\frac{1}{n - n_d} * (sin(0.875\pi(n - n_d)) - sin(0.625\pi(n - n_d)))\]
+                \[h[n] = \frac{1}{\pi}\frac{1}{n - n_d} *(sin(0.125\pi(n - n_d)) - sin(0.250\pi(n - n_d)) + 0.5sin(0.875\pi(n - n_d)) - 0.5sin(0.625\pi(n - n_d)))\]
+                Jeg er lidt i tvivl om min begrundelse for grænserne. Og hvad jeg indser nu er, at jeg har gjort det rigtige, ved at gøre det jeg gik efter forkert haha. 
+                Grænserne skal vendes om ved de negative, da -1 er større end -2. For det at ske så må man vende fortegnet på funktionen der integreres over. 
+                \[\frac{e^{j\omega} - e^{-j\omega}}{2j} = sin(\omega)\]
+                Jeg regnede for at parene var af samme fortegn, så skulle jeg have fulgt min metode skulle jeg have valgt cos funktioner. \\
+                Men nu valgte jeg sinus, og det er rigtigt. 
+            \end{UnderOpgave}
+            \clearpage
+            \begin{UnderOpgave}[Graph the impulse response for $n_d = 0$ for $-100\leq n \leq 100$]
+                \figfemogfyrre{0.3}   
+            
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[From the above truncated impulse response, compute and plot the magnitude response of the filter using MATLAB and compare it with the ideal filter response.]
+                \figseksogfyrre{0.35}
+            \end{UnderOpgave}
+            Synes jeg at resultatet giver mening? 
+            Det synes jeg vel egentlig. 
+            Frekvensspektret siger, at den består af symmetriske firkanter funktioner, en dobbelt så stor som den anden.
+            En firkant i frekvensspektret svarer til en sinc i tids domænet. \\
+            Så kan jeg overbevise mig selv at signalet er bygget op nogle sinc funktioner? 
+            Ja det kan jeg godt. Jeg forestiller mig, at nogle af dem er negative og nogle er positive. 
+        \end{Opgave}
+        \begin{Opgave}[Opgave 5.35 - Gruppe forsinkelse]
+            \[\tau_{\mathrm{gl}}(\omega)=\sum_{k=1}^{N}{\frac{r_{k}^{2}-r_{k}\cos(\omega-\phi_{k})}{1+r_{k}^{2}-2r_{k}\cos(\omega-\phi_{k})}}-\sum_{k=1}^{M}{\frac{q_{k}^{2}-q_{k}\cos(\omega-\theta_{k})}{1+q_{k}^{2}-2q_{k}\cos(\omega-\theta_{k})}}.\]
+            Hvad jeg kan forstå på det, så er det decomponering af poler og nulpunkter til polære koordinater. \\
+            r skulle være polerne og q skulle være nulpunkterne. 
+            \begin{UnderOpgave}[\text{$y[n] = x[n]-\alpha x[n-1]$}]
+                Vha af tidsskifteegenskaben for z transformationer så for jeg: 
+
+                \[Y(z) = X(z) * (1 - \alpha z^{-1})\]
+                \[H(z) = 1 - az^{-1}\]
+                Så den har et nulpunkt i $z = a$
+                \[\tau_{\mathrm{gl}}(\omega)= -\sum_{k=1}^{M}{\frac{q_{k}^{2}-q_{k}\cos(\omega-\theta_{k})}{1+q_{k}^{2}-2q_{k}\cos(\omega-\theta_{k})}}.\]
+
+                \[\tau_{\mathrm{gl}}(\omega) = - {\frac{|a|^{2}-|a|\cos(\omega-\angle a)}{1+|a|^{2}-2 |a|\cos(\omega-\angle a)}}\]
+                Jeg har fået at vide at a er et reelt talt.
+                \[================\]
+                \[\tau_{\mathrm{gl}}(\omega) = - {\frac{a^{2}-a\cos(\omega)}{1+a^{2}-2 a\cos(\omega)}}\]
+                \[================\]
+                
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[\text{$y[n]=\alpha y[n-1]+x[n]$}]
+                Vha tidsskifteegenskaben for z transformationer så for jeg:
+                \[Y(z) * (1 - az^{-1}) = X(z)\]
+                \[H(z) = \filterZto{1}{1, a}\]
+                Den har en pol i $z = a$
+                \[\tau_{\mathrm{gl}}(\omega) =\sum_{k=1}^{N}{\frac{r_{k}^{2}-r_{k}\cos(\omega-\phi_{k})}{1+r_{k}^{2}-2r_{k}\cos(\omega-\phi_{k})}}\]
+                \[\tau_{\mathrm{gl}}(\omega) = {\frac{|a|^{2}-|a|\cos(\omega-\angle a)}{1+|a|^{2}-2 |a|\cos(\omega-\angle a)}}\]
+                Jeg har fået at vide at a er et reelt talt.
+                \[================\]
+                \[\tau_{\mathrm{gl}}(\omega) = {\frac{a^{2}-a\cos(\omega)}{1+a^{2}-2 a\cos(\omega)}}\]
+                \[================\]
+
+                
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[\text{$y[n]=2\alpha\cos\phi y[n-1]-\alpha^{2}y[n-2]+x[n]$}]
+                
+            \end{UnderOpgave}          
+        \end{Opgave}
+        \begin{Opgave}[Opgave 5.38 - Filter design ud fra ønsker]
+            We want to design a second-order IIR filter using pole-zero placement that satisfies the following requirements: \\
+            (1) the magnitude response is 0 at $\omega_1 = 0$ = 0 and $\omega_3 = \pi$ \\
+            (2) The maximum magnitude is 1 at $\omega_{2,4} = \pm \pi/4$\\
+            (3) the magnitude response is approximately $1/\sqrt{2}$ at frequencies $\omega_{2,4} \pm 0.05$\\\\
+            \begin{UnderOpgave}[Determine locations of two poles and two zeros of the required filter and then compute its system function H(z)]   
+                Kriterierne taler for sig selv. 
+                Jeg skal have et gain på 1 ved $\pm \pi/4$ og efter $0.05\pi$ skal mit filter være droppet $45\deg$ svarende til $1/\sqrt{2}$. 
+                Jeg skal have et gain på 0 ved $0, \pi$. Så jeg har egentlig 4 ligninger til 4 ubekendte.
+                \[H(z) = \frac{(a - z^{-1})(b - z^{-1})}{(c - p^{-1})(d - p^{-1})}\]
+                \[z_1 = e^{0}       = 1                    \Rightarrow 0\]
+                \[z_2 = e^{j \pi}   = - 1                  \Rightarrow 0\]
+                \[p_1 = e^{j\pi/4}  = 1/\sqrt{2} * (1 + j) \Rightarrow 1\]
+                \[p_2 = p_1^\star   = 1/\sqrt{2} * (1 - j) \Rightarrow 1\]
+
+                Nulpunkterne er nemme at løse efter. De medføre 0 når en af dem er koefficienternes modsat. 
+                $a = -1, $ 
+                $b = 1, $
+                $c = 1/p_1, $
+                $d = 1/p_2$
+                Jeg kommer til at mangle et gain. Jeg tager den største værdi af mit filter og så laver jeg b0 til dens invers. 
+                Jeg finder den største forstærkning til at være 106.1734, jeg sætter derfor 
+                \[b_0 = \frac{1}{106.1734} \approx 9.42*10^{-3}\]
+                \[H(z) = 9.42*10^{-3} * \frac{-1 + z^{-2}}{1 - \sqrt{2}*z^{-1} + z^{-2}}\]
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Graph the magnitude response of the filter and verify the given requirements]
+
+                Jeg aflæser $|H(e^{j\omega})| = 1/\sqrt{2}$ ved -0.2458, som er omkring 0.05 fra resonansfrekvensen. Dens ækvivalente om y aksen ser magen til ud.
+                Så af ren tilfældighed, så er det kriterie allerede løst.
+                
+            \end{UnderOpgave}
+
+
+            (c) Graph phase and group-delay responses in one plot.\\
+
+
+        
+        \end{Opgave}
+        \begin{Opgave}[Opgave 5.48 - Systems indvirkning på signal]
+            Givet et periodisk signal 
+            \[x[n] = [1, 2, 3, 4, 3, 2, 1, 0]\]
+            Vil signalet opleve en forstærkning? Faseskift eller gruppe delay? 
+            Plot fra $0 <= n <= 60$\\\\
+            Signalet ligner ligner en pyramide struktur. 
+            Hvad jeg er blevet givet:
+            \[\begin{array}{l}
+                {{h[n]=\left\{2,-1,1,3,6,3,1,-1,2\right\}.}}\\ 
+                {{H(z)=\frac{1}{3}(1-0.5z^{-1}+2z^{-2}+0.5z^{-3}-z^{-4}).}}\\ 
+                {{H(e^{j\omega}) = 5e^{0.25j\pi}.}}\\
+                {{H(\mathrm{e}^{\mathrm{j}\omega})=\left\{1,0.25,0.125,0.0625\right\}.}}\\ 
+                {{H(z)=\frac{1}{1+1.7928z^{-2}+1.227z^{-4}}.}}\end{array}\]\\\\
+
+            Jeg har så plottet dem\\\\
+            \vspace{100pt}
+            \figotteogtyve{0.65}
+            
+            Gennem systemet viller der så ske at: 
+            \[y[n] = x[n] \star h[n] \transformation{Z} X(z)*H(z)\]
+            Så ved at kigge direkte på plotsne, så kan jeg få en fornemmelse af hvad der sker. \\
+            
+            $x \overset{h_a}{\rightarrow}$ : Stort bevarelse af frekvenserne omkring 0. Også X's næststørste frekvensbidrag bliver bevaret.
+            Omkring de midterste frekvenser sker der da også forstærkning af signalet. Omkring X's mindste frekvenser, så bliver den enten vedligeholdt, eller kun lige formindsket lidt. 
+            Fasen ser jeg som lineær, så der burde ikke ske nogle fase støj. 
+            For gruppe forsinkelser vil det være vigtigt. $\tau(\omega) = - \frac{d\theta(\omega)}{d\omega}$ er hældningen den samme hele tiden, så vil gruppe forsinkelsen være den samme for alle frekvenser.\\
+            Fase forsinkelsen? $- \frac{fase}{\omega}$. Fasen falder i alt omkring $500\deg \approx 8.72rad, \tab{0} faseforsinkelse \approx \frac{8.72}{2\pi} \approx 1.4rad/\omega, \tab{0} \omega \in [\frac{\omega}{\pi}]$
+            (I. Ja, II. Ja, Nej)\\
+
+            $x \overset{h_b}{\rightarrow}$ : Høj pas lignende filter vasker midterfrekvenserne væk. Det vil betyde, at Xs mindre frekvensbidrag kommer til at påvirke outputtet mere, end havde det ikke været blevet påvirket. 
+            Overalt vil signalet blive formindsket. 
+            Fase forsinkelse? Fasen falder i alt omkring $1400\deg \approx 22.5rad, \tab{0} faseforsinkelse \approx \frac{22.5}{2\pi} \approx 3.6rad/\omega, \tab{0} \omega \in [\frac{\omega}{\pi}]$\\
+            Gruppe forsinkelse? Den vil være anderledes alt efter hvilken frekvens der bruges, eftersom at den ikke er lineær. 
+            Så man kan ikke regne med den samme faseforskydelse 
+            (I. Ja, II. Ja, Ja)\\
+
+            $x \overset{h_c}{\rightarrow}$ : Forstærkningsfilter. Filteret giver bare inputtet en forstærkning, uafhængigt af frekvenserne.
+            (I. Ja, II. Nej, Nej)\\
+
+            $x \overset{h_d}{\rightarrow}$ : Sinc lignende filter. Forstærkning omkring nulfrekvenserne, og en lille dæmpning udenfor nulfrekvenserne.
+            For X ville dens omkringliggende nulfrekvenser blive endnu mere dominerende. Dens næststørste frekvensbidrag vil blive vedligeholdt med en smule forstærkning måske. 
+            Dens mindste frekvens bidrag vil blive endnu mindre. 
+            Den har en ulineær fase, så afhængigt af hvilke frekvenser man arbejder med, så kan det betyde anderledes frekvensforskydninger. 
+            Dens omkringliggende nulfrekvens vil næsten ingen faseforskydning se, mens dem længere ude vil se en faseforskydning i hver deres retning. Den er dog ikke så stor, så approksimativt vil man måske kunne sige, at de arbejder på samme frekvens forsinkelse. 
+            Gruppeforsinkelse vil så også være anderledes til forskellige frekvenser. Og hældningerne er noget anderledes, så den kan måske være af betydning.\\
+            (I. Ja, II. Ja lidt, Ja)\\
+
+            $x \overset{h_e}{\rightarrow}$ : Filteret er approksimativt et forstærkningsfilter. Den løfter hele spektret approksimativt det samme. 
+            Fasen ser dog skift, approksimativt er det lineært, men den har nogle variationer. Faseforsinkelsen ikke den samme i alle frekvenser, og på grund af den ændrende hældning, så er gruppeforsinkelsen også anderledes til forskellige frekvenser.
+            (I. Ja lidt, II. Ja, Ja)\\\\
+
+            Matematisk intuition til det forklaring af fasernes påvirkning.
+            Faseforsinkelsen forklare om hvilken faseforsinkelsen outputtet vil have ud fra givne frekvenser.
+            \[f_d(\omega) = \frac{\theta(\omega)}{\omega}\]
+            Hvis fasenforsinkelsen kan beskrives lineært. 
+            \[f_d(\omega) = \frac{a\omega + b}{\omega}\]
+            Så er den måske lidt ulineær i starten, hvis b er andet end 0, men snart vil den blive konstant. 
+            Så hvis fasen er forskudt ved dc. Det kan jeg dog ikke lige sige med sikkerhed at den kan. Men kun omkring der, vil faseforsinkelsen være ulineær.\\
+            Efterhånden vil faseforsinkelsen blive konstant. \\
+            \[\tau(\omega) = \frac{d\theta(\omega)}{d\omega}\]
+            \[\tau(\omega) = \frac{d}{d\omega} * (a\omega + b)\]
+            \[\tau(\omega) = a\]
+            Så for lineære faser, så vil fase forsinkelsen være konstante og det samme med gruppeforsinkelserne.\\
+            Hvad så med konstante faser? 
+            \[f_d(\omega) = \frac{\theta(\omega)}{\omega}\]
+            \[f_d(\omega) = \frac{a}{\omega}\]
+            Fasen vil være konstant
+            \[\tau(\omega) = \frac{d\theta(\omega)}{d\omega}\]
+            \[\tau(\omega) = \frac{d}{d\omega} * (a)\]
+            \[\tau(\omega) = 0\]
+            Så i det tilfælde vil der ikke være gruppeforsinkelse, men i alle andre tilfælde vil der. Så: \\
+            Ulineæritet i fasen (Fase forsinkelse og gruppe forsinkelse)\\
+            Lineæritet i fasen (Konstant fase- og gruppeforsinkelse)\\
+            Konstant fase       (Konstant faseforsinkelse og ingen gruppeforsinkelse)\\
+            Er hvad jeg må tage med fra opgaven. \\ Nu til deres outputs. \\
+            \vspace{160pt}
+            \figniogtyve{0.55} 
+        
+            Umiddelbart kan jeg ikke se gruppeforsinkelsen nogle steder, og det regnede jeg egentlig med.
+            
         \end{Opgave}
     \end{kapitel}
 \end{Opgaver}

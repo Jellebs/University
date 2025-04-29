@@ -1,6 +1,9 @@
 % Tekst redigering 
-\newcommand{\tab}{\quad}
-\newcommand{\transformation}[1]{\tab\overset{\mathscr{#1}}{\leftrightarrow}\tab}
+\newcommand{\tab}[1]{
+    \foreach \i in {0, ..., #1} {
+        \quad
+    }}
+\newcommand{\transformation}[1]{\tab{0}\overset{\mathscr{#1}}{\leftrightarrow}\tab{0}}
 
 % Counters 
 \newcounter{kapitel}
@@ -18,12 +21,15 @@
 \newenvironment{rubrik}[1][]{
     \clearpage
     \section*{#1}
+    \addcontentsline{toc}{section}{#1}
     \setcounter{kapitel}{0} % Nulstil counteren, I tilfælde af, at den har været brugt. 
 }{}
 
 \newenvironment{underrubrik}[1][]{
     \subsection*{#1}
+    \addcontentsline{toc}{subsection}{#1}
 }{}
+
 
 % Indhold
 \newenvironment{Formelsamling}{\begin{rubrik}[Formelsamling]\end{rubrik}}{}
@@ -38,4 +44,5 @@
 \newenvironment{Øvelser}{\begin{rubrik}[Øvelser]\end{rubrik}}{}
 \newenvironment{Øvelse}[1][]{\begin{underrubrik}[#1]\end{underrubrik}}{}
 
-\newenvironment{Udklip}{\color{red}\begin{rubrik}\end{rubrik}}{}              % Skal bruges til når jeg retter opgaver, så fletter jeg de forkerte ind i det her. 
+\newenvironment{Udklip}{\color{red}\begin{underrubrik}\end{underrubrik}}{}              % Skal bruges til når jeg retter opgaver, så fletter jeg de forkerte ind i det her. 
+

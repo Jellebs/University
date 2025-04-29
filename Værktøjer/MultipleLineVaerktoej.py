@@ -43,6 +43,15 @@ E = ([
     r"|__________"   
 ])
 
+F = ([
+    r" __________", 
+    r"|          ",
+    r"|          ",
+    r"|------    ",
+    r"|          ",
+    r"|          "   
+])
+
 G = ([
     r"  _______   ", 
     r" /          ",
@@ -151,12 +160,12 @@ T = ([
     r"     _|_    "   
 ])
 U = ([
-    r"|          |", 
-    r"|          |",
-    r"|          |",
-    r"|          |", 
-    r"|          |",
-    r" \________/"
+    r"___      ___", 
+    r" |        |",
+    r" |        |",
+    r" |        |", 
+    r" |        |",
+    r"  \______/ "
 ])
 V = ([
     r"__           __", 
@@ -174,7 +183,22 @@ V = ([
     r" |    \     ",
     r"_|_   _\____"    
 ])
-
+Ø = ([
+    r"  _______/ ", 
+    r" /      /\ ",
+    r"|     _/  |",
+    r"|   _/    |",
+    r"|  /      |",
+    r" \/______/ " 
+])
+Å = ([
+    r"    ___    ", 
+    r"   [___]   ",
+    r"    ___    ",
+    r"   /   \   ",
+    r"  /-----\  ",
+    r"_|_     _|_"    
+])
 
 
 
@@ -203,6 +227,8 @@ def skrivBogstav(bogstav: str, indeks):
             return D[indeks]
         case "E":
             return E[indeks]
+        case "F":
+            return F[indeks]
         case "G": 
             return G[indeks]
         case "H": 
@@ -235,19 +261,24 @@ def skrivBogstav(bogstav: str, indeks):
             return V[indeks]
         case "Æ":
             return Æ[indeks]
+        case "Ø": 
+            return Ø[indeks]
+        case "Å":
+            return Å[indeks]
         case " ": 
             return _[indeks]
 
-def printText(text): 
+def printText(text, linjestarter = "#"): 
     bogstaver = [*text]
     # """
-    rækker = "#"
+    rækker = linjestarter
  
     for i in range(0, len(E)): # Antal rækker
         if i != 0: 
-            rækker = "".join([rækker, "\n#"]) # Begynder ny række 
+            rækker = "".join([rækker, "\n" + linjestarter]) # Begynder ny række 
         # rækker = "".join([rækker, skrivBogstav("E", i)]) 
         for bogstav in bogstaver: # Antal bogstavs værdier i rækken.
+            # print(skrivBogstav(bogstav, indeks=i))
             rækker = "  ".join([rækker, skrivBogstav(bogstav, indeks=i)])
     if len(rækker)/len(E) > 193: # Teksten fylder for meget til terminalen, jeg laver et tekst dokument til det. 
         fil = open(f"{text}.txt", "x") 
@@ -255,4 +286,4 @@ def printText(text):
     print(len(rækker)/len(E))
     print(rækker)
 
-printText("Opgavehjælp")
+printText("Hjælpe værktøjer", "#?")

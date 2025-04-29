@@ -1,0 +1,7 @@
+
+
+Mappen har en fil der hedder .latexmkrc med indholdet.
+$aux_dir = 'build';
+$out_dir = 'build';
+
+Den sørger for at de midlertidige filer bliver puttet i en mappe, så jeg ikke skal se på det. 

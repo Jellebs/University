@@ -5,7 +5,7 @@ class Opgave:
     def __new__(cls, *args, **kwargs):
         instance = super().__new__(cls)  # Create instance
         if "beskrivelse" in cls.__dict__.keys(): pprint(cls.__dict__["beskrivelse"])  
-        cls.__sorterResultater(cls, cls.__dict__)
+        cls.__sorterResultater__(cls, cls.__dict__)
         return instance  # Return the created instance
     
     # ! Erstattet
@@ -14,18 +14,18 @@ class Opgave:
         if "beskrivelse" in self.__dict__.keys(): pprint(self.__dict__["beskrivelse"])  
         self.__sorterResultater(self, self.__dict__)"""
     
-    def __sorterResultater(self, variabler): 
+    def __sorterResultater__(self, variabler): 
         resultater = {k.split("_")[1] : v for k, v in variabler.items() if k.startswith('res')}
         if resultater == {}: return
-        self.__printResultater(self, resultater)
+        self.__printResultater__(self, resultater)
     
-    def __printResultater(self, resultater): 
+    def __printResultater__(self, resultater): 
         pprint("\n"); pprint("="*80)
         for noegle in resultater.keys():
             vaerdi = resultater[noegle]
-            pprint(f"{noegle} ")
-            pprint("\n ||\n\n") 
-            pprint(vaerdi)
+            pprint(f"{noegle:^80}")
+            #pprint("\n ||\n\n") 
+            pprint(f"{vaerdi:^80}")
         pprint(""); pprint("="*80) 
         
 class Ligning(): 
