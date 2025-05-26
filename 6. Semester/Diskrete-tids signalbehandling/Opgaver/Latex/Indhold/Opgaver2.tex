@@ -1,0 +1,472 @@
+% Opgaver fra kapitel 7 og frem
+
+\begin{Opgaver}
+    \begin{kapitel}[The Discrete Fourier Transform]
+        \begin{Opgave}[Opgave 7.1 - FT og system beskrivelse, beregning mod fft (Vigtig !)]
+            Let $xc(t) = 5e^{-10t}sin(20\pi*t)u(t)$.
+            \begin{UnderOpgave}[Determine the CTFT \text{$X_c(j2\pi F)$ of xc(t)}]
+                Bruger eulers identitet 
+                \eulersIdentitetSin
+                \[\frac{5}{2j}e^{-10t}(e^{j20\pi*t} - e^{-j20\pi*t})u(t)\]
+                Jeg ser et dæmpende udtryk med en amplitude og jeg ser 2 harmoniske udtryk. 
+                \[\frac{5}{2j}e^{-10t}u(t) * (e^{j20\pi*t} - e^{-j20\pi*t})\]
+                Gange i tids domænet er det samme som convolution i frekvens domænet, men med en $\frac{1}{2\pi}$ faktor på. \\
+                Første udtryk: 
+                \[\frac{5}{2j}e^{-10t}u(t) \transformation{F} \frac{5}{2j} \frac{1}{10 + j\omega}\]
+                Andet og tredje udtryk: 
+                \[e^{j20\pi*t} \transformation{F} 2\pi\delta(\omega - 20\pi)\]
+                \[-e^{-j20\pi*t} \transformation{F} -2\pi\delta(\omega + 20\pi)\]
+                Da det bare er to impulser i frekvens spektret er de forholdsvis simple at forestille sig convolution med. 
+                Omkring hvert af disse punkter vil første udtryk have origo i. Så den bliver forskudt fra w = 0 til $\omega \pm = 20$
+                \[X_c(j2\pi F) = \frac{1}{2\pi} * \int_{-\infty}^{\infty}{X(j\theta)H(j(\omega - \theta)) d\theta}\]
+                \[X_c(j\omega) = \frac{5}{2\pi * 2j} (\frac{1}{10 + j(\omega - 20\pi)} - \frac{1}{10 + j(\omega + 20\pi)})\]
+                Fundet vha egenskaben at: 
+                \[x(t)\star\delta(t - t_0) \rightarrow x(t - t_0)\]
+                Impulser forsinker eller fremskyder bare signalet.
+                Det burde kunne beskrive det så præcist analytisk som muligt
+                \vspace{150pt}
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Plot magnitude and phase of \text{$X_c(j2\pi F)$ over \text{$—50 < F < 50$} Hz}]
+                \figtoogtres{0.25}
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[Use the fft function to approximate the CTFT computation]
+                Choose a sampling rate to minimize aliasing and the number of samples to capture the signal wave-
+                form. Plot magnitude and phase of your approximation and compare it with the
+                plot in (a) above.\\
+                Jeg ser at filtret stort set er 0 for $\omega = \pm 314, F = \pm 50$
+                Så skal jeg bare opfylde nyquist raten med den. 
+                $F_s > 2F_h = 2 * 50Hz$
+                Så en sampling frekvens på 100Hz virker ikke dårlig. $F_s = 100Hz$
+                $T_s = 1/F_s = 1/100$ så det bliver mine steps.
+                Sinus delen af funktionen opnår 10 perioder indenfor 1 sekund. Et halv sekund skulle da være rigeligt for at få sig et billede. Måske skal jeg endda tættere på pga dæmperen. 
+                \figtreogtres{0.30}\\\\
+                Der ses at magnituden stort set er den samme. Jeg har lidt en ting med at misse amplituderne, det er ikke første gang. 
+                Min mangler jo i hvert fald en general forstærkning, men formen er meget rigtig.\\              
+                \color{red}Gammelt plot: Fasen for fft er lidt hulter til bulter, men det er måske på grund af usikkerheder. 
+                Hvis man kørte frekvensen gennem et lavpass filter, så tror jeg, at fasen også nogenlunde vil vise det samme billede. 
+                \color{black}Vigtig ændring jeg gjorde mig. Jeg fandt ud af, at det var antikausulitet som gjorde det.
+                Jeg havde lavet mit signal fra -0.5, 0.5 sekunder. Det er jo egentlig ikke det jeg ønsker det meste af tiden hellere. 
+                Nu ligner fasen mere hvordan den beregnede fase er i t = 0, ... 1 sekund
+            \end{UnderOpgave}
+        \end{Opgave}
+        \begin{Opgave}[Opgave 7.3 - DTFT mod FFT]
+            Let $x[n] = n(0.9)^nu[n]$
+            \begin{UnderOpgave}[Determine the DTFT \text{$\tilde{X}(e^{j\omega})$} of \text{$x[n]$}]
+                Det virker som om at tilde notationen bare er en måde at udtrykke, at spektret er periodisk. 
+                Jeg har udledt den på 3 forskellige måder, som kan findes under udledninger. 
+                Den kunne blive løst for på flere måder. Den geometriske serie og differentations egenskaben er hvad jeg har taget brug af. 
+                \[x[n] \transformation{F} X(e^{j\omega}) = \frac{ae^{-j\omega}}{(1 - ae^{-j\omega})^2}\]
+                Og så længe a ikke er 1, så er det en løsning.
+                \[x[n] \transformation{F} X(e^{j\omega}) = \frac{0.9*e^{-j\omega}}{(1 - 0.9*e^{-j\omega})^2}\]
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[Choose first N = 20 samples of \text{$x[n]$}]
+                and compute the approximate DTFT $\tilde{X}_N(e^{j\omega})$ using the fft function. 
+                Plot magnitudes of $\tilde{X}(e^{j\omega})$ and $\tilde{X}_N(e^{j\omega})$ in one plot and
+                compare your results.\\
+                \figfireogtres{0.3}
+                Min beregnede er lavet ud fra en formel. Måske gør det, at den ikke konvergere så hurtigt som den fft'erede. \\
+                Fasen er så ca 180 graders forskudte. 
+
+            \end{UnderOpgave}
+            
+            \begin{UnderOpgave}[Repeat part (b) using N = 50.]
+                \figfemogtres{0.3}\vspace{60pt}
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[Repeat part (b) using N = 100.]
+                \figseksogtres{0.3}
+            \end{UnderOpgave}      
+            Jeg ser at min beregnede funktions magnitude konvergere mod den fft'erede. \\
+            Den fft'eredes fase konvergere så mod min beregnedes fase.
+            \color{teal} Jeg havde lidt problemer da jeg brugte frekvenserne fra np.fft.fftfreq. Da jeg selv lavede w fik jeg resultatet som jeg ønskede. 
+            \color{black}
+        \end{Opgave}
+        \begin{Opgave}[Opgave 7.4 - Matrix beregning (Kommet hertil, har ikke kunnet bevise bevis)]
+            Let $W_N$ be the N x N DFT matrix.
+            \begin{UnderOpgave}[Determine \text{$W_N^2$}, and verify that it is equal to \text{$NJ_N$} where \text{$J_N$} is known as a flip
+                matrix. Describe this matrix and its effect on \text{$J_x$} product.]
+                Jeg har spurgt chatten og søgt lidt på nettet for at eftertjekke, og det virker som om at matricen 
+                \[ J_N = 
+                    \begin{vmatrix}
+                        0     & \vdots & 0     & 0     & 1 \\
+                        0     & \vdots & 0     & 1     & 0 \\
+                        0     & \vdots & 1     & 0     & 0 \\
+                        \dots & \dots  & \dots & \dots & \dots \\
+                        1     & \vdots & 0     & 0     & 0
+                    \end{vmatrix}
+                \]
+                Eller bare enhver anden matrice af NxN hvor antidiagonalen har 1'ere. \\
+                Afhængigt af om man sætter den højre eller venstre i en matrix multiplikation, så vil den medføre et flip horizontalt eller vertikalt. \\
+                Chatten siger, at $N J_n$ skulle give en horizontal flip i den rækkefølge. 
+                en N er bare en skalar, så i det her tilfælde vil den bare være matricen skaleret. 
+                For $W_N^2$ så bliver matricerne sat op til matrix multiplikation, og da vil dens kolonner blive ganget med rækkerne for at danne den nye matrice.
+                \[ W_N = 
+                    \begin{vmatrix}
+                        w_{11} & w_{12} & w_{13} \\
+                        w_{21} & w_{22} & w_{23} \\
+                        w_{31} & w_{32} & w_{33}  
+                    \end{vmatrix}
+                \]
+                \[ W_N^2  = 
+                    \begin{vmatrix}
+                        w_{11} & w_{12} & w_{13} \\
+                        w_{21} & w_{22} & w_{23} \\
+                        w_{31} & w_{32} & w_{33}  
+                    \end{vmatrix}
+                    @ 
+                    \begin{vmatrix}
+                        w_{11} & w_{12} & w_{13} \\
+                        w_{21} & w_{22} & w_{23} \\
+                        w_{31} & w_{32} & w_{33}  
+                    \end{vmatrix}
+                    = 
+                    \begin{vmatrix}
+                        w_{11}w_{11} + w_{12}w_{21} +w_{13}w_{31} & w_{11}w_{12} + w_{12}w_{22} +w_{13}w_{32} & w_{11}w_{13} + w_{13}w_{23} +w_{13}w_{33} \\
+                        w_{21}w_{11} + w_{22}w_{21} +w_{23}w_{31} & w_{21}w_{12} + w_{22}w_{22} +w_{23}w_{32} & w_{21}w_{13} + w_{23}w_{23} +w_{23}w_{33} \\
+                        w_{31}w_{11} + w_{32}w_{21} +w_{33}w_{31} & w_{31}w_{12} + w_{32}w_{22} +w_{33}w_{32} & w_{31}w_{13} + w_{33}w_{23} +w_{33}w_{33} \\ 
+                    \end{vmatrix}
+                \]
+                Vindue værdierne er ikke andet en kompleks eksponentielle med forskellige frekvenser 
+                \[w_{k = 2, l = 2} = (e^{-j\omega_0})^{2*2}\]
+                Så lad mig se på hvad det vil give, en kolonne af gangen.\\\\
+                Kolonne 1 
+                \[\begin{vmatrix}
+                    w_{11}w_{11} + w_{12}w_{21} +w_{13}w_{31} \\
+                    w_{21}w_{11} + w_{22}w_{21} +w_{23}w_{31} \\
+                    w_{31}w_{11} + w_{32}w_{21} +w_{33}w_{31} \\
+                \end{vmatrix}
+                = 
+                \begin{vmatrix}
+                    e^{-0*0 * j\omega}e^{-0*0 * j\omega} + e^{-0*1 * j\omega}e^{-1*0 * j\omega} + e^{-0*2 * j\omega}e^{-2*0 * j\omega} \\
+                    e^{-1*0 * j\omega}e^{-0*0 * j\omega} + e^{-1*1 * j\omega}e^{-1*0 * j\omega} + e^{-1*2 * j\omega}e^{-2*0 * j\omega} \\
+                    e^{-2*0 * j\omega}e^{-0*0 * j\omega} + e^{-2*1 * j\omega}e^{-1*0 * j\omega} + e^{-2*2 * j\omega}e^{-2*0 * j\omega} \\
+                \end{vmatrix}\]
+                Så det er en masse 1'ere, men det vidste jeg godt inden. Lad mig se på kolonner som ikke er 1'ere.
+                \[\begin{vmatrix}
+                    w_{11}w_{11} + w_{12}w_{21} +w_{13}w_{31} \\
+                    w_{21}w_{11} + w_{22}w_{21} +w_{23}w_{31} \\
+                    w_{31}w_{11} + w_{32}w_{21} +w_{33}w_{31} \\
+                \end{vmatrix}
+                = 
+                \begin{vmatrix}
+                    1 + 1 + 1 \\
+                    1 + 1 + 1 \\
+                    1 + 1 + 1
+                \end{vmatrix}\]\\\\
+
+
+                Kolonne 2
+                \[\begin{vmatrix}
+                    w_{11}w_{12} + w_{12}w_{22} +w_{13}w_{32} \\
+                    w_{21}w_{12} + w_{22}w_{22} +w_{23}w_{32} \\
+                    w_{31}w_{12} + w_{32}w_{22} +w_{33}w_{32} \\
+                \end{vmatrix}
+                = 
+                \begin{vmatrix}
+                    e^{-0*0 * j\omega}e^{-0*1 * j\omega} + e^{-0*1 * j\omega}e^{-1*1 * j\omega} + e^{-0*2 * j\omega}e^{-2*1 * j\omega}  \\
+                    e^{-1*0 * j\omega}e^{-0*1 * j\omega} + e^{-1*1 * j\omega}e^{-1*1 * j\omega} + e^{-1*2 * j\omega}e^{-2*1 * j\omega}  \\
+                    e^{-2*0 * j\omega}e^{-0*1 * j\omega} + e^{-2*1 * j\omega}e^{-1*1 * j\omega} + e^{-2*2 * j\omega}e^{-2*1 * j\omega}  \\
+                \end{vmatrix}\]
+                \[\begin{vmatrix}
+                    w_{11}w_{12} + w_{12}w_{22} +w_{13}w_{32} \\
+                    w_{21}w_{12} + w_{22}w_{22} +w_{23}w_{32} \\
+                    w_{31}w_{12} + w_{32}w_{22} +w_{33}w_{32} \\
+                \end{vmatrix}
+                = 
+                \begin{vmatrix}
+                    1 + 1 + 1                                 \\
+                    1 + e^{-2 * j\omega} + e^{-4 * j\omega}   \\
+                    1 + e^{-3 * j\omega} + e^{-6 * j\omega}   
+                \end{vmatrix}\]\\\\
+
+
+                Kolonne 3 
+                \[\begin{vmatrix}
+                    w_{11}w_{13} + w_{13}w_{23} +w_{13}w_{33} \\
+                    w_{21}w_{13} + w_{23}w_{23} +w_{23}w_{33} \\
+                    w_{31}w_{13} + w_{33}w_{23} +w_{33}w_{33} \\ 
+                \end{vmatrix}
+                = 
+                \begin{vmatrix}
+                    1 + 1 + 1                               \\
+                    1 + e^{-4 * j\omega} + e^{-6 * j\omega} \\
+                    1 + e^{-6 * j\omega} + e^{-8 * j\omega} \\
+                \end{vmatrix}\]
+                
+
+                \[W_N^2 = \begin{vmatrix}
+                    3 &                                       3 &                                       3 \\                 
+                    3 & 1 + e^{-2 * j\omega} + e^{-4 * j\omega} & 1 + e^{-4 * j\omega} + e^{-6 * j\omega} \\
+                    3 & 1 + e^{-3 * j\omega} + e^{-6 * j\omega} & 1 + e^{-6 * j\omega} + e^{-8 * j\omega} \\
+                \end{vmatrix}\]
+                For at jeg skulle have bevist det, så skulle det her have været lige med N på antidiagonalen og 0 ellers.
+                Det er ikke det jeg ser, så derfor kan jeg ikke bevise det. 
+                Jeg kan stadigvæk ikke se hvordan det her bevis skulle kunne bevises. 
+
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Show that \text{$W_N^4, = N^2I_N$}. Explain the implication of this result.]
+                Jeg har ikke kunnet udlede sidste bevis. Men antaget at det holder så er
+                \[W_N^4 = (W_N^2)@(W_N^2) = (N*J_N) @ (N*J_N) = \sum_{k = 0}^{N} \sum_{i = 0}^{N} N * N, k = i \]
+                Ved matrix multiplikation, hvis den første matrice har en af dens nedereste elementer, så bliver der ganget med den samme, spejlvendt om diagonalen. 
+                N * N, k, i = (3, 4), (4, 3). \\
+                Jeg ser dog stadigvæk, at den kommer til at være på antidiagonalen. 
+                Jeg kunne også have vist det ved den associative egenskab ved multiplikation af skalarer på matricer. 
+                \[c(dA) = (cd)A\]
+                \[W_N^4 = (W_N^2)@(W_N^2) = N^2(J_N @ J_N)\]
+                \[N^2(J_N @ J_N)_{i, j}\] 
+                \[N^2(J_N @ J_N)_{0, N} = N^2*(J_N{N, 0} * J_N{0, N})\]
+                \[N^2(J_N @ J_N)_{1, N - 1} = N^2*(J_N{N - 1, 1} * J_N{1, N - 1})\]
+                \[...\]
+                Igen jeg ser det stadigvæk som en antidiagonal matrice. 
+
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Using MATLAB determine eigenvalues of \text{$\frac{W_N}{\sqrt{N}}$} for \text{$4 \geq N \geq 10$}. Some of the
+                eigenvalues may be repeated. Can you guess a general rule for the multiplicity of
+                eigenvalues as a function of N?]
+                Jeg har lavet et script til det i min beregningsfil 
+                
+            \end{UnderOpgave}
+        \end{Opgave}
+        \begin{Opgave}[Opgave 7.5 Determine the N point DFTs of the following sequences defined over \text{$0\geq n\geq N$}]
+            Jeg har fået nogle funktioner, og så skal jeg lave DFT på dem. Jeg opstillerne funktionerne i et bibliotek. \\
+            funktioner = { \\
+                "a" : lambda n : 4 - n, \\
+                "b" : lambda n : 4 * np.sin(0.2 * np.pi * n), \\
+                "c" : lambda n : 6 * (np.cos(0.2 * np.pi * n)**2), \\
+                "d" : lambda n : 5 * ((0.8)**n), \\
+                "e" : lambda n : np.array([3 if i mod 2 == 0 else -2 for i in range(len(n))]) \\
+            } 
+            N = [8, 10, 10, 16, 20]
+            \[X = Wx\]
+            Så jeg laver matrix multiplikation i den rækkefølge
+            \figsyvogtres{0.3}\\
+            Generelt er resolutionen meget dårlig, så derfor er spektret meget kantet.\\
+            Noget andet jeg vil sige om plottet er, at funktionerne er beregnet ud fra den N værdi de fik tildelt. Derfor har jeg zero paddet resten af den spektrum, så det passede in i en general w
+            Hvis det skulle være helt rigtigt, så fylder hvert plot jo hele spektret, men forskellige oplysninger, så det skal man forestille sig at de gør.\\
+            Svararket har også løst for den analytisk, det kunne man også, men nu valgte jeg at løse for den numerisk. 
+        \end{Opgave}
+        \begin{Opgave}[Opgave 7.6 - Show that the DFT coefficients...]
+            $X[k]$ are the projections of the signal $x[n]$ on the DFT (basis) vectors $w_k$. 
+            \[X = Wx\]
+            \[N\times N \tab{0} \times \tab{0} N\times 1 \tab{0} \rightarrow \tab{0} N\times 1\]
+            Hver række i W matrixen bliver ganget på kolonnen af inputs.
+            \[X_i = W_{i} * x\]
+            \[X_i = \sum_{j = 0}^{N}W_{i, j} * x_j\]
+            Efter hans notation: 
+            \[X_k = W_{k} * x = \sum_{j = 0}^{N}W_{k, j} * x_j\]
+            Han kalder det godt nok projektion, men jeg vil nu kalde det for et prik produkt, men jeg er godt klar over, at der er nogen der også kalder det for en projektion. 
+            Jeg blev lidt forvirret af hans notation, for han beskriver det nærmest som om, at $X[k]$ er en vektor. Jeg vil nu mene at det er en skalar, og det samme vil chatten.            
+            
+        \end{Opgave}
+        \begin{Opgave}[Opgave 7.24 - Udledning af velkendte vinduer ud fra den generelle vindue formel]
+            The CTFT $W(j\Omega)$ of a generic window function $w(t)$is given in (7.189) in which a
+            and b are design parameters and $W_R(j\Omega)$ is the CTFT of the rectangular window.
+            \begin{UnderOpgave}[For the choice of \text{$a = b = 0.5$} and using ICTFT show that the resulting Hann
+                window function is given by eq. 7.190.]
+                Formel 7.189: 
+                \[W_c(j\omega)=a W_{\mathrm{R}}(j\Omega)+b W_{\mathrm{R}}(j(\Omega-2\pi/T_{0}))+b W_{\mathrm{R}}(j(\Omega+2\pi/T_{0}))\]
+                \[W_c(j\omega)=\frac{1}{2} * (W_{\mathrm{R}}(j\Omega)+ W_{\mathrm{R}}(j(\Omega-2\pi/T_{0})) + W_{\mathrm{R}}(j(\Omega+2\pi/T_{0})))\]
+                Det lugter lidt af konvolution i frekvens spektret. Det i tids domæne er multiplikation
+                \[x(t)h(t) \Leftrightarrow \frac{1}{2\pi}\int_{-\infty}^{\infty}{X(j\theta) * H(j*(\omega - \theta)) d\theta}\]
+                Her mangler jeg dog en delt med pi faktor. 
+                Men hvis x(t) i det her tilfælde er vindue funktionen, så må h(t) være en noget der i frekvens spektret danner 3 impulser. 
+                To impulser symmetrisk om $\omega = 0$ er en cos funktion i tids domænet, så der har jeg en af dem fundet ud af. Den sidste er så bare en impuls, og den er en dc forstærkning i tids domænet. 
+                \[cos(\omega t) \transformation{F} = \pi*(\delta(\omega - \omega_0) + \delta(\omega + \omega_0))\]
+                \[x(t) = 1 \transformation{F} = 2\pi\delta(\omega)\]
+                For at de alle sammen skal være skaleret ligeligt, så har jeg at 
+                \[a * x(t) = 1 \transformation{F} = a * 2\pi\delta(\omega) = \pi\delta(\omega)\]
+                Og derfor bliver dc værdien nødt til at skaleres med en halv.
+                Så nu har jeg et udtryk for begge dele af produktet i tid.
+                \[====================\]
+                \[w_han(t) = (cos(\omega_0 t) + 1/2) * (w_R(t))\]
+                \[====================\]
+                Giver det mening? 
+                \[\frac{1}{2\pi} * \pi = \frac{1}{2}\]
+                Som var den koefficient jeg fik for vinduefunktionen, så den burde være tilstrækkeligt med en koefficent foran på 1.
+                I bogen så er en hanning filter 0.5*cos\\
+                Der er fejl i opgaven. De løser den selv med en hel cos, så det er rigtigt nok
+            \end{UnderOpgave}
+            
+            \begin{UnderOpgave}[For the choice of \text{$a = 0.54, b = 0.23$} and using ICTFT show that the resulting
+                Hamming window function is given by eq. 7.191]
+                Igen formel 7.189: 
+                \[W_c(j\omega)=a W_{\mathrm{R}}(j\Omega)+b W_{\mathrm{R}}(j(\Omega-2\pi/T_{0}))+b W_{\mathrm{R}}(j(\Omega+2\pi/T_{0}))\]
+                I konvolution: 
+                \[(\frac{1}{2\pi} * (k_1 * \pi[\delta(\omega - \omega_0) + \delta(\omega + \omega_0)] + k_2 * 2\pi\delta(\omega))\star W_R(j\omega))\]
+                Og jeg har at 
+                \[k_2 * 2\pi * \frac{1}{2\pi} = 0.54, \tab{0} k_2 = 0.54\]
+                \[k_1 * \pi * \frac{1}{2\pi} = 0.23, \tab{0} k_1 = 0.46\]
+                Lad mig eftertjekke om det giver mig standard formlen tilbage. 
+                \[(\frac{1}{2\pi} * (0.46 * \pi[\delta(\omega - \omega_0) + \delta(\omega + \omega_0)] + 0.54 * 2\pi\delta(\omega))\star W_R(j\omega))\]
+                \[(0.23 * [\delta(\omega - \omega_0) + \delta(\omega + \omega_0)] + 0.54 * \delta(\omega))\star W_R(j\omega)\]
+                Og det er jo netop standard formen med substitution af a og b værdier.
+                \[x(t)h(t) = (k_1 * cos(\omega_0 t) + k_2) * w_r(t) \]
+                \[x(t)h(t) = (0.46 * cos(\omega_0 t) + 0.54) * w_r(t) \]
+                \[=======================\]
+                \[x(t)h(t) = (0.54 + 0.46 * cos(\omega_0 t)) * w_r(t) \]
+                \[=======================\]
+                Nu er den faktisk helt identisk til formel 7.191, det eneste jeg ekstra jeg kunne, var at substituere for $\omega_0$, men det behøves jeg ikke. 
+
+
+            \end{UnderOpgave}
+        \end{Opgave}
+    \end{kapitel}
+    \begin{kapitel}[Computation of the Discrete Fourier Transform]
+        \begin{Opgave}[Twiddle factors]
+            \begin{UnderOpgave}[Confirm equations (8.5) and (8.6).]
+                Formel 8.5 forklare om periodiciteten. Den forklare at vinduet er periodisk i k og n. 
+                \[W_{N}^{kn} = W_{N}^{k(n+N)}=W_{N}^{(k+N)n}\]
+                Til den kan jeg gå tilbage til definitionen på $W_N$ 
+                \[W_N^{kn} = e^{-j\omega_0 * (kn)}\]
+                Men for den mere generaliserende måde, så glemmer vi vinkelfrekvensen og ser på opløsningen vi har i vores data.\\
+                For N datapunkter, så deler vi spektret ud på N punkter. Det sikre normalisering. Da er: 
+                \[W_N : e^{-j * (\frac{2\pi}{N}) * (kn)}\]
+                Det var sådan, at vi definerede den normaliserede vindue matrix. 
+                \[W_N^{k*(n + N)} = e^{-j * (\frac{2\pi}{N}) * (k*(n + N))}\]
+                \[W_N^{k*(n + N)} = e^{-j * (\frac{2\pi}{N}) * kn  -j * (\frac{2\pi}{N}) * kN}\]
+                \[W_N^{k*(n + N)} = e^{-j * (\frac{2\pi}{N}) * kn}e^{-j * (\frac{2\pi}{N}) * kN}\]
+                \[W_N^{k*(n + N)} = e^{-j * (\frac{2\pi}{N}) * kn}e^{-j * 2\pi * k}\]
+                \[e^{-j * 2\pi * k} = 1\]
+                For alle k'ere. 
+                \[W_N^{kn} = e^{-j * (\frac{2\pi}{N}) * kn}\]
+                Og derfor er den periodisk i N.
+                Hvad med for n faktoreret? 
+                \[W_N^{n*(k + N)} = e^{-j * (\frac{2\pi}{N}) * (n*(k + N))}\]
+                \[W_N^{n*(k + N)} = e^{-j * (\frac{2\pi}{N}) * kn}e^{-j * (\frac{2\pi}{N})nN}\]
+                \[W_N^{n*(k + N)} = e^{-j * (\frac{2\pi}{N}) * kn}e^{-j * 2\pi * n}\]
+                \[e^{-j * 2\pi * n} = 1\]
+                For alle n'ere.
+                Derfor er k og n begge periodiske i N
+                \vspace{40pt}\\
+                Formel 8.6 forklare om komplex konjugeret symmetri. Den inddrager også lige en del af periodiciteten. 
+                \[W_N^{k*(N - n)} = W_N^{-kn} = (W_N^{kn})^\star\]
+                Vindue funktionen er ikke andet end en kompleks exponentiel funktion. Den konjugerede vil være det samme som fortegnet i eksponenten vendt. 
+                \[W_N^{-kn} = e^{-j * (\frac{2\pi}{N}) * (-kn)} = e^{j * (\frac{2\pi}{N}) * (kn)}\]
+                For at bevise det, tager jeg det også på trigonometrisk repræsentation.
+                \[W_N^{-kn} = cos((\frac{2\pi}{N}) * (kn)) + jsin((\frac{2\pi}{N}) * (kn))\]\\
+                Og lad mig så repræsentere det normale vindue trigonometrisk også 
+                \[W_N^{kn} = e^{-j * (\frac{2\pi}{N}) * (kn)}\]
+                \[W_N^{kn} = e^{j * (\frac{2\pi}{N}) * (-kn)}\]
+                \[W_N^{kn} = cos(-(\frac{2\pi}{N}) * kn) + jsin(-(\frac{2\pi}{N}) * kn) \]
+                \[cos(x) = cos(-x), sin(-x) = -sin(x)\]
+                \[W_N^{kn} = cos(\frac{2\pi}{N} * kn) - jsin(\frac{2\pi}{N} * kn)\]
+                Som vitterligt bare har et modsat fortegn på den komplekse del, og det er jo en kompleks konjugering. Derfor gælder der at: 
+                \[W_N^{k*(N - n)} = W_N^{-kn} = (W_N^{kn})^\star\]
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[Develop an expression for \text{$W_N^{(N-k)n}$} similar to equations (8.5) and (8.6).]
+                Her er det egentlig bare fordi at vinduet er konjugeret, og jeg skal bevise, at periodiciteten stadigvæk gælder. 
+                Hvis jeg gør det, så har jeg jo lige ovenover bevist konjugeringen, så med periodiciteten vil det være det samme. 
+                \[W_N^{(N - k)n} = e^{-j * (\frac{2\pi}{N}) * ((N - k)n)}\]
+                \[W_N^{(N - k)n} = e^{-j * (\frac{2\pi}{N}) * (-kn)}e^{-j * (\frac{2\pi}{N}) * (Nn)}\]
+                \[W_N^{(N - k)n} = e^{-j * (\frac{2\pi}{N}) * (-kn)}e^{-j 2\pi n}\]
+                \[e^{-j 2\pi n} = 1\] 
+                for alle n'er. Og derfor gælder periodiciteten også ved kompleks konjugering. 
+                På den måde har jeg så bevist, at peridiciteten også holder i den ligning som jeg sluttede sidste opgave af med. 
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[Compute \text{$W_N^{N/2}$}]
+                \[W_N^{N/2} = e^{-j * (\frac{2\pi}{N}) * (N/2)}\]
+                \[===========\]
+                \[W_N^{N/2} = e^{-j * \pi} = -1\]
+                \[===========\]
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[How are \text{$W_N^2$}, and \text{$W_{N/2}$} related?]
+                De er relaterede ved, at normaliseringen er ud fra N. Hvis N bliver halvt så stor, så vil det være det samme som at gange med to.
+                \[W_N^{2} = e^{-j * (\frac{2\pi}{N}) * 2}\]
+                \[W_{N/2} = e^{-j * (\frac{2\pi}{\frac{N}{2}})} \]
+                \[W_{N/2} = e^{-j * (\frac{2\pi}{N}) * 2 }\]
+                \[W_N^{2} = W_{N/2}\]
+                
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Is there a simple relation between \text{$W_{16}^9$} and \text{$W_{16}$}? Can this relation be generalized?]
+                Lad mig se det an. 
+                \[W_{16} = e^{-j * (\frac{2\pi}{16})}\]
+                \[W_{16}^9 = e^{-j * (\frac{2\pi}{16}) * (9)}\]
+                \[W_{16}^9 = e^{-j * 2\pi * \frac{9}{16}}\]
+                Så er hypotesen, at man kan generalisere det sådan her: 
+                \[W_i^j = e^{-j * 2\pi * \frac{j}{i}}\]
+                Gælder det også for
+                \[W_{14}^4 = e^{-j * (\frac{2\pi}{14})} * 4\]
+                \[W_{14}^4 = e^{-j * 2\pi (\frac{4}{14})}\]
+                Ja det gør det. Så generaliseringen er, at: 
+                \[W_i^j = e^{-j * 2\pi * \frac{j}{i}}\]
+                Og jo tættere de er på hinanden, jo tættere er de på en konstant værdi. 
+                Så husker jeg fra det diskrete spektrum, at så gentager de sig derefter, så. 
+                \[W_i^j = W_i^{j + i} = e^{-j * 2\pi * \frac{j}{i}}\]
+                For mit tilfælde: 
+                \[W_{14}^4 = W_{14}^{18} = e^{-j * 2\pi (\frac{4}{14})} = e^{-j * 2\pi (\frac{18}{14})}\]
+            \end{UnderOpgave}
+        \end{Opgave}
+        \begin{Opgave}[Dual-tone multifrequency (DTMF) analysis]
+            Opgaven handler om mapping af en sum af lav og høj frekvenser som laver en keypad grid. \\
+            \figotteogtres{0.3}
+
+            Være opmærksom på skrive fejlene. Der bliver beskrevet 7 frekvenser til at repræsentere 12 karakterer. 
+            I virkeligheden, så er der 16 karakterer og det kræver 8 frekvenser.
+            \begin{UnderOpgave}[Write code to generate samples of high and low frequencies of one-half
+    second duration given a symbol “S”]
+                Sådan som jeg forstår det, så skal jeg bruge det grid som jeg har fået som sketch, og vælge mine egne karakterer. 
+                Så lad mig starte fra venstre af fra toppen. Så dens 1'er bliver min S'er. 
+                \[S \rightarrow (697, 1209)Hz\]
+
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Make example sequences with random symbols and generate audible out-
+    put. Comment on the sounds you can hear.]
+                Jeg har omstruktureret keyboardet, så det står for de første 16 bogstaver i alfabetet. 
+                Så har jeg valgt at spille frekvensen "Kongen". 
+                Lyden er meget monotomt, tror jeg? Er det ikke hvor man taler meget i sådan samme toneleje? 
+                Og sådan er det jo fordi den kun skifter tone efter hvert halve sekund. 
+
+            
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Make FFT's of your examples sequences and plot the spectra. Make sure
+    your spectra has the right frequency axis. Comment on the spectrum if
+    you use the full example sequence or an small segment of the sequence.]
+                \figniogtres{0.4}
+            Hvad jeg fandt ud af her er, at det er en dum idé at prøve at analysere hele lyden på en gang. Der er jo uendelig store skift imellem dem ved transition, så derfor prøver den at lave frekvens komponenter ud fra dem. 
+            Ellers så fandt jeg lidt ud af den bedste måde at samle tonerne, splitte dem ind til pakker med symboler, og at 
+            numpy laver fft gennem kolonnerne, så (N, 1) vektorer er no go, den fatter det ikke. Lav (1, N) transformationer. Frekvenserne ser ud til at være ca. dem de blev lavet ud fra. \\
+            konfiguration = {\\
+                "A" : (697, 1209), \\
+                "B" : (697, 1336), \\
+                "C" : (697, 1477), \\
+                "D" : (697, 1633), \\
+                "E" : (770, 1209), \\
+                "F" : (770, 1336), \\
+                "G" : (770, 1477), \\
+                "H" : (770, 1633), \\
+                "I" : (852, 1209), \\
+                "J" : (852, 1336), \\
+                "K" : (852, 1477), \\
+                "L" : (852, 1633), \\
+                "M" : (941, 1209), \\
+                "N" : (941, 1336), \\
+                "O" : (941, 1477), \\
+                "P" : (941, 1633)  \\    
+            }
+            \end{UnderOpgave}
+            
+
+            \begin{UnderOpgave}[Implement the Goertzel algorithm from chapter 8.7.1 and make plots that
+    document the implementation works as intended.]
+                \[Y_k(z)/X_k(z) = H_k(z) = \frac{1}{1 - 2cos(2\pi k / N)z^{-1} + z^{-2}}[1 - W_N^k z^{-1}]\]
+                \[Y_k(z) = X_k(z) \frac{1}{1 - 2cos(2\pi k / N)z^{-1} + z^{-2}}[1 - W_N^k z^{-1}]\]
+
+
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[On blackboard, you can find a file “DTMF.dat”. Load this file and decode
+    the message within.]
+                
+            \end{UnderOpgave}
+
+
+
+
+
+        \end{Opgave}
+    \end{kapitel}
+\end{Opgaver}

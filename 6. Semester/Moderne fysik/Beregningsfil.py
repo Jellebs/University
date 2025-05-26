@@ -4,6 +4,10 @@ from scipy.stats import *
 from matplotlib import pyplot as plt
 import numpy as np
 from scipy import constants
+from decimal import Decimal # Videnskabelig notation
+
+def vidskabNotation(tal):       # Videnskabelig notation 
+    return '%.2E' % Decimal(tal)
 
 class OpgaveOmOptiskesensorer1(Opgave):
     beskrivelse = "Sagnac interferometry"
@@ -49,11 +53,7 @@ class OpgaveOmOptiskeSenorer2(Opgave):
         
         
         plt.show()
-    
-    
-    
-    
-    
+         
 class opg3_66(Opgave): 
     beskrivelse = "Data fittingsopgave $n(\lambda) = b + \frac{c}{\lambda}$"
     lamb = np.array([425, 475, 525, 575, 625, 675])*1e-9
@@ -72,8 +72,6 @@ class opg3_66(Opgave):
         fig.legend()
         plt.show()
     
-
-
 class opg3_80(Opgave): 
     s = np.array([10.1, 29.2, 51.6, 78.3, 98.9])
     M = np.array([1.31, 4.77, -4.38, -1.27, -0.724])
@@ -129,8 +127,7 @@ class opg3_80(Opgave):
         fig.legend()
 
         plt.show()
-    
-    
+        
 class opg32_52(Opgave): # Data opgave. 
     m = np.array([0, 1, 2, 3, 4, 5])
     theta = np.array([0, 9.2, 22, 30, 48, 64])
@@ -165,7 +162,86 @@ class Opgave33_34(Opgave):
     print(Tvnum, Thnum)
     print(deltaT)
     # constants.c
+
+class Opgave33_71(Opgave): # Data opgave
+    beskrivelse = "Givet data på en partikels totale energi og dens samtidige momentum, så skal jeg vælge en model, finde værdien for c,"
+    beskrivelse += "\nværdien for partiklens masse og beskrive hvilken partikel det er."
+    beskrivelse += "\nJeg forstår ikke helt at de også vil have c fundet. Jeg har en ligning med to ubekendte. For nu ignorerer jeg det"
+    beskrivelse += "\nVha. formel 33.10 har jeg udledt et lineært udtryk for momentummet."
+    beskrivelse += "\np^2 = E^2/c^2 - m^2"
+    p = np.array([0, 0.872, 1.41, 2.46, 3.45, 4.61, 5.49])
+    E = np.array([0.511, 1.01, 1.51, 2.51, 3.51, 4.51, 5.51])
     
+    c = constants.c
+    # Convertering til SI enhed 
+    # MeV til Joules
+    E *= 1.602e-13  # J 
+    p *= 1.602e-13/(c)  # J/c 
     
+    y = p**2
+    reg = linregress(E**2, p**2)
+    resultat_b, resultat_a = (reg.intercept, reg.slope) 
     
-Opgave33_34()    
+    resultat_p2 = resultat_a*(E**2) + resultat_b
+    def __init__(self): 
+        fig, ax = plt.subplots()
+        ax.plot(self.E**2, self.p**2, "o", label = "Punkter")
+        ax.plot(self.E**2, self.resultat_p2, label = "Regression")
+        fig.legend()
+        plt.show()
+
+class Opgave34_34(Opgave): 
+    c = constants.c
+    h = constants.h
+    k = constants.k
+    R = lambda lamb, T, h, k, c: (2*np.pi * h * (c**2))/((lamb**5) * (np.exp(h*c/(lamb * k * T))))
+    resultat_R200nm = vidskabNotation(R(200e-9, 5800, h, k, c))
+    resultat_R500nm = vidskabNotation(R(500e-9, 5800, h, k, c))
+
+class Opgave34_81(Opgave): # Data fittings opgave
+    beskrivelse = "Givet data fra bølgelængder i forhold til stop potentialet, så skal jeg" 
+    beskrivelse += "\nbeskrive en eksperimentiel udgave af plancks konstant."
+    beskrivelse += "\nOg så finde arbejdsfunktionen"
+    beskrivelse += "\nVha. formel 34.7 har jeg udledt et lineært udtryk for stop potentialet.\n"
+    beskrivelse += r"$V_s = \frac{hc}{e_l} * \frac{1}{\lambda} - \frac{\phi}{e_l}$"
+    def __init__(self): 
+        lamb = np.array([225, 275, 325, 375, 425, 475, 525]) * (10**(-9))
+        V_s = np.array([3.25, 2.17, 1.52, 0.962, 0.646, 0.312, 0.065])
+        x = 1/lamb
+        reg = linregress(x, V_s)
+        resultat_a, resultat_b = (reg.slope, reg.intercept) 
+        y = resultat_a*x + resultat_b
+        fig, ax = plt.subplots()
+        ax.plot(x, V_s, 'o')
+        ax.plot(x, y)
+        ax.set_xlabel(r"$\frac{1}{\lambda}$")
+        ax.set_ylabel(r"$V_s$")
+        plt.show()
+    
+class Opgave35_61(Opgave): 
+    def __init__(self): 
+        n = np.array([4, 5, 7, 8, 10])
+        lamb = np.array([1110, 674, 354, 281, 169]) * (10**(-9))
+        x = n**2
+        reg = linregress(x, 1/lamb)
+        a, b = (reg.slope, reg.intercept)
+        
+        y = a*x + b
+        fig, ax = plt.subplots()
+        ax.grid()
+        ax.plot(x, 1/lamb, 'o')
+        ax.plot(x, y, label= fr"a = {N(a, 3)}, b = {N(b, 3)}")
+        fig.legend()
+        plt.show()
+    
+   
+    
+class Opgave36_40(Opgave): 
+    h = constants.h 
+    J = symbols("J")
+    res_J = Eq(J, N(np.sqrt(
+        ((30 * np.sqrt(11))**2 ) * ((h**3) / (8 * (np.pi**3))) + 30 * np.sqrt(11) * ((h**2) / (4 * (np.pi**2)))
+    ), 6))
+    def __init__(self): 
+        ""
+Opgave36_40()    

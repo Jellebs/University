@@ -286,4 +286,4 @@ def printText(text, linjestarter = "#"):
     print(len(rækker)/len(E))
     print(rækker)
 
-printText("Hjælpe værktøjer", "#?")
+printText("Konfigurationer", "#?")

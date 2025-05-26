@@ -177,5 +177,52 @@
         \color{red} Jeg ved, at jeg har glemt at konvertere 0.52 til radianer, som jeg gjorde med vinklen, men idéen er den samme.
         
     \end{underrubrik}
+    \begin{underrubrik}[DTFT - \text{\boldmath{$n*(a)^nu[n]$}}]
+        Den her kan løses på flere forskellige måder. 
+        \[Metode 1\]
+        \[-----------------------------------\]
+        \[X(e^{j\omega}) = \sum_{n = -\infty}^{\infty}x[n]e^{-j\omega*n}\]
+        \[X(e^{j\omega}) = \sum_{n = -\infty}^{\infty}n*(a)^nu[n]e^{-j\omega*n}\]
+        \[X(e^{j\omega}) = \sum_{n = 0}^{\infty}n*(a)^ne^{-j\omega*n}\]
+        \[X(e^{j\omega}) = \sum_{n = 0}^{\infty}n*(ae^{-j\omega})^n\]
+        En geometrisk serie gælder for koefficienten ikke lige med 1. 
+        \[\sum_{k=0}^{\infty}k a^{k}=\frac{a}{(1-a)^{2}}\]
+        Den kompleks eksponentielle funktion har altid længden 1 så det er kun afhængigt af a i det her tilfælde.
+        \[a \neq 1,\tab{0} X(e^{j\omega}) = \sum_{n = 0}^{\infty}n*(ae^{-j\omega})^n = \frac{ae^{-j\omega}}{(1 - ae^{-j\omega})^2}\]
+        \[==============\]
+        \[X(e^{j\omega}) = \frac{ae^{-j\omega}}{(1 - ae^{-j\omega})^2}\]
+        \[==============\]\\\\
+
+        \[Metode 2\]
+        \[-----------------------------------\]
+        Det kan også ses som differentation af frekvens. Jeg har at 
+        \[n x[n] \transformation{F} j{\frac{d X(e^{j\omega})}{d\omega}} \]
+        \[f(\omega) = 1/\omega\]
+        \[g(\omega) = 1 - ae^{-j\omega}\]
+        Så har jeg jo egentligt at: 
+        \[n x[n] \transformation{F} \frac{d(f(g(\omega)))}{d\omega}\]
+        Og det er differentationen af en sammensat funktion og er givet som.
+        \[\frac{df}{d\omega}(g(x)) * \frac{dg}{d\omega}\]
+        \[\frac{df}{d\omega}(\omega) = -1/(\omega^2)\]
+        \[\frac{dg}{d\omega}(\omega) = - (-j)ae^{-j\omega}\]
+        \[\frac{dg}{d\omega}(\omega) = jae^{-j\omega}\]
+        \[X(e^{j\omega}) = j * (-1)/((1 - ae^{-j\omega})^2) * jae^{-j\omega}\]
+        \[X(e^{j\omega}) = (-1) * (-1 * ae^{-j\omega})/((1 - ae^{-j\omega})^2)\]
+        \[=============\]
+        \[X(e^{j\omega}) = \frac{ae^{-j\omega}}{(1 - ae^{-j\omega})^2}\]
+        \[=============\]
+        Et ekstra trik er en udvidelse af sammenhængen funktioner. 
+        \[H(x)  = \frac{1}{f(x)}\]
+        \[H(x)' = \frac{f(x)'}{f(x)^2}\]
+        Og det havde været en hurtig måde at se det på. 
+        \[f(\omega) = 1 - ae^{-j\omega}\]
+        \[H(\omega)' = \frac{-jae^{-j\omega}}{(1 - ae^{-j\omega})^2}\]
+        \[j\frac{H'}{d\omega} = j*(-j)*\frac{ae^{-j\omega}}{(1 - ae^{-j\omega})^2}\]
+        \[============\]
+        \[j\frac{H'}{d\omega} = \frac{ae^{-j\omega}}{(1 - ae^{-j\omega})^2}\]
+        \[============\]
+
+        Så det var 3 måder at løse for den på. 
+    \end{underrubrik}
 
 \end{Udledninger}

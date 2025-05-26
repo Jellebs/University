@@ -1,3 +1,5 @@
+% Opgaver fra kapitel 1 til 6 
+
 \begin{Opgaver}
     \begin{kapitel}[Introduktion]
     \end{kapitel}
@@ -1396,17 +1398,90 @@
                 \[H(z) = 9.42*10^{-3} * \frac{-1 + z^{-2}}{1 - \sqrt{2}*z^{-1} + z^{-2}}\]
             \end{UnderOpgave}
             \begin{UnderOpgave}[Graph the magnitude response of the filter and verify the given requirements]
-
+                \figsyvogfyrre{0.275} 
                 Jeg aflæser $|H(e^{j\omega})| = 1/\sqrt{2}$ ved -0.2458, som er omkring 0.05 fra resonansfrekvensen. Dens ækvivalente om y aksen ser magen til ud.
                 Så af ren tilfældighed, så er det kriterie allerede løst.
-                
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Graph phase and group-delay responses in one plot]
+                Jeg har løst for den med numerisk afledning
+                \[\tau_{gd} = -\frac{d\Phi(\omega)}{d\omega}\]
+                \figotteogfyrre{0.4}
             \end{UnderOpgave}
 
-
-            (c) Graph phase and group-delay responses in one plot.\\
+            \clearpage
 
 
         
+        \end{Opgave}
+        \begin{Opgave}[Opgave 5.39 - FIR Notch filtrering]
+            \[H(z)=b_{0}[1-(2r\cos\phi)z^{-1}+r^{2}z^{-2}]\]
+            $r = 0.95, \theta = 2\pi/5$
+            \begin{UnderOpgave}[Find b0 som sørger for en maksimal forstærkning på 1. Plot derefter magnituden i dB]
+                \[H(z)\approx b_{0}[1-1.9*0.31z^{-1}+0.9025z^{-2}]\]
+                \[H(z)\approx b_{0}[1-0.589z^{-1}+0.9025z^{-2}]\]
+                \[|H(z)| \approx |b_{0}||1-0.589z^{-1}+0.9025z^{-2}| = 1\]
+                \[\frac{1}{|1 - 0.589z^{-1} + 0.9025z^{-2}|}\]
+                Hvornår tager højre del sin største værdier? Størrelserne på z vil altid være 1. 
+                Det gør den når nævneren er i sit minimum. 
+                \[min(|1 - 0.589z^{-1} + 0.9025z^{-2}|)\]
+                \[min(|1 - 0.589(cos(-w) + jsin(-w)) + 0.9025(cos(-2w) + jsin(-2w))|)\]
+                \[min(|1 - 0.589cos(-w) + 0.9025cos(-2w) - 0.589jsin(-w) + 0.9025jsin(-2w)|)\]
+                Så er det bare et spørgsmål om pythagoras
+                \[min(\sqrt{(1 - 0.589cos(-w) + 0.9025cos(-2w))^2 + (0.9025sin(-2w) - 0.589sin(-w))^2})\]
+                \[min(\sqrt{1^2 + 0.589^2cos(-w)^2 + 0.9025^2cos(-2w)^2 - 2*0.589*0.9025*cos(-w)cos(-2w) + 0.589^2sin(-w)^2 + 0.9025^2sin(-2w)^2 - 2*0.589*0.9025*sin(-w)sin(-2w)})\]
+                \[min(\sqrt{1 + 0.589^2(cos(-w)^2 + sin(-w)^2) + 0.9025^2(cos(-2w)^2 + sin(-2w)^2) - 2*0.589*0.9025(cos(-w)cos(-2w) + sin(-w)sin(-2w))})\]
+                \[min(\sqrt{1 + 0.589^2 + 0.9025^2 - 2*0.589*0.9025(cos(-w)cos(-2w) + sin(-w)sin(-2w))})\]
+                I de trigonometriske identiteter kender jeg så fra: "Angle sum and difference identities" at 
+                \[\cos(\alpha-\beta)=\cos\alpha\cos\beta+\sin\alpha\sin\beta\]
+                \[min(\sqrt{1 + 0.589^2 + 0.9025^2 - 2*0.589*0.9025(cos(-w - 2w))})\]
+                \[min(\sqrt{2.16142725 - 1.063145(cos(-3w))})\]
+                Så systemet tager sin mindste værdi når $-3w = 0, 2pi, ...$, da vil nævneren være: 
+                \[min(\sqrt{2.16142725 - 1.063145})\]
+                \[1.04798962304\]
+                \[|b_{0}| = \frac{1}{1.04798962304}\]
+                \[|b_0| = 0.954\]
+                Jeg er lige glad med fasen, så lad mig bare gøre den fuldt reel. 
+                \[H(z)\approx 0.954 [1-0.589z^{-1}+0.9025z^{-2}]\]
+                Jaaaaeee, så jeg har lavet en beregningsfejl et eller andet sted. Det kan jo ske. Med afrundingsfejl, kunne jeg næsten sige, at det var ca 1 i w = 0.\\
+                Den rigtige fejl er dog omkring -pi, pi, hvor gainet er 2.5\\
+                Lad mig i stedet for finde den numerisk. 
+                Der finder jeg b0 til at være: 
+                \[b_0 \approx 0.401365\]
+                \[H(z)\approx 0.401365 [1-0.589z^{-1}+0.9025z^{-2}]\]
+                for plottet i dB så var den første måde jeg lærte at beregne det på, ved at sige $20*log10(|H|)$
+                \figtreoghalvtreds{0.25}\\    
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Repeat part (a) using r =1. Comment on your results.]
+                0.589 kom fra $2 * 0.95 * 0.31$ for r = 1 vil det være $2 * 0.31 = 0.62$\\
+                0.9025 kom fra $0.95^2$ nu vil det være 1. 
+                \[H(z)\approx b_{0}[1 - 0.62z^{-1} + z^{-2}]\]
+                Den her gang løser jeg bare for den numerisk.
+                \figfireoghalvtreds{0.25}\\
+                Polerne sørger for gain omkring $\omega = 0, -\pi, \pi$, det gjorde den også i delopgave a.\\
+                Her har polerne en større størrelse, derfor tættere på enhedscirklen i et pzmap, og derfor vil hældningen på dens stigninger også være noget større. \\
+                Det er så det jeg ser i forskellene på plotsne også. 
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Now consider a cascade of 3 FIR notch filters, \text{$H(z)=b_{0}\prod_{k=-1}^{1}H_k(z)$} of the form]
+                \[H_{k}(z)=[1-(2\cos\phi_{k})z^{-1}+z^{-2}]\]
+                where $\theta_k = (1 +0.05*k)*(2pi/5), k = -1, 0, 1$. Choose b0 so that the gain at maximum is 1 and plot the magnitude in dB. 
+                Comment on your plot in terms of stopband width.\\
+                k = 0 vil være den funktioner jeg allerede har lavet for. Men lad mig lave et script som kan gøre det for mig numerisk. 
+                \[H(z) = b_0H_{k=-1}(z)H_{k=0}(z)H_{k=1}(z)\]
+                Jeg fandt b0 til
+                \[b_0 \approx 0.3\]
+                \figfemoghalvtreds{0.26}\\\\
+                De ønsker en beskrivelse af stopbånds bredden. Der synes jeg måske at det var mere relevant at snakke om passbånds bredden i det her tilfælde. 
+                Men hvis jeg deler det op i kvarter og siger at 0: -7.5dB er høj, og -22.5: -30dB er lav så er stopbåndet omkring de yderste 0.025*pi
+                I et interval fra 0: 2*pi, så vil det være 0.975*pi: 1.025*pi, så en stopbåndsbredde på 0.05*pi
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Repeat (c) for a cascade of five FIR notch filters using k = -2, 1, 0, 1, 2. Comment on your plot in terms of stopband width.]
+                \figseksoghalvtreds{0.3}
+                Her vil stopbåndet svare til de nederste $17.5/4 = 4.375$
+                Jeg aflæser det til at være de yderste 0.075*pi. I et interval på 0: 2pi, så vil stopbåndet da være fra:\\
+                $0.925\pi : 1.075*\pi$, da vil den have en bredde på $0.15*\pi$\\
+                Hvis jeg skal kommentere på magnituden generelt, så har det at tilføje k'er længere væk fra 0 medført en jævnere passbånd om centerfrekvensen, men har 
+                medført jævnere overgange. Det er måske ikke hvad man ønsker, hvis man ønsker fart og kan klare sig med lidt præcisions fejl. 
+            \end{UnderOpgave}
         \end{Opgave}
         \begin{Opgave}[Opgave 5.48 - Systems indvirkning på signal]
             Givet et periodisk signal 
@@ -1489,5 +1564,267 @@
             Umiddelbart kan jeg ikke se gruppeforsinkelsen nogle steder, og det regnede jeg egentlig med.
             
         \end{Opgave}
+        \begin{Opgave}[Opgave 5.55 - System analyse og teori ud fra pzmap (Vigtig!)]
+            Determine the system function, magnitude response, and phase response of the following 
+            systems and use the pole-zero pattern to explain the shape of their magnitude response:
+            \begin{UnderOpgave}[\text{$y[n] = x[n] - x[n - 2] - 0.81y[n - 2]$}]
+    
+                \[Y(z)*(1 - 0.81z^{-2}) = X(z)*(1 - z^{-2})\]
+                \[H(z) = \frac{Y(z)}{X(z)} = \frac{1 - z^{-2}}{1 - 0.81z^{-2}}\]
+                Jeg kunne udlede formlen for forstærkningen og fasen, men det skriver opgaven ikke, at jeg skal. 
+                Det vil for mig være det der var mest arbejde i, så i stedet så plotter jeg den. \\
+                Måske antyder den egentlig også plot, når jeg bagefter skal forklare formen ud fra pzmappet\\
+                
+                Chatten har givet mig 3 ting, som fortæller noget om plottet ud fra pzmappet. \\
+                1.	Zeros attenuate: The frequency response magnitude drops near frequencies corresponding to angles of the zeros on the unit circle.\\
+	            2.	Poles amplify: The magnitude increases near frequencies corresponding to angles of the poles close to the unit circle.\\
+	            3.	Distance matters: The closer a pole is to the unit circle, the sharper the peak; the closer a zero is, the deeper the notch.\\
+                \figniogfyrre{0.3}\\ 
+                Både mine poler og mine nulpunkter er reele, derfor passer det også med at nulpunkterne attenuere omkring 0 og 180grader\\
+                men at polerne også forstærker omkring 0 og 180grader. 
+                3. pointe siger, at jo tættere en pol er på enhedscirklen, jo stejlere sker stigningen. Jo tættere et nulpunkt er på enhedscirklen, des dybere vil dens fald være. \\
+                Da faldet er dybere en stigningen er stejl, så ser jeg det her med, at det tager noget tid for polen at få systemet i steady state. \\
+                Derfor er systemets passband ikke uendeligt tyndt.\\
+                \color{red}
+                Jeg lavede en fejl. Jeg glemte at tage højde for fortegnet på feedbacken, så den har fået det modsatte fortegn
+                \color{black}
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$y[n] = x[n] - x[n - 4] + 0.6561y[n - 4]$}]
+                \[Y(z)*(1 - 0.6561z^{-4}) = X(z) * (1 - z^{-4})\]
+                \[H(z) = \frac{Y(z)}{X(z)} = \frac{1 - z^{-4}}{1 - 0.6561z^{-4}}\]
+                \fighalvtreds{0.3}\\
+                Nulpunkts attenuering/Pol forstærkning:
+                Igen ser jeg at polerne er længere væk fra enheds cirklen en nulpunkterne. Det betyder mindre forstærkning end hvad der bliver filtreret fra. \\
+                Derfor er "Klipperne" som filtret laver ikke uendeligt stejle. 
+                Jeg ser at attenueringen sker omkring vinklerne -180grader, -90grader, 0grader, 90grader og 180grader. Det ser jeg på mit pole zero plot, og det er også det jeg ser på systemets forstærkning.
+                3. pointe har jeg allerede redegjort for. Polerne medføre mindre stigninger end nulpunkterne medføre fald, derfor er passbåndet ikke uendeligt tynde. 
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$y[n] = x[n] - x[n - 4] - 0.6561y[n - 4]$}]
+                Meget lig med sidste filter, men den her gang påvirker feedbacken sig selv negativt. 
+                \[Y(z)*(1 + 0.6561z^{-4}) = X(z) * (1 - z^{-4})\]
+                \[H(z) = \frac{Y(z)}{X(z)} = \frac{1 - z^{-4}}{1 + 0.6561z^{-4}}\]
+                \figenoghalvtreds{0.3}\\
+                Nulpunktsattenuering: 
+                Nulpunkterne har ikke skiftet sig fra opgave b. De falder omkring vinklerne -180, -90, 0, 90, 180 grader. \\
+                Polernes forstærkning har ændret sig med omkring 45 grader, så i stedet for at stige sammen med nulpunkterne, så stiger de i -135, 45, -45, 135, -135. \\
+                Nulpunkterne er stadigvæk tættest på enhedscirklen, så man skulle tro at den ville falde hurtigere end polen steg.\\
+                Men hvis man tænker over det, så kan en pol hurtigt medføre noget som er uendeligt stort når $\lim_{a\rightarrow 0} \frac{1}{a}$, hvor det ikke helt påvirker på samme måde ved et nulpunkt. \\
+                Polerne er stadigvæk tæt på enhedscirklen og derfor stiger de meget hurtigt. 
+                Nulpunkterne stiger også så hurtigt som de kan.                 
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[\text{$y[n] = x[n] - x[n - 1] + 0.99y[n - 1] - 0.9801y[n - 2]$}]
+                \[Y(z) * (1  - 0.99z^{-1} + 0.9801z^{-2}) = X(z)*(1 - z^{-1})\]
+                \[H(z) = \frac{Y(z)}{X(z)} = \frac{1 - z^{-1}}{1  - 0.99z^{-1} + 0.9801z^{-2}}\]
+                \figtooghalvtreds{0.25}\\
+                Jeg aflæser højdepunkterne til at være ved $\pm \frac{\pi}{3}$ og på pzmappet giver det jo også god mening, da det ligner at polerne er placeret ved $\pm 60\deg$
+                Nulpunkts attenueringen sker ved 0 grader, og det giver også god mening. I $\omega = 0$ er gainet også 0. Det er den også ved $-\pi$ og $\pi$ men det giver jo også god mening, når spektret gentager sig derefter. \\ 
+                Ved nærmere eftertanke så er jeg faktisk ikke helt sikker. Måske burde der have været et fald ved $\pi$ også. For lad mig sige, at jeg rykker $-\pi; 0$ delen til højre.\\
+                Så ser jeg at der er et kæmpe passbånd omkring $\pi$ som er breddere end den om 0. \\
+                Derfor kan jeg ikke helt forklare siderne.
+                Styrkerne i deres hældninger: \\
+                Nulpunktet går helt ned til 0. Falder måske lige så meget som i de andre opgaver.\\
+                Polerne her får dog systemet til at stige noget kræftigere end ved de andre systemer, men det kunne man også have regnet ud, når de er så tætte på enhedscirklen. 
+                
+
+            \end{UnderOpgave}
+
+        \end{Opgave}
+
     \end{kapitel}
+    \begin{kapitel}[Sampling of continuous-time signals]
+        \begin{Opgave}[Opgave 6.1 - Spectrum of sampled discrete signal \text{$x[n]$}]
+            Signal $x_c(t) = 5cos(200\pi t + \pi/6) + 4sin(300\pi t)$ is sampled at a rate of $F_s = 1kHz$ to obtain the discrete-time signal x[n]
+            
+            \begin{UnderOpgave}[Determine the spectrum \text{$X(e^{j\omega}) of x[n]$} plot its magnitude as a function of w in rad/sam and as a function of F in Hz.
+                Explain whether the original signal xc(t) can be recovered from x[n]]
+                I stedet for en sampling i tid, så vil jeg prøve at se det hele direkte fra frekvens spektret. Det skulle give en bedre forståelse hvad angår aliasing. 
+                \[cos(x) = \frac{e^{j\omega} + e^{-j\omega}}{2}\]
+                \[sin(x) = \frac{e^{j\omega} - e^{-j\omega}}{2j}\]
+                \[x_c(t) = 5\frac{e^{j(200\pi t + \pi/6)} + e^{-j(200\pi t - \pi/6)}}{2} + 4\frac{e^{j300\pi t} - e^{-j300\pi t}}{2j}\]
+                \[x_c(t) = \frac{5e^{j\pi/6}}{2}e^{j(200\pi t)} \frac{5e^{-j\pi/6}}{2} e^{-j(200\pi t)} + \frac{2}{j}(e^{j300\pi t} - e^{-j300\pi t})\]
+                \[Ae^{j\omega_0t} \transformation{F} 2\pi A\delta(\omega - \omega_0)\]
+                \[X(j\omega) 
+                    \begin{cases}
+                        \frac{2\pi 5}{2}e^{j\pi/6} & \omega = 200\pi \\
+                        \frac{2\pi 5}{2}e^{-j\pi/6} & \omega = -200\pi \\
+                        \frac{2\pi * 2}{j}          & \omega = 300\pi \\
+                        -\frac{2\pi * 2}{j}          & \omega = -300\pi \\
+                        0 & \text{otherwise}
+                    \end{cases} 
+                \]
+                Svarende til frekvenserne $f = \pm 100$ og $f = \pm 150$
+                \[X(e^{j\Omega T}) = \frac{1}{T} \sum_{-\infty}^{\infty}{X_c[j(\Omega - \frac{2\pi}{T}k)]}\]
+                \[X(e^{j\Omega T}) = F_s\sum_{-\infty}^{\infty}{X_c[j\Omega - 2\pi F_s k]}\]
+                For $k = -1, 0, 1$
+                \[X(e^{j\Omega T}) = F_s X_c[j\Omega + 2\pi F_s k] + F_s X_c[j\Omega] + F_s X_c[j\Omega - 2\pi F_s k] + ... \]
+                Så det er egentlig bare et gentagende spektrum. Som jeg har tegnet spektret, så overlapper de ikke, men det vidste jeg også godt i forvejen. 
+                \[2\omega_H < \omega_s\]
+                Det er nyquist raten der skal være opfyldt. Her er det største frekvens komponent $\omega = 300\pi$ mens $\omega_s = 2000\pi$
+                Så frekvenserne er langt mindre end sampling frekvensen.                 
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Gentag for Fs = 500Hz]
+                \[2 * 300\pi < 2\pi * 500\]
+                Det er den, så der sker ingen aliasing
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Gentag for Fs = 100Hz]
+                \[2 * 300\pi < 2\pi * 100\]
+                Den gælder ikke og derfor er der aliasing
+            \end{UnderOpgave}
+        \end{Opgave}
+
+        \begin{Opgave}[Opgave 6.2 - Aliasing test]
+            Signal \text{$(t)$} with spectrum \text{$X_c(j\omega) = \frac{100}{100 + \Omega^2}$} 
+            is sampled at a rate of \text{$F_s = 100Hz$} to obtain the discrete-time signal x[n].
+            \begin{UnderOpgave}[Determine the spectrum \text{$X(e^{j\omega})$} of xn and plot it as a function of F in Hz over
+                \text{$ — 150 < F < 150 Hz.$}]
+                Ved at bruge den dualitet mellem kontinuert spektrum og samplet spektrum, så beskriver jeg spektret for xn. 
+                \[X(e^{j\Omega T}) = F_s\sum_{-\infty}^{\infty}{X_c[j\Omega - 2\pi F_s k]}\]
+                150Hz vil svare til 300pi vinkelgrader pr sekund. 
+                \[2\pi*100*2 > 300\pi > 2\pi*100*1\]
+                Så i mit plot skal jeg kun plotte for $k = -1, 0, 1$
+                \figsyvoghalvtreds{0.3}\vspace{100pt}                
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Gentag for Fs = 50Hz]
+                \figotteoghalvtreds{0.3}                 
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[Gentag for Fs = 25Hz]
+                \vspace{78pt}
+                \fignioghalvtreds{0.5}
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[For hvilke af af sample ratesne kan signalet blive rekonstrueret sådan nogenlunde?]
+                Jeg vil sige, at de allesammen formår at omkrendse frekvenserne som ikke medføre 0, så alle samplingfrekvenserne kan rekonstruere signalet.
+                
+            \end{UnderOpgave}
+        \end{Opgave}
+
+        \begin{Opgave}[Opgave 6.12 - Praktisk rekonstruering (Vigtig !)]
+            An 8-bit ADC has an input analog range of \text{$\pm 5 volts$}
+            The analog input signal is
+            \[x_c(t) = 2cos(200\pi t) + 3sin(500\pi t)\]
+            The converter supplies data to a computer at a rate of 2048 bits/s. The computer,
+            without processing, supplies these data to an ideal DAC to form the reconstructed
+            signal $y_c(t)$. Determine:
+            \begin{UnderOpgave}[The quantizer resolution(or step)]
+                Givet at det er en 8bits quantizer og input rangen er plus minus 5 volt, så har jeg et step på. 
+                \[qstep = \Delta =  \frac{10V}{2^8} = \frac{10V}{256}\]
+
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[The SQNR in dB]
+                Formel 6.59 beskriver fejlen ved:
+                \[e_c(t) = \frac{\Delta}{2\tau}t, \tab{0} -\tau \geq t \geq \tau\]
+                tau beskriver tiden, som samplet bliver holdt.
+                Der bliver beskrevet at dataen bliver sendt med en hastighed på 2048bits/s. 
+                \[F_s = 2^11 = 2048bits/s\]
+                \[T_s = \tau = \frac{1}{2^11}\]
+
+                Jeg har at SNQR er gennemsnitlig effekt af fejlen, over den gennemsnitlige effekt af signalet over en periode. 
+                Jeg har prøvet at beregne for de værdier selv, men der er allerede lavet beregninger, som skulle være meget brugte. 
+                \[SQNR = \frac{3}{2} * 2^{2*B}\]
+                \[SQNR_dB = 6.02B + 1.76\]
+                Hvor B er antallet af bits brugt. 
+                \[SQNR_dB = 6.02 * 8 + 1.76 = 49.92dB\]
+            \end{UnderOpgave}
+
+            \begin{UnderOpgave}[The folding frequency and the Nyquist rate]
+                Signalet er periodisk i $1000\pi$ det må være folde frekvensen
+                Nyquist raten tager højde for den højeste frekvens i signalet. Det er $500\pi$
+                \[Nyquist: 2*\omega_H \geq \omega_s\]
+                \[Nyquist: 2*500\pi \geq \omega_s\]
+                Så nyquist raten er opfyldt for sample vinkelfrekvenser større end 1000 pi. 
+
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[The reconstructed signal \text{$y_c(t)$}]
+                I virkeligheden burde jeg bruge sample and hold når jeg fik dataen. Men her er min data beskrevet som en funktion, så jeg kender dens værdier meget præcist. 
+                \[x[n] = x_c(n*T_s), \tab{1} T_s = \frac{1}{F_s} = \frac{1}{2048}\]
+                \[x[n] = 2*cos(200\pi*n*1/2048) + 3sin(500\pi*n*1/2048)\]
+                \[x[n] = 2*cos(200\pi*n*1/2048) + 3sin(500\pi*n*1/2048)\]
+                \[x[n] = 2*cos(\frac{25}{2^8}\pi*n) + 3sin(\frac{125}{2^9}\pi*n)\]
+                \[x_{SH}(t) = \sum_{n=-\infty}^{\infty}x[n]*g_{SH}(t - nT)\]
+                For hvert digital værdi bliver den forsinket i tiden ud fra dens placering i samplingen. 
+                Kender jeg noget, hvor hver impuls kontribuere til en sum, i et givet interval? 
+                Det er jo konvolution af en impuls med her en firkant. Jeg har illustreret det i mine sketch "Sampling teori sketches". 
+                \[g_sh(t) = 1, \tab{0} 0 \geq t \geq T_s\]
+                \[rect(t/\tau) \transformation{F} \tau sinc(\frac{\omega \tau}{2\pi})\]
+                \[\tau = bredden/2 = T_s/2\]
+                Den skal så forskydes. 
+                \[rect(a) = 1, \tab{0} |a| < 1 \]
+                \[rect((t - b)/\tau) = 1, \tab{0} 0\geq t \geq T_s\]
+                For det skal ske, så må b nødvendighvis være lige med tau, for først efter 0, vil $t - a > -1$
+                \[rect(\frac{t - \tau}{\tau})\]
+                Et tidsskift kan jeg beskrive som en forskydning i fase i frekvensdomænet. 
+                \[x(t) = rect(t) \transformation{F} \frac{2 sin(\omega \tau)}{\omega}\]
+                \[g_sh(t) = x(t - \tau) \transformation{F} \frac{2 sin(\omega \tau)}{\omega} * e^{-j\omega*\tau}\]
+                \[G_SH(j\omega) = \frac{2 sin(\omega T_s/2)}{\omega} * e^{-j\omega*T_s/2}\] 
+                I stedet for at beskrive $x_q[n]$ så beskriver jeg $x_q(t)$. Der findes både impulser i tidsdomæne og for sampling, så der er ingen ændring sket. 
+                \[x_q(t) = \sum_{n=-\infty}^{\infty} x_q[n] * \delta(t - nT_s) \transformation X_Q(j\omega) = 2\pi/T * \sum_{n=-\infty}^{\infty}{x_q[n]\delta(\omega - \frac{2n\pi}{T})}\]
+                Den kan jeg ikke gøre mere ved nu. Det er en liste af elementer, så den kan blive fast fourier transformere numerisk. Når den er det, gælder der at: 
+                \[X_Q(j\omega)*G_{SH}\]
+                Når vi så vil haveden igennem et lavpass filter, så bruger vi også convolution så lige pludselige så kan vi beskrive hele udtrykket som 
+                \[========================\]
+                \[y_r(t) \transformation{F} Y_r(j\omega) = X_Q(j\omega)*G_{SH} * H_{LP}\] 
+                \[========================\]
+                Og så sagde jeg egentlig, at $x_q$ var en liste så jeg skulle beregne den numerisk. Men nu har jeg jo egentlig fået et analytisk udtryk for indgangssignalet, 
+                så med den har jeg også et analytisk udtryk for den samplede. 
+                \[x[n] = 2*cos(\frac{25}{2^8}\pi*n) + 3sin(\frac{125}{2^9}\pi*n)\]
+                \[X(e^{j\omega}) = \pi * \sum_{l = -\infty}^{\infty}{2 * (\delta(\omega - \frac{25}{2^8}\pi - 2\pi l) + \delta(\omega + \frac{25}{2^8}\pi - 2\pi l)) + \frac{3}{j}(\delta(\omega - \frac{125}{2^9}\pi - 2\pi l) - \delta(\omega + \frac{125}{2^9}\pi - 2\pi l))}\]
+                Og det er jo egentlig bare dens gentagende spektrum. 
+                Ved multiplikation, så vil sinc funktionen bidrage til værdier til netop kun den her frekvens. 
+                Så multiplikationen medfører forstærkning og ikke andet. 
+                Jeg kan ikke beskrive den mere analytisk, så lad mig prøve at beregne for det numerisk.
+                \figtres{0.5}\\
+                Sample and holds primære egenskab er i tidsdomænet. En konsekvens af den er, at næsten alle frekvenser udenfor dens centrefrekvenser bliver formindsket. 
+                Det er næsten nok til at være et lavpassfilter.\\
+                Derfor har vi brug for et rekonstruerings filter. \\ 
+                Jeg fandt den i bogen som 
+                \[H_r(j\omega) = 
+                    \begin{cases}
+                        \frac{\omega * T_s/2}{sin(\omega * T_s/2)}e^{j\omega*T_s/2}, & |\omega < \pi/T \\
+                        0, & otherwise
+                    \end{cases}\]
+                Den sidste del er bestemt nødvendig, ellers så går udtrykket til uendeligt. Den har en omvendt parabel over sig i intervallet. \\
+                Det er et filter som måske er svært at realisere, men når man har den, så er den brugbar. \\
+                                
+
+                Så rekonstrueringen fandt sted ved at sige
+                \[x[n] = x_c(n*T_s) \transformation{F} X(e^{j\omega})\]
+                \[x_sh = \sum_{n=-\infty}^{\infty}{x[n]*g_sh(t - nT)}\]
+                Jeg sketchede at summen af denne faktisk er det samme som convolution, hvor $x[n]$ bare var en impuls funktion i tid i stedet for.  
+                \[x_sh = \sum_{n=-\infty}^{\infty}{x[n]*g_sh(t - nT)} = x(t)\star g_sh(t)\]
+                Og det kan jeg bruge i frekvensdomænet. Men først havde jeg så brug for, at det normaliserede spektrum i diskrete tid blev lavet til spektret i tid. 
+                \[\omega_kont = \omega_disk * F_s\]
+
+                \[x_sh = x(t)\star g_sh(t) \transformation{F} X_(j\omega)*G_sh(j\omega)\]
+                Og derefter skulle jeg bare sende det gennem et rekonstrueringsfilter.
+                \[X_r(j\omega) = X_sh(j\omega)\star H_r(j\omega)\]
+                Numerisk Inverse fourier fejler fordi at der er så få frekvenser af betydning. \\
+                Amplituden er i forvejen meget lav (Jeg føler der måske mangler noget i sample and hold, for det er den som gør det), så det hjælper ikke.\\
+                Jeg prøver bare at trække frekvenserne ud og så lave funktionerne derfra. 
+                Frekvenserne er lidt forskudte omkring $w = 0$, måske det er en beregningsfejl under vejs. Men de er approksimativt tæt nok på til, at man kan ande det.
+                \[X_0, X_3 = \pm 0.0046j \tab{0} ved w = \pm (1578 - -1642)/2 = 1610\]
+                Ved fourier transformationer så er 
+                \[1 * sin(...) \transformation{F} \pi/j * ... \]
+                Så
+                \[a * sin(...) \transformation{F} a * \pi/j * ... \]
+                gælder pga. linearitets princippet. Så
+                \[a * \pi /j = 0.0046j, \tab{0} a * \pi /j * \frac{j}{j} = 0.0046j\]
+                \[a * \pi j /(-1) = 0.0046j\]
+                \[-a * \pi j = 0.0046j\]
+                Så jeg har at $a = -0.0046/\pi$. 
+
+                \[X_1 = X2 = 0.0031 \tab{0} ved w = \pm (612 - -676)/2 = 644\]
+                Her er det bare 
+                \[b * \pi = 0.0031\]
+                \[b = 0.0031/\pi\]
+
+                Og så har jeg mit signal 
+                \[x_r(t) = 0.0031/\pi * cos(644*t) - 0.0046/\pi * sin(1610*t)\]
+                Stemmer det nogenlunde overens med mit input? Frekvenserne er omtrent hvor de skal være, men amplituden er helt off. \\
+                Jeg tror stadigvæk at der er et eller andet galt med den sinc funktion i sample and hold delen. 
+                \figenogtres{0.3}\\\\
+                Som det ses, så er der fælles træk mellem dem, men der er nogle skævheder. Amplituden især. 
+            \end{UnderOpgave}
+        \end{Opgave}
+    \end{kapitel}
+    
 \end{Opgaver}

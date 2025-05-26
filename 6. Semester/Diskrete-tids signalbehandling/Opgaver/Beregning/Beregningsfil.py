@@ -2,9 +2,10 @@ from Formelsamling.StudieHjaelp import *
 from Formelsamling.SignalerOgSystemer import SignalerOgSystemer as SOS
 from sympy import * 
 import scipy.signal as sig
-
+import scipy.linalg as scialg
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 # Lyd 
 import soundcard as sc
 import scipy.io.wavfile as wav
@@ -12,6 +13,7 @@ import os
 import re 
 # Hjælpe funktioner
 import inspect
+import itertools
 
 #?     _______        _______           ___      _____   ____  ____________  ____________    __________  _____   ____
 #?    |        \     |        \        /   \       |    __/          |             |        /              |    __/  
@@ -171,6 +173,10 @@ def dTF(xn, n,  n0):    # Diskrete Tidsforsinkelse
             n = np.append(n, n[-1] + 1)
     return n
 
+def dftmtx(N):          # Diskrete tids fourier transform matrix
+    # W_N_(i, j) = e^{-j * (2*pi/N) * (i * j)} # Normaliseret matrice. 
+    return scialg.dft(N)
+               
 def filterRepræsentation(r, p, k): 
     N = max(r.shape[0], p.shape[0])
     expression = 0
@@ -342,7 +348,7 @@ def frekvensResponse(fig = None, ax = None, w = None, frekvensFunktioner = None,
     plt.show()
     return (fig, ax)
     
-def frekvensResponse_magnitudePlot(fig = None, ax = None, w = None, frekvensFunktioner = None, *args, **kwargs) -> Tuple:
+def frekvensResponseTo(fig = None, ax = None, w = None, frekvensFunktioner = None, *args, **kwargs) -> Tuple:
     """
     Funktion til at plotte magnitudeplottet af et system / systemer.              
     Funktionen kan kaldes på 2 måder              
@@ -353,65 +359,145 @@ def frekvensResponse_magnitudePlot(fig = None, ax = None, w = None, frekvensFunk
     b beskriver koefficienter i tælleren på et system              
     a beskriver koefficienter i nævneren på et system\n
     
-    fig, ax = plt.subplots(N, 1, sharex = True) # Plotter på rækkerne.     
+    fig, ax = plt.subplots(M, N, sharex = True): 
+    M er antallet af (Magnitude, fase, Unwrapped_fase, Gruppe delay) og N er antallet af plots                   
     w er frekvenserne unormaliseret i intervallet [-pi; pi]              
     frekvensFunktionerne er et bibliotek med funktioner:               
-    F = {\n
-        "F1" : F1, \n
-        "F2" : F2, \n
-        "...": ... \n
-        "FN" : FN \n
-    }
+    frekvensFunktioner = {
+        'F_1' : F1,
+        'F_2' : F2,
+        ...       , 
+        'F_n' : Fn
+    }\n
+    ARGS:           
+    "Magnitude"     
+    "Fase"                  
+    "Unwrapped"             
+    "Gruppedelay"                     
+    Ændre dem, hvis man ønsker dem med. Og sørg for at der er plots nok ned at rækkerne ved opsætning af fig, ax.  
     """
-    enkeltPlot = np.ndim(ax) == 0 or frekvensFunktioner is None
+    
+    enkeltPlot = np.ndim(ax) <= 1 or frekvensFunktioner is None
+    metoder = [funktion for funktion in args if funktion in ["Magnitude", "Fase", "Unwrapped", "Gruppedelay"]] # Samler ønskede funktioner ud af argumentsne
+    M = len(metoder)
+    metoder = ["Magnitude"] if M == 0 else metoder
+    metoder_iter = itertools.cycle(iter(metoder))     # Gør det til et iterativt objekt som gentager sig om og om igen.
+    enkeltMetode = M == 1
     colormap = plt.cm.viridis if "colormap" not in kwargs.keys() else args["colormap"]
     N = len(frekvensFunktioner) if frekvensFunktioner is not None else 1
     colors = colormap(np.linspace(0, 1, N)) 
     
-    def rækkeOpsætning(ax = "Række i", legend = None):
-        ax.set_ylabel(legend)
+    
+    def labelOpsætning(ax = "Første række"):
+        i = 0 
+        if "Magnitude" in metoder: 
+            ax[i].set_ylabel(r"$|Forstærkning|_{dB}$" if "dB" in args else r"$|Forstærkning|$") 
+            i+=1 
+        if "Fase"      in metoder: 
+            ax[i].set_ylabel(r"$\angle$ Vinkel")
+            i+=1 
+        if "Unwrapped" in metoder:                                                    
+            ax[i].set_ylabel(r"$\angle$ Vinkel unwrapped")
+            i+=1 
+        if "Gruppedelay" in metoder: 
+            ax[i].set_ylabel(r"$Gruppedelay$")
+        fig.text(0.5, 0.02, r"$\omega \quad [\frac{\omega}{\pi}]$" if "Unormaliseret" not in args else r"$\omega$", ha='center', va='bottom', fontsize=12, fontweight='bold')
+    
+    def plotOpsætning(ax):
         ax.grid()
-    print(f"{enkeltPlot=}")
-    if enkeltPlot:
-        # Bliver brugt hvis system er givet.
-        b = fig
-        a = ax
-        if w is None: 
-            # System givet
-            w, H = sig.freqz(b, a, whole=True)  # [0, 2*pi]
-            w = np.fft.fftshift(w - np.pi)      # [0, pi, -pi, 0] 
-            H = np.fft.fftshift(H)
-            fig, ax = plt.subplots()
-        else : 
-            label, H = next(iter(frekvensFunktioner.items()))
-        mag = 20*np.log10(np.abs(H)) if "dB" in args else np.abs(H)  
-        w_norm = w / np.pi 
         
-        # Setup
-        rækkeOpsætning(ax)
-        ax.set_xlabel(r"$\omega \quad [\frac{\omega}{\pi}]$")
-        ax.set_title(r"$|H(e^{j\omega})|$")
+    def plotMetode(ax, w, H, *args, **kwargs): 
+        """
+        ARGS: 
+        "dB"
         
-        #Plot
-        ax.plot(w_norm, mag, color =colors[0])
-        plt.show()
-        return (fig, ax)
-    
-    
-    #Flere plots
-    for i, (label, H) in enumerate(frekvensFunktioner.items()): 
-        mag = 20*np.log10(np.abs(H)) if "dB" in args else np.abs(H)
-        w_norm = w / np.pi
+        KWARGS: 
+        "color" : blue
+        """
+        match next(metoder_iter): 
+            case "Magnitude": 
+                gain = np.abs(H) if "dB" not in args else 20*np.log10(np.abs(H))
+                ax.plot(w, gain, **kwargs)
+            case "Fase": 
+                vinkel = np.rad2deg(np.angle(H))
+                ax.plot(w, vinkel, **kwargs)
+            case "Unwrapped": 
+                vinkel = np.rad2deg(np.angle(H))
+                ax.plot(w, np.unwrap(vinkel), **kwargs)
+            case "Gruppedelay": 
+                """
+                The derivative in this definition requires that the phase response is a continuous function of frequency.
+                Therefore, to compute the group delay, we should use the unwrapped phase response""" # Side 218 i bogen formel 5.59
+                unwrapped = np.unwrap(np.rad2deg(np.angle(H)))
+                tau_gd = -np.gradient(unwrapped, w)     # Numerisk afledning
+                ax.plot(w, tau_gd, **kwargs)
+            case default: 
+                print("Ski")
+            
+    if (N and M) != 1: 
+        labelOpsætning(ax[:] if enkeltPlot else ax[:, 0])
+    w = w / (2 * np.pi) if "Unormaliseret" not in args else w   # Normalisering eller ej.
+    ax = ax.flatten(order = "F") if np.ndim(ax) != 0 else ax    # Order "F" -> flattening nedad rækkerne. 
+    j = 0               # System
+    i = 0               # Metode
+    for label, H in frekvensFunktioner.items():                 # For hvert system
+        if np.max([N, M]) == 1: 
+            ax.set_title(label)
+            plotOpsætning(ax)
+            plotMetode(ax, w, H, *args, color = colors[i])
+            continue
         
-        ax[0].set_title(label + r"$(e^{j\omega})$")
-        
-        rækkeOpsætning(ax[i], legend = label)
-        ax[i].plot(w_norm, mag, color = colors[i])
+        ax[j].set_title(label)
+        for _ in range(M):                                      # Beregn for dens metoder.
+            plotOpsætning(ax[j])
+            plotMetode(ax[j], w, H, *args, color = colors[i])
+            j+=1
+        i+=1         
     plt.show()
     return (fig, ax)
+
+def GoertzelsFourierTransform(x, ks):
+    beskrivelse = r"""
+    En algorithme som skulle bedre hvis man kun ønsker bestemte frekvenser.\\
+    Forstår det ikke helt endnu, men i stedet for N^2 beregninger laver den NK beregninger, hvor K er antallet af koefficienter man ønsker. 
     
-    
-    
+    v_k(z) = v_k[n - 1] + 2\cos(2\pi k /N)v_k[n - 2] + x[n] \\
+    X_k(z) = v_k[n] - W_N^k v_k[n - 1] 
+    """
+    N = len(x)
+    shape = max(ks)
+    X = np.zeros(shape, dtype=complex)
+    v = np.zeros(shape)             
+    # print(K)
+    for k in ks: 
+        # print(k)
+        k = k-1 
+        b = [1]
+        a = [1, -2*np.cos(2*np.pi*k/N), 1]
+        v = sig.lfilter(b, a, x)
+        X[k] = v[-1] - np.exp(-1j * 2 * np.pi * k/N) * v[-2]
+    return X
+
+
+
+
+
+#?  _____   ____    _______     _____    _____   __________  ____________    _______     ___      ___     _______           ___      ____________  ____________    _______     _____    _____   __________     _______     
+#?    |    __/     /       \     |  \      |    |                  |        /             |        |    |        \        /   \           |             |        /       \     |  \      |    |              |        \   
+#?    | __/       |         |    |   \     |    |                  |       |              |        |    |        |       |     |          |             |       |         |    |   \     |    |              |        |   
+#?    |/\__       |         |    |    \    |    |------            |       |      ____    |        |    |________/       /-----\          |             |       |         |    |    \    |    |------        |________/   
+#?    |   \__     |         |    |     \   |    |                  |       |          |   |        |    |        \      |       |         |             |       |         |    |     \   |    |              |        \   
+#?  __|__  __\__   \_______/   __|__    \__|    |            ______|_____   \________/     \______/   __|__       \__  _|_     _|_       _|_      ______|_____   \_______/   __|__    \__|    |__________  __|__       \__
+
+plt.rcParams['figure.subplot.left']   = 0.06
+plt.rcParams['figure.subplot.bottom'] = 0.08
+plt.rcParams['figure.subplot.right']  = 0.955
+plt.rcParams['figure.subplot.top']    = 0.955
+plt.rcParams['figure.subplot.wspace'] = 0.10
+plt.rcParams['figure.subplot.hspace'] = 0.10
+
+
+
 
 #?    _______       _______      _______         ___      __           __   __________     _______     
 #?   /       \     |       \    /               /   \       \         /    |              |        \   
@@ -1277,20 +1363,89 @@ class Opgave5_38(Opgave):
     H = H(z)
     resultat_b0 = np.max(np.abs(H))
     H /= resultat_b0
+
     def __init__(self): 
         frekvensFunktioner = {
-            r"$H(e^{j\omega})$" : self.H
+            r"$H(e^{j\omega})$" : self.H, 
         }
         fig, ax = plt.subplots(3, 1,sharex= True)
-        frekvensResponse(fig, ax, self.w, frekvensFunktioner)
+        # frekvensResponse(fig, ax, self.w, frekvensFunktioner)
         
         # Læring. Jeg skal ikke lave en omega som er 2 * pi * f, når f: [-1, 1]
         # Da ville jeg få w = [-2pi; 2*pi]. Og [-2pi; 0] er det samme som [0; 2pi]. 
         # Når jeg så lavede normalisering af mine frekvenser, så manglede mit filter en faktor 2. 
+        
         fig, ax = plt.subplots()
-        frekvensResponse_magnitudePlot(fig, ax, self.w, frekvensFunktioner)
+        fig, ax = frekvensResponseTo(fig, ax, self.w, frekvensFunktioner, "Magnitude")
+        # gemBillede("Opgave 5.38.b.png", fig)
+        fig, ax = plt.subplots(2, 1, sharex= True)
+        frekvensResponseTo(fig, ax, self.w, frekvensFunktioner, "Unwrapped", "Gruppedelay")
+        # gemBillede("Opgave 5.38.c.png", fig)
+
+class Opgave5_39(Opgave): 
+    def faaWZ(self): 
+        f = np.linspace(-1, 1, 500)
+        w = np.pi*f
+        z = np.exp(1j*w)
+        return w, z
+        
+    def opga(self): 
+        w, z = self.faaZ()
+        H = (1 - 0.589*(z**(-1)) + 0.9025*(z**(-2)))
+        resultal_b0 = 1/np.max(np.abs(H))
+        H *= resultal_b0
+        fig, ax = plt.subplots()
+        frekvensFunktioner = {
+            r"$H(e^{j\omega})$": self.H
+        }
+        fig, ax = frekvensResponseTo(fig, ax, self.w, frekvensFunktioner, "Magnitude", "dB")
+        # gemBillede("Opgave 5.39.a.png", fig)
     
+    def opgb(self): 
+        w, z = self.faaZ()
+        H2 = (1 - 0.62*(z**(-1)) + z**(-2))
+        resultat_b02 = 1/np.max(np.abs(H2))
+        H2 *= resultat_b02
+        frekvensFunktioner = {
+            r"$H_2(e^{j\omega})$": self.H2
+        }
+        fig, ax = frekvensResponseTo(fig, ax, self.w, frekvensFunktioner, "Magnitude", "dB")
+        # gemBillede("Opgave 5.39.b.png", fig)
+
+    def opgc(self):
+        w, z = self.faaWZ()
+        H3 = np.ones_like(z.shape, dtype=float)
+        for k in range(-1, 2): 
+            print(k)
+            theta_k = (1 + 0.05*k) * 2 * np.pi/5 
+            H3 = H3 * 1 - (2*np.cos(theta_k)*(z**(-1)) + z**(-2))
+        
+        resultat_b03 = 1/np.max(np.abs(H3))
+        H3 *= resultat_b03
+        frekvensFunktioner = {
+            r"$H_3(e^{j\omega})$": H3
+        }
+        fig, ax = plt.subplots()
+        fig, ax = frekvensResponseTo(fig, ax, w, frekvensFunktioner, "Magnitude", "dB")
+        # gemBillede("Opgave 5.39.c.png", fig)
     
+    def opgd(self):
+        w, z = self.faaWZ()
+        H4 = np.ones_like(z.shape, dtype=float)
+        for k in range(-2, 3): 
+            print(k)
+            theta_k = (1 + 0.05*k) * 2 * np.pi/5 
+            H4 = H4 * 1 - (2*np.cos(theta_k)*(z**(-1)) + z**(-2))
+        frekvensFunktioner = {
+            r"$H_4(e^{j\omega})$": H4
+        }
+        fig, ax = plt.subplots()
+        fig, ax = frekvensResponseTo(fig, ax, w, frekvensFunktioner, "Magnitude", "dB")
+        # gemBillede("Opgave 5.39.d.png", fig)
+            
+    def __init__(self):
+        self.opgd() 
+               
 class Opgave5_48(Opgave): 
     N = 8
     K = np.int64(np.ceil(60 / N))
@@ -1345,5 +1500,680 @@ class Opgave5_48(Opgave):
         fig, ax = diskreteSystemPaavirkning(fig, ax, self.n, self.xn, self.systemer)
         # gemBillede("Opgave 5.48.2.png", fig)
         
+class Opgave5_55(Opgave): 
+    
+    
+    def systemer(self, system, z):
+        match system:
+            case "a": 
+                b = [1, 0, -1]
+                a = [1, 0, -0.81]
+                H = (1 - z**(-2))/(1 - 0.81*(z**(-2)))
+                return (b, a, H)
+            case "b": 
+                b = [1, 0, 0, 0, -1]
+                a = [1, 0, 0, 0, -0.6561]
+                H = (1 - z**(-4))/(1 - 0.6561*(z**(-4)))
+                return (b, a, H) 
+            case "c": 
+                b = [1, 0, 0, 0, -1]
+                a = [1, 0, 0, 0, 0.6561]
+                H = (1 - z**(-4))/(1 + 0.6561*(z**(-4)))
+                return (b, a, H) 
+            case "d": 
+                b = [1, -1]
+                a = [1, -0.99, 0.9801]
+                H = (1 - z**(-1))/(1 -0.99*(z**(-1)) + 0.9801*(z**(-2)))
+                return (b, a, H)
+            case default: 
+                ""  
+    
+    def analyser(self, system): 
+        f = np.linspace(-1, 1, 500)
+        w = np.pi*f
+        z = np.exp(1j*w)
+        b, a, H = self.systemer(system, z)
+        fig, ax = plt.subplots(2, 1, sharex=True)
+        ax = ax.reshape(-1, 1)
+        print(ax.shape)
+        frekvensFunktioner = {
+            r"$H(e^{j\omega})$" : H 
+        }
+        print(frekvensFunktioner)
+        frekvensResponseTo(fig, ax, w, frekvensFunktioner, "Magnitude", "Fase")
+        SOS.pzplotZ(b, a, "ydre")
 
-Opgave5_38()
+    def __init__(self):
+        self.analyser("a")
+        self.analyser("b")
+        self.analyser("c")
+        self.analyser("d")
+        
+class Opgave6_2(Opgave): 
+    # Plot af samplet spektrum. 
+    N = 300
+    Fs = 100
+    F = np.linspace(-150, 150, N)
+    w = 2 * np.pi * F 
+    
+    
+    def shift(self, X, w, w_0): 
+        """
+        Positiv w0 betyder venstre shift
+        Negativ w0 betyder højre shift.
+        """
+        wRange = np.max(w) - np.min(w)
+        wLen = w.shape[0]
+        wIncrease = wRange/wLen
+        padLen = np.abs(round(w_0/wIncrease))
+        origo = np.argmin(np.abs(w))
+        nyW = w
+        if w_0 >= 0: 
+            nyW = np.pad(w[padLen: ], (0, padLen))
+            nyX = np.pad(X[padLen: ], (0, padLen))
+            return (nyW, nyX)
+        else: 
+            nyW = np.pad(w[: wLen - padLen], (padLen, 0))
+            nyX = np.pad(X[: wLen - padLen], (padLen, 0))
+            return (nyW, nyX)
+            
+            
+    z = np.exp(1j*w)
+    X = 100/(100 + w**2)
+    def opga(self): 
+        # For Fs = 100Hz
+        _, X1 = self.shift(self.X, self.w, -100*2*np.pi)
+        _, X2 = self.shift(self.X, self.w, 100*2*np.pi)
+        Xejw = self.X + X1 + X2 
+        fig, ax = plt.subplots(2, 2, sharex = True) 
+    
+        frekvensFunktioner = {
+            r"$X(j\omega)$" : self.X, 
+            r"$X(e^{j\omega})$" : Xejw
+        }
+        fig, ax = frekvensResponseTo(fig, ax, self.w, frekvensFunktioner, "Magnitude", "Fase") 
+        gemBillede("Opgave 6.2.a.png", fig)
+    
+    def opgb(self): 
+        # For Fs = 50Hz  
+        _, X1 = self.shift(self.X, self.w, -150*2*np.pi)
+        _, X2 = self.shift(self.X, self.w, -100*2*np.pi)
+        _, X3 = self.shift(self.X, self.w, -50*2*np.pi)
+        _, X4 = self.shift(self.X, self.w, 50*2*np.pi)    
+        _, X5 = self.shift(self.X, self.w, 100*2*np.pi)    
+        _, X6 = self.shift(self.X, self.w, 150*2*np.pi)    
+        Xejw = self.X + X1 + X2 + X3 + X4 + X5 + X6
+        fig, ax = plt.subplots(2, sharex = True) 
+        ax = ax.reshape(1, -1)
+        frekvensFunktioner = {
+            r"$X(j\omega)$" : self.X, 
+            r"$X(e^{j\omega})$" : Xejw
+        }
+        fig, ax = frekvensResponseTo(fig, ax, self.w, frekvensFunktioner, "Magnitude") 
+        gemBillede("Opgave 6.2.b.png", fig)
+        
+    def opgc(self): 
+        # For Fs = 25Hz
+        Xejw = self.X
+        for i in range(-150, 151, 25): 
+            if i == 0: continue
+            _, Xejw = Xejw + self.shift(self.X, self.w, i*2*np.pi)
+        fig, ax = plt.subplots(2, sharex = True) 
+        ax = ax.reshape(1, -1)
+        # print(ax.shape)
+        frekvensFunktioner = {
+            r"$X(j\omega)$" : self.X, 
+            r"$X(e^{j\omega})$" : Xejw
+        }
+        fig, ax = frekvensResponseTo(fig, ax, self.w, frekvensFunktioner, "Magnitude") 
+        gemBillede("Opgave 6.2.c.png", fig)
+        
+    def __init__(self): 
+        self.opgc()
+
+class Opgave6_12(Opgave): 
+    w0 = 25 * np.pi/(2**8)
+    w1 = 125 * np.pi/(2**9)
+    N = 200                         # Resolution i spektret
+    w, h = np.linspace(0, 2*np.pi, N, retstep = True)
+    
+    F_s = 2**11
+    T_s = 1/(F_s)
+    
+    
+    # --- Kreer diskrete spektrum.
+    def findIndices(w, w0, w1): 
+        # Suppose w is your frequency array
+        I = []
+        I += [np.where(w <= w0)[0].max()]
+        I += [np.where(w <= w1)[0].max()]
+        I += [np.where(w <= 2*np.pi - w1)[0].max()]
+        I += [np.where(w <= 2*np.pi - w0)[0].max()]
+        return I
+    
+    # En periode
+    I = findIndices(w, w0, w1)
+    X = np.zeros_like(w, dtype = complex)
+    X[I[0]] += 2 * np.pi 
+    X[I[1]] += 3 * np.pi/(1j)
+    X[I[2]] += -3 * np.pi/(1j)
+    X[I[3]] += 2 * np.pi
+    
+    def diskreteSpektrum(self, X): 
+        N = self.N
+        N_perioder = 2
+        X_gentaget = np.tile(X, N_perioder)
+        X_gentaget = np.hstack([X_gentaget, X_gentaget])
+        w_gentaget = np.linspace(- N_perioder * 2 * np.pi, N_perioder * 2 * np.pi, N*N_perioder * 2)
+        self.N = N * 6 
+        return (X_gentaget, w_gentaget)
+    
+    # --- Sample and Hold    
+    def sampleAndHold(self, Xejw, w_gentaget):
+        F_s = self.F_s
+        T_s = self.T_s
+        w_kontinuert = w_gentaget * F_s         # Tilbage til kontinuert frekvenser
+        G_sh = (2 * np.sin(w_kontinuert * T_s/2)/w_kontinuert) * np.exp(-1j*w_kontinuert*T_s/2)
+        X_sh = Xejw * G_sh
+        return X_sh, G_sh, w_kontinuert
+    
+    # --- Lavpass filtrering    
+    def lavPassFiltrering(self, X, w_gentaget):
+        F_s = self.F_s
+        T_s = self.T_s
+        H_LP = (w_gentaget * T_s/2)/(np.sin(w_gentaget * T_s/2)) * np.exp(1j*w_gentaget*T_s/2)
+        I = np.where(np.abs(w_gentaget) >= np.pi*F_s) 
+        H_LP[I] *= 0                            # 0 otherwise    
+        X_r = X * H_LP
+        return X_r, H_LP
+    def rekonstruktion(self, w, X):
+        I = np.nonzero(X)
+        I = I[0]
+        
+        pprint(
+        f""" 
+        Frequenc komponenter: 
+        =============================== 
+        
+        X_0 = {N(X[I[0]], 2)} ved w = {w[I[0]]},
+        X_1 = {N(X[I[1]], 2)} ved w = {w[I[1]]}
+        X_2 = {N(X[I[2]], 2)} ved w = {w[I[2]]}
+        X_3 = {N(X[I[3]], 2)} ved w = {w[I[3]]}
+        
+        ===============================
+        """
+        )
+        t = np.linspace(0, 0.10, 205)
+        x_ind = 2 * np.cos(200*np.pi * t) + 3 * np.sin(500 * np.pi * t)
+        x_ud = (0.0031/np.pi) * np.cos(644 * t) - (0.0046/np.pi) * np.sin(1610 * t)
+        fig, ax = plt.subplots(2)
+        ax[0].plot(t, x_ind, label= "Input")
+        ax[0].plot(t, x_ud, label= "Output")
+        ax[1].plot(t, x_ud, color = "orange")
+        ax[0].grid()
+        ax[1].grid()
+        fig.legend()
+        plt.show()
+        return (fig, ax)
+         
+        
+    
+    def __init__(self): 
+        Xejw, w_gentaget = self.diskreteSpektrum(self.X)
+        X_sh, G_sh, w_kont = self.sampleAndHold(Xejw, w_gentaget)
+        X_r, H_LP = self.lavPassFiltrering(X_sh, w_kont) 
+        
+        fig, ax = plt.subplots(2, 5, sharex= True)
+        frekvensFunktioner = {
+            r"$X(e^{j\omega})$" : Xejw, 
+            r"$G_{sh}(j\omega)$" : G_sh,
+            r"$X_{sh}(e^{j\omega})$" : X_sh, 
+            r"$H_{lp}(j\omega)$" : H_LP, 
+            r"$X_r(j\omega)$" : X_r
+        }
+        # fig, ax = frekvensResponseTo(fig, ax, w_kont, frekvensFunktioner, "Magnitude", "Fase", "Unormaliseret")
+        # gemBillede("Opgave 6.12.png", fig)
+        fig, ax = self.rekonstruktion(w_kont, X_r)
+        # gemBillede("Opgave 6.12.Rekonstruering.png", fig)
+        
+class Opgave7_1(Opgave): 
+    N = 100
+    F = np.linspace(-50, 50, N)
+    w = 2*np.pi*F
+    Xc = (5/(4*np.pi*1j)) * (1/(10 + 1j*(w - 20*np.pi)) - 1/(10 + 1j*(w + 20*np.pi)))
+    
+    def opgb(self): # Plot
+        frekvensFunktioner = {
+            r"$X_c(j\omega)$" : self.Xc
+        }
+        fig, ax = plt.subplots(2, 1)
+        fig, ax = frekvensResponseTo(fig, ax, self.w, frekvensFunktioner, "Magnitude", "Fase", "Unormaliseret")
+        gemBillede("Opgave 7.1.png", fig)
+    
+    def opgc(self): 
+        Fs = 100
+        Ts = 1/Fs 
+        T = 0.5
+        t = np.arange(0, 2*T, Ts)
+        xc = 5 * np.exp(-10*t)*np.sin(20 * np.pi * t)
+        I = np.where(t < 0)
+        xc[I] *= 0
+        
+        # Tjek - Er funktionen som den skal være? 
+        def tjek(): 
+            plots = {
+                r"$x_c(t)$" : xc
+            }
+            fig, ax = plt.subplots()
+            diskretePlotAfFunktioner(fig, ax, t, plots)
+        # tjek()
+        
+        # FFT 
+        Xc = np.fft.fft(xc)
+        Xc = np.fft.fftshift(Xc)
+        # Jeg ganger med Fs for at komme tilbage til kontinuert tid og jeg ganger med 2 da
+        # numpy normalisere altid diskrete frekvenser fra 0 -> 1, men jeg plejer at normalisere det til antal pi.
+        
+        frekvensFunktioner = {
+            r"$X_c(j\omega)_{beregnet}$"  : self.Xc,
+            r"$X_c(j\omega)_{fft}$"       : Xc
+        }
+        fig, ax = plt.subplots(2, 2, sharex = True)
+        fig, ax = frekvensResponseTo(fig, ax, self.w, frekvensFunktioner, "Magnitude", "Fase", "Unormaliseret")        
+        gemBillede("Opgave 7.1.c.png", fig)
+        
+    def __init__(self):
+        # self.opgb()
+        self.opgc()
+
+class Opgave7_3(Opgave): 
+    
+    plotnavne = np.array(["Opgave 7.3.b.png", "Opgave 7.3.c.png", "Opgave 7.3.d.png"])
+    N_resolution = np.array([20, 50, 100])
+    
+    def plots(self): 
+        # opgave b, c og d har samme process men resolutionen forbedres for hver opgave.
+        for navn, N in zip(self.plotnavne, self.N_resolution): 
+            n = np.arange(N)
+            xn = n * ((0.9)**n)
+            X_N = np.fft.fft(xn)
+            X_N = np.fft.fftshift(X_N)
+            w = np.linspace(-np.pi, np.pi, N)
+            Xejw = (0.9 * np.exp(-1j*w))/((1 - 0.9*np.exp(-1j*w)) ** 2)
+            w *= 2 # 2 så det passer med min måde at normalisere det på. 
+            frekvensFunktioner = {
+                r"$X_{beregnet}(e^{j\omega})$"    : Xejw,
+                r"$X_{FFT}(e^{j\omega})$"         : X_N
+            }
+            fig, ax = plt.subplots(2, 2, sharex= True, figsize = (16, 7.75))
+            fig, ax = frekvensResponseTo(fig, ax, w, frekvensFunktioner, "Magnitude", "Fase")
+            # gemBillede(navn, fig)
+            
+    
+    def __init__(self): 
+        self.plots()
+        
+class Opgave7_4(Opgave): 
+    def opgc(self): 
+        
+        for N_antal in range(4, 11): 
+            W_N = dftmtx(N_antal)
+            egenværdier = np.linalg.eigvals(W_N * 1/(np.sqrt(N_antal)))
+            egenværdier = np.round(egenværdier, 3)
+            pprint(egenværdier) 
+
+    def __init__(self): 
+        self.opgc()
+
+class Opgave7_5(Opgave): 
+    funktioner = {
+        "a" : lambda n : 4 - n, 
+        "b" : lambda n : 4 * np.sin(0.2 * np.pi * n), 
+        "c" : lambda n : 6 * (np.cos(0.2 * np.pi * n)**2), 
+        "d" : lambda n : 5 * ((0.8)**n), 
+        "e" : lambda n : np.array([3 if i % 2 == 0 else -2 for i in range(len(n))])
+    }
+    
+    DFT_transformation = lambda x, N : dftmtx(N) @ x 
+    
+    def DFT_transformationer(self): 
+        n = lambda N :np.arange(N)
+        N = [8, 10, 10, 16, 20]
+        X = {}
+        
+        for i, (opgave, funktion) in enumerate(self.funktioner.items()):
+            X[fr"$X_{opgave}(e^{{j\omega}})$"] = np.pad(dftmtx(N[i]) @ funktion(n(N[i])), (0, 20 - N[i]))
+        
+        w = np.linspace(-np.pi, np.pi, 20)
+        fig, ax = plt.subplots(2, 5, sharex=True)
+        frekvensResponseTo(fig, ax, w, X, "Magnitude", "Fase")
+        # gemBillede("Opgave 7.5.png", fig)
+        
+    def __init__(self): 
+        self.DFT_transformationer()
+        ""
+
+class DualToneMultiFrequencyDTMF(): 
+    """
+    Alt funktionalitet for at encrypte karakterer som frekvenser \n
+    og også til at decrypte karaktererne igen fra deres frekvenser.\n
+    
+    Variabler
+    -----------------
+    - lyd:                  Lyd i samples.
+    - frekvensFunktioner:   Frekvensspektre af tonerne.
+    - toner:                Karaktererne fundet efter decryption
+    
+    Funktioner
+    -----------------
+    - genererlyd(sekvens, T_tone): Tager frekvenser, tid per tone og sampling frequency og laver lyd ud af det. 
+    - afspilLyd(): Er en hjælpefunktion der tager lydlisten og afspiller den. 
+    - dekomponerToner(N_toner): Tager lyd og antallet af toner, inddeller det i hver sin tone og laver frekvenspektrum på det.
+    - afkodToner(): Tager frekvensFunktioner lavet af dekomponerToner, analysere tonerne og returnere toner der passer bedst til frekvenserne.                
+    
+    Kode eksempel: 
+    -----------------                 
+    fs = 8000 \\                                               
+    dtmf = DualToneMultiFrequencyDTMF(fs)\\                 
+    sekvens = "112213*#" \\                                  
+    T_tone = 0.2  \\                                      
+    dtmf.genererLyd(sekvens, T_tone) \\                     
+    dtmf.afspilToner() \\                                     
+    N_toner = len(sekvens) \\                                 
+    dtmf.dekomponerToner(N_toner) \\                           
+    dtmf.afkodToner() \\                                      
+    print(dtmf.toner)                                           
+    """
+    
+    __konfiguration = {
+        "1" : np.array([697, 1209]), 
+        "2" : np.array([697, 1336]), 
+        "3" : np.array([697, 1477]), 
+        "A" : np.array([697, 1633]),
+        "4" : np.array([770, 1209]),
+        "5" : np.array([770, 1336]),
+        "6" : np.array([770, 1477]),
+        "B" : np.array([770, 1633]),
+        "7" : np.array([852, 1209]),
+        "8" : np.array([852, 1336]),
+        "9" : np.array([852, 1477]),
+        "C" : np.array([852, 1633]),
+        "*" : np.array([941, 1209]),
+        "0" : np.array([941, 1336]),
+        "#" : np.array([941, 1477]),
+        "D" : np.array([941, 1633])        
+    }
+    
+    #?  Hjælpe funktioner
+    def afspilToner(self):
+        default_speaker = sc.default_speaker()
+        default_speaker.play(self.lyd, self.fs)
+    
+    # * Håndtering 
+    def genererLyd(self, sekvens, T_tone):                                  # Generer lyd ud fra indtastede værdier.
+        """
+        DMTF.lyd = list(N_samples)
+        """
+        fs = self.fs
+        def genererToner(frekvenser): 
+            Ts = 1/fs
+            n = np.arange(0, T_tone, Ts).reshape(-1, 1)                     # Pulse of half a second given the sampling frequency
+            signals = np.hstack([np.sin(2*np.pi*frekvenser[0] * n), np.sin(2*np.pi*frekvenser[1] * n)])
+            return signals
+        
+        def samlLyd(signaler):
+            lyd = signaler[:, 0] + signaler[:, 1] 
+            return lyd
+        lyd = np.zeros((0, 1))
+        for bogstav in list(sekvens.upper()): 
+            frekvenser = self.__konfiguration[bogstav]
+            signaler = genererToner(frekvenser)
+            samlet = samlLyd(signaler).reshape(-1, 1)
+            lyd = np.vstack([lyd, 
+                             samlet])
+        self.lyd = lyd
+    
+    def dekomponerToner(self, N_toner):                                     # Splitter lyd i N_toner.
+        """
+        Dekomponere ud fra længden af lyden og antallet af toner. \\
+        Returnere frekvensfunktioner svarende til antallet af toner.\n
+        DMTF.frekvensFunktioner = list(SamplesPrTone, N_toner)
+        """
+        lyd = self.lyd
+        def splitListe() -> np.array(["Toner"]): 
+            N = lyd.shape[0]
+            samplesPrTone =int(N/N_toner)
+            symboler = np.split(lyd, np.arange(samplesPrTone, N, samplesPrTone))
+            symboler = symboler[:N_toner]                   # Smider uønskede splits ud
+            return symboler
+        def frekvensTransformation(tone) -> list("1, N"):
+            """
+            Skal transformere tonen. \\
+            Det er meningen at jeg kan vælge hvilken måde jeg skal transformere det på.
+            """
+            
+            def fastFourier(tone):
+                """
+                Fast fourier metoden er bare en standard fourier transformation. \\ 
+                X bliver analyseret til alle frekvenser, og de bidrag er dem som signalet er bygget op af.
+                """
+                # En vektor med formen (N, 1) laver en helt forkert fourier analyse. 
+                # Vektoren skal være (1, N)
+                tone = tone.reshape(1, -1)
+                lyd_fft = np.fft.fft(tone)                                      #   0; 2pi            
+                lyd_fft = np.fft.fftshift(lyd_fft)                              # -pi;  pi
+                
+                return lyd_fft 
+            def GoertzelsFT(tone): 
+                """
+                GoertzelsFT metoden tager diskrete og valgte frekvenser \\
+                og de X'er som er største til disse, må være dem som mit signal er lavet med. 
+                De udvalgte frekvenser er de 8 fra en 16 karakters DTMF
+                """
+                N = len(tone)
+                frekvenser = np.array([697, 770, 852, 941, 1209, 1336, 1477, 1633])
+                K = len(frekvenser)
+                k = frekvenser * N / self.fs
+                k = np.int64(k)
+                X = GoertzelsFourierTransform(tone, k).reshape(1, -1) # (1, maks(k))                
+                k = np.argsort(np.abs(X), axis = 1)
+                
+                # X ser ud til at tage værdier for mange frekvenser.
+                # Jeg kan ikke se et mønster. Måske er min transformation forkert sat op
+                # 
+                k = k[0, -10:] 
+                f = k * self.fs / N # f ≠ frekvenser
+                return X
+            return fastFourier(tone)
+        
+        def dataHåndtering(toner) -> list("N, N_toner"):                    # Laver output til liste af frekvensfunktioner
+            """
+            Frekvens funktion for hver tone, ellers er der mange "spøgelses"
+            frekvenser som kompensere for skiftene.
+            """
+            frekvensFunktioner = np.vstack([frekvensTransformation(tone) for tone in toner])
+            frekvensFunktioner = frekvensFunktioner.T
+            return frekvensFunktioner
+
+        toner = splitListe()
+        frekvensFunktioner = dataHåndtering(toner)
+        self.frekvensFunktioner = frekvensFunktioner 
+    
+    def afkodToner(self) -> "Toner":
+        frekvensFunktioner = self.frekvensFunktioner
+        samplesPrTone, N_toner = frekvensFunktioner.shape
+        w = np.linspace(-1, 1, samplesPrTone)
+        w *= self.fs                                            # Tilbage til unormaliserede frekvenser
+        w *= 1/2                                                # Jeg ser, at frekvenserne har en faktor på sig.
+        
+        def findFrekvenser(frekvensFunktion) -> None:           # Hjælpefunktion til fjerne spike i DC 
+            # 4 Største værdier -> absolutte værdier -> Kun unikke -> 2 frekvenser.
+            i_maks = np.argsort(np.abs(frekvensFunktion)) # min -> max
+            frekvenser = np.round(w[i_maks[-4:]], 0)
+            frekvenser = np.abs(frekvenser)
+            frekvenser = np.unique(frekvenser)
+            def adskilUdFraGrænseværdier(grænseværdi, frekvenser):# Funktion til frekvenser tætte på hinanden. 
+                """
+                Funktion til at fjerne frekvenser
+                som er mindre en grænseværdien fra hinanden
+                """
+                frekvenser = np.sort(frekvenser)
+                f = np.array([0])
+                for frekvens in frekvenser: 
+                    #                               (667 - 660) < 10
+                    if frekvens not in f and np.abs(frekvens - f[-1]) > grænseværdi:
+                        f = np.append(f, frekvens)
+                return f[1:]
+            frekvenser = adskilUdFraGrænseværdier(10, frekvenser)
+            return frekvenser  
+        def fjernDC(frekvensFunktion) -> None:                  # Hjælpefunktion til fjerne spike i DC
+            i_maks = np.argsort(frekvensFunktion)
+            frekvensFunktion[i_maks[-1]] *= 0                           # Fjern største værdi  
+        def bearbejdFrekvenser(frekvensFunktion) -> "Tone, f":  # Funktion som bearbejder data og finder tonen. 
+            F = frekvensFunktion 
+            fjernDC(F)                                                  # Spike i DC 
+            f = findFrekvenser(F)
+            # Pythagoras: min(√(førsat frekvens - frekvens)^2) -> Afkodet tone
+            tone = min(self.__konfiguration, key=lambda k: np.linalg.norm(self.__konfiguration[k] - f))
+            return (tone, f) 
+        def analyser() -> list("Toner"):                        # Funktion til at afkode men også til visuelt at analysere det
+            toner = []
+            for tone in range(0, N_toner, 2): 
+                # Analysere 2 toner af gangen.             
+                frekvenser1 = frekvensFunktioner[:, tone]
+                frekvenser2 = frekvensFunktioner[:, tone + 1]
+                tone1, f1s = bearbejdFrekvenser(frekvenser1)
+                tone2, f2s = bearbejdFrekvenser(frekvenser2)
+                toner += [tone1, tone2]
+                
+                # Plot
+                frekvenser = {
+                    f"Tone {tone}": frekvenser1, 
+                    f"Tone {tone + 1}" : frekvenser2
+                }
+                fig, ax = plt.subplots(1, 2, sharex= True)
+                # w * 2 pi siden, at min funktion normalisere for 2 * pi.
+                fig, ax = frekvensResponseTo(fig, ax, w * 2*np.pi, frekvenser, "Magnitude")     
+            return toner
+        def afkod() -> list("Toner"):                           # Funktion til at afkode       
+            toner = []
+            for tone in range(0, N_toner, 2): 
+                # Analysere 2 toner af gangen. 
+                frekvenser1 = frekvensFunktioner[:, tone]
+                frekvenser2 = frekvensFunktioner[:, tone + 1]
+                tone1, f1s = bearbejdFrekvenser(frekvenser1)
+                tone2, f2s = bearbejdFrekvenser(frekvenser2)
+                toner += [tone1, tone2]
+            return toner
+        toner = analyser()
+        self.toner = toner   
+         
+    def __init__(self, fs, lyd = None):
+        self.fs = fs
+        if lyd is not None:
+            self.lyd = lyd
+
+class Opgave8_48(Opgave):          
+    # ? Opgaver
+    def opga_c(self):    
+        fs = self.fs    
+        # Sekvens: 
+        sekvens = "13268*#A"
+        self.dtmf.genererLyd(sekvens, 0.5)
+        
+        # Afspil
+        self.dtmf.afspilToner()        
+        
+        # Frekvensanalyse
+        N = len(sekvens)
+        SamplesPrTone = int(self.dtmf.lyd.shape[0] / N)
+        self.dtmf.dekomponerToner(N)
+        plots = {}
+        for i in range(self.dtmf.frekvensFunktioner.shape[1]):
+            plots[f"Tone {i + 1}"] = self.dtmf.frekvensFunktioner[:, i]
+        fig, ax = plt.subplots(1, N, sharex= True)
+        w = np.linspace(-np.pi, np.pi, SamplesPrTone)
+        w *= fs                                             # Tilbage til unormaliserede frekvenser
+        fig, ax = frekvensResponseTo(fig, ax, w, plots, "Magnitude")
+        # gemBillede("Opgave 8.48.png", fig)
+          
+    def opge(self):
+        """
+        Afkod egen fil og ellers test på wav fil fra internettet
+        """ 
+        # Test af lyd jeg selv skaber
+        # Sekvens: 
+        fs = self.fs
+        sekvens = "13268*#A"
+        self.dtmf.genererLyd(sekvens, 0.2)
+        
+        # Afspil
+        self.dtmf.afspilToner()        
+        
+        # Frekvensanalyse
+        N = len(sekvens)
+        SamplesPrTone = int(self.dtmf.lyd.shape[0] / N)
+        frekvensFunktioner = self.dtmf.dekomponerToner(N)
+        self.dtmf.afkodToner()
+        toner = ''.join(self.dtmf.toner)
+        
+        # Test af lydfil fundet på nettet: 
+        cwd = os.getcwd()
+        dataMappe = cwd + "/Hjælpefiler/Data/"
+        navn = "DTMF.wav"
+        fil = dataMappe + navn
+        fs, lyd = wav.read(fil)
+        N = 16
+        SamplesPrTone = floor(lyd.shape[0] / N)
+        self.dtmf.lyd = lyd
+        self.dtmf.dekomponerToner(N)
+        self.dtmf.afkodToner()
+
+    def testGoertzelsFT(self): 
+        # Test af GoertzelsFT
+        N = 10
+        K = 6
+        xn = np.ones(N)
+        xn[:3] *= 0 
+        xn[-3:] *= 0        
+
+        # Set up the figure
+        fig, ax = plt.subplots()
+        line, = ax.plot([], [], 'bo-')
+        ax.set_xlim(0, N)
+        ax.set_ylim(-10, 40)
+        ax.set_title("Goertzel Output for each DFT bin")
+        ax.set_xlabel("Frequency bin (k)")
+        ax.set_ylabel("|X[k]| [dB]")
+
+        # Update function
+        def update(frame):
+            K = frame
+            X = GoertzelsFourierTransform(xn, N, K)
+            mag = 20 * np.log10(np.abs(X) + 1e-12)  # Avoid log(0)
+            line.set_data(np.arange(K), mag)
+            return line,
+
+        # Animate over frames from K = 1 to N
+        ani = FuncAnimation(fig, update, frames=N + 1, interval=500, blit=True)
+        plt.show()    
+    def __init__(self):
+        self.fs = 8000
+        self.dtmf = DualToneMultiFrequencyDTMF(self.fs)
+        # self.opga_c()
+        # self.testGoertzelsFT()
+        # self.opge()
+        
+        # Steps for at komme frem og tilbage: 
+        fs = 8000
+        dtmf = DualToneMultiFrequencyDTMF(fs)
+        sekvens = "1234122*"
+        dtmf.genererLyd(sekvens, 0.2)
+        dtmf.afspilToner()
+        N_toner = len(sekvens)
+        dtmf.dekomponerToner(N_toner)
+        dtmf.afkodToner()
+        print(dtmf.toner)
+
+class 
+# Opgave8_48()
