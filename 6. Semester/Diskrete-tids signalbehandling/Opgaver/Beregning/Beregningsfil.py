@@ -114,6 +114,227 @@ def latexPrint(udtryk):
 #?    |      |    ____       |   |    \        |       ___    |           |                               \   /        |    \         |        \       |   \__           |       |  /      |  ____       |  |              |        \   
 #?  __|__  __|__    \_______/   _|_   _\____    \_______/   __|__         |__________                     _\_/_       _|_   _\____  __|__       \__  __|__  __\__       _|_       \/______/     \_______/   |__________  __|__       \__
 
+
+class DualToneMultiFrequencyDTMF(): 
+    """
+    Alt funktionalitet for at encrypte karakterer som frekvenser \n
+    og også til at decrypte karaktererne igen fra deres frekvenser.\n
+    
+    Variabler
+    -----------------
+    - lyd:                  Lyd i samples.
+    - frekvensFunktioner:   Frekvensspektre af tonerne.
+    - toner:                Karaktererne fundet efter decryption
+    
+    Funktioner
+    -----------------
+    - genererlyd(sekvens, T_tone): Tager frekvenser, tid per tone og sampling frequency og laver lyd ud af det. 
+    - afspilLyd(): Er en hjælpefunktion der tager lydlisten og afspiller den. 
+    - dekomponerToner(N_toner): Tager lyd og antallet af toner, inddeller det i hver sin tone og laver frekvenspektrum på det.
+    - afkodToner(): Tager frekvensFunktioner lavet af dekomponerToner, analysere tonerne og returnere toner der passer bedst til frekvenserne.                
+    
+    Kode eksempel: 
+    -----------------                 
+    fs = 8000 \\                                               
+    dtmf = DualToneMultiFrequencyDTMF(fs)\\                 
+    sekvens = "112213*#" \\                                  
+    T_tone = 0.2  \\                                      
+    dtmf.genererLyd(sekvens, T_tone) \\                     
+    dtmf.afspilToner() \\                                     
+    N_toner = len(sekvens) \\                                 
+    dtmf.dekomponerToner(N_toner) \\                           
+    dtmf.afkodToner() \\                                      
+    print(dtmf.toner)                                           
+    """
+    
+    __konfiguration = {
+        "1" : np.array([697, 1209]), 
+        "2" : np.array([697, 1336]), 
+        "3" : np.array([697, 1477]), 
+        "A" : np.array([697, 1633]),
+        "4" : np.array([770, 1209]),
+        "5" : np.array([770, 1336]),
+        "6" : np.array([770, 1477]),
+        "B" : np.array([770, 1633]),
+        "7" : np.array([852, 1209]),
+        "8" : np.array([852, 1336]),
+        "9" : np.array([852, 1477]),
+        "C" : np.array([852, 1633]),
+        "*" : np.array([941, 1209]),
+        "0" : np.array([941, 1336]),
+        "#" : np.array([941, 1477]),
+        "D" : np.array([941, 1633])        
+    }
+    
+    #?  Hjælpe funktioner
+    def afspilToner(self):
+        default_speaker = sc.default_speaker()
+        default_speaker.play(self.lyd, self.fs)
+    
+    # * Håndtering 
+    def genererLyd(self, sekvens, T_tone):                                  # Generer lyd ud fra indtastede værdier.
+        """
+        DMTF.lyd = list(N_samples)
+        """
+        fs = self.fs
+        def genererToner(frekvenser): 
+            Ts = 1/fs
+            n = np.arange(0, T_tone, Ts).reshape(-1, 1)                     # Pulse of half a second given the sampling frequency
+            signals = np.hstack([np.sin(2*np.pi*frekvenser[0] * n), np.sin(2*np.pi*frekvenser[1] * n)])
+            return signals
+        
+        def samlLyd(signaler):
+            lyd = signaler[:, 0] + signaler[:, 1] 
+            return lyd
+        lyd = np.zeros((0, 1))
+        for bogstav in list(sekvens.upper()): 
+            frekvenser = self.__konfiguration[bogstav]
+            signaler = genererToner(frekvenser)
+            samlet = samlLyd(signaler).reshape(-1, 1)
+            lyd = np.vstack([lyd, 
+                             samlet])
+        self.lyd = lyd
+    
+    def dekomponerToner(self, N_toner):                                     # Splitter lyd i N_toner.
+        """
+        Dekomponere ud fra længden af lyden og antallet af toner. \\
+        Returnere frekvensfunktioner svarende til antallet af toner.\n
+        DMTF.frekvensFunktioner = list(SamplesPrTone, N_toner)
+        """
+        lyd = self.lyd
+        def splitListe() -> np.array(["Toner"]): 
+            N = lyd.shape[0]
+            samplesPrTone =int(N/N_toner)
+            symboler = np.split(lyd, np.arange(samplesPrTone, N, samplesPrTone))
+            symboler = symboler[:N_toner]                   # Smider uønskede splits ud
+            return symboler
+        def frekvensTransformation(tone) -> list("1, N"):
+            """
+            Skal transformere tonen. \\
+            Det er meningen at jeg kan vælge hvilken måde jeg skal transformere det på.
+            """
+            
+            def fastFourier(tone):
+                """
+                Fast fourier metoden er bare en standard fourier transformation. \\ 
+                X bliver analyseret til alle frekvenser, og de bidrag er dem som signalet er bygget op af.
+                """
+                # En vektor med formen (N, 1) laver en helt forkert fourier analyse. 
+                # Vektoren skal være (1, N)
+                tone = tone.reshape(1, -1)
+                lyd_fft = np.fft.fft(tone)                                      #   0; 2pi            
+                lyd_fft = np.fft.fftshift(lyd_fft)                              # -pi;  pi
+                
+                return lyd_fft 
+            def GoertzelsFT(tone): 
+                """
+                GoertzelsFT metoden tager diskrete og valgte frekvenser \\
+                og de X'er som er største til disse, må være dem som mit signal er lavet med. 
+                De udvalgte frekvenser er de 8 fra en 16 karakters DTMF
+                """
+                N = len(tone)
+                frekvenser = np.array([697, 770, 852, 941, 1209, 1336, 1477, 1633])
+                K = len(frekvenser)
+                k = frekvenser * N / self.fs
+                k = np.int64(k)
+                X = GoertzelsFourierTransform(tone, k).reshape(1, -1) # (1, maks(k))                
+                k = np.argsort(np.abs(X), axis = 1)
+                
+                # X ser ud til at tage værdier for mange frekvenser.
+                # Jeg kan ikke se et mønster. Måske er min transformation forkert sat op
+                # 
+                k = k[0, -10:] 
+                f = k * self.fs / N # f ≠ frekvenser
+                return X
+            return fastFourier(tone)
+        
+        def dataHåndtering(toner) -> list("N, N_toner"):                    # Laver output til liste af frekvensfunktioner
+            """
+            Frekvens funktion for hver tone, ellers er der mange "spøgelses"
+            frekvenser som kompensere for skiftene.
+            """
+            frekvensFunktioner = np.vstack([frekvensTransformation(tone) for tone in toner])
+            frekvensFunktioner = frekvensFunktioner.T
+            return frekvensFunktioner
+
+        toner = splitListe()
+        frekvensFunktioner = dataHåndtering(toner)
+        self.frekvensFunktioner = frekvensFunktioner 
+    
+    def afkodToner(self) -> "Toner":
+        frekvensFunktioner = self.frekvensFunktioner
+        samplesPrTone, N_toner = frekvensFunktioner.shape
+        w = np.linspace(-1, 1, samplesPrTone)
+        w *= self.fs                                            # Tilbage til unormaliserede frekvenser
+        w *= 1/2                                                # Jeg ser, at frekvenserne har en faktor på sig.
+        
+        def findFrekvenser(frekvensFunktion) -> None:           # Hjælpefunktion til fjerne spike i DC 
+            # 4 Største værdier -> absolutte værdier -> Kun unikke -> 2 frekvenser.
+            i_maks = np.argsort(np.abs(frekvensFunktion)) # min -> max
+            frekvenser = np.round(w[i_maks[-4:]], 0)
+            frekvenser = np.abs(frekvenser)
+            frekvenser = np.unique(frekvenser)
+            def adskilUdFraGrænseværdier(grænseværdi, frekvenser):# Funktion til frekvenser tætte på hinanden. 
+                """
+                Funktion til at fjerne frekvenser
+                som er mindre en grænseværdien fra hinanden
+                """
+                frekvenser = np.sort(frekvenser)
+                f = np.array([0])
+                for frekvens in frekvenser: 
+                    #                               (667 - 660) < 10
+                    if frekvens not in f and np.abs(frekvens - f[-1]) > grænseværdi:
+                        f = np.append(f, frekvens)
+                return f[1:]
+            frekvenser = adskilUdFraGrænseværdier(10, frekvenser)
+            return frekvenser  
+        def fjernDC(frekvensFunktion) -> None:                  # Hjælpefunktion til fjerne spike i DC
+            i_maks = np.argsort(frekvensFunktion)
+            frekvensFunktion[i_maks[-1]] *= 0                           # Fjern største værdi  
+        def bearbejdFrekvenser(frekvensFunktion) -> "Tone, f":  # Funktion som bearbejder data og finder tonen. 
+            F = frekvensFunktion 
+            fjernDC(F)                                                  # Spike i DC 
+            f = findFrekvenser(F)
+            # Pythagoras: min(√(førsat frekvens - frekvens)^2) -> Afkodet tone
+            tone = min(self.__konfiguration, key=lambda k: np.linalg.norm(self.__konfiguration[k] - f))
+            return (tone, f) 
+        def analyser() -> list("Toner"):                        # Funktion til at afkode men også til visuelt at analysere det
+            toner = []
+            for tone in range(0, N_toner, 2): 
+                # Analysere 2 toner af gangen.             
+                frekvenser1 = frekvensFunktioner[:, tone]
+                frekvenser2 = frekvensFunktioner[:, tone + 1]
+                tone1, f1s = bearbejdFrekvenser(frekvenser1)
+                tone2, f2s = bearbejdFrekvenser(frekvenser2)
+                toner += [tone1, tone2]
+                
+                # Plot
+                frekvenser = {
+                    f"Tone {tone}": frekvenser1, 
+                    f"Tone {tone + 1}" : frekvenser2
+                }
+                fig, ax = plt.subplots(1, 2, sharex= True)
+                # w * 2 pi siden, at min funktion normalisere for 2 * pi.
+                fig, ax = frekvensResponseTo(fig, ax, w * 2*np.pi, frekvenser, "Magnitude")     
+            return toner
+        def afkod() -> list("Toner"):                           # Funktion til at afkode       
+            toner = []
+            for tone in range(0, N_toner, 2): 
+                # Analysere 2 toner af gangen. 
+                frekvenser1 = frekvensFunktioner[:, tone]
+                frekvenser2 = frekvensFunktioner[:, tone + 1]
+                tone1, f1s = bearbejdFrekvenser(frekvenser1)
+                tone2, f2s = bearbejdFrekvenser(frekvenser2)
+                toner += [tone1, tone2]
+            return toner
+        toner = analyser()
+        self.toner = toner   
+         
+    def __init__(self, fs, lyd = None):
+        self.fs = fs
+        if lyd is not None:
+            self.lyd = lyd
+
 def diskretePlotAfFunktioner(fig, ax, n, plots, colormap = plt.cm.viridis): 
     """ 
     plots = {
@@ -1853,226 +2074,6 @@ class Opgave7_5(Opgave):
         self.DFT_transformationer()
         ""
 
-class DualToneMultiFrequencyDTMF(): 
-    """
-    Alt funktionalitet for at encrypte karakterer som frekvenser \n
-    og også til at decrypte karaktererne igen fra deres frekvenser.\n
-    
-    Variabler
-    -----------------
-    - lyd:                  Lyd i samples.
-    - frekvensFunktioner:   Frekvensspektre af tonerne.
-    - toner:                Karaktererne fundet efter decryption
-    
-    Funktioner
-    -----------------
-    - genererlyd(sekvens, T_tone): Tager frekvenser, tid per tone og sampling frequency og laver lyd ud af det. 
-    - afspilLyd(): Er en hjælpefunktion der tager lydlisten og afspiller den. 
-    - dekomponerToner(N_toner): Tager lyd og antallet af toner, inddeller det i hver sin tone og laver frekvenspektrum på det.
-    - afkodToner(): Tager frekvensFunktioner lavet af dekomponerToner, analysere tonerne og returnere toner der passer bedst til frekvenserne.                
-    
-    Kode eksempel: 
-    -----------------                 
-    fs = 8000 \\                                               
-    dtmf = DualToneMultiFrequencyDTMF(fs)\\                 
-    sekvens = "112213*#" \\                                  
-    T_tone = 0.2  \\                                      
-    dtmf.genererLyd(sekvens, T_tone) \\                     
-    dtmf.afspilToner() \\                                     
-    N_toner = len(sekvens) \\                                 
-    dtmf.dekomponerToner(N_toner) \\                           
-    dtmf.afkodToner() \\                                      
-    print(dtmf.toner)                                           
-    """
-    
-    __konfiguration = {
-        "1" : np.array([697, 1209]), 
-        "2" : np.array([697, 1336]), 
-        "3" : np.array([697, 1477]), 
-        "A" : np.array([697, 1633]),
-        "4" : np.array([770, 1209]),
-        "5" : np.array([770, 1336]),
-        "6" : np.array([770, 1477]),
-        "B" : np.array([770, 1633]),
-        "7" : np.array([852, 1209]),
-        "8" : np.array([852, 1336]),
-        "9" : np.array([852, 1477]),
-        "C" : np.array([852, 1633]),
-        "*" : np.array([941, 1209]),
-        "0" : np.array([941, 1336]),
-        "#" : np.array([941, 1477]),
-        "D" : np.array([941, 1633])        
-    }
-    
-    #?  Hjælpe funktioner
-    def afspilToner(self):
-        default_speaker = sc.default_speaker()
-        default_speaker.play(self.lyd, self.fs)
-    
-    # * Håndtering 
-    def genererLyd(self, sekvens, T_tone):                                  # Generer lyd ud fra indtastede værdier.
-        """
-        DMTF.lyd = list(N_samples)
-        """
-        fs = self.fs
-        def genererToner(frekvenser): 
-            Ts = 1/fs
-            n = np.arange(0, T_tone, Ts).reshape(-1, 1)                     # Pulse of half a second given the sampling frequency
-            signals = np.hstack([np.sin(2*np.pi*frekvenser[0] * n), np.sin(2*np.pi*frekvenser[1] * n)])
-            return signals
-        
-        def samlLyd(signaler):
-            lyd = signaler[:, 0] + signaler[:, 1] 
-            return lyd
-        lyd = np.zeros((0, 1))
-        for bogstav in list(sekvens.upper()): 
-            frekvenser = self.__konfiguration[bogstav]
-            signaler = genererToner(frekvenser)
-            samlet = samlLyd(signaler).reshape(-1, 1)
-            lyd = np.vstack([lyd, 
-                             samlet])
-        self.lyd = lyd
-    
-    def dekomponerToner(self, N_toner):                                     # Splitter lyd i N_toner.
-        """
-        Dekomponere ud fra længden af lyden og antallet af toner. \\
-        Returnere frekvensfunktioner svarende til antallet af toner.\n
-        DMTF.frekvensFunktioner = list(SamplesPrTone, N_toner)
-        """
-        lyd = self.lyd
-        def splitListe() -> np.array(["Toner"]): 
-            N = lyd.shape[0]
-            samplesPrTone =int(N/N_toner)
-            symboler = np.split(lyd, np.arange(samplesPrTone, N, samplesPrTone))
-            symboler = symboler[:N_toner]                   # Smider uønskede splits ud
-            return symboler
-        def frekvensTransformation(tone) -> list("1, N"):
-            """
-            Skal transformere tonen. \\
-            Det er meningen at jeg kan vælge hvilken måde jeg skal transformere det på.
-            """
-            
-            def fastFourier(tone):
-                """
-                Fast fourier metoden er bare en standard fourier transformation. \\ 
-                X bliver analyseret til alle frekvenser, og de bidrag er dem som signalet er bygget op af.
-                """
-                # En vektor med formen (N, 1) laver en helt forkert fourier analyse. 
-                # Vektoren skal være (1, N)
-                tone = tone.reshape(1, -1)
-                lyd_fft = np.fft.fft(tone)                                      #   0; 2pi            
-                lyd_fft = np.fft.fftshift(lyd_fft)                              # -pi;  pi
-                
-                return lyd_fft 
-            def GoertzelsFT(tone): 
-                """
-                GoertzelsFT metoden tager diskrete og valgte frekvenser \\
-                og de X'er som er største til disse, må være dem som mit signal er lavet med. 
-                De udvalgte frekvenser er de 8 fra en 16 karakters DTMF
-                """
-                N = len(tone)
-                frekvenser = np.array([697, 770, 852, 941, 1209, 1336, 1477, 1633])
-                K = len(frekvenser)
-                k = frekvenser * N / self.fs
-                k = np.int64(k)
-                X = GoertzelsFourierTransform(tone, k).reshape(1, -1) # (1, maks(k))                
-                k = np.argsort(np.abs(X), axis = 1)
-                
-                # X ser ud til at tage værdier for mange frekvenser.
-                # Jeg kan ikke se et mønster. Måske er min transformation forkert sat op
-                # 
-                k = k[0, -10:] 
-                f = k * self.fs / N # f ≠ frekvenser
-                return X
-            return fastFourier(tone)
-        
-        def dataHåndtering(toner) -> list("N, N_toner"):                    # Laver output til liste af frekvensfunktioner
-            """
-            Frekvens funktion for hver tone, ellers er der mange "spøgelses"
-            frekvenser som kompensere for skiftene.
-            """
-            frekvensFunktioner = np.vstack([frekvensTransformation(tone) for tone in toner])
-            frekvensFunktioner = frekvensFunktioner.T
-            return frekvensFunktioner
-
-        toner = splitListe()
-        frekvensFunktioner = dataHåndtering(toner)
-        self.frekvensFunktioner = frekvensFunktioner 
-    
-    def afkodToner(self) -> "Toner":
-        frekvensFunktioner = self.frekvensFunktioner
-        samplesPrTone, N_toner = frekvensFunktioner.shape
-        w = np.linspace(-1, 1, samplesPrTone)
-        w *= self.fs                                            # Tilbage til unormaliserede frekvenser
-        w *= 1/2                                                # Jeg ser, at frekvenserne har en faktor på sig.
-        
-        def findFrekvenser(frekvensFunktion) -> None:           # Hjælpefunktion til fjerne spike i DC 
-            # 4 Største værdier -> absolutte værdier -> Kun unikke -> 2 frekvenser.
-            i_maks = np.argsort(np.abs(frekvensFunktion)) # min -> max
-            frekvenser = np.round(w[i_maks[-4:]], 0)
-            frekvenser = np.abs(frekvenser)
-            frekvenser = np.unique(frekvenser)
-            def adskilUdFraGrænseværdier(grænseværdi, frekvenser):# Funktion til frekvenser tætte på hinanden. 
-                """
-                Funktion til at fjerne frekvenser
-                som er mindre en grænseværdien fra hinanden
-                """
-                frekvenser = np.sort(frekvenser)
-                f = np.array([0])
-                for frekvens in frekvenser: 
-                    #                               (667 - 660) < 10
-                    if frekvens not in f and np.abs(frekvens - f[-1]) > grænseværdi:
-                        f = np.append(f, frekvens)
-                return f[1:]
-            frekvenser = adskilUdFraGrænseværdier(10, frekvenser)
-            return frekvenser  
-        def fjernDC(frekvensFunktion) -> None:                  # Hjælpefunktion til fjerne spike i DC
-            i_maks = np.argsort(frekvensFunktion)
-            frekvensFunktion[i_maks[-1]] *= 0                           # Fjern største værdi  
-        def bearbejdFrekvenser(frekvensFunktion) -> "Tone, f":  # Funktion som bearbejder data og finder tonen. 
-            F = frekvensFunktion 
-            fjernDC(F)                                                  # Spike i DC 
-            f = findFrekvenser(F)
-            # Pythagoras: min(√(førsat frekvens - frekvens)^2) -> Afkodet tone
-            tone = min(self.__konfiguration, key=lambda k: np.linalg.norm(self.__konfiguration[k] - f))
-            return (tone, f) 
-        def analyser() -> list("Toner"):                        # Funktion til at afkode men også til visuelt at analysere det
-            toner = []
-            for tone in range(0, N_toner, 2): 
-                # Analysere 2 toner af gangen.             
-                frekvenser1 = frekvensFunktioner[:, tone]
-                frekvenser2 = frekvensFunktioner[:, tone + 1]
-                tone1, f1s = bearbejdFrekvenser(frekvenser1)
-                tone2, f2s = bearbejdFrekvenser(frekvenser2)
-                toner += [tone1, tone2]
-                
-                # Plot
-                frekvenser = {
-                    f"Tone {tone}": frekvenser1, 
-                    f"Tone {tone + 1}" : frekvenser2
-                }
-                fig, ax = plt.subplots(1, 2, sharex= True)
-                # w * 2 pi siden, at min funktion normalisere for 2 * pi.
-                fig, ax = frekvensResponseTo(fig, ax, w * 2*np.pi, frekvenser, "Magnitude")     
-            return toner
-        def afkod() -> list("Toner"):                           # Funktion til at afkode       
-            toner = []
-            for tone in range(0, N_toner, 2): 
-                # Analysere 2 toner af gangen. 
-                frekvenser1 = frekvensFunktioner[:, tone]
-                frekvenser2 = frekvensFunktioner[:, tone + 1]
-                tone1, f1s = bearbejdFrekvenser(frekvenser1)
-                tone2, f2s = bearbejdFrekvenser(frekvenser2)
-                toner += [tone1, tone2]
-            return toner
-        toner = analyser()
-        self.toner = toner   
-         
-    def __init__(self, fs, lyd = None):
-        self.fs = fs
-        if lyd is not None:
-            self.lyd = lyd
-
 class Opgave8_48(Opgave):          
     # ? Opgaver
     def opga_c(self):    
@@ -2175,5 +2176,53 @@ class Opgave8_48(Opgave):
         dtmf.afkodToner()
         print(dtmf.toner)
 
-class 
-# Opgave8_48()
+class Opgave_Kapitel9(Opgave): 
+    N = 13              # Ordnen af filteret
+    # Forskel på stabilitet i direkt filter form og transposed filter for. Eksempel fra slides.
+    
+    ripple = 0.009 # 1 for y > 0.991, 0 for y < 0.009
+    attenuation = 80 # dB. Afstanden mellem stopband og passband. 
+    b, a = sig.ellip(N, ripple, attenuation, 0.05 , output='ba')
+    sos = sig.ellip(N, ripple, attenuation, 0.05, output='sos')
+    x = sig.unit_impulse(700)
+
+    def __init__(self): 
+        b, a = (self.b, self.a)
+        x = self.x
+        sos = self.sos
+        y_tf = sig.lfilter(b, a, x)
+
+        y_sos = sig.sosfilt(sos, x)
+
+        plots = {
+            "SOS" : y_sos,
+            "TF"  : y_tf
+        }
+        
+        N = len(plots)      # Antallet af plots
+        fig, ax = plt.subplots(N, 1, sharex = True)
+        
+        n = np.arange(700)
+        
+        diskretePlotAfFunktioner(fig, ax, n, plots)
+        # Systemet skulle vise, at det normale filter vil have polerne uden for enhedscirklen på grund af numerisk fejl 
+        # når filterorden bliver så stor som den er blevet. 
+        
+        SOS.pzplotZ(b, a) # 4 poler udenfor enhedscirklen
+
+class Opgave9_1(Opgave): 
+    b = [0, 7, 1]
+    a = [1, -9]
+    res_Hz = filterRepræsentation(b, a, Function("H")(symbols("z")))
+
+class Opgave9_3(Opgave): 
+    b, a = ([1, -2.55, 4.4, -5.09, 2.41], [1, 0.26, -0.38, 0.45, 0.23])
+    resultat_sos = sig.tf2sos(b, a) 
+    resultat_tf = sig.sos2tf(resultat_sos)
+
+class Opgave9_4(Opgave): 
+    b, a = ([1, 1], [1, -3/2, -9/8])
+    # resultat_sos = sig.tf2sos(b, a) 
+    resultat_filter = filterRepræsentation(b, a, Function("H")(symbols("z")))
+
+Opgave9_4()

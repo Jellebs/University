@@ -460,13 +460,194 @@
             \end{UnderOpgave}
             \begin{UnderOpgave}[On blackboard, you can find a file “DTMF.dat”. Load this file and decode
     the message within.]
+                Der var ingen fil, men online fandt jeg en fil som test. Jeg har testen den samt filen jeg selv lavede. Det hele er i python dokumentet.
+
+            \end{UnderOpgave}
+        \end{Opgave}
+    \end{kapitel}
+    \begin{kapitel}[Structures for discrete-time systems]
+
+        \begin{Opgave}[Opgave 9.1]
+            Et DT system er beskrevet ud fra signal flow diagrammet
+            \fighalvfjerds{0.3}
+            \begin{UnderOpgave}[Determine the difference equation relating output yn to the input xn]
+                Hvis jeg går med knudepunktet under buen, og kalder den for $S[n]$ så har jeg at: 
+                \[S[n] = x[n] + \frac{1}{3}S[n - 1]\]
+                Så har jeg dens knudepunkt med inputtet som: 
+                \[K[n] = (2x[n] + S[n])\]
+                Og så har jeg 
+                \[y[n] = K[n] * 3 + 6 * S[n - 1]\]
+                Eller udvidet: 
+                \[y[n] = (2x[n] + S[n]) * 3 + 6 * S[n - 1]\]
+                Hvis Sn egentlig bare er en tidsforsinkelse efter feedforward og feedback. 
+                \[y[n] = (2x[n] + (x[n] + 1/3x[n - 1]]) * 3 + 6 * (x[n - 1] + 1/3*x[n - 2])\]
+                \[y[n] = 6x[n] + 3x[n] + x[n - 1] + 6x[n - 1] + 2x[n - 2]\]
+                \[=====================\]
+                \[y[n] = 9x[n] + 7x[n - 1] + 2x[n - 2]\]
+                \[=====================\]
                 
             \end{UnderOpgave}
+            \begin{UnderOpgave}[Determine the impulse response of the system]
+                Ud fra min udledning så vil jeg få systemet til at være: 
+                \[H(z) = \filterZto{, 7, 2}{1, -9}\]
+                Men partial fraction får jeg at den kan beskrives ved: 
+                \[H(z) = -0.901 + \frac{0.79}{1 - 9z^{-1}}\]
+                Og det har jeg transformationer for. Det er en impuls og en faldende eksponentiel funktion. 
+                Jeg antager kausalitet, så at $|z| > 1$ 
+                \[h[n] = -0.901\delta[n] + 9^nu[n]\] 
+                Det er så ikke en faldende eksponentiel funktion, men en voksende eksponentiel funktion. 
+                Hvis ikke at jeg har udledt knudepunkterne forkert, så er det sådan, at systemet vil være. 
+
+            \end{UnderOpgave}
+        \end{Opgave}
+        \begin{Opgave}[Opgave 9.2 - Sammenlign flowcharts]
+            \figenoghalvfjerds{0.3}
+            \begin{UnderOpgave}[Givet de to flow charts, konkluder om de repræsentere samme system]
+                System a repræsentere et IIR filter. 
+                System b har både feedback og feedforward. 
+                \[y_a[n] = x[n] + 2r*cos(\theta)y_a[n - 1] - r^2y_a[n - 2]\]
+                System b: Der er et knudepunkt med feedforward delen, jeg kalder den Sn 
+                \[S[n] = x[n] + r_cos(\theta)S[n - 1] + r_sin(\theta)y_b[n - 2]\]
+                \[y_b[n] = rsin(\theta)S[n] + rcos(\theta)y_b[n - 1]\]
+                \[y_b[n] = rsin(\theta)(x[n] + rcos(\theta)S[n - 1] + rsin(\theta)y_b[n - 2]) + rcos(\theta)y_b[n - 1]\]
+                \[y_b[n] = r*[sin(\theta)(x[n] + rcos(\theta)S[n - 1] + rsin(\theta)y_b[n - 2]) + cos(\theta)y_b[n - 1]]\]
+                ... 
+                Der er nogle udtryk jeg ikke kan få til at gå op. Jeg brugte transponerings metoden og konkluderede at
+                \[y_b[n] = rcos(\theta) * (rsin(\theta)x[n - 1] + y_b[n - 1]) + rsinx[n] + r^2sin(y_b[n - 2])\]
+                Jeg har et rcos udtryk, nogle forsinkelser og et enkelt uden og et r*r udtryk. Men jeg har også noget sinus, og jeg ved ikke om jeg har mulighed for at fjerne det på nogen måde. 
+                Derfor kan jeg ikke se, at de skulle repræsentere det samme system. 
+
+            \end{UnderOpgave}
+        \end{Opgave}
+        \begin{Opgave}[Opgave 9.3]  
+            Fejl. y[n - m] går fra m = 1 til m = 6
+            Det er rettet i ligningen nedenunder: 
+            \[y[n] = 3 * \sum_{m = 0}^{5}{(1/3)^m x[n - m]} + \sum_{m = 1}^{6}{y[n - m]}\]
+            Determine and draw the following structures: 
+            \begin{UnderOpgave}[Direct form I ( normal )]
+                Direkte form I kan beskrives ved: 
+                \[s[n] = \sum_{k = 0}^{M}{b_k x[n - k]}\]
+                \[y[n] = -\sum_{k=1}^{N}a_{k}y[n-k]+s[n]\]
+                Som bliver til 
+                \[w[n]=-\sum_{k=1}^{N}a_{k}w[n-k]+x[n]\]
+                \[y[n]=\sum_{k=0}^{M}b_{k}w[n-k]\]
+                I en transponering...
+
+                \[y[n] = -\sum_{k=1}^{N}a_{k}y[n-k] + \sum_{k = 0}^{M}{b_k x[n - k]}\]
+                Så med den ligning jeg har fået så kan jeg konkludere at 
+                \[a = [-1, -1, ..., -1]\in\mathbb{R}^6\]
+                \[b = 3 * [1, \frac{1}{3}, \frac{1}{3}^2, \frac{1}{3}^3, \frac{1}{3}^4, \frac{1}{3}^5]\]
+                Der er ikke meget tilbage en at tegne
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Direct form II ( normal )]
+                For direkte form 1 så er dens første del feedforward og dens transponerede har feedback først. 
+                For direkte form 2 så er dens første del feedback og dens transponerede har feedforward først. 
+                Sådan som jeg har fået den, så lægger den mest op ad en feedforward feedback opsætning. 
+                Direkte form 2 har ligesom feedforward og feedback delene i trin, kan jeg også beskrive det sådan? 
+                \[y[n] = 3 * \sum_{m = 0}^{5}{(1/3)^m x[n - m]} + \sum_{m = 1}^{6}{y[n - m]}\]
+                \[y[n] = 3 * (\sum_{m = 0}^{5}{(1/3)^m x[n - m]} + 1/3\sum_{m = 0}^{5}{y[n - m - 1]} )\]
+                \[y[n] = 3 * \sum_{m = 0}^{5}{((1/3)^m x[n - m] + 1/3y[n - m - 1])}\]
+                \[y[n] = 3 * ([1x[n] + 1/3y[n - 1]] + (1/3x[n - 1] + 1/3y[n - 2]) + ((1/9)x[n - 2] + 1/3y[n - 3])\]
+                \[\tab{1} + (1/27x[n - 3] + 1/3y[n - 4]) + (1/81x[n - 4] + 1/3y[n - 5]) + (1/243x[n - 5] + 1/3y[n - 6]))\] 
+                Så det kan vel også deles op i pakker. Jeg konkludere at den følger den transporterede form2. Koefficienterne er de samme som for sidste opgave.
+                Nedenunder så har jeg tegnet begge. 
+            \end{UnderOpgave}
+            \figtooghalvfjerds{0.70}
+        \end{Opgave}
+        \clearpage
+        \begin{Opgave}[Opgave 9.8 - System strukturer: Kaskade SOS i DF]
+            Givet et system 
+            \[H(z) = \filterZto{1, -2.55, 4.4, 5.09, 2.41}{1, 0.26, -0.38, -0.45, 0.23}\]
+            Beskriv systemet som: 
+            En kaskade koblet SOS i Direkte Form I
+            En kaskade koblet SOS i Transponeret Direkte Form I
+            En kaskade koblet SOS i Direkte Form II
+            En kaskade koblet SOS i Transponeret Direkte Form II\\
+
+            Opgaverne gentager lidt sig selv. Jeg skal betegne og tegne systemerne.
+            Men betegnelsen for sos systemet skal jeg kun gøre en gang. Derefter har jeg værdierne. 
+            Jeg fulgte eksemplet i bogen hvor de bruger matlab til at finde koefficienterne $\vec{b}, \vec{a}$ for begge af de to kaskade koblede filtre.
+            Deres eksempel laver den transponerede udgave af direkt form II.\\
+
+            Med scipy.signal.tf2sos(b, a) så fandt jeg de nye b og a værdier i SOS udgaven. \\
+            scipy.signal.tf2sos(b, a): 
+            \[H =  
+                \begin{vmatrix}
+                    b_{00} & b_{01} & b_{02} & a_{00} & a_{01} & a_{02} \\
+                    b_{10} & b_{11} & b_{12} & a_{10} & a_{11} & a_{12}
+                \end{vmatrix}
+            \]
+            \figtreoghalvfjerds{0.352}   
+        \end{Opgave}
+        \begin{Opgave}[Opgave 9.12c - System struktur : Linær fase form]
+            \[H(z) = 1 + 1.61z^{-1} + 1.74z^{-2} + 1.61z^{-3} + z^{-4}\]
+            Find og tegn den lineære fase form. 
+            \[Y(z) = X(z) * (1 + 1.61z^{-1} + 1.74z^{-2} + 1.61z^{-3} + z^{-4})\]
+            \[y[n] = x[n] + 1.61x[n - 1] + 1.74x[n - 2] + 1.61x[n - 3] + x[n - 4]\]
+            Jeg ser at den har symmetri, som jo er kriteriet for et system til at have en lineær fase. 
+            For at konstruere filteret, så kan jeg omskrive differensligningen i form af dens par omkring symmetrien. 
+            \[y[n] = 1 * (x[n] + x[n - 4]) + 1.61 * (x[n - 1] + x[n - 3])  + 1.74x[n - 2]\]
+            Og så følger jeg bare lineær fase formen som bogen viser: 
+            \figfireoghalvfjerds{0.5}
+        \end{Opgave}
+        \begin{Opgave}[Opgave 9.28]
+            Et system er beskrevet ud fra et signal flow diagram. 
+            \begin{UnderOpgave}[Bestem differens ligningen]
+                Jeg finder at det nederste er et DF2 system hvor outputtet er input og output
+                Derudover så er der en direkte kobling og en forsinkelse. 
+                \[y[n] = x[n] + x[n - 1] + y_{df2}[n - 1]\]
+                Ud fra beskrivelsen af en DF2, så har jeg udledt at 
+                \[y_{df2}[n] = \frac{3}{2}y[n] + \frac{9}{8}y[n - 1]\]
+                Så med det beskrevet, så kan jeg beskrive den fulde differensligning. 
+                \[y[n] = x[n] + x[n - 1] + \frac{3}{2}y[n - 1] + \frac{9}{8}y[n - 2]\]
+                \figfemoghalvfjerds{0.3}
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Bestem impuls responsen af systemet]
+                \[Y(z)*(1 - \frac{3}{2}z^{-1} -\frac{9}{8}z^{-2}) = X(z)*(1 + z^{-1})\]
+                \[H(z) = \frac{1 + z^{-1}}{1 - \frac{3}{2}z^{-1} -\frac{9}{8}}z^{-2}\]
+                Jeg har lavet partial fraction på den: 
+                \[H(z) = -\frac{0.174}{1 + 0.549z^{-1}} + \frac{1.17}{1 - 2.05z^{-1}}\]
+                Og det er to eksponentielle funktioner. 
+                Jeg aftager kausalitet. Med eksponentielle funktioner så skal $|z| > a$.
+                Og da: 
+                ROC : $|z| > 1$, $|z| > 2$
+                bare er: 
+                ROC : $|z| > 2$, så har jeg at systemet er stabilt for: 
+                \[H(z) = -\frac{0.174}{1 + 0.549z^{-1}} + \frac{1.17}{1 - 2.05z^{-1}}, \tab{1} ROC : |z| > 2.05\]
+                Så antager jeg også, at det er et LTI system: 
+                \[============================\]
+                \[h[n] = -0.174 * (-0.549)^nu[n] + 1.17 * (2.05)^nu[n]\]
+                \[============================\]
+            \end{UnderOpgave}
+            Og har jeg regnet rigtigt? Jeg har intet svar og det virker ikke som om at chatten ved hvad den laver. 
+            Jeg beskriv input output relationer for DF2 system i systemet, og hvordan beskrev jeg det?
+            Fra formel 9.20 
+            \[y[n]=\sum_{k=0}^{M}b_{k}w[n-k]\]
+            Og fra formel 9.18
+            \[w[n]=-\sum_{k=1}^{N}a_{k}w[n-k]+x[n]\]
+            I stedet for at blande k ind begge steder, så bruger jeg k til M og l til N. 
+            \[w[n - k]=-\sum_{l=1}^{N}a_{l}w[n - k - l]+x[n - k]\]
+            For så kan jeg bedre kombinere udtrykkende.
+            \[y[n]=\sum_{k=0}^{M}b_{k}(-\sum_{l=1}^{N}a_{l}w[n - k - l]+x[n - k])\]
+            \[y[n]= - \sum_{k=0}^{M}b_{k}(\sum_{l=1}^{N}a_{l}w[n - k - l]+x[n - k])\]
+            \[y[n]= - 0.75 * w[n - 1] - 0.75 * 0.5 * w[n - 2] + x[n] + 0.5*x[n - 1]\]
+            Det er sådan jeg evaluere summationen, måske er det forkert? Grænserne er lidt mystiske måske. Der er jo ikke noget $w[n - 2]$, så det må være $w[n - 1]$
+            \[y[n]= - 0.75 * w[n] - 0.75 * 0.5 * w[n - 1] + x[n] + 0.5*x[n - 1]\]
+            Det var sådan jeg beregnede den før også.
+            Jeg har lige fået wolfram til at evaluere den også: 
+            \[y[n] = - \sum_{k=0}^{M}b_{k}(\sum_{l=1}^{N}a_{l}w[n - k - l]+x[n - k]) = -a_1b_1w[n - 2] - a_1b_0w[n - 1] - b_1x[n - 1] - b_0x[n]\]
+            \[y[n] = -0.75*0.5w[n - 2] - 0.75*1w[n - 1] - 0.5x[n - 1] - 1 * x[n]\]
+            \[y[n] = -0.75*0.5w[n - 2] - 0.75w[n - 1] - 1 * x[n] - 0.5x[n - 1]\]
+            Og det var også sådan at jeg evaluerede den. Jeg missede dog lige nogle fortegn. 
+            Det er stadigvæk mærkeligt med grænserne, for der findes kun en $w[n - 2]$. Hvis jeg bare antager at det er forkert, og at den skal rykkes en tilbage, så: 
+            \[y[n] = - x[n] - 0.5x[n - 1] - 0.75w[n] - 0.375w[n - 1]\]
+            Måske beregner jeg den faktisk forkert. Jeg beskrev jo før hvordan jeg kunne beskrive den analytisk ud fra inputtet, men det kan jeg jo egentlig ikke bare lige. 
+            
 
 
-
-
-
+        \end{Opgave}
+        \begin{Opgave}[Opgave 9.29]
+            
         \end{Opgave}
     \end{kapitel}
 \end{Opgaver}

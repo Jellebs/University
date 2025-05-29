@@ -7,3 +7,10 @@
 \contentsline {subsection}{Opgave 7.24 - Udledning af velkendte vinduer ud fra den generelle vindue formel}{13}{section*.19}%
 \contentsline {subsection}{Twiddle factors}{15}{section*.23}%
 \contentsline {subsection}{Dual-tone multifrequency (DTMF) analysis}{18}{section*.29}%
+\contentsline {subsection}{Opgave 9.1}{21}{section*.36}%
+\contentsline {subsection}{Opgave 9.2 - Sammenlign flowcharts}{22}{section*.39}%
+\contentsline {subsection}{Opgave 9.3}{23}{section*.41}%
+\contentsline {subsection}{Opgave 9.8 - System strukturer: Kaskade SOS i DF}{26}{section*.44}%
+\contentsline {subsection}{Opgave 9.12c - System struktur : Linær fase form}{27}{section*.45}%
+\contentsline {subsection}{Opgave 9.28}{27}{section*.46}%
+\contentsline {subsection}{Opgave 9.29}{30}{section*.49}%
