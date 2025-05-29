@@ -23,3 +23,23 @@ xtick_labels = [
     rf"$\frac{{{i}}}{{4}}\pi$" if i != 4 and i % 4 != 0 else
     rf"${int(i//4)}\pi$" for i in range(-4, 5)
     ]
+
+class Simulering(): 
+    def refraktativIndeksPlot(self): 
+        I = np.logspace(0, 8, 100)         # Watt/m^2
+        deltan = (9.28e-12)*I
+        fig, ax = plt.subplots()
+        ax.set_ylabel(r"$ \Delta n$")
+        ax.set_xlabel(r"$I [\frac{W}{m^2}]$")
+        ax.grid()
+        ax.plot(I, deltan, label = r"$ \Delta n(I)$")
+        fig.legend()
+        plt.xscale('log')
+        plt.yscale('log')
+        plt.show()
+    
+    def __init__(self):
+        self.refraktativIndeksPlot()
+
+Simulering()
+        

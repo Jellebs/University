@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.4)  26 MAY 2025 10:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.4)  27 MAY 2025 16:50
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -632,12 +632,12 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 LaTeX Warning: Command \textemdash invalid in math mode on input line 29.
 
-<Indhold/Billeder/Opgave 7.1.png, id=94, 1092.7224pt x 557.9244pt>
+<Indhold/Billeder/Opgave 7.1.png, id=129, 1092.7224pt x 557.9244pt>
 File: Indhold/Billeder/Opgave 7.1.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 7.1.png>
 Package pdftex.def Info: Indhold/Billeder/Opgave 7.1.png  used on input line 30.
 (pdftex.def)             Requested size: 273.17993pt x 139.48074pt.
-<Indhold/Billeder/Opgave 7.1.c.png, id=96, 1090.5543pt x 557.2017pt>
+<Indhold/Billeder/Opgave 7.1.c.png, id=131, 1090.5543pt x 557.2017pt>
 File: Indhold/Billeder/Opgave 7.1.c.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 7.1.c.png>
 Package pdftex.def Info: Indhold/Billeder/Opgave 7.1.c.png  used on input line 43.
@@ -658,7 +658,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular
                    \relax 
 l.64 ...ose first N = 20 samples of \text{$x[n]$}]
                                                   
-<Indhold/Billeder/Opgave 7.3.b.png, id=109, 1092.7224pt x 560.0925pt>
+<Indhold/Billeder/Opgave 7.3.b.png, id=144, 1092.7224pt x 560.0925pt>
 File: Indhold/Billeder/Opgave 7.3.b.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 7.3.b.png>
 Package pdftex.def Info: Indhold/Billeder/Opgave 7.3.b.png  used on input line 68.
@@ -673,13 +673,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular
                    \relax 
 l.74 ...nderOpgave}[Repeat part (b) using N = 50.]
                                                   
-<Indhold/Billeder/Opgave 7.3.c.png, id=110, 1092.7224pt x 560.0925pt>
+<Indhold/Billeder/Opgave 7.3.c.png, id=145, 1092.7224pt x 560.0925pt>
 File: Indhold/Billeder/Opgave 7.3.c.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 7.3.c.png>
 Package pdftex.def Info: Indhold/Billeder/Opgave 7.3.c.png  used on input line 75.
 (pdftex.def)             Requested size: 327.81924pt x 168.02904pt.
  [6]
-<Indhold/Billeder/Opgave 7.3.d.png, id=117, 1092.7224pt x 560.0925pt>
+<Indhold/Billeder/Opgave 7.3.d.png, id=152, 1092.7224pt x 560.0925pt>
 File: Indhold/Billeder/Opgave 7.3.d.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 7.3.d.png>
 Package pdftex.def Info: Indhold/Billeder/Opgave 7.3.d.png  used on input line 79.
@@ -760,7 +760,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 232.
 
-<Indhold/Billeder/Opgave 7.5.png, id=148, 1092.7224pt x 561.5379pt>
+<Indhold/Billeder/Opgave 7.5.png, id=184, 1092.7224pt x 561.5379pt>
 File: Indhold/Billeder/Opgave 7.5.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 7.5.png>
 Package pdftex.def Info: Indhold/Billeder/Opgave 7.5.png  used on input line 244.
@@ -803,7 +803,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular
                    \relax 
 l.377 ...{$W_N^2$}, and \text{$W_{N/2}$} related?]
                                                    [16] [17]
-<Indhold/Billeder/Opgave 8. KeyboardMatrix.png, id=195, 591.20876pt x 337.26pt>
+<Indhold/Billeder/Opgave 8. KeyboardMatrix.png, id=230, 591.20876pt x 337.26pt>
 File: Indhold/Billeder/Opgave 8. KeyboardMatrix.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 8. KeyboardMatrix.png>
 Package pdftex.def Info: Indhold/Billeder/Opgave 8. KeyboardMatrix.png  used on input line 406.
@@ -824,7 +824,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular
                    \relax 
 l.428 ...nce or an small segment of the sequence.]
                                                   
-<Indhold/Billeder/Opgave 8.48.png, id=203, 1092.7224pt x 248.6088pt>
+<Indhold/Billeder/Opgave 8.48.png, id=238, 1092.7224pt x 248.6088pt>
 File: Indhold/Billeder/Opgave 8.48.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 8.48.png>
 Package pdftex.def Info: Indhold/Billeder/Opgave 8.48.png  used on input line 429.
@@ -844,27 +844,128 @@ pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular
 <to be read again> 
                    \relax 
 l.462     the message within.]
-                              ) [20] (build/Oplæsning.aux)
+                               [20]
+<Indhold/Billeder/Opgave 9.1.png, id=254, 414.54875pt x 138.5175pt>
+File: Indhold/Billeder/Opgave 9.1.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 9.1.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.1.png  used on input line 472.
+(pdftex.def)             Requested size: 124.36557pt x 41.55556pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.473 ...ation relating output yn to the input xn]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.490 ...rmine the impulse response of the system]
+                                                   [21
+
+ <./Indhold/Billeder/Opgave 9.1.png>]
+<Indhold/Billeder/Opgave 9.2.png, id=265, 848.16875pt x 209.78375pt>
+File: Indhold/Billeder/Opgave 9.2.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 9.2.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.2.png  used on input line 504.
+(pdftex.def)             Requested size: 254.45258pt x 62.9356pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.505 ...nkluder om de repræsentere samme system]
+                                                   [22 <./Indhold/Billeder/Opgave 9.2.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.527 ...in{UnderOpgave}[Direct form I ( normal )]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.542 ...n{UnderOpgave}[Direct form II ( normal )]
+                                                   [23]
+Overfull \hbox (12.98712pt too wide) detected at line 550
+\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = 3 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 ([1\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] + 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1]] + (1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] + 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2]) + ((1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 9)\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] + 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3])
+ []
+
+
+Overfull \hbox (37.83452pt too wide) detected at line 551
+  \OT1/cmr/m/n/10 +(1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 27\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3] + 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4]) + (1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 81\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4] + 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 5]) + (1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 243\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 5] + 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 6]))
+ []
+
+<Indhold/Billeder/Opgave 9.3.png, id=279, 834.11626pt x 686.565pt>
+File: Indhold/Billeder/Opgave 9.3.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 9.3.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.3.png  used on input line 555.
+(pdftex.def)             Requested size: 583.87741pt x 480.59222pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[24] [25 <./Indhold/Billeder/Opgave 9.3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 560--566
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 567--571
+
+ []
+
+<Indhold/Billeder/Opgave 9.8.png, id=292, 1153.30875pt x 673.51625pt>
+File: Indhold/Billeder/Opgave 9.8.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 9.8.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.8.png  used on input line 580.
+(pdftex.def)             Requested size: 405.96945pt x 237.0805pt.
+[26
+
+ <./Indhold/Billeder/Opgave 9.8.png>]
+<Indhold/Billeder/Opgave 9.12c.png, id=299, 454.69875pt x 301.125pt>
+File: Indhold/Billeder/Opgave 9.12c.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 9.12c.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.12c.png  used on input line 591.
+(pdftex.def)             Requested size: 227.34882pt x 150.56212pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.595 ...{UnderOpgave}[Bestem differens ligningen]
+                                                   [27 <./Indhold/Billeder/Opgave 9.12c.png>]
+<Indhold/Billeder/Opgave 9.28.png, id=307, 1244.65pt x 544.0325pt>
+File: Indhold/Billeder/Opgave 9.28.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 9.28.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.28.png  used on input line 603.
+(pdftex.def)             Requested size: 373.39787pt x 163.211pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.605 ...ave}[Bestem impuls responsen af systemet]
+                                                   [28 <./Indhold/Billeder/Opgave 9.28.png>]
+Overfull \hbox (43.80971pt too wide) detected at line 638
+\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = \OMS/cmsy/m/n/10 ^^@ [] \OML/cmm/m/it/10 b[]\OT1/cmr/m/n/10 ([] \OML/cmm/m/it/10 a[]w\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 k \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 l\OT1/cmr/m/n/10 ] + \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 k\OT1/cmr/m/n/10 ]) = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 a[]b[]w\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 a[]b[]w\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 b[]x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 b[]x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ]
+ []
+
+[29]) [30] (build/Oplæsning.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Oplæsning.out' has not changed.
-(rerunfilecheck)             Checksum: 10E42333E67A4FCCDAD7964B8BCEFCA8;2864.
+(rerunfilecheck)             Checksum: 3F088F9B63DC23C85C62F40D7CA025E4;4191.
  ) 
 Here is how much of TeX's memory you used:
- 25893 strings out of 474116
- 535661 string characters out of 5743683
+ 26119 strings out of 474116
+ 540681 string characters out of 5743683
  1949187 words of memory out of 5000000
- 47739 multiletter control sequences out of 15000+600000
+ 47933 multiletter control sequences out of 15000+600000
  569370 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,9n,93p,646b,1043s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb>
-Output written on build/Oplæsning.pdf (20 pages, 878676 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb>
+Output written on build/Oplæsning.pdf (30 pages, 1846598 bytes).
 PDF statistics:
- 328 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
- 70 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 443 PDF objects out of 1000 (max. 8388607)
+ 333 compressed objects within 4 object streams
+ 102 named destinations out of 1000 (max. 500000)
+ 211 words of extra memory for PDF output out of 10000 (max. 10000000)
 
