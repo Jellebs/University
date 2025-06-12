@@ -223,6 +223,20 @@
         \[============\]
 
         Så det var 3 måder at løse for den på. 
+    \end{underrubrik}\clearpage
+    \begin{underrubrik}[Filter strukturer - Direct Form II i z domæne]
+        \color{teal} Lavet ud fra opgave 9.29, hvor jeg skulle beskrive samlet system ud fra dets blocke. \color{black}
+        \figseksoghalvfjerds{0.4}
+        System b skal findes, og jeg det er en blanding mellem DF I systemet og DF II systemet som Second order system. Derfor skal jeg selv udlede den. 
+        Midter blocken er et DF II system.
+        I bogen har de udledt det for et DF II system: 
+        \[Y(z) = H_1(z)H_2(z)X(z) = H_1(z)W(z)\]
+        \[W(z) = H_2(z)X(z) = \frac{1}{1 - \sum_{k = 1}^{N}{a_kz^{-k}}}\]
+        \[Y(z) = \sum_{k = 0}^{M}{b_kz^{-k}W(z)}\]
+        W(z) er konstant i sidste sum og da summer af brøkker af samme nævner kan sættes sammen til en brøk, så får jeg transformationen til at være: 
+        \[=============\]
+        \[Y(z) = \frac{\sum_{k = 0}^{M}{b_kz^{-k}}}{1 - \sum_{k = 1}^{N}{a_kz^{-k}}}\]
+        \[=============\]
     \end{underrubrik}
-
+    
 \end{Udledninger}

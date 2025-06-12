@@ -24,16 +24,26 @@ import itertools
 
 
 # * Nummernavngning 
-nummerTilDansk = {0:             "nul",  1:              "en",  2:               "to",  3:              "tre",  4:               "fire",  5:              "fem",  6:               "seks",  7:              "syv",  8:              "otte",  9:              "ni",
-                  10:             "ti", 11:           "eleve", 12:             "tolv", 13:          "tretten", 14:            "fjorten", 15:           "femten", 16:            "seksten", 17:           "sytten", 18:             "atten", 19:          "nitten", 
-                  20:           "tyve", 21:        "enogtyve", 22:         "toogtyve", 23:        "treogtyve", 24:         "fireogtyve", 25:        "femogtyve", 26:         "seksogtyve", 27:        "syvogtyve", 28:        "otteogtyve", 29:        "niogtyve",
-                  30:        "tredive", 31:     "enogtredive", 32:      "toogtredive", 33:     "treogtredive", 34:      "fireogtredive", 35:     "femogtredive", 36:      "seksogtredive", 37:     "syvogtredive", 38:     "otteogtredive", 39:     "niogtredive",
-                  40:          "fyrre", 41:       "enogfyrre", 42:        "toogfyrre", 43:       "treogfyrre", 44:        "fireogfyrre", 45:       "femogfyrre", 46:        "seksogfyrre", 47:       "syvogfyrre", 48:       "otteogfyrre", 49:       "niogfyrre",
-                  50:      "halvtreds", 51:   "enoghalvtreds", 52:    "tooghalvtreds", 53:   "treoghalvtreds", 54:    "fireoghalvtreds", 55:   "femoghalvtreds", 56:    "seksoghalvtreds", 57:   "syvoghalvtreds", 58:   "otteoghalvtreds", 59:   "nioghalvtreds",
-                  60:           "tres", 61:        "enogtres", 62:         "toogtres", 63:        "treogtres", 64:         "fireogtres", 65:        "femogtres", 66:         "seksogtres", 67:        "syvogtres", 68:        "otteogtres", 69:        "niogtres",
-                  70:     "halvfjerds", 71:  "enoghalvfjerds", 72:   "tooghalvfjerds", 73:  "treoghalvfjerds", 74:   "fireoghalvfjerds", 75:  "femoghalvfjerds", 76:   "seksoghalvfjerds", 77:  "syvoghalvfjerds", 78:  "otteoghalvfjerds", 79:  "nioghalvfjerds",
-                  80:           "firs", 81:        "enogfirs", 82:         "toogfirs", 83:        "treogfirs", 84:         "fireogfirs", 85:        "femogfirs", 86:         "seksogfirs", 87:        "syvogfirs", 88:        "otteogfirs", 89:        "niogfirs",
-                  90:       "halvfems", 91:    "enoghalvfems", 92:     "tooghalvfems", 93:    "treoghalvfems", 94:     "fireoghalvfems", 95:    "femoghalvfems", 96:     "seksoghalvfems", 97:    "syvoghalvfems", 98:    "otteoghalvfems", 99:    "nioghalvfems"
+nummerTilDansk = {  0:                    "nul",   1:                         "en",   2:                         "to",   3:                         "tre",   4:                         "fire",   5:                         "fem",   6:                         "seks",   7:                         "syv",   8:                         "otte",   9:                         "ni",
+                   10:                     "ti",  11:                      "eleve",  12:                       "tolv",  13:                     "tretten",  14:                      "fjorten",  15:                      "femten",  16:                      "seksten",  17:                      "sytten",  18:                        "atten",  19:                     "nitten", 
+                   20:                   "tyve",  21:                   "enogtyve",  22:                   "toogtyve",  23:                   "treogtyve",  24:                   "fireogtyve",  25:                   "femogtyve",  26:                   "seksogtyve",  27:                   "syvogtyve",  28:                   "otteogtyve",  29:                   "niogtyve",
+                   30:                "tredive",  31:                "enogtredive",  32:                "toogtredive",  33:                "treogtredive",  34:                "fireogtredive",  35:                "femogtredive",  36:                "seksogtredive",  37:                "syvogtredive",  38:                "otteogtredive",  39:                "niogtredive",
+                   40:                  "fyrre",  41:                  "enogfyrre",  42:                  "toogfyrre",  43:                  "treogfyrre",  44:                  "fireogfyrre",  45:                  "femogfyrre",  46:                  "seksogfyrre",  47:                  "syvogfyrre",  48:                  "otteogfyrre",  49:                  "niogfyrre",
+                   50:              "halvtreds",  51:              "enoghalvtreds",  52:              "tooghalvtreds",  53:              "treoghalvtreds",  54:              "fireoghalvtreds",  55:              "femoghalvtreds",  56:              "seksoghalvtreds",  57:              "syvoghalvtreds",  58:              "otteoghalvtreds",  59:              "nioghalvtreds",
+                   60:                   "tres",  61:                   "enogtres",  62:                   "toogtres",  63:                   "treogtres",  64:                   "fireogtres",  65:                   "femogtres",  66:                   "seksogtres",  67:                   "syvogtres",  68:                   "otteogtres",  69:                   "niogtres",
+                   70:             "halvfjerds",  71:             "enoghalvfjerds",  72:             "tooghalvfjerds",  73:             "treoghalvfjerds",  74:             "fireoghalvfjerds",  75:             "femoghalvfjerds",  76:             "seksoghalvfjerds",  77:             "syvoghalvfjerds",  78:             "otteoghalvfjerds",  79:             "nioghalvfjerds",
+                   80:                   "firs",  81:                   "enogfirs",  82:                   "toogfirs",  83:                   "treogfirs",  84:                   "fireogfirs",  85:                   "femogfirs",  86:                   "seksogfirs",  87:                   "syvogfirs",  88:                   "otteogfirs",  89:                   "niogfirs",
+                   90:               "halvfems",  91:               "enoghalvfems",  92:               "tooghalvfems",  93:               "treoghalvfems",  94:               "fireoghalvfems",  95:               "femoghalvfems",  96:               "seksoghalvfems",  97:               "syvoghalvfems",  98:               "otteoghalvfems",  99:               "nioghalvfems",
+                  100:               "hundrede", 101:             "ethundredeogen", 102:             "ethundredeogto", 103:             "ethundredeogtre", 104:             "ethundredeogfire", 105:             "ethundredeogfem", 106:             "ethundredeogseks", 107:             "ethundredeogsyv", 108:             "ethundredeogotte", 109:             "ethundredeogni",
+                  110:         "ethundredeogti", 111:           "ethundredeogelve", 112:           "ethundredeogtolv", 113:         "ethundredeogtretten", 114:          "ethundredeogfjorten", 115:          "ethundredeogfemten", 116:          "ethundredeogseksten", 117:          "ethundredeogsytten", 118:            "ethundredeogatten", 119:         "ethundredeognitten",
+                  120:       "ethundredeogtyve", 121:       "ethundredeogenogtyve", 122:       "ethundredeogtoogtyve", 123:       "ethundredeogtreogtyve", 124:       "ethundredeogfireogtyve", 125:       "ethundredeogfemogtyve", 126:       "ethundredeogseksogtyve", 127:       "ethundredeogsyvogtyve", 128:       "ethundredeogotteogtyve", 129:       "ethundredeogniogtyve",
+                  130:    "ethundredeogtredive", 131:    "ethundredeogenogtredive", 132:    "ethundredeogtoogtredive", 133:    "ethundredeogtreogtredive", 134:    "ethundredeogfireogtredive", 135:    "ethundredeogfemogtredive", 136:    "ethundredeogseksogtredive", 137:    "ethundredeogsyvogtredive", 138:    "ethundredeogotteogtredive", 139:    "ethundredeogniogtredive",
+                  140:      "ethundredeogfyrre", 141:      "ethundredeogenogfyrre", 142:      "ethundredeogtoogfyrre", 143:      "ethundredeogtreogfyrre", 144:      "ethundredeogfireogfyrre", 145:      "ethundredeogfemogfyrre", 146:      "ethundredeogseksogfyrre", 147:      "ethundredeogsyvogfyrre", 148:      "ethundredeogotteogfyrre", 149:      "ethundredeogniogfyrre",
+                  150:  "ethundredeoghalvtreds", 151:  "ethundredeogenoghalvtreds", 152:  "ethundredeogtooghalvtreds", 153:  "ethundredeogtreoghalvtreds", 154:  "ethundredeogfireoghalvtreds", 155:  "ethundredeogfemoghalvtreds", 156:  "ethundredeogseksoghalvtreds", 157:  "ethundredeogsyvoghalvtreds", 158:  "ethundredeogotteoghalvtreds", 159:  "ethundredeognioghalvtreds",
+                  160:       "ethundredeogtres", 161:       "ethundredeogenogtres", 162:       "ethundredeogtoogtres", 163:       "ethundredeogtreogtres", 164:       "ethundredeogfireogtres", 165:       "ethundredeogfemogtres", 166:       "ethundredeogseksogtres", 167:       "ethundredeogsyvogtres", 168:       "ethundredeogotteogtres", 169:       "ethundredeogniogtres",
+                  170: "ethundredeoghalvfjerds", 171: "ethundredeogenoghalvfjerds", 172: "ethundredeogtooghalvfjerds", 173: "ethundredeogtreoghalvfjerds", 174: "ethundredeogfireoghalvfjerds", 175: "ethundredeogfemoghalvfjerds", 176: "ethundredeogseksoghalvfjerds", 177: "ethundredeogsyvoghalvfjerds", 178: "ethundredeogotteoghalvfjerds", 179: "ethundredeognioghalvfjerds", 
+                  180:       "ethundredeogfirs", 181:       "ethundredeogenogfirs", 182:       "ethundredeogtoogfirs", 183:       "ethundredeogtreogfirs", 184:       "ethundredeogfireogfirs", 185:       "ethundredeogfemogfirs", 186:       "ethundredeogseksogfirs", 187:       "ethundredeogsyvogfirs", 188:       "ethundredeogotteogfirs", 189:       "ethundredeogniogfirs",
+                  190:   "ethundredeoghalvfems", 191:   "ethundredeogenoghalvfems", 192:   "ethundredeogtooghalvfems", 193:   "ethundredeogtreoghalvfems", 194:   "ethundredeogfireoghalvfems", 195:   "ethundredeogfemoghalvfems", 196:   "ethundredeogseksoghalvfems", 197:   "ethundredeogsyvoghalvfems", 198:   "ethundredeogotteoghalvfems", 199:   "ethundredeognioghalvfems"
 }
 # * Billed- / Tex filshåndtering
 Billedsti = os.path.dirname(os.path.abspath(__file__)) + "/../Latex/Indhold/Billeder/" # Gammel metode før jeg flyttede beregningsfilerne "/Latex/Indhold/Billeder/"
@@ -335,6 +345,48 @@ class DualToneMultiFrequencyDTMF():
         if lyd is not None:
             self.lyd = lyd
 
+class Vindue_Kaiser(Beregning):
+    def I0(x):                                                      # Bessel funktion der bruges til udregning
+        m, M = symbols("m M")
+        return 1 + Sum(((x/2)**m)/factorial(m), (m, 1, M))
+    
+    def w(n):                                                       # Vindue funktion
+        a, b, M = symbols("alpha beta M")
+        w = Piecewise((Function("I_0")(b * sqrt(1 - ((n - a)/a)**2))/Function("I_0")(b), And(0 <= n, n <= M)), 
+                      (0, True))
+        return w
+    
+    def __wnnum__(self, M, beta):
+        x = symbols("x")
+        I0 = Vindue_Kaiser.I0(x)                                    # Henter Funktion
+        I0 = I0.subs({"M" : M})                                     # Sætter grænse
+        I0num = lambda x : np.float64(I0.subs({"x" : x}).doit())    # Indsætter numerisk værdi og evaluerer 
+
+        # ? Få symbolsk funktion
+        n = symbols("n")
+        w = Vindue_Kaiser.w(n)
+        # ? Udskift konstanter
+        konstanter = {
+            "beta" : beta, 
+            "M"       : M, 
+            "alpha" : M / 2
+        }
+        w = w.subs(konstanter)
+        
+        # ? Gør numerisk. Brug I0num som funktion
+        w = lambdify(n, w, modules=[{'I_0': I0num}, 'numpy'])
+        
+        # * Test resultat
+        # Jeg tror den er rigtig nok. 
+        # Han plotter den lidt anderledes, så det ligner at min w[5] == hans w[4]
+        # figsyvoghalvfems viser det. 
+        
+        wn = np.array([w(n) for n in range(M + 1)])
+        return wn
+    
+    def vindue(self, M, beta): 
+        return self.__wnnum__(M, beta)
+    
 def diskretePlotAfFunktioner(fig, ax, n, plots, colormap = plt.cm.viridis): 
     """ 
     plots = {
@@ -596,6 +648,7 @@ def frekvensResponseTo(fig = None, ax = None, w = None, frekvensFunktioner = Non
     "Unwrapped"             
     "Gruppedelay"                     
     Ændre dem, hvis man ønsker dem med. Og sørg for at der er plots nok ned at rækkerne ved opsætning af fig, ax.  
+    "Unormaliseret" for at frekvenserne ikke skal normaliseres.
     """
     
     enkeltPlot = np.ndim(ax) <= 1 or frekvensFunktioner is None
@@ -699,10 +752,121 @@ def GoertzelsFourierTransform(x, ks):
         X[k] = v[-1] - np.exp(-1j * 2 * np.pi * k/N) * v[-2]
     return X
 
+def højpassFilter(self, M : int, vindue : Function, ws : float, wp: float): 
+        """ 
+        numpys sinc funktion har den begrænsning, at den ikke er symmetrisk for lige antal M. 
+        Det giver fejl i fasen så et lineært fase filter nødvendigvis ikke vil være lineært længere. 
+        For at kompensere for det så sætter: 
+        1. M = M + 1, for M er lige
+        2. Laver sinc funktionen. 
+        3. Popper dens midterste element
+        4. Fortsætter filter processen. 
+        """
+        W = wp 
+                 
+        if M % 2 == 0: M += 1                               # M = M + 1
+        n = np.arange(-floor(M/2), ceiling(M/2), dtype= float)       
+        
+        hd = np.sinc(W * n / np.pi)                         # sin(W n)/(pi n) = W/np.pi * np.sinc(W * n / np.pi) => rect(w/W)
+        hd = hd * W / np.pi
+        if M % 2 == 1: 
+            hd = np.delete(hd, int(floor(M/2)));            # Popper midterste element
+            M -= 1                                          # M = M 
+            n = np.delete(n, -1)                            
+        
+        h = hd * np.exp(1j * np.pi * n)                     # Lavpass til højpass 
+        h = h * vindue(M)                                   # Dæmper sidetoppende
+        
+        # Tjek filter
+        fig, ax = plt.subplots() 
+        ax.set_xlabel(r"$n \pi$")
+        ax.set_title("Filter før shift")
+        diskretePlotAfFunktioner(fig, ax, n, {r"$h_{lp}[n]$": hd}) 
+        return h 
 
-
-
-
+def vindueAnalyse(fig, ax, n, vinduer, *args, **kwargs):
+    """
+    N x M plot, hvor M er antallet af forskellige plots pr. vindue og N er antallet af vinduer.
+    """
+    enkeltPlot = np.ndim(ax) <= 1 or vinduer is None
+    metoder = [funktion for funktion in args if funktion in ["Impuls", "Magnitude"]] # Samler ønskede funktioner ud af argumenterne
+    M = len(metoder)
+    metoder = ["Impuls"] if M == 0 else metoder
+    metoder_iter = itertools.cycle(iter(metoder))     # Gør det til et iterativt objekt som gentager sig om og om igen.
+    enkeltMetode = M == 1
+    colormap = plt.cm.viridis if "colormap" not in kwargs.keys() else args["colormap"]
+    N = len(vinduer) if vinduer is not None else 1
+    colors = colormap(np.linspace(0, 1, N)) 
+    
+    def labelOpsætning(ax = "Første række"):
+        funktioner = ax[:] if enkeltPlot else ax[0, :]
+        tidsintervaller = ax[:] if enkeltPlot else ax[N - 1, :]
+        i = 0 
+        if "Impuls" in metoder: 
+            funktioner[i].set_title(r"$x[n]$")
+            tidsintervaller[i].set_xlabel(r"$n$")
+            i+=1
+        if "Magnitude" in metoder: 
+            funktioner[i].set_title(r"$|H(e^{j\omega})|_{dB}$")
+            tidsintervaller[i].set_xlabel(r"$\omega \quad [\frac{\omega}{\pi}]$" if "Unormaliseret" not in args else r"$\omega$")
+            i+=1
+    def plotOpsætning(ax):
+        ax.grid()
+        
+    def plotMetode(ax, n, h, *args, **kwargs): 
+        """
+        ARGS: 
+        "dB"
+        
+        KWARGS: 
+        "color" : blue
+        """
+        match next(metoder_iter): 
+            case "Impuls": 
+                markerline, stemlines, baseline = ax.stem(n, h, markerfmt='go', label= label)  
+                color = kwargs["color"] if "color" in kwargs.keys() else "blue"
+                stemlines.set_color(color)
+                markerline.set_color(color)
+                baseline.set_color(color)
+                
+                
+            case "Magnitude": 
+                re = 1024
+                H = np.fft.fft(h, re)
+                w = np.fft.fftfreq(re)
+                
+                H = np.fft.fftshift(H)
+                w = np.fft.fftshift(w)
+                w *= 2 * np.pi
+                w = w / (np.pi) if "Unormaliseret" not in args else w       # Normalisering eller ej.
+                gain = 20*np.log10(np.abs(H))                               # np.abs(H) if "dB" not in args else 
+                ax.plot(w, gain, **kwargs)
+            case default: 
+                print("Ski")
+            
+    if (N and M) != 1: 
+        labelOpsætning(ax) 
+        ax = ax.flatten() if np.ndim(ax) != 0 else ax     # Order "F" -> flattening nedad rækkerne. 
+        j = 0               # Metode
+        i = 0               # System
+        
+        for label, h in vinduer.items():                 # For hvert system
+            
+            if np.max([N, M]) == 1:
+                ax.set_ylabel(label)
+                plotOpsætning(ax)
+                plotMetode(ax, n, h, *args, color = colors[i])
+                continue
+            
+            ax[j].set_ylabel(label)
+            for _ in range(M):                                      # Beregn for dens metoder.
+                plotOpsætning(ax[j])
+                plotMetode(ax[j], n, h, *args, color = colors[i])
+                j+=1
+            i+=1         
+        plt.show()
+    return (fig, ax)    
+    
 #?  _____   ____    _______     _____    _____   __________  ____________    _______     ___      ___     _______           ___      ____________  ____________    _______     _____    _____   __________     _______     
 #?    |    __/     /       \     |  \      |    |                  |        /             |        |    |        \        /   \           |             |        /       \     |  \      |    |              |        \   
 #?    | __/       |         |    |   \     |    |                  |       |              |        |    |        |       |     |          |             |       |         |    |   \     |    |              |        |   
@@ -2225,4 +2389,805 @@ class Opgave9_4(Opgave):
     # resultat_sos = sig.tf2sos(b, a) 
     resultat_filter = filterRepræsentation(b, a, Function("H")(symbols("z")))
 
-Opgave9_4()
+class Opgave9_29(Beregning): 
+    sos = np.array([[1, 0.5, 2, 1, -1/4, -3/8],
+                    [1,  -2, 1, 1,  1/3, -2/9]])
+    resultat_tf = sig.sos2tf(sos)
+    
+    # Gammel metode, 
+    """
+    z, n = symbols("z n")
+    x = Function("x")(n)
+    y = Function("y")(n)
+    pprint(x)
+    y1 = Matrix([[1, -1, 0.5]]).dot(Matrix([[1, z**(-1), z**(-2)]])) * x
+    y2 = Matrix([[1, z**(-1), 4*z**(-2)]]).dot(Matrix([[1, -1/3 * z**(-1), 2/9 * z**(-2)]])) * y1
+    y3 = Matrix([[1, -1/4, 3/8]]).dot(Matrix([[1, z**(-1), z**(-2)]])) * y2
+    resultat_y3 = Eq(y, N(expand(y3), 3))
+    """
+    # Nu kun i z domæne.
+    z = symbols("z")
+    H1 = lambda z : 1 - z**(-1) + 0.5*(z**(-2))
+    H2 = lambda z : (1 + z**(-1) + 4*(z**(-2))) / (1 + 2/9*(z**(-1)) - 1/3*(z**(-2)))
+    H3 = lambda z : (1) / (1 - 1/4*(z**(-1)) - 3/8*(z**(-2)))
+    
+    X = Function("X")(z)
+    
+    Y = H1(z) * H2(z) * H3(z) * X
+
+    resultat_Y = Eq(Function("Y")(z), cancel(Y))
+
+class Opgave_kapitel10_1(Beregning):
+    beskrivelse = "Eksempel 10.4 om design af vinduer ud fra den generelle metode, kaiser vinduet"
+    def metodeFinding(self): 
+        # ? Først test af metoden 
+        M = 20
+        beta = 8
+        kaiser = Vindue_Kaiser()
+        wn = kaiser.vindue(M, beta)
+        n = np.arange(M + 1)
+        fig, ax = plt.subplots()
+        wn2 = np.append(sig.windows.kaiser(20, beta, False), 0)
+        # diskretePlotAfFunktioner(fig, ax , n, {"w[n]" : wn, "w_2[n]" : wn2})
+        # * Sjovt nok så kan man se, at der er forskel. 
+        # * Måske er det noget med nogle afrundings fejl. 
+        # diskretePlotAfFunktioner(fig, ax , n, {"w_2[n]" : wn2})
+        #fig, ax = plt.subplots(2, 2)
+        #vinduer = {
+        #    r"$w[n]$" : wn, 
+        #    r"$w_2[n]$" : wn2
+        #}
+        # vindueAnalyse(fig, ax, n, vinduer, "Impuls", "Magnitude") 
+        # gemBillede("Øvelse 10.4.3.png", fig)
+    
+    def kaiserVindue(self): 
+        M = 74 
+        beta = 4.5335
+        wn = np.append(sig.windows.kaiser(74, beta, False), 0)
+        # vindueAnalyse(fig, ax, n, {r"$w[n]$" : wn}, "Impuls", "Magnitude")
+        # gemBillede("Øvelse 10.4.4.png", fig)  
+        return wn
+    
+    def __init__(self): 
+        # kaiser vindue: 
+        wn = self.kaiserVindue()
+        
+        # Ideel bandpass:      
+        B = 0.49 * np.pi
+        W = B/2
+        M = 74
+        n = np.arange(-floor(M/2), ceiling(M/2) + 1, dtype = float)
+        pprint(n.shape)
+        h_1 = W/np.pi * np.sinc(W*n/np.pi)
+        
+        
+        omega_0 = 0.495 * np.pi
+        # * Forkert opsætning 
+        # h_2 = np.exp(-1j*omega_0*n) * h_1
+        # fig, ax = plt.subplots()
+        # diskretePlotAfFunktioner(fig, ax, n, {r"$h_1[n]$" : h_1, r"$h_2[n]$" : h_2})
+        # gemBillede("Øvelse 10.4.5.png", fig)
+        # re = 1024
+        # H_1 = np.fft.fft(h_1, re)
+        # H_1 = np.fft.fftshift(H_1)
+        # H_2 = np.fft.fft(h_2, re)
+        # H_2 = np.fft.fftshift(H_2)
+        # fig, ax = plt.subplots(3, 2, sharex = True)
+        # frekvensFunktioner = {
+        #     r"$H_1(e^{j\omega})$" : H_1, 
+        #     r"$H_2(e^{j\omega})$" : H_2
+        # }
+        # w = np.linspace(-1, 1,re)
+        # frekvensResponseTo(fig, ax, w, frekvensFunktioner, "Unormaliseret", "Magnitude", "Fase", "Unwrapped")
+        # gemBillede("Øvelse 10.4.6.png", fig)
+        
+        # * Indså, at det eneste jeg rent faktisk havde brug for var en cos modulering.
+        omega_0 = 0.495 * np.pi
+        n = np.arange(-floor(M/2), ceiling(M/2) + 1, dtype = float)
+        h_2 = 2 * np.cos( omega_0*n)*h_1
+        
+        fig, ax = plt.subplots()
+        diskretePlotAfFunktioner(fig, ax, n, {r"$h_1[n]$" : h_1, r"$h_2[n]$" : h_2})
+        # gemBillede("Øvelse 10.4.7.png", fig)
+        re = 1024
+        H_1 = np.fft.fft(h_1, re)
+        H_1 = np.fft.fftshift(H_1)
+        H_2 = np.fft.fft(h_2, re)
+        H_2 = np.fft.fftshift(H_2)
+        
+        frekvensFunktioner = {
+            r"$H_1(e^{j\omega})$" : H_1, 
+            r"$H_2(e^{j\omega})$" : H_2
+        }
+        fig, ax = plt.subplots(3, 2, sharex = True)
+        w = np.fft.fftfreq(re)  # [-pi/2 : pi/2] (Normaliseret)
+        w = np.fft.fftshift(w)
+        w = w * 2               # [-pi : pi]     (Normaliseret)
+        frekvensResponseTo(fig, ax, w, frekvensFunktioner, "Unormaliseret", "Magnitude", "Fase", "Unwrapped")
+        # gemBillede("Øvelse 10.4.8.png", fig)
+        
+        
+        h_3 = wn * h_2 
+        H_3 = np.fft.fft(h_3, re)
+        H_3 = np.fft.fftshift(H_3)
+        
+        # Bandpass design using firwin + Kaiser
+        M = 74 
+        beta = 4.5335
+        h_4 = sig.firwin(M + 1, [0.25, 0.74], pass_zero=False, window=('kaiser', beta))# , 0) 
+        H_4 = np.fft.fft(h_4, re)
+        H_4 = np.fft.fftshift(H_4)
+        w = np.fft.fftfreq(re)  # [-pi/2 : pi/2] (Normaliseret)
+        w = np.fft.fftshift(w)
+        w = w * 2               # [-pi : pi]     (Normaliseret)
+        
+        frekvensFunktioner = {
+            r"$H_3(e^{j\omega})$" : H_3, 
+            r"$H_4(e^{j\omega})$" : H_4
+        }
+        fig, ax = plt.subplots(3, 2, sharex = True)
+        frekvensResponseTo(fig, ax, w, frekvensFunktioner, "Unormaliseret", "Magnitude", "Fase", "Unwrapped", "dB")
+        # gemBillede("Øvelse 10.4.9.png", fig)
+        
+class Opgave_kapitel10_2(Beregning): 
+    beskrivelse = """Design af lavpass filter 
+    Eksempel 10.5 i bogen
+    Design krav: 
+    wp = 0.25pi
+    ws = 0.35pi
+    Ap = 0.1dB 
+    As = 40dB
+    Designes ud fra frekvens sampling 
+    """
+    wp = 0.25*np.pi
+    ws = 0.35*np.pi
+    Ap = 0.1
+    As = 40
+        
+    M = 44          # n samples 
+    # L = M + 1       # Længde 
+    # alpha = M/2; Q = np.floor (alpha)      # Fase forsinkelses parametre 
+    def L(M): return M + 1; 
+    def alpha(L): return (L - 1)/2
+    def phaseArrayOpsætning(Q): 
+        """
+        Laver liste elementer til phase til frekvenserne.
+        [0, 1, 2, ... alpha, -alpha, ..., -1]
+        """
+        return np.hstack([np.arange(Q + 1), -np.arange(Q, 0, -1)])
+    def psid(alpha, L, phaseArray, M, Q): return - alpha(L(M)) * 2 * np.pi/L(M) * phaseArray(Q) # Psi_d[k]
+    
+    
+    # Cosine transition approach til frekvenssampling
+    Q = M/2
+    w = np.linspace(0, 2*np.pi, 1001)       # Frekvens liste
+    dw = 2 * np.pi / L(M)                   # Afstand mellem hver sample.
+    k = np.arange(M)                        # Samplet frekvens index
+    k1  = np.int64(np.floor(wp/dw))         # Indeks tættest på pass bånd kanten
+    k2 = np.int64(np.ceil(ws/dw))           # Indeks tættest på stop bånd kanten
+    w_trans = np.arange((k2 - 1), (k1+1))   # Er hvordan forfatteren beskriver frekvenserne i transitions båndet. 
+    #                                         Jeg forstår ikke den omvendt. Det er noget med symmetrien i spektret så man får for 2*pi - w. 
+    #                                         Men havde det kun været for det, så kunne man også lave den på den normale måde og flippe.
+    w_trans = np.arange(k1 + 1, k2 - 1 + 1)
+    A = 0.5 +0.5*np.cos(np.pi*(ws - w_trans)/(ws - wp))     # Transitions bånds samplesne
+    B = A[::-1]     # stop, start, step   <- step < 0       # Transitions bånds samplesne for omega > pi. 
+    
+    # Ønsket frekvensspektrum
+    Ad = np.hstack([np.ones(k1 + 1), A, np.zeros(L(M) - 2 * k2 + 1), B, np.ones(k1)])
+    Hd = Ad*np.exp(1j*psid(alpha, L, phaseArrayOpsætning, M, Q))    # Frekvens spektrum, lav resolution
+    hd = np.real(np.fft.ifft(Hd))                                   # Impuls response
+    h = hd * np.ones(L(M))                                          # Her bruges eterne bare som en vindue funktion. 
+    H = np.fft.fft(h, w.shape[0])                                   # [0: pi, -pi: 0]
+    # Asd ≈ 50dB, men matlab beregner det til omkring 34, men deres beregning er lidt tvivlsom. 
+    # Motivationen er, at den ikke er skud sikker, så derfor prøves en ny metode.
+    
+    
+    
+    
+    # Window approach til frekvenssampling
+    wc = (wp + ws)/2 # Cutoff frekvens
+    k1 = np.int64(np.floor(wc/dw))            # Index venstre for cutoff frekvens 
+    k2 = np.int64(np.ceil(wc/dw))             # Index højre for cutoff frekvens
+    
+    Ad = np.hstack([np.ones(k1 + 1), np.zeros(L(M) - 2 * k2 + 1), np.ones(k1)])    # Ønskede amplituder 
+    
+    Hd2 = Ad*np.exp(1j*psid(alpha, L, phaseArrayOpsætning, M, Q))                # Ønskede frekvens respons samples.
+    hd2 = np.real(np.fft.ifft(Hd2))                                               # Ønsked impuls response 
+    h2 = hd2 * sig.windows.hamming(L(M))                                             # Filtreret respons.
+    H2 = np.fft.fft(h2, w.shape[0])
+    
+    
+    
+    # ? Konklusion 
+    # Vindue funktionen medføre et mere konstant stopbånd,
+    # hvor den lavet med cos transitionen falder lidt med frekvenserne
+    # Jeg har også fundet ud af, at forfatteren måske gik efter den højeste sidetop. Så at faldet var fra pass bånd til maks sidetop. 
+     
+    # * Hvad jeg har gjort 
+    # Ønskede amplituder
+    #    |
+    #    v
+    # Oversæt til svarende frekvenser.
+    # Samplet frekvenser for [0, 2 * np.pi]     <- Lav resolution
+    #    |
+    #    v
+    # Inverse fourier transform                 
+    #    |
+    #    v 
+    # Fourier transform()                       <- Bedre resolution 
+    #    |
+    #    v 
+    # FFTshift [0, 2*np.pi] -> [-pi, pi]
+
+    # Filtrer følger [-pi, pi], men til beregning laver vi for [0, 2*np.pi]
+    # Derfor ligner filteret et højpass ved kreering, men det er for at tilpasse det. 
+    
+    
+    
+    def frekvensResponseAfProcess(self): 
+        self.H = np.fft.fftshift(self.H)                                    # [-pi: pi]
+        self.H2 = np.fft.fftshift(self.H2)                                  # [-pi: pi]
+        frekvensFunktioner2 = {
+            "Hd1" : self.Hd,
+            "Hd2" : self.Hd2
+        }
+        frekvensFunktioner = {
+            r"$H_{cos trans}$" : self.H,
+            r"$H_{vindue}$" : self.H2
+        }
+        w2 = np.linspace(0, 2*np.pi, 45)
+        self.w -= np.pi                                                     # Shifter 
+        self.w *= 2                                                         # Tilpasser min normalisering            
+        
+        
+        fig, ax = plt.subplots(2, 2)
+        frekvensResponseTo(fig, ax, w2, frekvensFunktioner2, "Magnitude", "Unwrapped")
+        # gemBillede("Eksempel 10.5.a.png", fig)
+        fig, ax = plt.subplots(2, 2)
+        frekvensResponseTo(fig, ax, self.w, frekvensFunktioner, "Magnitude", "Unwrapped", "dB")
+        # gemBillede("Eksempel 10.5.b.png", fig)
+        
+    def __init__(self): 
+        self.frekvensResponseAfProcess()
+
+class Opgave10_4(Opgave): 
+    N = 1001
+    w = np.linspace(-np.pi, np.pi, N)
+    h = np.hstack([[1, 1, 1, 1], np.zeros(N - 4)])
+    H = np.fft.fft(h)                               # [0: pi, -pi:0]
+    H = np.fft.fftshift(H)
+    
+    #Ideele værdier. 
+    A = (np.sin(w * 5/2)/(np.sin(w/2))) * np.exp(-2j*w)
+    
+    def sammenlign(self):
+        A = self.A; H = self.H; w = self.w
+        fig, ax = plt.subplots(2, sharex = True)
+        ax[0].grid()
+        ax[0].set_ylabel("Forstærkning") 
+        ax[1].grid()
+        ax[1].set_ylabel(r"$\angle$ fase")
+        ax[1].set_xlabel(r"$\omega$")
+        ax[0].plot(w, np.abs(H), label=r"$|H(e^{j\omega})|$")
+        ax[0].plot(w, np.abs(A), "-.", label=r"$A(e^{j\omega})$")
+        ax[1].plot(w, np.angle(H), label=r"$\angle H(e^{j\omega})$")
+        ax[1].plot(w, np.angle(A), "-.", label=r"$\psi(e^{j\omega})$")
+        fig.legend()
+        plt.show()
+        # gemBillede("Opgave 10.4.png", fig)
+    
+    def __init__(self):
+        self.sammenlign()
+
+class Opgave10_10(Opgave): 
+    def højpassFilter(self, M : int, vindue : Function, ws : float, wp: float): 
+        """ 
+        numpys sinc funktion har den begrænsning, at den ikke er symmetrisk for lige antal M. 
+        Det giver fejl i fasen så et lineært fase filter nødvendigvis ikke vil være lineært længere. 
+        For at kompensere for det så sætter: 
+        1. M = M + 1, for M er lige
+        2. Laver sinc funktionen. 
+        3. Popper dens midterste element
+        4. Fortsætter filter processen. 
+        """
+        W = wp 
+                 
+        if M % 2 == 0: M += 1                               # M = M + 1
+        n = np.arange(-floor(M/2), ceiling(M/2), dtype= float)       
+        
+        hd = np.sinc(W * n / np.pi)                         # sin(W n)/(pi n) = W/np.pi * np.sinc(W * n / np.pi) => rect(w/W)
+        hd = hd * W / np.pi
+        if M % 2 == 1: 
+            hd = np.delete(hd, int(floor(M/2)));            # Popper midterste element
+            M -= 1                                          # M = M 
+            n = np.delete(n, -1)                            
+        
+        h = hd * np.exp(1j * np.pi * n)                     # Lavpass til højpass 
+        h = h * vindue(M)                                   # Dæmper sidetoppende
+        
+        # Tjek filter
+        fig, ax = plt.subplots() 
+        ax.set_xlabel(r"$n \pi$")
+        ax.set_title("Filter før shift")
+        diskretePlotAfFunktioner(fig, ax, n, {r"$h_{lp}[n]$": hd}) 
+        # gemBillede("Opgave 10.10.setup.png", fig)
+        return h 
+    
+    def filterPræstation(self, M, ws, wp, analyseNavn, Hfundet = None): 
+        re = 27                           # Analytisk resolution i frekvensdomænet
+        # Praktisk filter
+        h = self.højpassFilter(M, sig.windows.hamming, ws, wp)
+        H = np.fft.fft(h, re)               # [0:pi, -pi, 0]
+        H = np.fft.fftshift(H)              # [-pi: pi]
+        if Hfundet is not None:             # Til sidste del, hvor jeg skal sammenligne med scipy function. 
+            H = Hfundet 
+        
+        # Ideel filter. 
+        w = np.linspace(-np.pi, np.pi, re) 
+        A = np.zeros(re, dtype=complex)
+        wc = (0.3 - 0.05)*np.pi
+        As = 10**(-50/20)                   # Forstærkning ikke i dB
+        Ap = 10**(0.01/20)                  # Forstærkning ikke i dB
+        A[np.abs(w) <= wc] = Ap
+        A[np.abs(w) > wc] = As
+        A = np.fft.fftshift(A)
+        fig, ax = plt.subplots(3, 3)
+        funktioner = {
+            r"$H(e^{j\omega})$" : H,
+            r"$A(e^{j\omega})$" : A,
+            r"$E(e^{j\omega})$" : np.abs(A) - np.abs(H)
+        }
+        w /= np.pi                          # Normalisere
+        frekvensResponseTo(fig, ax, w, funktioner, "Magnitude", "Fase", "Unwrapped", "Unormaliseret")
+        gemBillede(analyseNavn, fig)
+    
+    def foersteDesign(self): 
+        M = 26                              # Antal samples
+        wp = 0.05 * np.pi           
+        ws = 0.30 * np.pi
+        self.filterPræstation(M, ws, wp, "Opgave 10.10.resultat.png")
+    
+    def andenDesign(self): 
+        M = 26                              # Antal samples
+        wp = 0.15 * np.pi           
+        ws = 0.30 * np.pi
+        self.filterPræstation(M, ws, wp, "Opgave 10.10.praktisk.png")
+        
+    def __init__(self):
+        # self.foersteDesign()
+        # self.andenDesign()
+        H = sig.firwin(27, 0.175 * np.pi , window="hamming")
+        fig, ax = plt.subplots()
+        H = np.fft.fftshift(H) 
+        self.filterPræstation(26, 0.05*np.pi, 0.3*np.pi, "Opgave 10.10.Scipy.png", H)
+        ax.plot(np.linspace(-np.pi, np.pi, 27), np.abs(H))
+        plt.show()
+
+class Opgave10_11(Opgave):
+    def Adk(self, L, wc): 
+        # Ideelt lowpass
+        alpha = np.int64(L/2)
+        w_k = np.linspace(0, np.pi, alpha)
+        Ad = np.zeros(alpha)                    # Frequency values
+        idxlp = np.where(w_k <= wc)             # Lp indices 
+        Ad[idxlp] = 1
+        Ad = np.hstack([Ad, 0, Ad[::-1][:alpha - 1]])    # -pi : 0 er det samme som pi : 2pi, derfor vender jeg A om og lægger den ind i sidste halvdel
+        return Ad
+    def psidk(self, L): 
+        Q = np.int64(floor((L - 1)/2))
+        C = 2*np.pi/L 
+        kid = np.hstack([np.arange(Q + 1), np.arange(-(Q + 1), 0, 1)])              # Index manipulation for k
+        # k = 0, ...Q; -(L - k) = -20 + 10, ... -20 + 19 
+        psidk = - Q * C * kid                                                       # q = 0 for type I og type II.
+        return psidk
+    
+    def __init__(self):
+        L = 20
+        wc = pi/2
+        
+        # * Tjek
+        fig, ax = plt.subplots()
+        n = np.arange(L)
+        Ad = Adk(L, wc)
+        diskretePlotAfFunktioner(fig, ax, n , {"Ad": Ad})
+        
+        # *Frekvens udtræk samplings parametre 
+        H_oensket = Ad * np.exp(1j*psidk(L)) 
+        
+        # * Impuls responser 
+        h_oensket = np.real(np.fft.ifft(H_oensket))
+        h_rigtig = h_oensket * np.ones(L)                                           # rektangulært vindue.
+        # * Tjek
+        fig, ax = plt.subplots()
+        n = np.arange(L)
+        diskretePlotAfFunktioner(fig, ax, n, {r"$h_{plukket}[n]$": h_oensket, r"$h_{praktisk}$" : h_rigtig})
+        
+        # * Filtre analyse
+        re = 1024
+        H_oensket = np.fft.fft(h_oensket, re)                   # [0, 2pi]
+        H_rigtig = np.fft.fft(h_rigtig, re)                     # [0, 2pi]
+        w = np.linspace(-1, 1, re)                              # [-pi: pi]
+        w += 1                                                  # [0, 2pi]
+        w *= 2 * np.pi                                          # Får min normalisering til at gå op
+        # * Tjek 
+        # frekvensFunktioner = {
+        #     r"$H_{oensket}(e^{j\omega})$" : H_oensket, 
+        #     r"$H_{rigtig}(e^{j\omega})$" : H_rigtig
+        # }
+        # fig, ax = plt.subplots(3, 2, sharex = True)
+        # frekvensResponseTo(fig, ax, w, frekvensFunktioner, "Magnitude", "Fase", "Unwrapped")
+        
+        # ? Svar 
+        fig, ax = plt.subplots()
+        w_k = np.linspace(0, 2 * np.pi, L)
+        fig, ax = plt.subplots()
+        ax.plot(w_k, Ad, 'o')
+        # H_rigtig = np.fft.fft(h_rigtig)
+        w /= 2 
+        ax.plot(w, np.abs(H_rigtig))
+        plt.show()
+        # gemBillede("Opgave 10.11.png", fig)
+        
+        
+        # * Nu for L = 400
+        # 1. Frekvens pluk 
+        L = 400
+        A = Adk(L, np.pi/2)
+        print(A.shape)
+        H = A * np.exp(1j*psidk(L))          # [0: 2pi]
+        
+        # 2. Til tidsdomæne
+        h = np.fft.ifft(H)
+        
+        # 3. Vindue inputtet
+        h_reel = h * np.ones(L)
+        
+        # 4. Transformer
+        re = 1024
+        H_reel = np.fft.fft(h_reel, re)
+        
+        # * Sammenlign
+        fig, ax = plt.subplots(2, sharex = True)
+        w_k2 = np.linspace(0, 2* np.pi, L)
+        ax[0].plot(w_k, Ad, 'o')
+        ax[0].plot(w, np.abs(H_rigtig))
+        ax[1].plot(w_k2, A, 'o')
+        ax[1].plot(w, np.abs(H_reel))
+        plt.show()
+        # gemBillede("Opgave 10.11.1.png", fig)
+        
+        
+        
+        # * Nu med hamming vinduet. 
+        h_ham = h * sig.windows.hamming(L)
+        H_ham = np.fft.fft(h_ham, re)
+        # * Sammenlign
+        fig, ax = plt.subplots(3, sharex = True)
+        w_k2 = np.linspace(0, 2* np.pi, L)
+        ax[0].plot(w_k, Ad, 'o')
+        ax[0].plot(w, np.abs(H_rigtig))
+        ax[1].plot(w_k2, A, 'o')
+        ax[1].plot(w, np.abs(H_reel))
+        ax[2].plot(w_k2, A, 'o')
+        ax[2].plot(w, np.abs(H_ham))
+        plt.show()
+        # gemBillede("Opgave 10.11.2.png", fig)
+    
+class Opgave10_13(Beregning): 
+    
+    def chebyshev(self, n, w, Tn): 
+        if n == 0 : return 1                # T_0 = 1
+        elif n == 1 : return cos(w)         # T_1 = cos(w)
+        poly = 2 * cos(w) * self.chebyshev(n - 1, w, Tn) - self.chebyshev(n - 2, w, Tn)
+        if n > len(Tn): 
+            Tn += [poly]
+        return poly
+        
+    def __init__(self):
+        w = symbols("omega")
+        Tn = []
+        self.chebyshev(10, w, Tn)
+        for i, T in enumerate(Tn) :
+            T = simplify(T)
+            eq = Eq(Function(f"T_{i + 2}")("x"), T)
+            pprint(latex(eq))
+
+class Opgave10_14(Opgave):
+    def solveForCoeffs(x): 
+        A = x
+        A = np.vander(A, 3, increasing= True)
+        A = np.hstack([A, np.array([1, -1, 1, -1])[:, np.newaxis]])
+        
+        b = np.array([1 - 2*x_k + 4*(x_k**(2)) - 2*(x_k**3) for x_k in x])[:, np.newaxis]
+        
+        return np.linalg.solve(A, b)
+    
+    a0, a1, a2, delt = solveForCoeffs([0, 1/3, 2/3, 1])
+    
+    # * Graf 
+    def plot(coeffs): 
+        a0, a1, a2, delt = coeffs
+        x = np.linspace(0, 1, 100) 
+    
+        f = 1 - 2*x + 4 * (x**2) - 2*(x**(3))
+        P2 = a0 + a1*x + a2*(x**2)
+        e = f - P2
+        fig, ax = plt.subplots()
+        ax.grid()
+        ax.axhline(0, color='black', linewidth=1) 
+        ax.plot(x, f, label = r"$f(x)$")
+        ax.plot(x, P2, '--.', label = r"$P_2(x)$")
+        ax.plot(x, e, '--', label = r"$e(x)$")
+        fig.legend()
+        plt.show()
+        # gemBillede("Opgave 10.14.png", fig)
+    
+    plot([a0, a1, a2, delt])
+    
+    
+    # * Forsæt indtil equiripple.
+    # Se på extremerne, så at [del+, del-, del+, del-]
+    coeffs = solveForCoeffs([0, 0.236, 0.736, 1])        # +-0.07
+    plot(coeffs)
+    res_coeffs = coeffs
+    
+    
+    # Chatten fandt de endelige værdier. 
+    coeffs = solveForCoeffs([0, 0.2632, 0.7368, 1])
+    coeffs[:3] = np.array([0.938, -0.875, 1])[:, np.newaxis]
+    plot(coeffs)
+    
+    
+    
+    
+    
+Opgave10_14()
+
+class eksamensOpgave2021_1(Opgave): 
+    N = 1000
+    w = np.linspace(-np.pi, np.pi, N)
+    z = np.exp(1j*w)
+    H = (3 + z**(-1)) / (1 + 0.5*(z**(-1)))
+    def __init__(self): 
+        frekvensFunktioner = {
+            r"$H(e^{j\omega})$" : self.H
+        }
+        fig, ax = plt.subplots(2, 1)
+        w /= np.pi
+        frekvensResponseTo(fig, ax, w, frekvensFunktioner, "Magnitude", "Fase", "Unormaliseret")
+        gemBillede("Eksamenssæt2021.1.3.png", fig)
+    
+class eksamensOpgave2021_2(Opgave): 
+    def beregningsMatrice(N): 
+        n = np.arange(0, N)
+        W_Nn = np.ones(N) * np.exp(-1j * 2 * ( np.pi/N ) * n )
+        W = np.vander(W_Nn, N, increasing = True)
+        return W
+    xn = np.array([1, -1, 4, 7])
+    W = beregningsMatrice(4)
+    res_Xk = np.round(np.inner(xn, W), 3)
+    
+    re = 1024 
+    X = np.fft.fft(xn, re)
+    X = np.fft.fftshift(X)
+    def __init__(self):
+        funktioner = {
+            r"$X(e^{j\omega})$" : self.X 
+        }
+        w = np.linspace(-1, 1, self.re)
+        fig, ax = plt.subplots(2, 1)
+        
+        frekvensResponseTo(fig, ax, w, funktioner, "Magnitude", "Fase", "Unormaliseret")
+        # gemBillede("Eksamenssæt2021.4.2.png", fig)
+    
+class eksamensOpgave2021_2ny(Opgave): 
+    w = np.linspace(-np.pi, np.pi, 1024)
+    z = np.exp(1j*w)
+    X = 1 - z**(-1) + 4*z**(-2) + 7*z**(-3)
+    def __init__(self):
+        fig, ax = plt.subplots(2, 1, sharex= True)
+        funktioner = {
+            r"$X(e^{j\omega})$" : self.X 
+        }
+        frekvensResponseTo(fig, ax, self.w, funktioner, "Magnitude", "Fase", "Unormaliseret")
+    
+class EksamensOpgave2022_2(Opgave): 
+    w = np.linspace(-np.pi, np.pi, 1000)
+    z = np.exp(1j*w)
+    H = (1 - 2*(z**(-1)))/(1 + 0.5*(z**(-1)))
+    z0 = np.exp(1j*np.pi/4)
+    H0 = (1 - 2*(z0**(-1)))/(1 + 0.5*(z0**(-1)))
+    def __init__(self):
+        fig, ax = plt.subplots(1)
+        w = self.w / np.pi
+        frekvensResponseTo(fig, ax, w, {r"$H(e^{j\omega})$" : self.H}, "Magnitude", "Unormaliseret")
+        gemBillede("Eksamensopgavesæt2022.2.png", fig)
+
+class EksamensOpgave2022_5(Opgave): 
+    def beregningsMatrice(self, N): 
+        n = np.arange(0, N)
+        W_Nn = np.ones(N) * np.exp(-1j * 2 * ( np.pi/N ) * n )
+        W = np.vander(W_Nn, N, increasing = True)
+        return W
+
+    def __init__(self):
+        x = np.array([3, 2, 1, 0])
+        W = self.beregningsMatrice(4)
+        X = np.inner(W, x)
+        Y = np.array([1, 1, 1, 1])
+        pprint(np.round(W))
+        pprint(np.round(X, 2))
+        pprint(np.fft.fft(x))
+        pprint(np.round(np.inner(np.linalg.inv(W), Y), 2))
+        pprint(np.fft.ifft(Y))
+
+class EksamensOpgave2024_ord_1(Opgave): 
+    w = np.linspace(-np.pi, np.pi, 3)
+    z = np.exp(1j*w)
+    H = (3 * z + 2 - z**(-1))
+    x = [4, 5, -6]
+    X = np.fft.fft(x)
+    Y = X*H
+    res_y = np.fft.ifft(Y)
+    res_y2 = np.round( H * (z**1) ) 
+
+class EksamensOpgave2024_ord_2(Opgave):
+    alpha = -1/(np.sqrt(2)) + 0.5j
+    res_størrelse = np.abs(alpha)
+    res_vinkel = np.angle(alpha)
+
+class EksamensOpgave2024_ord_3(Opgave): 
+    # DF II system 
+    b = [2] 
+    a1, a2 = symbols("alpha_1 alpha_2")
+    a = [1, a1 + a2]
+    # res_sos = sig.residuez(b, a) Kan jeg ikke 
+
+class EksamensOpgave2024_ord_4(Opgave): 
+    b = [-0.5, 1]
+    a = [1, 0.5]
+    res_rpk = sig.residuez(b, a)
+    h = lambda z : (-2.5)/(1 + 0.5*(z**(-1)) + 2)
+    res_h1 = np.abs(h(np.exp(1j*np.pi)))
+    res_h2 = np.abs(h(np.exp(0)))
+    res_h3 = np.abs(h(np.exp(1j*np.pi/2)))
+    
+    def __init__(self):
+        w = np.linspace(-np.pi, np.pi, 1024)
+        z = np.exp(1j*w)
+        
+        H2 = (-2.5)/(1 + 0.5*(z**(-1)) + 2)
+        
+        funktioner = {
+            r"$H(e^{j\omega})$" : H2,
+        }
+        
+        fig, ax = plt.subplots(1, 1, sharex=True)
+        w /= np.pi
+        frekvensResponseTo(fig, ax, w, funktioner, "Unormaliseret", "Magnitude")# , "Fase")
+        gemBillede("Eksamenssæt2024.ord.4.png", fig)
+        
+class EksamensOpgave2024_ord_2_2(Opgave): 
+    a = symbols("alpha", complex = True)
+    H = lambda alpha, z : 1 + alpha*(z**(-1))
+    # z0 = trigsimp(np.exp(-1j*np.pi/4))
+    # eq = Eq(0.5, Abs(H(a, z0)))
+    # res_a = solve(eq, a)
+    a = -0.5 + 0.353j
+    a *= np.sqrt(2)/2
+    
+    r = np.abs(a)
+    theta = np.angle(a)     # +- theta
+    res_rTheta = (r, theta)
+    
+    alpha = r * np.exp(1j*theta) # Evaluering for + theta
+    
+    
+    def __init__(self):
+        
+        w = np.linspace(-np.pi, np.pi, 100)
+        z = np.exp(-1j*w) 
+        h = np.array([1, self.alpha])
+        res_h = np.round(h, 2)
+        fig, ax = plt.subplots(2, sharex = True)
+        w += np.pi
+        w /= np.pi
+   
+         # frekvensResponseTo(fig, ax, w, {r"$H(e^{j\omega})$" : H}, "Unormaliseret", "Magnitude", "Fase")
+    
+        n = np.arange(100)
+        xn = np.cos(np.pi/4 * n)
+        y = np.convolve(xn, h)[:100]
+        fig, ax = plt.subplots(1)
+        diskretePlotAfFunktioner(fig, ax, n, {r"$y[n]$" : y})
+
+class EksamensOpgave2024_ord_3_2(Opgave): 
+    a1, a2, z = symbols("alpha_1 alpha_2 z")
+    H = 1/(1 + a1*z) + 1/(1 + a2 * z)
+    res_H = H
+    res_H = cancel(H)
+
+class EksamensOpgave2024_ord_4_2(Opgave): 
+    res_H = partialFraction([0.5, 1], [1, -0.5], "DT")
+    res_rpk = sig.residuez([-0.5, 1], [1, -0.5])
+    
+    w = np.linspace(-np.pi, np.pi, 100)
+    z = np.exp(1j*w)
+    H = (-0.5 + z**(-1))/(1 - 0.5*(z**(-1)))
+    H2 = 1.5/(1 - 0.5*(z**(-1))) - 2
+    def __init__(self):
+        funktioner = {
+            r"$H(e^{j\omega})$" : self.H, 
+            #r"$H_2(e^{j\omega})$" : H2
+        }
+        fig, ax = plt.subplots(2, 1, sharex=True)
+        w = self.w / np.pi
+        frekvensResponseTo(fig, ax, w, funktioner, "Unormaliseret", "Magnitude", "Fase")
+        gemBillede("Eksamenssæt2024.ord.4.4.2.png", fig)
+
+class EksamensOpgave2024_re_2(Opgave): 
+    w = np.linspace(-np.pi, np.pi, 150)
+    z = np.exp(1j*w)
+    H = 1/(35) * (-3*(z**(2)) + 12*z + 17 + 12*(z**(-1)) - 3*(z**(-2)))
+    x = np.array([-174, -43, -106, -46, -188, -49, -99, -168, 89, -169, 154, -135, 171, -3, 98, 89])
+    h = 1/(35) * np.array([-3, 12, 17, 12, -3])
+    y = np.convolve(x, h)[:len(x)]
+    def __init__(self):
+        funktioner = {
+            r"$H(e^{j\omega})$" : self.H
+        }
+        fig, ax = plt.subplots(2, sharex=True)
+        w = self.w / np.pi
+        frekvensResponseTo(fig, ax, w, funktioner, "Unormaliseret", "Magnitude", "Fase")
+        
+        funktioner = {
+            r"$x[n]$" : self.x, 
+            r"$y[n]$" : self.y
+        }
+        fig, ax = plt.subplots()
+        n = np.arange(len(self.x))
+        ax.grid()
+        samples = {
+            r"$x[n]$" : self.x,
+            r"$y[n]$" : self.y 
+        }
+        ax.plot(n, self.x, '-.', label= "Støjsignal")
+        ax.plot(n, self.y, label = "Output")
+        fig.legend()
+        fig, ax = plt.subplots(1, 2, sharey=True)
+        diskretePlotAfFunktioner(fig, ax, n, samples)
+
+class EksamensOpgave2024_re_3(Opgave): 
+    M = 110
+    h = sig.windows.blackman(M)
+    re = 1024
+    H = np.fft.fft(h, re)
+    H = np.fft.fftshift(H)
+    w = np.linspace(-np.pi, np.pi, re)
+    
+    def __init__(self):
+        fig, ax = plt.subplots()
+        n = np.arange(self.M)
+        diskretePlotAfFunktioner(fig, ax, n, {"w_b[n]" : self.h})
+        funktioner = {
+            r"$W_b(e^{j\omega})$" : self.H
+        }
+        fig, ax = plt.subplots(3, sharex = True)
+        # w = self.w / np.pi
+        frekvensResponseTo(fig, ax, self.w, funktioner, "Unormaliseret", "Magnitude", "Fase", "Unwrapped", "dB")
+     
+class EksamensOpgave2024_re_4(Opgave): 
+    w = np.linspace(-np.pi, np.pi, 100)
+    z = np.exp(1j*w)
+    H = 1/(1 - 0.5 * (z**(-1)))
+    def __init__(self):
+        w = self.w / np.pi
+        fig, ax = plt.subplots(2, sharex = True)
+        frekvensResponseTo(fig, ax, w, {r"$H(e^{j\omega})$" : self.H}, "Unormaliseret", "Magnitude", "Fase")
+    
+class EksamensOpgave2024_re_5(Opgave): 
+    Wn = np.array([[1,  1], 
+                   [1, -1]])
+    x = np.array([1, 2])
+    res_y = np.inner(Wn, x)
+

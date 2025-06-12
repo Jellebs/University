@@ -115,12 +115,70 @@ function X = gafft(x,N,k)
     end
 end
 
+function Goertzel()
+    fs = 8000;        % Sampling frequency (for context)
+    N = 64;           % DFT size
+    k = 3;            % Bin to test
+    
+    n = 0:N-1;                          % Time vector
+    x = cos(2*pi*k/N * n);             % Cosine at bin k
+    
+    X = gafft(x, N, k);                % Apply Goertzel algorithm
+end 
 
-fs = 8000;        % Sampling frequency (for context)
-N = 64;           % DFT size
-k = 3;            % Bin to test
 
-n = 0:N-1;                          % Time vector
-x = cos(2*pi*k/N * n);             % Cosine at bin k
+function Opgave_kapitel10()
+    wp = 0.25*pi
+    ws = 0.35*pi
+    
+    M = 44; L = M+1; % Impulse response length
+    alpha = M/2; Q = floor(alpha); % phase delay parameters
+    om = linspace(0,2*pi,1001); % Frequency array
+    k = 0:M; % Frequency sample index
+    psid = -alpha*2*pi/L*[(0:Q),-(L-(Q+1:M))]; % Desired Phase
+    Dw = 2*pi/L; % Width between frequency samples
+    % Design
+    k1 = floor(wp/Dw); % Index for sample nearest to PB edge
+    k2 = ceil(ws/Dw); % Index for sample nearest to SB edge
+    w = ((k2-1):-1:(k1+1))*Dw; % Freq in the transition band
+    A = 0.5+0.5*cos(pi*(ws-w)/(ws-wp)); % Transition band samples
+    B = fliplr(A); % Transition band samples for omega >pi
+    Ad = [ones(1,k1+1),A,zeros(1,L-2*k2+1),...
+    B,ones(1,k1)]; % Desired Amplitude
+    Hd = Ad.*exp(1j*psid); % Desired Freq Resp Samples
+    hd = real(ifft(Hd)); % Desired Impulse response
+    h = hd.*rectwin(L)'; % Actual Impulse response
+    H = freqz(h,1,om) % Frequency response of the actual filter
+    freqz(h,1,om)
+    
+    H_dB = 20*log10(abs(h));      % Convert to dB
+    a = om/pi
+    % plot(om/pi, H_dB);
+    xlabel('Normalized Frequency (\times\pi rad/sample)');
+    ylabel('Magnitude (dB)');
+    title('Frequency Response');
+    grid on;
+    
+    
+    maxmag = max(abs(H))
+    dw = 2*pi/1000;
+    Asd = min(-20*log10(abs(H(ceil(ws/dw):501))/maxmag))
+end 
 
-X = gafft(x, N, k);                % Apply Goertzel algorithm
+function Opgave10_10()
+    N = 26;                     % Filter order (numtaps - 1)
+    Wn = 0.825;                 % Normalized cutoff (relative to Nyquist, so 0.825 * pi
+    b = fir1(N, Wn, 'high', hamming(N + 1));    % High-pass filter
+    [H, w] = freqz(b, 1, 1024); % High-resolution frequency response
+    w = w/pi; 
+    % plot(w, abs(H))
+    plot(w, 20*log10(abs(H)))
+    title('MATLAB fir1 High-pass Filter')
+    xlabel('Frequency (\times\pi rad/sample)')
+    ylabel('Magnitude (dB)')
+    grid on
+end 
+
+Opgave10_10()
+
+

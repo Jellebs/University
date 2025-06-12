@@ -628,26 +628,579 @@
             I stedet for at blande k ind begge steder, så bruger jeg k til M og l til N. 
             \[w[n - k]=-\sum_{l=1}^{N}a_{l}w[n - k - l]+x[n - k]\]
             For så kan jeg bedre kombinere udtrykkende.
-            \[y[n]=\sum_{k=0}^{M}b_{k}(-\sum_{l=1}^{N}a_{l}w[n - k - l]+x[n - k])\]
-            \[y[n]= - \sum_{k=0}^{M}b_{k}(\sum_{l=1}^{N}a_{l}w[n - k - l]+x[n - k])\]
-            \[y[n]= - 0.75 * w[n - 1] - 0.75 * 0.5 * w[n - 2] + x[n] + 0.5*x[n - 1]\]
+            \[y_1[n]=\sum_{k=0}^{M}b_{k}(-\sum_{l=1}^{N}a_{l}w[n - k - l]+x[n - k])\]
+            \[y_1[n]= - \sum_{k=0}^{M}b_{k}(\sum_{l=1}^{N}a_{l}w[n - k - l]+x[n - k])\]
+            \[y_1[n]= - 0.75 * w[n - 1] - 0.75 * 0.5 * w[n - 2] + x[n] + 0.5*x[n - 1]\]
             Det er sådan jeg evaluere summationen, måske er det forkert? Grænserne er lidt mystiske måske. Der er jo ikke noget $w[n - 2]$, så det må være $w[n - 1]$
-            \[y[n]= - 0.75 * w[n] - 0.75 * 0.5 * w[n - 1] + x[n] + 0.5*x[n - 1]\]
+            \[y_1[n]= - 0.75 * w[n] - 0.75 * 0.5 * w[n - 1] + x[n] + 0.5*x[n - 1]\]
             Det var sådan jeg beregnede den før også.
             Jeg har lige fået wolfram til at evaluere den også: 
-            \[y[n] = - \sum_{k=0}^{M}b_{k}(\sum_{l=1}^{N}a_{l}w[n - k - l]+x[n - k]) = -a_1b_1w[n - 2] - a_1b_0w[n - 1] - b_1x[n - 1] - b_0x[n]\]
-            \[y[n] = -0.75*0.5w[n - 2] - 0.75*1w[n - 1] - 0.5x[n - 1] - 1 * x[n]\]
-            \[y[n] = -0.75*0.5w[n - 2] - 0.75w[n - 1] - 1 * x[n] - 0.5x[n - 1]\]
+            \[y_1[n] = - \sum_{k=0}^{M}b_{k}(\sum_{l=1}^{N}a_{l}w[n - k - l]+x[n - k]) = -a_1b_1w[n - 2] - a_1b_0w[n - 1] - b_1x[n - 1] - b_0x[n]\]
+            \[y_1[n] = -0.75*0.5w[n - 2] - 0.75*1w[n - 1] - 0.5x[n - 1] - 1 * x[n]\]
+            \[y_1[n] = -0.75*0.5w[n - 2] - 0.75w[n - 1] - 1 * x[n] - 0.5x[n - 1]\]
             Og det var også sådan at jeg evaluerede den. Jeg missede dog lige nogle fortegn. 
             Det er stadigvæk mærkeligt med grænserne, for der findes kun en $w[n - 2]$. Hvis jeg bare antager at det er forkert, og at den skal rykkes en tilbage, så: 
-            \[y[n] = - x[n] - 0.5x[n - 1] - 0.75w[n] - 0.375w[n - 1]\]
+            \[y_1[n] = - x[n] - 0.5x[n - 1] - 0.75w[n] - 0.375w[n - 1]\]
             Måske beregner jeg den faktisk forkert. Jeg beskrev jo før hvordan jeg kunne beskrive den analytisk ud fra inputtet, men det kan jeg jo egentlig ikke bare lige. 
+            Men nu har jeg fundet input output relationen for den her, så lad mig prøve at evaluere den derfra. 
+            \color{red} Efter at være kommet tilbage efter en uge, så vil jeg faktisk godt tro, at jeg kan beskrive det hele ud fra x og y. 
+            Men hvor jeg før bare beskrev wn som yn, så vil jeg nu rette det til at det er $y[n] + 0.5y[n - 1]$
+            \color{black}
+
+        \end{Opgave}
+        \begin{Opgave}[Opgave 9.29 - Udledning af differens ligninger af to systemer]
+            Given 2 signal flow diagrams, describe the difference equations in terms of x and y. 
+            \figseksoghalvfjerds{0.6}
+            Etteren ser jeg som et kaskade second order system med to DF II systemer.\\
+            I bogen bruger de et kaskade second order system med transponeret DF II, da den vidst er mere typisk brugt. 
+            TDF II bruger formen. 
+            \[\begin{vmatrix}
+                -a_i & b_i
+            \end{vmatrix}\]
+            Men DF II bruger formen :
+            \[\begin{vmatrix}
+                b_i & -a_i
+            \end{vmatrix}\]
+            Og for SOS systemer, så bliver de sat i rækker fra top til bund, gående fra xn til yn. b værdierne først, så a værdierne, og ud af kolonnerne. 
+            Mit sos system: 
+            \[\begin{vmatrix}
+                1 & 0.5 & 2 & 1 & -1/4 & -3/8 \\
+                1 &  -2 & 1 & 1 &  1/3 & -2/9
+            \end{vmatrix}\]
+
+            Med scipy's sos2tf funktion så kan jeg så finde koefficienterne til den samlede filtrering.
+            \[==============================\]
+            \[H(z) = \filterZto{1, -3/2, -7/2, 2}{1, 1/12, -0.68, -0.069, 1/12}\]
+            \[==============================\]\\\\\\ 
+            
+            Så til det andet filter: 
+            Se jeg kan ikke helt bruge det på samme måde her. Havde det været 4 samlinger, så havde jeg kunnet beskrive den som et kaskade system af second order til et DF I filter.
+            Her er der dog form af DF I men afbrudt af en DF II form i midten. Min strategi er at beskrive midten som en direkte form, og så bare udlede for siderne. 
+            Op ned op for DF II er den ikke transponerede version. 
+            \[y[n] = \sum_{k=0}^{2}{b_kw[n - k]}\]
+            \[w[n] = \sum_{i=1}^{2}{a_iw[n - i]}\]
+            Hvis jeg i stedet for at beskrive den ud fra dens beregninger i knudepunktet w, men i stedet beskriver den ud fra inputtet og dens forsinkede feedback. 
+            \[w[n] = x[n] - 1/3x[n - 1] + 2/9x[n - 2]\]
+            \[y[n] = \sum_{k=0}^{2}{b_k(x[n - k] - 1/3x[n - 1 - k] + 2/9x[n - 2 - k])}\]
+            \[y[n] = (x[n] - 1/3x[n - 1] + 2/9x[n - 2]) + (x[n - 1] - 1/3x[n - 2] + 2/9x[n - 3]) + 4*(x[n - 2] - 1/3x[n - 3] + 2/9x[n - 4])\]
+            Samler udtrykkende ud fra deres forsinkelser
+            \[y[n] = x[n] + x[n - 1] * (- 1/3 + 1) + x[n - 2] * (2/9 - 1/3 + 4) + x[n - 3] * (2/9 - 4/3) + x[n - 4] * 8/9\]
+            \[y[n] = x[n] + 2/3 x[n - 1] + 35/9 x[n - 2] - 10/9 x[n - 3] + 8/9 x[n - 4]\]
+            På matrix form havde jeg også kunnet have beskrevet det som. \\
+            $\begin{vmatrix} 1 & 1z^{-1} & 4z^{-2} \end{vmatrix} . \begin{vmatrix} x[n] \\ -1/3x[n - 1] \\ 2/9x[n - 2]\end{vmatrix}$\\
+            Måske... Det havde givet bedre mening hvis feedbacket ikke havde bidraget til yderligere feedback. 
+            Så jeg har midter punktet. Lade mig beskrive inputtet som outputtet til første del. 
+            \[=========================================\]
+            \[y_2[n] = y_1[n] + 2/3 y_1[n - 1] + 35/9 y_1[n - 2] - 10/9 y_1[n - 3] + 8/9 x[n - 4]\]
+            \[=========================================\]\\
+
+            Så til første del: 
+            \[y_1 = x[n] - x[n - 1] + 0.5x[n - 2]\]
+            Og sidste del: 
+            \[y_3 = y_2[n] - 1/4y_2[n - 1] + 3/8y_2[n - 2]\]
+            
+            Måske er det nemmest at få evalueret, hvis jeg gør det med matrix metoden. 
+            \[y_1 = \begin{vmatrix} 1 & -1 & 0.5 \end{vmatrix}\begin{vmatrix} x[n] \\ x[n - 1] \\ x[n - 2]\end{vmatrix}\]
+            \[y_3 = \begin{vmatrix} 1 & -1/4 & 3/8 \end{vmatrix}\begin{vmatrix} y_2[n] \\ y_2[n - 1] \\ y_2[n - 2]\end{vmatrix}\]
+            Og så vil jeg kunne beskrive 
+            \[y_2[n] = \begin{vmatrix} 1 & 1z^{-1} & 4z^{-2} \end{vmatrix} . \begin{vmatrix} 1 \\ -1/3z^{-1} \\ 2/9z^{-1} \end{vmatrix} . \begin{vmatrix} 1 & -1 & 0.5 \end{vmatrix} . \begin{vmatrix} x[n] \\ x[n - 1] \\ x[n - 2]\end{vmatrix}\]
+            Og 
+            \[y_3 = \begin{vmatrix} 1 & -1/4 & 3/8 \end{vmatrix} . \begin{vmatrix} 1 \\ z^{-1} \\ z^{-2} \end{vmatrix} * \begin{vmatrix} 1 & 1z^{-1} & 4z^{-2} \end{vmatrix} . \begin{vmatrix} 1 \\ -1/3z^{-1} \\ 2/9z^{-1} \end{vmatrix} * \begin{vmatrix} 1 & -1 & 0.5 \end{vmatrix} . \begin{vmatrix} 1 \\ z^{-1} \\ z^{-2} \end{vmatrix} * x[n]\]
+            Som egentlig bare giver
+            \[y[n] = y_1 * y_2 * y_3\]
+            Det er lidt en gråzone at skrive det sådan der. Jeg tager måske højde for konvolutionen med at skrive forsinkelser med i. I python har jeg så evalueret den til at være: 
+            \[y[n] = x[n] - 5/4x[n - 1] + 0.792x[n - 2] - 0.0833x[n - 3] + 0.701x[n - 4] - 0.944x[n - 5] + 0.938x[n - 6] - 0.444x[n - 7] + 0.167x[n - 8]\]
+
+        \end{Opgave}
+        \begin{Opgave}[Opgave 9.29 - (Ny ) Udledning af differens ligninger af to systemer]
+            Given 2 signal flow diagrams, describe the difference equations in terms of x and y. 
+            \figseksoghalvfjerds{0.6}\\
+            Grunden til at jeg har valgt at lave den om er fordi, at jeg synes at jeg kludrede lidt rundt i system 2. 
+            Jeg tror måske jeg blandede z domæne og tids domæne sammen, så jeg kan ikke være sikker på, at jeg ikke har lavet fejl.\\\\
+                       
+            
+            Etteren ser jeg stadigvæk som et kaskade second order system med to DF II systemer.\\
+            TDF II bruger formen. 
+            \[\begin{vmatrix}
+                -a_i & b_i
+            \end{vmatrix}\]
+            Men DF II bruger formen :
+            \[\begin{vmatrix}
+                b_i & -a_i
+            \end{vmatrix}\]
+            Og mit system er et DF II filter.
+            Mit sos system: 
+            \[\begin{vmatrix}
+                1 & 0.5 & 2 & 1 & -1/4 & -3/8 \\
+                1 &  -2 & 1 & 1 &  1/3 & -2/9
+            \end{vmatrix}\]
+
+            Med scipy's sos2tf funktion så kan jeg så finde koefficienterne til den samlede filtrering.
+            \[==============================\]
+            \[H(z) = \filterZto{1, -3/2, -7/2, 2}{1, 1/12, -0.68, -0.069, 1/12}\]
+            \[==============================\]\\\\\\ 
+            
+            Så til det andet filter. 
+            Fordi der er et DF II system i midten og ikke 4 knudepunkter til et SOS på DF I form, så beskriver jeg hver blok for sig. 
+            Midter blocken beskriver jeg først. Det nemmeste er at beskrive det i Z domæne fra start af. 
+            I bogen har de udledt det for et DF II system: 
+            \[Y(z) = H_1(z)H_2(z)X(z) = H_1(z)W(z)\]
+            \[W(z) = H_2(z)X(z) = \frac{1}{1 - \sum_{k = 1}^{N}{a_kz^{-k}}}X(z)\]
+            \[Y(z) = \sum_{k = 0}^{M}{b_kz^{-k}W(z)}\]
+            W(z) er konstant i sidste sum og da summer af brøkker af samme nævner kan sættes sammen til en brøk, så får jeg transformationen til at være: 
+            \[Y(z) = \frac{\sum_{k = 0}^{M}{b_kz^{-k}}}{1 - \sum_{k = 1}^{N}{a_kz^{-k}}}X(z)\]
+            Ser jeg på konstanterne, så har jeg at 
+            \[Y_2(z) = \filterZto{1, 1, 4}{1, 2/9, -1/3}X(z)\]    
+            Så til ydersiderne. 
+            \[y_1 = x[n] - x[n - 1] + 0.5x[n - 2] \transformation{Z} Y_1(z) = X_1(z) * (1 - z^{-1} + 0.5z^{-2})\]
+            \[y_3 = x[n] + 1/4y[n - 1] + 3/8y[n - 2] \transformation{Z} Y_3(z)*(1 - 1/4z^{-1} - 3/8z^{-2}) = X_3(z)\]
+            \[H(z) = H_1(z)H_2(z)H_3(z)\]
+            og 
+            \[Y(z) = H(z)X(z)\]
+            \[Y(z) = \frac{(1 - z^{-1} + 0.5z^{-2})}{1}\filterZto{1, 1, 4}{1, 2/9, -1/3}\frac{1}{1 - 1/4z^{-1} - 3/8z^{-2}}X(z)\]
+            Så kan jeg se, at jeg på en måde stadigvæk kan beskrive DF I systemet, ud fra den kun med nulpunkter og den kun med poler. Da det bare er multiplikation, så er rækkefølgen ligegyldig.
+            \[Y(z) = \frac{1 - z^{-1} + 0.5z^{-2}}{1 - 1/4z^{-1} - 3/8z^{-2}}\filterZto{1, 1, 4}{1, 2/9, -1/3}X(z)\] 
+            Mere simplificere jeg det ikke her. Jeg fyrer det ind i python og så lader jeg den beskrive det for mig.
+            Jeg får at: 
+            \[Y(z) = \filterZto{1, 0, 7/2, -7/2, 2}{1, -0.278, -0.764, 0, 1/8}X(z)\]
+            Derfra har jeg så at
+            \[Y(z)*(1 - 0.278z^{-1} - 0.764z^{-2} + 1/8z^{-4}) = X(z)*(1 + 7/2z^{-2} - 7/2z^(-3) + 2z^{-4})\] 
+            \[y[n] - 0.278y[n - 1] - 0.764y[n - 2] + 1/8y[n - 4] = x[n] + 7/2*(x[n - 2] - x[n - 3]) + 2x[n - 4]\]
+            \[=================================================\]
+            \[y[n] = x[n] + 7/2*(x[n - 2] - x[n - 3]) + 2x[n - 4] + 0.278y[n - 1] + 0.764y[n - 2] - 1/8y[n - 4]\]
+            \[=================================================\]
+            Her har jeg beskrevet systemet ikke kun som et FIR system men også med feedback, så på den måde er den bedre beskrevet end før.
+            Jeg har intet svar så jeg må gå ud fra, at det er en okay repræsentation af systemet.
+        \end{Opgave}
+    \end{kapitel}
+    \begin{kapitel}[Design of FIR filters]
+        \begin{Opgave}[Opgave 10.1 - Filter krav]
+            \begin{UnderOpgave}[Givet \text{$\delta_p = 0.01, \delta_s = 0.0001$}, hvad er Ap, As, \text{$\epsilon$} og A]
+                Ap er forskellen i værdierne i passbåndet, og er givet ved 
+                \[A_p = A+\delta_p - (A - \delta_p) = 2\delta_p = 0.02\]
+                As er givet som afstanden mellem maks værdien i passbåndet og maks værdien i stop båndet. 
+                \[A_s = A + \delta_p - \delta_s = A + 0.0099\] 
+                For analog filter gælder der, at 
+                \[\delta_s = 1/A, \tab{0} A = 1/delta_s = 10000\]
+                \[A_s = 10000 + 0.0099 \approx 10000\]
+                og for analog filtre gælder der også at
+                \[A = 1/\sqrt{1 + \epsilon^2}\]
+                \[1 + \epsilon^2 = (1/A)^2\]
+                \[\epsilon = \sqrt{(1/A)^2 - 1}\]
+                \[\epsilon = \sqrt{10^{-4*2} - 1}\]
+                \[\epsilon \approx \sqrt{-1} = j\]
+            \end{UnderOpgave} 
+            \begin{UnderOpgave}[Givet \text{$\epsilon = 0.25, A = 200$} determine de relative specifikationer Ap, As og de absolutte specifikationer \text{$\delta_p, \delta_s$}]
+                Jeg fandt ud af, at jeg regnede forkert ud fra de analoge specifiktationer. 
+                Formlen er lige med følgende, ikke A
+                \[1 - \delta_p = 1/\sqrt{1 + (\epsilon)^2} = 1/\sqrt{1 + (1/4)^2} = (\frac{17}{16})^{-1/2}\]
+                \[1 - (\frac{17}{16})^{-1/2} = \delta_p \approx 0.03 \]
+                \[A_p = 2 * \delta_p = 0.06\]
+                \[A_s = 1 - 1/A  = 0.995\]
+                Så til næste sammenhæng: 
+                \[1/A = \delta_s = 0.005\]
+                Og så har jeg alle værdierne som 
+                \[======\]
+                \[A_p = 0.06\]
+                \[A_s = 0.995\]
+                \[\delta_s = 0.005\]
+                \[\delta_p \approx 0.03\]
+                \[======\]
+            \end{UnderOpgave}   
+        \end{Opgave}       
+        \begin{Opgave}[Opgave 10.4 - Frekvens response mod frekvenssamplings ækvivalente]  
+            For et FIR filter med impuls responsen: 
+            \[H[n] = u[n] - u[n - 4]\]
+            Sammenlign de praktiske værdier med dens ideele...\\
+            Plots gør jeg I par. 
+            \begin{UnderOpgave}[Beregn og plot magnitude responsen]
+                Med fft beregner jeg dens spektrum. 
+            \end{UnderOpgave}
             
 
 
+            \begin{UnderOpgave}[Beregn og plot amplitude responsen og sammenlign med magnituden]
+                Det er en rektangulær funktion forskudt i tiden, så det påvirker amplituderne i frekvensplottet.
+                Den vil blive til en sinc funktion i frekvens spektret.
+                \[A_0*rect[n/N] = \left\{ \begin{array}{ll} A_0, & |n|\geq N/2 \\ 0, & |n|>N/2\end{array}\right.\]
+                \[N = 4\]
+                Jeg skal så lige have rykket grænserne så at
+                \[|n - n_0|<2\] 
+                Gælder for $0\geq n < 4$. 
+                \[|4 - n_0|\geq 2, \tab{0} n_0 = 2\]
+                \[|0 - 2| \geq 2\]
+                
+                \[A_0*rect[\frac{n - 2}{4}] \transformation{F} A_0 \frac{sin(\omega * (N/2 + 1/2))}{sin(\omega/2)} * e^{-j\omega * 2}\] 
+                \[H_id(e^{j\omega}) = \frac{sin(\omega * 5/2)}{sin(\omega/2)} * e^{-2j\omega}\]
+                Nu har jeg den idéele funktion, så den vil jeg bruge til at sammenligne med den fast fourier transformerede. Både for magnituderne og for faserne.
+            \end{UnderOpgave}
+            \fignioghalvfjerds{0.55}\\
+            Så ses der er filteret flader ud ved fft transformationen og for samme transformation, så er faserne også forsinkede.
+
+        \end{Opgave}       
+        \begin{Opgave}[Opgave 10.10]     
+            Design a highpass FIR filter to satisfy the specifications 
+            \[\omega_s = 0.3\pi, A_s = 50dB, \omega_p = 0.05\pi, A_p = 0.001dB\]
+            \begin{UnderOpgave}[Use an appropriate fixed window to obtain a minimum length linear phase filter]
+                Provide a plot similar to figure 10.12\\
+
+                Så her skal jeg vælge et vindue som opfylder kriterierne først. 
+                \[A_s = 50dB\]
+                Og det kan Hamming og Blackman gøre. 
+                Blackman attenuere signalet bedst men kræver flere samples.
+                Hamming bliver det. 
+                \[\Delta \omega = 6.6\pi / L \] 
+                For hamming. 
+                \[0.3 * \pi - 0.05 \pi = 6.6 \pi / (M + 1)\]
+                \[0.25M + 0.25 = 6.6\]
+                \[0.25M = 6.35 \]
+                \[M = 25.4\]
+                Er kravet. Det er ikke et helttal, og det har jeg brug for at det er. 
+                Hvis jeg runder op, så vil det betyde, at transitionsbåndet vil blive mindre. Kravet er da bedre end ønsket
+                Runder jeg ned så betyder det transitionsbåndet bliver breddere end ønsket.   Kravet vil da ikke være opfyldt.
+                Så derfor bliver jeg nødt til at runde op. 
+                \[M = 26\]
+                For at sikre en linear fase, så skal jeg lave frekvens responsen til en som har linear fase.
+                Det gør jeg ved at sikre symmetri. 
+                En sinc funktion er symmetrisk. Den i frekvens domænet vil være en firkant. Perfekt til pass filtre.  
+                
+
+
+
+
+
+
+
+            \end{UnderOpgave}
+        \end{Opgave}       
+        \begin{Opgave}[Opgave 10.10 - (Nyt forsøg)]     
+            Design a highpass FIR filter to satisfy the specifications 
+            \[\omega_s = 0.3\pi, A_s = 50dB, \omega_p = 0.05\pi, A_p = 0.001dB\]
+            \begin{UnderOpgave}[Use an appropriate fixed window to obtain a minimum length linear phase filter]
+                Provide a plot similar to figure 10.12\\
+                Jeg forstod ikke helt design kravene til det fulde tror jeg. Jeg har fået et ønske om et highpass filter, 
+                men jeg har fået frekvenser som var det et lavpass filter.\\
+                \color{teal}Strategi : \\
+                Jeg vil designe den som en lavpass filter, modulere den med cos til pi og så køre et vindue på den. 
+                \color{black}
+                For at designe lavpass filtret, så bruger jeg discrete tid transformationsparet. 
+                \[X(\omega)\,=\,\left\{\begin{array}{l l}{{1,}}&{{0\,\le\,|\omega|\,\le\,W}}\\ {{0,}}&{{W<|\omega|\,\le\,\pi}}\end{array}\right. \transformation{F^{-1}} \frac{\sin Wn}{\pi n}\]
+                \[W = 2 \omega_p = 0.1\pi\]
+                Jeg skal så have den frekvens forskudt med pi. 
+                \[e^{j*\pi * n}x[n] \transformation{Z} X(e^{j(\omega - \pi)})\]
+                Tror faktisk at det er rigeligt, fordi kun halvdelen af filtret er i enden, den anden halvdel gentager sig i starten. 
+                
+                Så nu ved jeg rent faktisk, hvordan jeg skal lave min sinc function. 
+                Så tilbage til min gamle konklusion om vindue, antallet af samples og krav til lineær fase.
+                \[A_s = 50dB\]
+                Og det kan Hamming og Blackman gøre. 
+                Blackman attenuere signalet bedst men kræver flere samples.
+                Hamming bliver det. 
+                \[\Delta \omega = 6.6\pi / L \] 
+                For hamming. 
+                \[0.3 * \pi - 0.05 \pi = 6.6 \pi / (M + 1)\]
+                \[0.25M + 0.25 = 6.6\]
+                \[0.25M = 6.35 \]
+                \[M = 25.4\]
+                Er kravet. Det er ikke et helttal, og det har jeg brug for at det er. 
+                Hvis jeg runder op, så vil det betyde, at transitionsbåndet vil blive mindre. Kravet er da bedre end ønsket
+                Runder jeg ned så betyder det transitionsbåndet bliver breddere end ønsket.   Kravet vil da ikke være opfyldt.
+                Så derfor bliver jeg nødt til at runde op. 
+                \[M = 26\]
+                For at sikre en linear fase, så skal jeg lave frekvens responsen til en som har linear fase.
+                Det gør jeg ved at sikre symmetri. 
+                \[x[n] = e^{j\pi*n}\frac{sin(W*n)}{\pi n}, \tab{0} n = 0, ... 26\]
+                Jeg plotter den i en sammenligning med den ideele højpass
+                \figfirs{0.4}
+                \figenogfirs{0.4}
+
+
+
+
+            \end{UnderOpgave}
         \end{Opgave}
-        \begin{Opgave}[Opgave 9.29]
-            
+        \begin{Opgave}[Opgave 10.10 - (Nyt nyt forsøg)]     
+            Design a highpass FIR filter to satisfy the specifications 
+            \[\omega_s = 0.3\pi, A_s = 50dB, \omega_p = 0.05\pi, A_p = 0.001dB\]
+            \begin{UnderOpgave}[Use an appropriate fixed window to obtain a minimum length linear phase filter]
+                Provide a plot similar to figure 10.12\\
+                Det lykkedes mig ikke at lave filteren rigtig i forhold til numpy. Nu forstår jeg det lidt bedre, så jeg prøver på ny. 
+                Strategien er den samme.
+                \color{teal}Strategi : \\
+                Jeg vil designe den som en lavpass filter, frekvens forskyd den med pi, og så køre et vindue på den. 
+                \color{black}
+                For at designe lavpass filtret, så bruger jeg discrete tid transformationsparet. 
+                \[X(\omega)\,=\,\left\{\begin{array}{l l}{{1,}}&{{0\,\le\,|\omega|\,\le\,W}}\\ {{0,}}&{{W<|\omega|\,\le\,\pi}}\end{array}\right. \transformation{F^({-1})} \frac{\sin Wn}{\pi n}\]
+                \[W = 2 \omega_p = 0.1\pi\]
+                Jeg skal så have den frekvens forskudt med pi. 
+                \[e^{j*\pi * n}x[n] \transformation{Z} X(e^{j(\omega - \pi)})\]
+                Tror faktisk at det er rigeligt, fordi kun halvdelen af filtret er i enden, den anden halvdel gentager sig i starten. 
+                
+                Så nu ved jeg rent faktisk, hvordan jeg skal lave min sinc function. 
+                Så tilbage til min gamle konklusion om vindue, antallet af samples og krav til lineær fase.
+                \[A_s = 50dB\]
+                Og det kan Hamming og Blackman gøre. 
+                Blackman attenuere signalet bedst men kræver flere samples.
+                Hamming bliver det. 
+                \[\Delta \omega = 6.6\pi / L \] 
+                For hamming. 
+                \[0.3 * \pi - 0.05 \pi = 6.6 \pi / (M + 1)\]
+                \[0.25M + 0.25 = 6.6\]
+                \[0.25M = 6.35 \]
+                \[M = 25.4\]
+                Er kravet. Det er ikke et helttal, og det har jeg brug for at det er. 
+                Hvis jeg runder op, så vil det betyde, at transitionsbåndet vil blive mindre. Kravet er da bedre end ønsket
+                Runder jeg ned så betyder det transitionsbåndet bliver breddere end ønsket.   Kravet vil da ikke være opfyldt.
+                Så derfor bliver jeg nødt til at runde op. 
+                \[M = 26\]
+                For at sikre en linear fase, så skal jeg lave frekvens responsen til en som har linear fase.
+                Det gør jeg ved at sikre symmetri. 
+                \[x[n] = e^{j\pi*n}\frac{\sin Wn}{\pi n}, \tab{0} n = 0, ... 26\]
+                Jeg plotter den i en sammenligning med den ideele højpass
+                \figtoogfirs{0.4}
+                \figtreogfirs{0.4}
+                På grund af de det lave antal samples, så har det medført, at toppen er blevet fladet ud i vindue processen. 
+                Den har dæmpet stopbåndet meget, men ja det kostede på passbåndet. 
+                Her kan jeg gå to veje. \\
+                1. Filteret rammer $w_p$ i 0.03 pi ca. Jeg kunne lave filteret snævre får så at bredde spektret lidt. 
+                Den metode vil gøre designet mere praktisk og behøves ikke flere samples. 
+                2. Forhøje antallet af samples. Jo flere samples, jo tættere kommer filterets frekvensspektrum mod en rectangle med kanter i wp. \\
+                Jeg har et rimeligt stort gab for i transitions båndet, så jeg behøves ikke nødvendigvis flere samples.
+                Jeg har i stedet for designet for en $w_p = 0.15\pi$
+                \figfireogfirs{0.4}
+                Fejlen ses betydeligt mindre med det design.
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Brug en førlavet funktion]
+                Jeg har brugt scipy.signal.firwin til at lave: 
+                \figfemogfirs{0.4}\\
+                Den skal tages med et gran salt. Det er ikke lige så nemt at vise den analytisk.
+                Den bruger antallet af samples som resolution og ikke andet.\\
+                Nu har jeg brugt langt tid på at finde ud af hvordan jeg selv kunne lave den og ikke meget tid på den her. 
+                Måske er den bedre til at designe det, men lige nu, så vil jeg bruge min. 
+                Matlabs funktioner er egentlig relativ nem: \\
+                \figseksogfirs{0.4}
+                Og den opfylder kravene meget godt. 
+                Den beregner det lidt på en anden måde som det ses i intervallet. Derudover så har jeg også fundet ud at forøge dens resolution, det har jeg ikke for scipys.\\
+            \end{UnderOpgave}
+            Jeg har i den her opgave vist forstærkningen bare. Det gjorde jeg bare for at se om det hele virkede. Næste skridt vil så være, at se det i dB. \\
+            For lige nu har jeg ikke set om kravene er opfyldt. Men nok om den opgave for nu 
         \end{Opgave}
+        \begin{Opgave}[Opgave 10.11 - Consider an ideal lowpass filter with cutoff frequency \text{$w_c = \pi/2$}]
+            \begin{UnderOpgave}[Using L = 20 samples around the unit circle, compute the resulting impulse response hn using the rectangular window.]
+                Compute and plot the magnitude response over $0 \leq \omega \leq 2\pi$ and show the frequency samples on the magnitude response plot. 
+                Så det er altså en opgave om frequency sampling. 
+                Der er forskellige formler for Type I, type II og Type III, type IV. Jeg har konstrueret det før for type II. 
+                Med min opsætning får jeg at hn har lige symmetri, og $M = L - 1 = 19$ som er ulige. Så her er også tale om et type II filter. \\
+
+                Metoden: 
+                Trin 1: Placer ønskede amplituder til deres respektative frekvens.
+                \begin{verbatim}
+                    L = 20
+                    alpha = np.int64(L/2)
+                    w_k = np.linspace(0, np.pi, alpha)
+                    Ad = np.zeros(alpha)                    # Frequency values
+                    idxlp = np.where(w_k <= np.pi/2)        # Lp indices 
+                    Ad[idxlp] = 1
+                    Ad = np.hstack([Ad, 0, Ad[::-1][:9]])   # -pi : 0 == pi : 2pi
+                \end{verbatim}
+                Hvor jeg laver et lavpass filter med symmetri i n = 0. Den sidste halvdel af Ad er det nederste interval $[-\pi: 0]$. \\
+                
+                Trin 2: Opskriv faseren som sikre at amplituden passer til dens frekvens. 
+                \begin{verbatim}
+                    Q = np.int64(floor((L - 1)/2))
+                    C = 2*np.pi/L 
+                    kid = np.hstack([np.arange(Q + 1), 
+                                     np.arange(-(Q + 1), 0, 1)]) # Index manipulation for k
+                    # k = 0, ...Q; -(L - k) = -20 + 10, ... -20 + 19 
+                    psidk = - Q * C * kid                        # q = 0 (type I, type II)
+                    H_oensket = Ad * np.exp(1j*psidk)
+                \end{verbatim}
+                Trin 3: Inverse fourier transform. \\
+                Få impuls responsen. 
+
+                Trin 4: Brug vindue til at koncentrere energi. \\
+                Her er valget så bare stødt på et rektangulær vindue, som efterlader alle responser uændret. \\
+                Så det er som havde der ingenting sket, men det kan godt være, at det har nogle fysiske egenskaber. \\
+
+                Trin 5: Fourier transform
+                Her fourier transformere man så det nye forbedrede filter. Da den ikke er blevet forbedret, 
+                så er den lige med hvad den var inden transformationen. 
+                Det er til gengæld i den her process, at jeg analytisk kan oppe resolutionen i spektret ved at padde. \\
+                Mit resultat
+                \figethundredeogseks{0.32}
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Brug L = 400 og sammenlign med tidligere resultater]
+                \figethundredeogsyv{0.35}
+                Der ses tydeligt, at frekvensspektret konvergerer mod dens reelle værdi. 
+                Der ses også hvad jeg har sat af krav for frekvens sampling. 
+                Jeg har ønsket at frekvens samplingen skulle kunne beskrives symmetrisk, og det har betydet, at for L = 20 er der store skridt pr sample, 
+                så mit passbånd starter først sent nær 2 pi. 
+                Med mange samples betyder det ikke meget om jeg vælger frekvensen før eller efter, de er alle sammen tæt på hinanden. 
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Gengiv opgave b, men med hamming som vindue]
+                \figethundredeogotte{0.6}
+                Her har vinduen fået lov til at koncentrere energien om de frekvenser der er vigtige.
+                Der ses at hvor der før var et oversving ved transitionen, så er den nu næsten ideel. 
+            \end{UnderOpgave}
+        \end{Opgave}
+        \begin{Opgave}[Opgave 10.13 - Chebyshev polynomials]
+            \begin{UnderOpgave}[Using the trigonometric identity cos(A + B) = cos(A)cos(B) - sin(A)sin(B) show that]
+                \[cos[(n + 1)\omega] = 2cos(\omega)cos(n\omega) - cos[(n - 1)\omega], n \geq 1 \]
+                \[cos(n\omega + \omega) = cos(n\omega)cos(\omega) - sin(n\omega)(-1sin(-\omega))\]
+                \[cos(n\omega + \omega) = cos(n\omega)cos(\omega) + sin(n\omega)(sin(-\omega))\]
+                Så bruger jeg identiteten og ser hvad sin kan beskrives som
+                \[sin(n\omega)(sin(-\omega)) = cos(n\omega)cos(-\omega) - cos[(n - 1)\omega]\]
+                Substitutere
+                \[cos(n\omega + \omega) = cos(n\omega)cos(\omega) + (cos(n\omega)cos(-\omega) - cos[(n - 1)\omega])\]
+                cos er den samme til en positive frekvens som til en negativ frekvens.
+                \[cos(n\omega + \omega) = cos(n\omega)cos(\omega) + (cos(n\omega)cos(\omega) - cos[(n - 1)\omega])\]
+                \[cos(n\omega + \omega) = 2cos(n\omega)cos(\omega) - cos[(n - 1)\omega]\]
+                Og så har jeg udledt den. 3
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Use the formula in (a) to derive the following recursive formula]
+                \[T_{n + 1} = 2xT_n(x) - T_{n - 1}(x), n\geq 1\]
+                \[cos(n\omega + \omega) = 2cos(n\omega)cos(\omega) - cos[(n - 1)\omega]\]
+                Jeg sætter $T_n(x) = cos(n\omega)$, hvor $x = cos(\omega)$
+                Substituere for dens udtryk. 
+                \[T_{n + 1} = 2xT_n(x) - T_{n - 1}(x), n\geq 1\]
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Use the recursion in (b) to derive the first five Chebyshev polynomials.]
+                \[T_{2} = 2xT_n(x) - T_{n - 1}(x), n\geq 1\]
+                Scriptet \\
+                \begin{verbatim}
+                def chebyshev(self, n, w, Tn): \\
+                    if n < 1 : return 1 \\
+                    poly = 2*cos(w)*self.chebyshev(n-1, w, Tn) - self.chebyshev(n-2, w, Tn)\\
+                    if n > len(Tn): \\
+                        Tn += [poly] \\
+                    return poly \\
+                \end{verbatim}
+                klarer mosten, sympy reducere så udtrykket med simplificeringer, derfor det mulighvis ser meget forenklet ud.\\
+                Det plejer at være rigtigt. 
+                De første værdier sagde chatten typisk sættes til: 
+                \[T_0(x) = 1\]
+                \[T_1(x) = cos(\omega)\]\\
+                \[T_{2}{\left(x \right)} = \cos{\left(2 \omega \right)}\]
+                \[T_{3}{\left(x \right)} = \cos{\left(3 \omega \right)}\]
+                \[T_{4}{\left(x \right)} = 8 \cos^{4}{\left(\omega \right)} - 8 \cos^{2}{\left(\omega \right)} + 1\]
+                \[T_{5}{\left(x \right)} = \left(16 \cos^{4}{\left(\omega \right)} - 20 \cos^{2}{\left(\omega \right)} + 5\right) \cos{\left(\omega \right)}\]
+                \[T_{6}{\left(x \right)} = 32 \cos^{6}{\left(\omega \right)} - 48 \cos^{4}{\left(\omega \right)} + 18 \cos^{2}{\left(\omega \right)} - 1\]
+            \end{UnderOpgave}
+            Jeg troede faktisk, at jeg ville lære at bruge chebyshev her. Det gjorde jeg så ikke. \\
+            Men altså Henrik valgte ikke selv en opgave med den, så måske er det ikke så vigtigt igen. 
+
+        \end{Opgave}
+        \begin{Opgave}[Opgave 10.14 - Fejl estimering]
+            Consider the polynomial $f(x) = 1—2x+4x^2 2x^3$. 
+            We want to approximate it using a second-order polynomial 
+            \[P_2(x) = a_0 +a_1x+a_2x^2\]
+            so that the error 
+            \[e(x) \colon f(x) — P_2(x)\]
+            is equiripple over $0\leq x \leq 1$.
+            \begin{UnderOpgave}[Choose an initial set of m + 2 = 4 nodes \text{$\left[\zeta_{k}\right]_{k=0}^{3}$} as 0, 1/3, 2/3, and 1, ...]
+                and solve for coefficients $[a_l]_{l = 0}^2$ and $\delta$ using (10.110). 
+                Graph f(x), the resulting P2(x), and e(x) in one plot.\\
+                Formel 10.100: 
+                \[e(\zeta_{k})=f(\zeta_{k})-P_{m}(\zeta_{k})=(-1)^{k}\delta,\quad k=0,1 m+1\]
+                Equiripple: "Alternating maxima and minima all have the same amplitude". 
+                Af hvad jeg forstår det, så lægger der ikke implicit, at det er et stop- eller passbånd.\\
+                Det fortæller hellere ikke om der i intervallet sker en transition fra stopbånd til passbånd, eller omvendt.\\
+                Det den fortæller mig om er, at i det her interval, så kan jeg beskrive mit filter ud fra $\text{ideel filter} \pm \delta$. 
+                Så det er bare fejlen i det her interval. \\
+                Det her er først og fremmest et lineært system af ligninger som skal løses for. 
+                \[P = [a_0, a_1, a_2, a_3],\]
+                \[f = [1, -2, 4, -2]\]
+                Og
+                \[x = 
+                \begin{vmatrix}
+                    x^0 \\
+                    x^1 \\
+                    x^2 \\
+                    x^3 
+                \end{vmatrix}\]
+                Så 
+                \[e_x = f.x - P.x\]
+                For alle værdierne. 
+                \[x = 
+                \begin{vmatrix}
+                    x_0^0 & x_1^0 & x_2^0 & x_3^0 \\
+                    x_0^1 & x_1^1 & x_2^1 & x_3^1 \\
+                    x_0^2 & x_1^2 & x_2^2 & x_3^2 \\
+                    x_0^3 & x_1^3 & x_2^3 & x_3^3
+                \end{vmatrix}\]
+                For ved række søjleproduker vil jeg få. 
+                \[P.x = 
+                \begin{vmatrix}
+                    a_0x_0^0 + a_1x_0^1 + a_2x_0^2 + a_3x_0^3 \\
+                    ...
+                    a_0x_3^0 + a_1x_3^1 + a_2x_3^2 + a_3x_3^3
+                \end{vmatrix}\]
+                Og hvis jeg gør det for både P.x og f.x så får jeg fejlen til de forskellige punkter ned ad rækkerne. Og dem har jeg allerede. 
+                \[{e_x}\vec{x} = \vec{f}.\vec{x} - \vec{P}.\vec{x}\]
+                \[\vec{P}.\vec{x} = \vec{f}.\vec{x} - {e_x}\vec{x}\]
+                Nevermind. Jeg kender ikke fejlen endnu, for jeg kender ikke ripplen. 
+                Jeg kommer også lige til at se at P kun tager 3x, og det giver jo mening, eftersom at jeg også skal løse for delta.
+                I en matrix vector multiplikation som løser: 
+                \[A.x = b\]
+                Så er koefficienterne hen ad rækkerne i A. 
+                og deres værdier er at finde i x. 
+                Det gør det lidt forvirrende, at min matrix også hedder X, så lad mig kalde den A i stedet for, så jeg følger konventionen. 
+                \[A = 
+                \begin{vmatrix}
+                    x_0^0 & x_1^0 & x_2^0 & (-1)^0 \\
+                    x_0^1 & x_1^1 & x_2^1 & (-1)^1 \\
+                    x_0^2 & x_1^2 & x_2^2 & (-1)^2 \\
+                    x_0^3 & x_1^3 & x_2^3 & (-1)^3
+                \end{vmatrix}\]
+                \[x = 
+                \begin{vmatrix}
+                    a_0 \\
+                    a_1 \\
+                    a_2 \\
+                    \delta 
+                \end{vmatrix}\]
+                og 
+                \[b = 
+                \begin{vmatrix}
+                    f(x_1) \\
+                    f(x_2) \\
+                    f(x_3) \\
+                    f(x_4) 
+                \end{vmatrix}\]
+                Jeg løser for systemet og får at 
+                \[a_0 \approx 3, \tab{0} a_1 = -5.5, \tab{0} a_2 = 3.6, \tab{0} \delta \approx -0.137\]
+                \figethundredeogni{0.7}
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Vælg 4 punkter og gentag a og plot, indtil at equiripple er fundet i det fulde interval]
+                Fejlene er store i intervallet $0 \leq x \leq 0.6$ og størst omkring 0. 
+                Jeg vælger 
+                \[x = [0.1, 0,2, 0.3, 0.5]\]
+                
+            \end{UnderOpgave}
+        \end{Opgave}
+        \begin{Opgave}[Opgave 10.25 - Hann vinduet bedre forstået]
+            \[w[n]=[0.5-0.5\cos(2\pi n/M)]w_{\mathrm{R}}[n].\]     
+            $w_R[n]$ er rektangel funktionen
+            \begin{UnderOpgave}[Express the DTFT of w in terms of the DTFT of wR]
+                Så mig prøve at beskrive det. 
+                Det er en modulering og derfor. 
+                \[x[n]y[n] = \int_{2\pi}{X(e^{j\theta}) Y(e^{j (\omega - \theta)})}\]
+                Så det er egentlig bare convolution. 
+                For xn delen her, så vil jeg bare have 3 impulser, så regnestykket kan beskrives som en simpel sum. 
+                Mine beregninger tager et spektrum in mente. Men selvfølgelig gentager det sig for hver 2 pi. 
+                \[x[n] \transformation{F} 0.5 * 2\pi * \delta(\omega) - 0.5 * \pi * (\delta(\omega - 2\pi/M) + \delta(\omega + 2\pi/M))\]
+                Og for convolution med impulser, så bliver spektret bare flyttet til den frekvens.
+                \[W(e^{j\omega}) = \frac{1}{2\pi} * (\pi W_R(e^{j\omega}) - 0.5 * \pi * (W_R(e^{j(\omega - 2\pi/M)}) + W_R(e^{j(\omega + 2\pi/M)})))\]
+                \[W(e^{j\omega}) = 0.5W_R(e^{j\omega}) - 1/4 * (W_R(e^{j(\omega - 2\pi/M)}) + W_R(e^{j(\omega + 2\pi/M)}))\]                
+            \end{UnderOpgave}
+            \begin{UnderOpgave}[Explain why the Hann window has the wider mainlobe but lower sidelobes than the rectangular window of the same length]
+                Ud fra hvordan den er lavet, som jeg lige har vist, så har siderne en faktor 1/2 til midterspektret. Det kan så være at sidespektrene bliver lige så store som midterspektret, pga. manglende resolution i samplingen. 
+                Her vil det være for M = 2, hvor: 
+                \[W(e^{j\omega}) = 0.5W_R(e^{j\omega}) - 1/4 * (W_R(e^{j(\omega - \pi)}) + W_R(e^{j(\omega + \pi)}))\]                
+                Og pga. gentagelserne i spektrene. 
+                \[W(e^{j\omega}) = 0.5W_R(e^{j\omega}) - 2/4 * (W_R(e^{j(\omega - \pi)}))\]                
+                Men udover for det enkelte special tilfælde, så vil midterspektret være større end sidespektrene. 
+            \end{UnderOpgave}
+        \end{Opgave}       
     \end{kapitel}
 \end{Opgaver}

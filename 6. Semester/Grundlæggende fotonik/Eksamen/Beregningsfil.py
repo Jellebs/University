@@ -38,8 +38,10 @@ class Simulering():
         plt.yscale('log')
         plt.show()
     
+    
     def __init__(self):
         self.refraktativIndeksPlot()
+    
 
 Simulering()
         

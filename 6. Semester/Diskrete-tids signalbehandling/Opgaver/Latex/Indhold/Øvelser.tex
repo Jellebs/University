@@ -1,4 +1,3 @@
-
 \begin{Øvelser}
     \begin{kapitel}[Introduktion]
         \begin{Øvelse}[Blokdiagrammer]
@@ -193,4 +192,123 @@
             Dens poler befinder sig på den reele akse og inden for enhedscirklen
         \end{Øvelse}
     \end{kapitel}
+    \begin{kapitel}[Sampling]
+    \end{kapitel}
+    \begin{kapitel}[The Discrete Fourier transform]
+    \end{kapitel}
+    \begin{kapitel}[Computation of the discrete fourier transform]
+    \end{kapitel}
+    \begin{kapitel}[Structures for discrete time filters.]
+    \end{kapitel}
+    \begin{kapitel}[Design of FIR filters]
+        \begin{Øvelse}[Eksempel 10.4 - Vindue design ud fra et kaiser vindue] 
+            Et kaiser vindue er lidt anderledes end hvad jeg er vant til. Normalt vælger jeg bare det vindue som opnår succes kriterierne,
+            men kaiser vinduerne er en meget generelt måde at designe vinduer på.\\
+            Den her øvelse vil tage udgangspunkt i eksempel 10.4, men jeg vil reproducere det med ændrede parametre. 
+            \[\delta = 0.005, A = 50dB\]
+            Til de ellers førsatte parametre 
+            \[\omega_{s_1} = 0.2\pi, \omega_{p_1} = 0.3\pi, \omega_{p_2} = 0.7\pi, \omega_{s_2} = 0.78\pi\]
+            \[A_{s_dB}= 50dB \Rightarrow A_s \approx 0.003\]
+            Delta faktoren skulle være en fælles ripple, men for at filteret opnår -50dB i stopbåndet, så skal dens ripple være mindre.
+            Til at designe for vinduets symboler så har jeg formel 10.84 og 10.85
+            \[\beta=\left\{\begin{array}{l l}{{0,}}&{{A<21}}\\ {{0.5842(A-21)^{0.4}+0.07886(A-21),}}&{{21\leq A\leq50}}\\ {{0.1102(A-8.7),}}&{{A>50}}\end{array}\right.\]
+            \[M=\frac{A-8}{2.285\Delta\omega}\]
+            
+            Jeg skal lige akkurat have 50 dB fald i stop båndet så derfor 
+            \[\beta = 0.5842 * (50 - 21)^0.4 + 0.07886*(50 - 21)\]
+            \[\beta \approx 4.5335\]
+            Til m har jeg brug for at finde bredden af transitionen. For at den opfylder alle transitioner, så burde den mindste transition være den der gælder. \\
+            \[\Delta \omega = \pi*(0.78 - 0.7)\]
+            \[M = \frac{50 - 8}{2.285 * 0.08\pi} \approx 73.13\]
+            For at den holder minimum resolutionen, så runder jeg op.
+            \[M = 74\]
+            Jeg har sammenlignet min opsætning lidt med bogens. 
+            \figsyvoghalvfems{0.65}\\
+            Jeg er nået til den konklusion, at han plotter fra n = 1, og jeg plotter fra n = 0 og det er forskellen. 
+            Jeg har lige prøvet at plotte med scipy også. 
+            \figotteoghalvfems{0.4}\\
+            Den er noget mere identisk til billedet i bogen end min. Så måske er der en fejl i formlerne eller måske er der afrundingsfejl...
+            Og derfor tror jeg hellere, at jeg vil bruge scipys, for det har de nok taget in mente.
+            Og her plotter jeg forskellen, og det betyder noget i frekvens spektret.
+            \fignioghalvfems{0.5}\\
+            Nånå nu har jeg testet metoderne.
+        \end{Øvelse}
+        \clearpage
+        \begin{Øvelse}[Eksempel 10.4 - (På ny) Vindue design ud fra et kaiser vindue]
+            I sidste forsøg prøvede jeg at finde ud af, hvad der var den rigtige metode til at beregne for kaiser vinduet. 
+            Jeg fandt ud af at scipys vindue metode er god til det. 
+            \[\delta = 0.005, A = 50dB\]
+            Til de ellers førsatte parametre 
+            \[\omega_{s_1} = 0.2\pi, \omega_{p_1} = 0.3\pi, \omega_{p_2} = 0.7\pi, \omega_{s_2} = 0.78\pi\]
+            \[A_{s_dB}= 50dB \Rightarrow A_s \approx 0.003\]
+            Delta faktoren skulle være en fælles ripple, men for at filteret opnår -50dB i stopbåndet, så skal dens ripple være mindre.
+            Til at designe for vinduets symboler så har jeg formel 10.84 og 10.85
+            \[\beta=\left\{\begin{array}{l l}{{0,}}&{{A<21}}\\ {{0.5842(A-21)^{0.4}+0.07886(A-21),}}&{{21\leq A\leq50}}\\ {{0.1102(A-8.7),}}&{{A>50}}\end{array}\right.\]
+            \[M=\frac{A-8}{2.285\Delta\omega}\]
+            Var hvad jeg brugte til at finde lave mit kaiser filter. 
+            \[\beta = 0.5842 * (50 - 21)^0.4 + 0.07886*(50 - 21)\]
+            \[\beta \approx 4.5335\]
+            \[\Delta \omega = \pi*(0.78 - 0.7)\]
+            \[M = \frac{50 - 8}{2.285 * 0.08\pi} \approx 73.13\]
+            For at den holder minimum resolutionen, så runder jeg op.
+            \[M = 74\]
+            Kaiser filteret der kom ud af det: 
+            \fighundrede{0.63}\\\\\\\\\\\\\\\\\\\\\\
+            Nu skal jeg så bare have lavet det om til et båndpass filter. 
+            Det er noget med at konvoluere filteret med et ideal båndpass design. 
+            \[w_{c_1} = -\pi(0.78 + 0.7)/2 = -0.74\pi\]
+            \[w_{c_2} = -\pi(0.3 + 0.2)/2 = -0.25\pi\]
+            \[w_{c_3} = \pi(0.3 + 0.2)/2 = 0.25\pi\]
+            \[w_{c_4} = \pi(0.78 + 0.7)/2 = 0.74\pi\]
+            Der vil være symmetri, så jeg kan bare designe for en af dem, og så modulere det. 
+            Bredden er 
+            \[B = -0.25 - (-0.74) = 0.49\]
+            For at følge den notation som mine bøger bruger, så siger jeg 
+            \[W = B/2 = 0.245\]
+            Så lad mig designe for et ideelt filter i med den længde. 
+            \[h_1[n] = sin(W n)/(\pi n) \transformation{F} 1, |\omega| \leq W\]
+            Så skal jeg have forskudt den. 
+            \[-0.74 - W = 0.495\]
+            \[\omega_0 = 0.495 \pi \]
+            \[h_2[n] = h_1 e^{-j\omega_0n}\]
+            \figethundredeogen{0.3}
+            \figethundredeogto{0.4}\\\\\\\\
+            Så er næste step en cos modulering... hov. Jeg ser da, at det enste jeg rent faktisk havde brug for var en cos modulering. 
+            For at undgå halveringen så bliver det en 2*cos modulering. Mit nye setup: 
+            \figethundredeogtre{0.3}
+            \figethundredeogfire{0.4}
+            Så har jeg lavet det næsten perfekte båndpass filter. Så vil jeg bruge kaiser vinduet sammen med den. 
+            I stedet for at jeg selv havde konstrueret det her selv, så havde jeg kunnet bruge: 
+            \begin{verbatim}
+                M = 74 
+                beta = 4.5335
+                h_4 = sig.firwin(M + 1,
+                                 [0.25, 0.74],
+                                 pass_zero=False,
+                                 window=('kaiser', beta))
+            \end{verbatim} 
+            Hvor den eneste grund til at jeg siger M + 1 er fordi at filteret ikke laver M + 1 længder, men kun M. 
+            Jeg har prøvet også bare at padde et 0 til sidst, men den her metode ligner min konstruktion mest. 
+            \figethundredeogfem{0.5}\\
+            Hvor min konstruktion er til venstre og scipys er til højre. 
+            Jeg ser dæmpningen er -50dB ved første sideloops: $\omega_s = [0.2\pi, 0.78\pi]$, hvad jeg gjort mig af øjemål. 
+            Så har jeg at passbåndet er fra $[0.275\pi : 0.7\pi]$. 
+            Så på den måde, er den bedre end de krav jeg blev stillet. 
+            Den analytiske måde at beskrive vinduet på er: 
+            \[h =  \frac{sin(W n)}{\pi n} * cos(0.495*\pi * n) * w_{kaiser}[n]\]
+        \end{Øvelse}\clearpage
+        
+        \begin{Øvelse}[Eksempel 10.5 - Frekvens sampling og overgange.]
+            Øvelsen viser hvad processen af frekvens sampling og tager brug af cos transition og vinduer til at hjælpe med attenueringen. 
+            Opsætningen så sådan ud: 
+            \figsyvoghalvfjerds{0.55}\\
+            Hvor den i transitionen havde 2 punkter lavet med cos transitions metoden. 
+            For vindue funktionen, så havde den en diskontinuitet i punktet. 
+            I frekvensplottet ses det så som, at sidetoppene falder løbende ved cos metoden, 
+            hvor vindue metoden hurtigere falder mod et konstant stopbånd.
+
+            \figotteoghalvfjerds{0.55}
+        \end{Øvelse}        
+    \end{kapitel}
+    
 \end{Øvelser}

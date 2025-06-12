@@ -1,10 +1,11 @@
-from Formelsamling.StudieHjaelp import Opgave
+from Formelsamling.StudieHjaelp import Opgave, Beregning
 from sympy import *
 from scipy.stats import * 
 from matplotlib import pyplot as plt
 import numpy as np
 from scipy import constants
 from decimal import Decimal # Videnskabelig notation
+import shutil 
 
 def vidskabNotation(tal):       # Videnskabelig notation 
     return '%.2E' % Decimal(tal)
@@ -244,4 +245,45 @@ class Opgave36_40(Opgave):
     ), 6))
     def __init__(self): 
         ""
-Opgave36_40()    
+
+class Opgave36_75(Opgave): 
+    tekst = "30 7.99 31 12.5 32 6.54 33 4.99 34 3.71 35 2.85 36 2.57 37 70.3 38 37.2 39 28.3 40 26.1 41 20.2 42 18.8 43 17.5 44 16.2 45 12.8 46 12.0 47 11.2 48 10.5 49 17.2 50 11.2 51 8.78 52 6.88 53 5.28 54 4.19 55 95.9 56 51.6 57 49.0 58 46.5 59 44.0"
+    tal = np.array(tekst.split())
+    arr = np.array(tekst.split(), dtype=float)
+    atomNumre = np.int64(arr[::2])  # index 0, 2, 4, ...       : slicing [start, stop, forøg med], [0, slut, 2]
+    atomVolume = arr[1::2]  # index 1, 3, 5, ...       : slicing [start, stop, forøg med], [1, slut, 2]
+    
+    def __init__(self):
+        fig, ax = plt.subplots()
+        ax.grid()
+        ax.set_ylabel(r"$V_a$")
+        ax.set_xlabel(r"$N_a$")
+        ax.plot(self.atomNumre, self.atomVolume, 'o')
+        plt.show()
+
+
+class Opgave37_40(Beregning): 
+    konstanter = {
+        "pi" : np.pi,
+    }
+    Evib = lambda n : (n + 1/2) * (symbols("h") / (2 * symbols("pi"))) * symbols("omega")
+    Erot = lambda l : ( ((symbols("h") / (2*symbols("pi")))**2) / (2 * symbols("In")) ) * ( l * (l + 1) )
+
+    eq1 = Eq(0.19653, Evib(1) - Evib(0) + Erot(1) - Erot(0)) 
+    eq2 = Eq(0.19546, Evib(0) - Evib(1) + Erot(2) - Erot(1))
+    
+    w = solve(eq1, symbols("omega"))[0]
+    eq2 = eq2.subs(symbols("omega"), w)
+    
+    In = solve(eq2, symbols("In"))[0]
+    w = w.subs(symbols("In"), In)
+    
+    resultat_In = Eq(symbols("In"), In) 
+    resultat_w = Eq(symbols("omega"), w)
+    
+    
+opg = Opgave37_40()
+
+
+
+
