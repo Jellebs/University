@@ -8,6 +8,7 @@
 % Counters 
 \newcounter{kapitel}
 \newcounter{alfabetTabular}
+\newcounter{eksamensOpgave}
 \renewcommand{\thealfabetTabular}{\alph{alfabetTabular}}
 
 % Kapitel Context 
@@ -29,6 +30,14 @@
     \subsection*{#1}
     \addcontentsline{toc}{subsection}{#1}
 }{}
+
+% Eksamensopgave context 
+\newenvironment{eksamensOpgave}[1][]{
+    \refstepcounter{eksamensOpgave} % Increment counter first
+    \subsection*{Opgave \theeksamensOpgave: #1}
+    \setcounter{alfabetTabular}{0}
+}{}
+
 
 
 % Indhold

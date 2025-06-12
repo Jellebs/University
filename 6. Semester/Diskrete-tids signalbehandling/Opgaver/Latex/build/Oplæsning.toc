@@ -13,4 +13,14 @@
 \contentsline {subsection}{Opgave 9.8 - System strukturer: Kaskade SOS i DF}{26}{section*.44}%
 \contentsline {subsection}{Opgave 9.12c - System struktur : Linær fase form}{27}{section*.45}%
 \contentsline {subsection}{Opgave 9.28}{27}{section*.46}%
-\contentsline {subsection}{Opgave 9.29}{30}{section*.49}%
+\contentsline {subsection}{Opgave 9.29 - Udledning af differens ligninger af to systemer}{30}{section*.49}%
+\contentsline {subsection}{Opgave 9.29 - (Ny ) Udledning af differens ligninger af to systemer}{33}{section*.50}%
+\contentsline {subsection}{Opgave 10.1 - Filter krav}{36}{section*.52}%
+\contentsline {subsection}{Opgave 10.4 - Frekvens response mod frekvenssamplings ækvivalente}{37}{section*.55}%
+\contentsline {subsection}{Opgave 10.10}{39}{section*.58}%
+\contentsline {subsection}{Opgave 10.10 - (Nyt forsøg)}{40}{section*.60}%
+\contentsline {subsection}{Opgave 10.10 - (Nyt nyt forsøg)}{41}{section*.62}%
+\contentsline {subsection}{Opgave 10.11 - Consider an ideal lowpass filter with cutoff frequency \text {$w_c = \pi /2$}}{46}{section*.65}%
+\contentsline {subsection}{Opgave 10.13 - Chebyshev polynomials}{49}{section*.69}%
+\contentsline {subsection}{Opgave 10.14 - Fejl estimering}{50}{section*.73}%
+\contentsline {subsection}{Opgave 10.25 - Hann vinduet bedre forstået}{52}{section*.76}%

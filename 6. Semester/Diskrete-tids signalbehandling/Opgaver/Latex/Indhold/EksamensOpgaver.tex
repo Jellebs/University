@@ -1,0 +1,920 @@
+\begin{rubrik}[Eksamenssæt 2021]
+    Strategi:
+        Signaler og systemer egenskaber skal beskrives hvis de bruges.
+        Ellers så skal der bare regnes igennem
+    \begin{eksamensOpgave}[Antag, at et LTI system har impulsresponset]
+        \[h[n] = [4, -5], \tab{0} n = 0, 1\]
+        Der sendes et signal 
+        \[x[n] = [1, 3, 2], \tab{0} n = 0, 1, 2\]
+        igennem LTI systemet. Som sædvanligt angiver pilen n = 0.
+        \begin{UnderOpgave}[Beregn \text{$y[n] = x[n] \star h[n]$} med "papir og blyant, hvis mellemregninger]
+            \[y[n] = x[n] \star h[n] = \sum_{k = - \infty}^{\infty}{x[k]h[n - k]}\]
+            \[\begin{vmatrix}% {c|c|ccccc}
+                n        & -2 & -1 & 0   & 1   & 2   & 3 \\
+                h[n]     &  0 &  0 & 4   & 5   & 0   & 0 \\
+                x[n]     &  0 &  0 & 1   & 3   & 2   & 0 \\
+                \hline
+                h[k - 0] &  0 &  5 & 4   & 0   & 0   & 0 \\
+                h[k - 1] &  0 &  0 & 5   & 4   & 0   & 0 \\
+                h[k - 2] &  0 &  0 & 0   & 5   & 4   & 0 \\
+                h[k - 3] &  0 &  0 & 0   & 0   & 5   & 4 \\
+                h[k - 4] &  0 &  0 & 0   & 0   & 0   & 5 \\
+                \hline
+                y[0]     &  0 &  0 & 4*1 & 0   & 0   & 0 \\
+                y[1]     &  0 &  0 & 5*1 & 3*4 & 0   & 0 \\  
+                y[2]     &  0 &  0 & 0   & 5*3 & 4*2 & 0 \\
+                y[3]     &  0 &  0 & 0   & 0   & 5*2 & 0 \\
+                y[4]     &  0 &  0 & 0   & 0   & 0   & 0 \\
+            \end{vmatrix}\]
+            \[y[n] = [4, 17, 23, 10], \tab{0} n = 0, ... 3\]
+            Det kunne jeg have løst noget hurtigere, men der er den. 
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Et andet signal er givet ved \text{$x_2[n] = 3x[n]$}]
+            Hvordan er $h[n] \star x[n]$ og $h[n] \star x_2[n]$ relateret? 
+            \[y[0] = h[0] * x_2[0] = 3*4\]
+            \[y[1] = x_2[0] * h[1] + x_2[1]*h[0] = 3 * 5 + 9 * 4\]
+            \[y[2] = x_2[1] * h[1] + x_2[2] * h[0] = 9 * 5 + 6 * 4\]
+            \[y[3] = x_2[2] * h[1] = 6 * 5\]
+            \[y[n] = [12, 51, 69, 30]\]
+            Så det er en simpel.
+            \[y_2 = 3 * y_1\]
+            Og det giver jo også mening, fordi det er en LTI system og det er linearitets princippet.            
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[Antag, at et filter har systemfunktionen]
+        \[H(z) = \filterZto{3, 1}{1, 0.5}\]
+        \begin{UnderOpgave}[Bestem differensligningen for filteret]
+            \[Y(z)/X(z) = H(z)\]
+            \[Y(z) = \filterZto{3, 1}{1, 0.5} X(z)\]
+            \[Y(z)(1 + 0.5z^{-1}) = X(z)(3 + z^{-1})\]
+            \[y[n] + 0.5y[n - 1] = 3x[n] + x[n - 1]\]
+            \[y[n] = 3x[n] + x[n - 1] - 0.5y[n - 1]\]
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Sketch signal flow graphen]
+            I mit sketch dokument har jeg tegnet det. 
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Sketch frekvens karakteristikken]
+            Hvis jeg skal beskrive filter strukturen så er den af form: 
+            Direkt form I
+            \figsyvogfirs{0.23}\\
+            Den virker som et høj pass filter.
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[Antag, at der er givet et talk-through system med en ideel ADC og en ideel DAC som vist nedenfor. Begge har en samplefrekvens på 1000 Hz (Jeg mangler opgave 2)]
+        \[x_c(t) -> ADC -> x[n] -> DAC -> y_r(t)\]
+        Antag, at input signalet, xc(t) består af tre rentoner, dvs. sinusformede signaler med frekvenser på henholdsvis 300 Hz, 400 Hz og 600 Hz. Alle tre rentoner har samme amplitude.
+        \begin{UnderOpgave}[Redegør for indholdet af det rekonstruerede signal \text{$y_r(t)$}]
+            Grundet at diskrete filtres spektrum gentager sig selv, så er der en risiko for aliasing. 
+            Aliasing vil sige, at dele af det gentagende spektrum overlapper med det første spektrum. Det gælder så for alle steder hvor spektrene krydser. 
+            For at undgå aliasing, så skal der gælde at: 
+            \[2*f_N < f_s\]
+            Hvor fN er det største frekvens element. 
+            For det her system så gælder det ikke, da den ene ren tone vil bidrage til støj.
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[Lad et signal være givet ved]
+        \[x[n] = [1, -1, 4, 7], \tab{0} n = 0, ..., 3\]
+        \begin{UnderOpgave}[Beregn X(z) og redegør for konvergensen af X(z)]
+            Den laver lidt en halv sinc funktion. Men jeg er ikke klog nok til at vide dens opsætning bare sådan. 
+            Jeg kunne beregne den analytisk med DFT beregningen med W matricen. Men det er jeg ikke blevet spurgt om. Og dog, ...
+            Den måde de først vil have X(z) for så at beregne \[X(e^{j\omega})\]
+            \[X[k] = \sum_{n = 0}^{N - 1}{x[n] W_N^{kn}},  k = 0, 1, ..., N - 1\]
+            Så hvis jeg laver en matrice hvor 
+            \[W = e^{-(j * 2\pi/N) * kn } \in \mathbb{R}^{N x N}\]
+            Hvis jeg laver en vander matrice ned af n'erne. 
+            \[W_N^n = e^{-(j*2\pi/N) * n} \in \mathbb{N x 1}\]
+            Hvis jeg så laver vander på den igen ad kolonnerne får jeg
+            \[W_N^{kn} = e^{-(j * 2\pi/N) * kn } \in \mathbb{R}^{N x N}\]
+            Så sådan sætter jeg den op. 
+            \[
+            x[n] = [\begin{array}{cccc}
+                1 & -1 & 4 & 7
+            \end{array}]
+            \]
+            \[W_N^{kn} = e^{-(j*2\pi/4)*kn}\]
+            \[
+            W_N^{kn} = 
+            \begin{vmatrix}
+                1 &         1 &         1 &       1 \\
+                1 & W^{1 * 1} & W^{1 * 2} & W^{1*3} \\
+                1 & W^{2 * 1} & W^{2 * 2} & W^{2*3} \\
+                1 & W^{3 * 1} & W^{3 * 2} & W^{3*3} \\
+            \end{vmatrix}\]
+            Og så kan man se sammenhængere med dens gentagelser, men det vil jeg ikke kommentere så meget på.
+            \[X = x[n].W_N^{kn}\]
+            Ved beregning af søjle produktet med matricen får jeg
+            \[X[k] = [\begin{array}{cccc} 11 & -3 + 8j & -1. & -3 -8j\end{array}]\]
+            Så hvis det er sådan, at man ville have X(z), så har jeg da vidst lidt DFT
+            Beregn $X(e^{j\omega})$. Er det en periodisk eller ikke-periodisk funktion?
+            Her bruger jeg så FFT og zero padder den for at få bedre resolution.
+            \figotteogfirs{0.4}\\
+            Så hvad jeg så i min DFT er jo så hvad jeg ser i mit plot. Den ændring der så lige er, er at jeg beregnede DFTen i intervallet $[0:2\pi]$ og jeg plottede for $[-\pi:\pi]$
+            Rykker jeg rundt på X 
+            \[X[k] = [\begin{array}{cccc} -1, -3 + 8j, 11 & -3 - 8j \end{array}]\]
+            Hvor den tager frekvenserne 
+            \[\omega_k = [-\pi, 0.5\pi, 0, 0.5\pi]\]
+            Så kan jeg jo se, at det er det jeg har fået i mit plot. \\\\
+            Så til om funktionen er periodisk. Ja det er den jo, men det er på grund af at den er samplet. Spektret vil gentage sig i $2\pi$
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[Sampling og aliasing]
+        Antag, at der et givet et signal med en varighed på 1 sekund. Signalet er samplet med 1000Hz. 
+        Det vides, at signalet indeholder en rentone, dvs, et sinusformet signal, med en frekvens
+        på F0 = 100 Hz. Antag, at signalet også indeholder en anden rentone med en frekvens på
+        $F0 + \Delta F$. 
+        \begin{UnderOpgave}[Hvad er den mindste værdi for $\Delta F$ , hvor der kan ses to toppe i frekvensspektret af signalet?]
+            Jeg tror ikke rigtigt jeg forstår spørgsmålet. Havde det været noget med interpreterings funktionen, 
+            så vil det betyde, at der være firkanter om impulserne i frekvens spektret. 
+            I det tilfælde, så vil interpreterings funktionen laves, så dens første zero crossing falder ved Ts, \\
+            Så vil firkanterne være $2\pi/T_0$ bredde. De eneste steder som den ikke må betræde er så: 
+            \[[\omega_0 - \pi/T_0: \omega_0 + \pi/T_0], [-\omega_0 -\pi/T_0 : -\omega_0 + \pi/T_0]\]\\
+            \[H_R(\omega) = rect[(\omega - \omega_0)/(2\pi/T_0)] + rect[(\omega + \omega_0)/(2\pi/T_0)]\]
+            \[H_R(\omega) = rect[(\omega - \omega_0)/(\omega_0)] + rect[(\omega + \omega_0)/(\omega_0)]\]
+            Med den tankegang, så skal der være to halve bredder mellem den og den anden ren tone. 
+            \[\Delta w_{min} = 2\pi/T_0\]
+            \[\Delta f_{min} = 1/T_0 = 200Hz\]
+            Så hvis signalet skal rekonstrueres og at alle værdierne toner skal kunne ses klart i frekvenspektret, så skal 
+            \[=======\]
+            \[\Delta f = 200Hz \]
+            \[=======\]
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+\end{rubrik}\setcounter{eksamensOpgave}{0}
+
+\begin{rubrik}[Eksamenssæt2021 - Rettet]
+    \begin{eksamensOpgave}
+        
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}
+        
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}
+        
+    \end{eksamensOpgave}
+    \clearpage
+    \begin{eksamensOpgave}[Lad et signal være givet ved]
+        \[x[n] = [1, -1, 4, 7], \tab{0} n = 0, ...0, 3\]
+        \begin{UnderOpgave}[Beregn X(z) og redegør for konvergensen af X(z)]
+            \color{teal}Se her troede jeg, at $z = e^{j\omega}$ så jeg forstod ikke rigtig, at der var blevet sat op for begge.
+            Når chatten nu fortæller det, så kan jeg godt huske, at det ikke var sådan at z transformationen var sat op. 
+            For vi snakker om ROC for $|z| > a$ eller $|z| < a$. Det er så sådan, at DFT er tilfældet hvor, $|z| = 1, z = e^{j\omega}$
+            Så jeg løste egentlig opgave b to gange. \\
+            Nej jeg skal tilbage til opbygningen af z transformationen\color{black}
+            \[X(z)=\sum_{n=-\infty}^{\infty}x[n]z^{-n}\]
+            \[X(z) = 1 - z^{-1} + 4z^{-2} + 7z{-3}\]
+            For denne z transformation er der kun nulpunkter og der er der stabilitet for alle z'er.\\
+            \[X(z) = 1 - z^{-1} + 4z^{-2} + 7z{-3}, \tab{0} \text{ROC: alle z}\]
+        \end{UnderOpgave} 
+        \begin{UnderOpgave}[Beregn \text{$X(e^{j\omega})$}. Er den periodisk eller ikke-periodisk funktion?]            
+            Jeg substituere for $z = e^{j\omega}$ 
+            \figotteogfirs{0.23}\\\\
+            Selvfølgelig for en diskrete funktion vil spektret gentage sig i $2\pi$. Ellers så er spektret ikke mere gentagende end det.
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Et andet signal \text{$x_2[n]$} har Fourier-transformationen]
+            Udtryk 4x2[n - 1] + 3x2[3 - n] i forhold til dens fourier transformation. \\
+            Det her er en typisk system karakteristisk opgave. Jeg har ikke signalet men skal beskrive den så godt jeg kan alligevel.
+            Jeg antager systemet er LTI. Der er tidsforskydelse og tidsinvertering.
+            Jeg skal have gang i folding egenskaben også. 
+            \[x[n] \transformation{Z} X(z)\]
+            \[x1[n] = x[-n] \transformation{Z} X(1/z)\]
+            \[x2[n] = x1[n - 3] = x[-(n - 3)] = x[3 - n] \transformation{Z} z^{-3}X(1/z)\]
+            \[x3[n] = 2 * x2[n] = 2 * x1[n - 3] = 2 * x[-(n - 3)] = 2 * x[3 - n] \transformation{Z} 2 * z^{-3}X(1/z)\]
+            Det var den sværeste, den anden er relativ simpel med linearitet og tidsforskydelse.
+            \[x_2[-n] \transformation{Z} X(1/z)\]
+            \[Y_2(z) = X_2(z) * 4 z^{-1} + 2 * z^{-3}X_2(1/z)\]
+            \[Y_2(e^{j\omega}) = X_2(e^{j\omega}) * 4 e^{-j\omega} + 2 * e^{-3 j\omega}X_2(e^{-j\omega})\]
+            Med forskellige antagelser af signalet, så kan man reducere udtrykket.
+            F.eks ved at kræve at signalet er reelt, så har jeg at: 
+            \[X_2(e^{j\omega}) = X_2^\star(e^{-j\omega})\]
+            Det står der ikke explicit. 
+            Hvis jeg også kræver at signalet er symmetrisk, så den nu er reel og symmetrisk. Jeg er ikke helt sikker på hvad det vil kræve, men så: 
+            \[X_2(e^{j\omega}) = X_2(e^{-j\omega})\]
+            Så
+            \[Y_2(e^{j\omega}) = X_2(e^{j\omega}) * 4 e^{-j\omega} + 2 * e^{-3 j\omega}X_2(e^{j\omega})\]
+            \[Y_2(e^{j\omega}) = X_2(e^{j\omega}) *( 4 e^{-j\omega} + 2 * e^{-3 j\omega})\]
+            Og så kan jeg manipulere signalet.
+            \[Y_2(e^{j\omega}) = e^{-2j\omega} X_2(e^{j\omega}) * ( 4 e^{j\omega} + 2 * e^{- j\omega})\]
+            \[Y_2(e^{j\omega}) = e^{-2j\omega} X_2(e^{j\omega}) * ( 4 e^{j\omega} + 2 * e^{- j\omega})\]
+            Havde det ikke været fordi, at det var to forskellige amplituder, så havde jeg kunnet beskrive den som en cos funktion. 
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[Frekvensspektre, resolution og flere frekvensdele]
+        Antag, at der et givet et signal med en varighed på 1 sekund. Signalet er samplet med 1000Hz. Det vides, at signalet indeholder en rentone, dvs, et sinusformet signal, med en frekvens
+        på F0 = 100 Hz. Antag, at signalet også indeholder en anden rentone med en frekvens på $F0 + \Delta F$.
+        Jeg misforstod den her opgave. Det handlede ikke om sampling, det handler om resolution i frekvensspektret.
+        \begin{UnderOpgave}[Hvad er den mindste værdi \text{$\Delta F$} hvor begge toppe kan ses]
+            \[N = 1s/(1/1000Hz) = 1000\]
+            \[\Delta \omega = 2\pi/N\]
+            Man kan argumentere for, at man måske vil kunne skelne mellem de to, så der skulle være en frekvens imellem dem...
+            Men altså hvis man kender bredden som jeg lige har fundet, så kan man se at det er to værdier. 
+            \[=========\]
+            \[\Delta f_0 = 1/1000\]
+            \[=========\]
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Hvordan ændrer svaret på ovenstående sig, hvis signalets længde øget?]
+            Hvis den øges og ikke formindskes, så vil resolutionen blive bedre og bedre, og så behøves der ikke at være lige så stor afstand som havde man ikke øget den. 
+            Hvis man mindsker den, så vil det have modsat effekt. 
+            \[T \uparrow \tab{0} \Rightarrow \tab{0} N \uparrow \tab{0} \Rightarrow \tab{0} f_0\downarrow\]           
+        \end{UnderOpgave}
+        Antag at der er mulighed for at anvende en vinduesfunktion, f.eks. et Hann vindue, i forbindelse med frekvensanalysen
+        \begin{UnderOpgave}[Hvilken indvirkning har det på svarene på ovenstående to spørgsmål, hvis der ganges en vinduesfunktion på signalet inden frekvensanalysen?]
+            Vinduer undertoner sidelopsne, men på bekostning af at frekvenspektret flades ud. 
+            Så i forhold til de spørgsmål jeg blev stillet før, så vil en vindue mindske resolutionen. Resolutionen skal så øges det mere pga. den også.
+        \end{UnderOpgave}
+        
+    \end{eksamensOpgave}
+\end{rubrik}\setcounter{eksamensOpgave}{0}
+
+\begin{rubrik}[Eksamenssæt2022]
+    \begin{eksamensOpgave}[Convolution i LTI system]
+        \[h[n] = [1, 4, -3], \tab{0} n = 0, 1, 2\]
+        Der sendes et signal igennem
+        \[x[n] = [2, 3], \tab{0} n = 0, 1\]
+        \begin{UnderOpgave}[Beregn y0 og y1]
+
+            \[y[n]=\sum_{k =-\infty}^{\infty}x[k]h[n-k]\]
+            \[==============================\]
+            \[y[0] = \sum_{k =-\infty}^{\infty}x[k]h[0-k] = x[0]h[0] = 2\]
+            \[y[1] = \sum_{k =-\infty}^{\infty}x[k]h[1-k] = x[0]h[1] + x[1]h[0] = 8 + 3\]
+            \[==============================\]            
+        \end{UnderOpgave}
+        Et andet signal er givet ved
+        \[x_2[n] = [0, 2, 3]\]
+        \begin{UnderOpgave}[Hvordan er \text{$h[n]\star x[n]$} og \text{$h[n] \star x_2[n]$} relateret?]
+            Så altså 
+            \[x_2[n] = x[n - 1]\]
+            Og for LTI systemer hvor der er time invariance medføre forskydningen i tiden i inputtet, den samme forskydning i tiden i outputtet
+            \[y_2[n] = y[n - 1]\]
+            
+            
+        \end{UnderOpgave}
+
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[Signal flow graf]
+        \begin{UnderOpgave}[Opstil differensligningen og bestem z transformationen af h]
+            Systemet er et DF 1 system. 
+            \[y[n] = x[n] + (-2x[n - 1]) + (-0.5y[n - 1])\]
+            \[y[n] = x[n] - 2x[n - 1] - 0.5y[n - 1]\]
+            \[y[n] + 0.5y[n - 1]= x[n] - 2x[n - 1]\]
+            \[Y(z) * (1 + 0.5z^{-1}) = X(z) * (1 - 2z^{-1})\]
+            \[H(z) = Y(z)/X(z) = \frac{1 - 2z^{-1}}{1 + 0.5z^{-1}}\]            
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Redegør for antallet af poler og nulpunkter i filteret]
+            Filteret har 1 pol og 1 nulpunkt.             
+        \end{UnderOpgave}
+        Antag at der sendes et signal $x[n] = cos(\frac{\pi}{4} n)$ igennem filteret. 
+        \begin{UnderOpgave}[Redegør for, om amplituden af signalet vil være dæmpet, uændret eller forstærket efter filteret]
+            \figniogfirs{0.3}
+            Viser frekvensresponsen til frekvenser i intervallet $[-\pi: \pi]$
+            For et signal med $\omega_0 = \pi/4$, så er signalet omkring uændret, en lille smule forstærket.
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[System karakteristikker af to systemer]
+        \[y_1[n] = x^2[n]\]
+        \[y_2[n] = x[n]cos(\pi/3 n)\]
+        \begin{UnderOpgave}[Redegør for om systemerne er LTI systemer]
+            I første system ser jeg et problem i linearitet. 
+            For at den gælder så skal en faktor på inputtet være det samme som en faktor på outputtet.
+            \[y_1[n] = x_1^2[n]\]
+            Ændring i input
+            \[x_2[n] = ax_1[n]\] 
+            \[y_2[n] = x_2^2[n]\]
+            Ændring i output
+            \[y_3[n] = ay_1[n]\]
+            Testen, kan jeg sige at
+            \[y_2[n] = y_3[n]\] 
+            \[x_2^2[n] = ay_1[n]\] 
+            \[(ax_1[n])^2 = ax_1^2[n]\] 
+            \[a^2x_1^2[n] \neq ax_1^2[n]\] 
+            Så derfor kan jeg bekræfte, at første system ikke er et LTI system.
+            Så til det andet system.
+            Her ser jeg en tydelig mangle i Time invariancen.
+            \[y_2[n] = x_1[n]cos(\pi/3 n)\]
+            Ændring i inputtet
+            \[x_2[n] = x_1[n - n_0]\]
+            \[y_3[n] = x_2[n]cos(\pi/3 n)\]
+            \[y_3[n] = x_1[n - n_0]cos(\pi/3 n)\]
+            Ændring i outputtet
+            \[y_4[n] = y_2[n - n_0]\]
+            \[y_4[n] = x_1[n - n_0]cos(\pi/3 (n - n_0))\]
+            Testen: 
+            \[y_3[n] = y_4[n]\]
+            \[x_1[n - n_0]cos(\pi/3 n) \neq x_1[n - n_0]cos(\pi/3 (n - n_0))\]
+            Så ja, der er fejl i Tids Invariancen\\
+            ===================\\
+            Begge systemer fejler LTI kravene\\
+            ===================\\
+        \end{UnderOpgave}
+        Et tredje system har differensligningen $y_3[n] = 0.5y[n - 1] + 2x[n] + x[n - 1]$.
+        \begin{UnderOpgave}[Redegør for om systemet er et lineær fase filter]
+            Filteret er et IIR filter, og det har nogle krav omkring lineær fase, som gør den ustabil. 
+            Derfor kan den ikke være et lineær fase filter         
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[ADC (mangler sidste opgave)]
+        \[F_s = 1000Hz\]
+        \[x_c(t) = cos(2\pi * 600Hz * t)\]
+        \begin{UnderOpgave}[Redegør for at det samplede signal kan beskrives ved]
+            \[x[n] = cos(2\pi \frac{2}{5} n)\]
+            Min udledning: 
+            \[x[n] = x_c(n * T_s) = cos(2\pi * 600Hz * n * T_s)\]
+            \[x[n] = cos(2\pi * 600Hz * n * 1/1000)\]
+            \[===========\]
+            \[x[n] = cos(2\pi * \frac{6}{10} n )\]
+            \[===========\]
+            Hmm... Jeg tror der er en fejl i frekvensen. For at det skulle være rigtig var der brug for at det analoge signal havde en $F_0 = 400Hz$.
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Argumenter for peridiciteten]
+            \[y[n] = x[n] - x[n - N] = 0\]
+            Jeg skal bestemme den for den mindste N. 
+            \[cos(2\pi \frac{6}{10} (n + N))\]
+            \[cos(\frac{6}{5}\pi (n + N))\] 
+            Jeg bruger eulers relation
+            \[cos(\frac{6}{5}\pi (n + N)) = \frac{e^{j * \frac{6}{5}\pi (n + N)} + e^{- j * \frac{6}{5}\pi (n + N)}}{2}\]
+            \[0.5 * e^{j * \frac{6}{5}\pi (n + N)} + 0.5 e^{- j * \frac{6}{5}\pi (n + N)}\]
+            \[0.5 * e^{j * \frac{6}{5}\pi N } * e^{j * \frac{6}{5}\pi * n} + 0.5 * e^{-j * \frac{6}{5}\pi N } * e^{-j * \frac{6}{5}\pi * n}\]
+            Jeg har bare brug for, at frekvensen giver 1. I det tilfælde, så er de negative frekvenser lige med de positive frekvenser... pga. cos... 
+            \[e^{j * \frac{6}{5}\pi N }\] 
+            \[1.2 * N \mod 2 = 0\]
+            Så er den et lige antal pier omkring.
+            Det sker for N = 5
+            \[e^{j * \frac{6 * 5}{5}\pi} = 1\]
+            Så ud fra den omvej så kan jeg så beskrive periodiciteten af signalet for N = 5. 
+            \[========================\]
+            \[y[n] = x[n] - x[n - k * 5] = 0, \tab{1} alle \tab{0} k \]
+            \[========================\]
+        \end{UnderOpgave}
+        Signalet x[n] rekonstrueres nu med en ideel DAC, men med en samplingfrekvens på 2000Hz
+        \begin{UnderOpgave}[Argumenter for, at når signalet rekonstrueres får man en ren sinustone og bestem sinustones frekvens i Hz]
+            Rekonstruerings funktionen er en sinc funktion, som har nulpunkter i multiplika af kT, hvor $T = 1/F_H$
+            Så signalet her som har $F_h = 1/600$
+            I frekvens domænet vil den så være en rektangulær funktion. 
+            \[rect(\frac{\omega}{\pi * F_H})\]
+            Dens bredde er $2 * \pi * F_H$. Det step er hvad der gør, at sampling frekvens bliver nødt til at være dobbelt af det højeste frekvens komponent er. 
+            Og generelt egentlig også bare nyquist ratens krav.
+
+            Frekvensen præcist???? 
+            
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[DFT ]
+        \begin{UnderOpgave}[Beregn \text{$W_N$} for N = 4 og beregn derefter DFT transformationen af signalet]
+            \[x[n] = 3 - n, \tab{0} n = 0, 1, 2, 3\]
+            Det er ikke tilstrækkeligt bare at vise resultaterne, vis beregningerne.\\\\
+            \[W_N^{kn} = e^{ - j \frac{2\pi}{N} kn}\]
+            \[W_N^{kn} = [e^{0}, e^{ - j \frac{2\pi}{4} * 1}, e^{ - j \frac{2\pi}{4} * 2},  e^{ - j \frac{2\pi}{4} * 3}, e^{ - j \frac{2\pi}{4} 2 * 2}, e^{ - j \frac{2\pi}{4} 2 * 3}, e^{ - j \frac{2\pi}{4} 3 * 3}]\]
+            \[W_N^{kn} = [1, -j, -1, j, 1, -1, -j]\]
+            Er de mulige værdier, i den rækkefølge.
+            \[W_N = \begin{vmatrix}
+                1 &  1 &  1 &  1 \\
+                1 & -j & -1 &  j \\
+                1 & -1 &  1 & -1 \\
+                1 &  j & -1 & -j 
+            \end{vmatrix}\]
+            For god ordens skyld så beregner jeg den også med numpys vander matrice. 
+            \[W_N^n = [e^{ - j \frac{2\pi}{N} * 0}, e^{ - j \frac{2\pi}{N} * 1}, e^{ - j \frac{2\pi}{N} * 2}, e^{ - j \frac{2\pi}{N} * 3}]\]
+            Og så smider jeg den ind i en vander matrice. 
+            \[W_N^{kn} = [(W_N^n)^0, (W_N^n)^1, (W_N^n)^2, (W_N^n)^3].T \]
+            Min beregning der siger det samme, så jeg må have lavet matricen korrekt. 
+            \[==============\]
+            \[W_N = \begin{vmatrix}
+                1 &  1 &  1 &  1 \\
+                1 & -j & -1 &  j \\
+                1 & -1 &  1 & -1 \\
+                1 &  j & -1 & -j 
+            \end{vmatrix}\]
+            \[==============\]
+            \[x[n] = [3, 2, 1, 0]\]
+            \[X[k] = W_N . x[n]^T\]
+            Og ja, den undlader jeg lige selv at beregne. Jeg vil kunne komme til at lave unødvendige fejl beregninger i matrix multiplikationen. Det er ikke det det handler om. 
+            \[X[k] = np.inner(W_N, x)\]
+            \[X[k] = [6, 2 - 2j, 2 , 2 + 2j]\]
+            Finder den for mig. 
+            Men numpy.fft.fft forsikre jeg mig, at resultatet er rigtig, og det giver det samme. 
+            \[===============\]
+            \[X[k] = [6, 2 - 2j, 2 , 2 + 2j]\]
+            \[===============\]
+        \end{UnderOpgave}
+        \[Y[k] = W_N . y[n]\]
+        \[W_N^{-1}Y[k] = y[n]\]
+        \begin{UnderOpgave}[Beregn y og kommenter]
+            \[y[n] = [1, 0, 0, 0]\]
+            Og når man ser på fourier transformationen af en impuls, så er det klart, at det bare virker som dc i frekvensspekret.\\
+            Havde det ikke være for den korte resolution på 4 i Y, og at jeg havde paddet nogle nuller derind, så havde det set anderledes ud. 
+            \[=========\]
+            \[y[n] = [1, 0, 0, 0]\]
+            \[=========\]
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Argumenter for mere effektive algoritmer, såsom fft]
+            Grundet at nogle af W gentager sig, så er det muligt at reangere matricen, så beregninger bruges flere gange. \\
+            Det er ideen bag fft, hvor de reangere inputtet i lige og ulige, og W på samme måde. 
+            Det tager antal bereginger fra $O(N^2)$ til $O(n log_2(n))$. \\\\
+            En anden algoritme som er god, hvis man ikke har stort behov for alle frekvens dele som er med til at opbygge et signal, men kun de af størst betydning,
+            så kan man bruge Goertzel algorithmen, som netop tager sig af det. 
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+\end{rubrik}\setcounter{eksamensOpgave}{0}
+
+\begin{rubrik}[Eksamenssæt2022 - Forbedringer]
+    \begin{eksamensOpgave}
+        
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[LTI system i signal flow]
+        \begin{UnderOpgave}[Opstil differensligningen]
+            Signal flow diagrammet er i opgaven. Jeg får 
+            \[H(z) = \filterZto{1, -2}{1, 0.5}\]            
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Redegør for antallet af poler og nulpunkter]
+            Filteret går i nul for et nulpunkt.
+            Filteret går mod uendelig for en pol. 
+            Derfor har filteret en pol og et nulpunkt.             
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Redegør for amplitude ændringen af signalet. Dæmpet, uændret eller forstærket?]
+            Her var det så, at jeg plottede magnituden. I stedet for så kunne jeg have evalueret det. 
+            \[H(e^{j\pi/4}) = \frac{1 - 2*e^{-j\pi/4}}{1 + 0.5e^{-j\pi/4}}\]
+            Fjerne det komplekse i nævneren med kompleks konjugerings metoden. Kompleks konjugering på en eksponentiel er det samme som at ændre dens fortegn i eksponenten. 
+            \[H(e^{j\pi/4}) = \frac{1 - 2*e^{-j\pi/4}}{1 + 0.5e^{-j\pi/4}} * \frac{1 + 0.5e^{j\pi/4}}{1 + 0.5e^{j\pi/4}}\]
+            \[H(e^{j\pi/4}) = \frac{1*1 + 1*0.5e^{j\pi/4} - 2*e^{-j\pi/4} - 2*0.5e^{-j\pi/4}e^{j\pi/4}}{1*1 + 0.5e^{-j\pi/4} + 0.5e^{j\pi/4} + 0.5*0.5e^{-j\pi/4}e^{j\pi/4}}\]
+            \[H(e^{j\pi/4}) = \frac{1 + 0.5e^{j\pi/4} - 2*e^{-j\pi/4} - 2*0.5*1}{1 + 0.5e^{-j\pi/4} + 0.5e^{j\pi/4} + 0.5*0.5*1}\]
+            \[H(e^{j\pi/4}) = \frac{1 + 0.5e^{j\pi/4} - 2*e^{-j\pi/4} - 2*0.5*1}{1 + 0.5e^{-j\pi/4} + 0.5e^{j\pi/4} + 0.5*0.5*1}\]
+            På grund af at $sin(-\theta) = -sin(\theta)$ så vil mine eksponentielle udtryk i nævneren med samme størrelse, have de komplekse gå ud med hinanden. 
+            For udtrykket med skiftende amplituder i tælleren så får jeg at
+            \[0.5jsin(\pi/4) - (-2jsin(\pi/4)) = 2.5jsin(\pi/4)\]
+            Og for dens cos udtryk
+            \[0.5cos(\pi/4) - 2*cos(\pi/4) = - 1.5cos(\pi/4)\]
+            \[H(e^{j\pi/4}) = \frac{1 - 1.5cos(\pi/4) + 2.5jsin(\pi/4)- 2*0.5*1}{1 + 0.5cos(\pi/4) + 0.5cos(\pi/4) + 0.25}\]
+            \[H(e^{j\pi/4}) = \frac{2.5jsin(\pi/4) - 1.5cos(\pi/4)}{1.25 + cos(\pi/4)}\] 
+            \[cos(\pi/4) = sin(\pi/4) = \sqrt{2}/2\]
+            \[H(e^{j\pi/4}) = \frac{\sqrt{2}/2 * (2.5j - 1.5)}{1.25 + \sqrt{2}/2}\] 
+            \[H(e^{j\pi/4}) \approx \frac{1.75j - 1.1}{2}\] 
+            \[|H(e^{j\pi/4}) = |0.875j - 0.55| = \sqrt{0.875^2 + 0.552^2} \approx 1.03\]
+            Så størrelsen på signalet vil være uændret. 
+            Det er meget beregning. Det er rigtigt, men det kunne også have været forkert. 
+            En anden måde jeg kunne have gjort det på var: 
+            \[|H(e^{j\pi/4})|^2 = (|tæller|^2)/(|nævner|^2)\]
+            For den frekvens så har jeg at 
+            \[cos(\pi/4) = sin(\pi/4) = sqrt{2}/2\]
+            \[tæller = 1 - 2 * \sqrt{2}/2 * (1 - j)\]
+            \[|tæller|^2 = (1 - \sqrt{2})^2 + \sqrt{2}^2\]
+            \[|tæller| = \sqrt{|tæller|^2} = 1.47\]
+            \[nævner = 1 + 0.5 * \sqrt{2}/2 * (1 - j)\]
+            \[|nævner|^2 = (1 + \sqrt{2}/4)^2 + \sqrt{2}/4\]
+            \[|nævner| = \sqrt{|nævner|^2} = 1.4\]
+            \[|H(e^{j\pi/4})| = \sqrt{|H(e^{j\pi/4})|^2} = 1.05\]
+            Så det var også en måde at evaluere den på. 
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}
+        
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[Sampling med aliasing]
+        \begin{UnderOpgave}[Indse at det samplede signal kan beskrives med]
+            \[x[n] = cos(2\pi \frac{2}{5})\]
+            Se her troede jeg, at det var en fejl. 
+            \[x[n] = x_c(n*T_s) = x_c(n/1000) = cos(2\pi * 600/1000 * n)\]
+            \[x[n] = cos(2\pi*3/5 * n)\]
+            Men fordi at nyquist rate ikke er mødt: 
+            \[2 * 600 < f_s\]
+            Er falsk
+            \[2 * 600 > 1000\]
+            Så er der aliasing. 
+            Jeg kan finde dens sande frekvens ved: 
+            \[F = k*F_s - F_0\]
+            Hvor formlen er gældende for F som opfylder nyquist. 
+            \[F = 1000 - F_0\]
+            Og så har jeg nemlig den sande frekvens.
+            \[x[n] = x_c(n/1000) = cos(2\pi * 400/1000 * n)\]
+            \[x[n] = cos(2\pi \frac{2}{5} * n)\]
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Bevis periodicitet]
+            Den lavede jeg rigtigt. N = 5.
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Argumenter for at signalet rekonstrueres til en ren sinustone og bestem frekvensen i Hz]
+            \[\omega_{norm} = 2\pi f/f_s\]
+            \[\omega_{norm} = 2\pi 400/1000 = 800/1000\pi\]
+            Er sammenhængen når man tager den til det diskrete univers. 
+            Men nu tager jeg det tilbage og ændring sampling frekvensen
+            \[\omega_{norm} = 2\pi f/f_s\]
+            \[f = \omega_{norm}*f_s/(2\pi)\]
+            \[f = (400/1000)*f_s\]
+            \[f = (400/1000)*2000\]
+            \[f = 800Hz\]
+            Så derfor vil det rekonstruerede signal have frekvensen 800Hz. 
+            
+        \end{UnderOpgave}
+        
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}
+        
+    \end{eksamensOpgave}
+    
+\end{rubrik}\setcounter{eksamensOpgave}{0}
+
+\begin{rubrik}[Eksamenssæt2024 Ordinær]
+    \begin{eksamensOpgave}
+        \begin{UnderOpgave}[Opskriv det analytiske udtryk for at beregne y1 og angiv hvor mange multiplikationer og additioner beregningen kræver]
+            Jeg finder min konvolution sum frem fra min signaler og systemer bog
+            \[y[n] = \sum_{k = -\infty}^{\infty}{x[k] h[n - k]}\]
+            \[y[1] = \sum_{k = -\infty}^{\infty}{x[k] h[1 - k]}\]
+            For det her system har jeg. 
+            \[y[1] = x[0]h[1] + x[1]h[0] + x[2]h[-1]\]
+            Så den beregning kræver 3 multiplikationer og 3 additioner. 
+        \end{UnderOpgave}
+        Antag at et signal $x[n]$ er givet ved 
+        \[x[n] = [4, 5, -6]\]
+        \begin{UnderOpgave}[Beregn y1 for xn]
+            \[y[1] = 4 * (-1) + 5 * 2 + (-6 * 3) = -22 + 10\]
+            \[y[1] = -12\]
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Redegør for kausalitets og stabilitets egenskaberne af impulsresponset]
+            Systemet har antikausalitet, og det medføre betyde ustabilt. 
+            \[H(z) = \sum_{k = -\infty}^{\infty}h[k]z^{-k}\]
+            \[H(z) = h[-1]z^{-1*(-1)} + h[0]z^0 + h[1]z^{-1}\]
+            \[H(z) = 3z + 2 - z{-1}\]
+            Filteret på den her form er dog en FIR, så den er stabil for alle z'er.             
+        \end{UnderOpgave}
+        Antag at et signal sendes gennem LTI systemet to gange. 
+        \begin{UnderOpgave}[Beregn det totale impulsrespons for systemet]
+            Det her tilfælde er et eksempel på en af egenskaberne for LTI systemer
+            I det her tilfælde kan jeg beskrive det som et samlet system.
+            \[h_2 = h[n]\star h[n] \transformation{z} H_2(z) = H(z)H(z)\]
+            \[h_2 = \sum_{k = -\infty}^{\infty}{h[k]h[n - k]}\]
+            \[h_2[-2]= h[-1]h[1]\]
+            \[h_2[-1] = h[-1]h[-1 - (-1)] + h[0]h[-1]\]
+            \[h_2[0] = h[-1]h[1] + h[0]h[0] h[1]h[-1]\]
+            \[h_2[1] = 'h[-1]h[2]' + h[0]h[1] + h[1]h[0]\]
+            \[h_2[1] = h[0]h[1] + h[1]h[0]\]
+            \[h_2[2] = 'h[0]h[2]' + h[1]h[1]\]
+            \[h_2[2] = h[1]h[1]\]
+
+            \[h_2[n] = [h[-1]h[1], h[-1]h[0] + h[0]h[-1], h[-1]h[1] + h[0]h[0] + h[1]h[-1], h[0]h[1] + h[1]h[0], h[1]h[1]]\]
+            \[h_2[n] = [3 * (-1), 3 * 2 + 2 * 3, 3 * (-1) + 2 * 2 + (-1) * 3, 2 * (-1) + (-1) * 2, (-1)*(-1)]\]
+            \[===========================\]
+            \[h_2[n] = [-3, 12, -2, -4, 1], \tab{0} n = -2, -1, 0, 1, 2\]
+            \[===========================\]
+            \[y_2[n] = \sum_{k = -\infty}^{\infty}{x[k]h_2[n - k]}\]
+            Signalet er kausult. 
+            \[y_2[n] = \sum_{k = 0}^{\infty}{x[k]h_2[n - k]}\]
+            \[y_2[-2] = x[0]h[-2] = 4 * (-3) = -12\]
+            \[y_2[-1] = x[0]h[-1] + x[1]h[-1-1] = 4 * 12 + 5 * (-3) = 48 - 15 = 33\]
+            \[y_2[0] = x[0]h[0] + x[1]h[-1] + x[2]h[-2] = 4 * (-2) + 5 * (12) + (-6)*(-3) = -8 + 60 + 18 = 70\]
+            \[y_3[1] = x[0]h[1] + x[1]h[0] + x[2]h[-1] = 4 * (-4) + 5 * (-2) + (-6)*(12) = - 16 - 10 - 72 = -98\]
+            \[y_3[2] = x[0]h[2] + x[1]h[1] + x[2]h[0] = 4 * 1 + 5 * (-4) + (-6)*(-2) = 4 - 20 + 12 = -4\]
+            \[y_4[3] = x[1]h[2] + x[2]h[1] = 5 * 1 + (-6)*(-4) = 5 - 24 = -19\]
+            \[y_4[4] = x[2]h[2] = (-6)*(1) = -6\]
+            \[===============================\]
+            \[y[n] = [-12, 33, 70, -98, -4, -19, -6], \tab{0} n = -2, ..., 4\]
+            \[===============================\]
+
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[LTI system design, mangler transient response svar]
+        Antag at et LTI system har 
+        \[H(z) = 1 + \alpha z^{-1}\]
+        Der sendes et signal givet ved 
+        \[x[n] = cos(\pi/4 * n), -\infty < n < \infty\]
+        igennem systemet. 
+        \begin{UnderOpgave}[Beregn \text{$\alpha$} således at amplituden af signalet halveres efter passage af filteret]
+            Her evaluerer jeg bare filteret i den frekvens. 
+            \[H(e^{j\pi/4}) = 1 + \alpha * e^{-j\pi/4}\]
+            Så udvider jeg euler relationen. Jeg udnytter samtidig, at $cos(\pi/4) = sin(\pi/4) = \sqrt{2}/2$, men at sinus medføre negativt fortegn på grund af den negative frekvens.
+            \[H(e^{j\pi/4}) = 1 + \alpha * \sqrt{2}/2 * (1 - j)\]
+            \[|H(e^{j\pi/4})| = \sqrt{(1 + \alpha * \sqrt{2}/2)^2 + (\alpha * \sqrt{2}/2)^2} = 1/2\]
+            Jeg løser den med wolfram alpha til at være. 
+            \[\alpha = -\frac{1}{\sqrt{2}} \pm 0.5j\]
+            Jeg har fundet dens størrelse og vinkel til approksimativt at være.
+            \[\alpha = 0.8666 * e^{\pm 13/16*\pi}\]
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Hvordan påvirkes fasen af signalet gennem LTI systemet?]
+            Hvis jeg bare skal tage udgangspunkt i en af koefficienterne.
+            \[H(e^{j\omega}) = 1 + 0.8666 * e^{13/16*\pi} * e^{-j\omega}\]
+            \[H(e^{j\omega}) = 1 + 0.8666 * e^{-j\omega + 13/16*\pi}\]
+            Der sker intet med inputtet til n = 0, men den tidsforskudte får sin fase forskudt med $\pm 13/16\pi$               
+        \end{UnderOpgave}
+        Antag at signalet ikke er uendeligt langt, men derimod starter til n = 0, dvs.
+        \[x[n] = cos(\pi/4 n )u[n]\]
+        Hvor \text{$u[n]$} som sædvanligt betegner stepfunktionen. Den pludselige start på signalet giver anledning til en transient forvrængning. 
+        \begin{UnderOpgave}[Estimer hvor mange sampels den transiente forvræning varer]
+            
+        \end{UnderOpgave}
+        
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[Lad et LTI system være givet som en parallelkobling af to 1.ordens IIR filtre]
+        \begin{UnderOpgave}[Hvilke krav er der på \text{$\alpha_1, \alpha_2$} for at systemet er stabilt]
+            
+        \end{UnderOpgave}
+        \[y[n] = y_1[n] + y_2[n]\]
+        \[y_1[n] = x[n] - \alpha_2y[n - 1]\]
+        \[y_2[n] = x[n] - \alpha_1y[n - 1]\]
+        \[y[n] = x[n] - \alpha_2y[n - 1] + x[n] - \alpha_1y[n - 1]\]
+        \[y[n] = 2x[n] - y[n - 1] * (\alpha_2 + \alpha_1)\]
+        \[y[n] + y[n - 1] * (\alpha_2 + \alpha_1) = 2x[n]\]
+        \[Y(z) * (1 + (\alpha_2 + \alpha_1)z^{-1}) = X(z)*2\]
+        \[H(z) = Y(z)/X(z) = \frac{2}{1 + (\alpha_2 + \alpha_1)z^{-1}}\]
+        Så samlet virker de som en eksponentiel funktion. Filteret er kausult, og derfor så gælder der at: 
+        \[|z| > - (\alpha_2 + \alpha_1)\]
+        For at systemet er stabilt. Så det er krævet for $\alpha_2, \alpha_1$ i relation til z.
+        \begin{UnderOpgave}[Beregn systemfunktionen og impulsresponsen]
+            Systemfunktionen har jeg allerede udledt: 
+            \[H(z) = \frac{2}{1 + (\alpha_2 + \alpha_1)z^{-1}}\]
+            Og jeg får at dens impulsresponse så kan beskrives som: 
+            \[h[n] = 2 * (- \alpha_2 - \alpha_1)^nu[n]\]
+            Bemærk jeg har brugt lineæritets princippet for et LTI system
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Tegn den direkte form II struktur, der svarer til LTI systemet med angivelse a og b koefficienter udtrykt ved \text{$\alpha_1, \alpha_2$}]
+            Den form jeg startede med
+            \[y[n] = 2x[n] - y[n - 1] * (\alpha_2 + \alpha_1)\]
+            Passede på formen af et DF I systetm
+            \[b = [1, 0]\]
+            \[a = [1, (\alpha_2 + \alpha_1)]\]
+            Og så kan jeg bare bruge dem en DF II struktur
+            \fighalvfems{0.8}\\
+
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[Z transformation og fourier evalueret]
+        Et LTI diskrete system har input x[n] og output signal y[n]. 
+        \[S: y[n] = 0.5 y[n - 1] - 0.5 x[n] + x[n - 1]\]
+        Lad os antage at 
+        \[y[0] = 0, \tab{0} n \leq 0\]
+        og lad et signal $x[n]$ være givet ved 
+        \[x[n] = (-1)^n, \tab{0} n \geq 0, \tab{0} 0 ellers\]
+        \begin{UnderOpgave}[Beregn for n = 1, 2, 3]
+            \[y[1] = 0.5 * 0 - 0.5*(-1) + 1 = 1.5\]
+            \[y[2] = 1/2 * 3/2 - (0.5 * 1) + (-1) = 3/4 - 2/4 - 4/4 = -3/4\]
+            \[y[3] = -3/4 - (0.5 * (-1)) + (1) = 3/4\]
+        \end{UnderOpgave}        
+        \begin{UnderOpgave}[Beregn z transformationen H for overføringsfunktionen S, inkluder dens ROC]
+            \[Y(z) * (1 - 0.5z^{-1}) = X(z) * (-0.5 + z^{-1})\]
+            \[H(z) = Y(z)/X(z) = \frac{-0.5 + z^{-1}}{1 - 0.5z^{-1}}\]
+            For at gør det nemmere at bestemme dens region of convergence, så laver jeg partial fraction på den. 
+            Jeg får at den kan beskrives ved. 
+            \[H(z) = \frac{-2.5}{1 - (-0.5)z^{-1}} + 2\]
+            \[H(z) = -\frac{2.5}{1 + 0.5z^{-1}} + 2\]
+            Systemet er kausult, så derfor har jeg en 
+            \[ROC: |z| > 0.5\]
+            For dc så er ROC for alle z. 
+            \[====================\]
+            \[H(z) = -\frac{2.5}{1 + 0.5z^{-1}} + 2, \tab{0} |z| > 0.5\]
+            \[====================\]
+            Dens stabilitet kan beskrives ved at se på polen. 
+            \[p_0: 1 + 0.5z^{-1} = 0, \tab{0} p_0 = -0.5\]
+            Alle poler indenfor enhedscirklen er stabile, og derfor vil jeg også beskrive systemet som stabilt. 
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Skitser magnitude responsen for \text{$H(e^{j\omega})$}]
+            \figenoghalvfems{0.3}
+            Magnituden er symmetrisk om $\omega = 0$ og gentager sig selv for hvert $2\pi$
+        \end{UnderOpgave}
+        Lad T være et LTI system
+        \[T: y[n] = x[n] + \alpha x[n - 1]\]
+        Hvor $\alpha \in \mathbb{R}$. 
+        \begin{UnderOpgave}[Findes der et tal $\alpha$ således at kaskadekoblingen af T og S er et system med endeligt impuls svar]
+            En kaskadekobling af systemer kan ses som konvolution af de to systemer og dermed gange i frekvensdomænet. 
+            \[Y(z) = X(z) * (1 + \alpha z^{-1})\]
+            \[H(z) = 1 + \alpha z^{-1}\]
+            \[H_3(z) = \frac{-0.5 + z^{-1}}{1 - 0.5z^{-1}} * (1 + \alpha z^{-1})\]
+            Så ja det gør der. Hvis jeg designer alpha så den går ud med polen fra det første system, så har jeg gjort det samlede filter til et FIR filter.\\
+            =========================\\
+            Så det samlede system kan blive endeligt for \\
+            alpha = -0.5 \\
+            =========================\\
+        \end{UnderOpgave} 
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[Sampling og resolution]
+        Et analogt signal består af to rene sinustoner med samme amplitude. De to toner har frekvenser i $F_1 = 1200Hz$, $F_2 = 1300Hz$. Signalet $x_c(t)$ samples i 10ms.
+        \begin{UnderOpgave}[Hvilken samplingfrekvens vil jeg foreslå, hvis man skal kunne adskille de to sinustoner når de ses i frekvensspektret?]
+            Det her er en opgave om resolution.
+            Spektret bliver dannet ud fra antal samples. Jo længere tid vi sampler, eller jo højere frekvens vi sampler med, des bedre resolution. 
+            \[2\pi/N \tab{0} \leftarrow Resolution\] 
+            \[N = \Delta T * F_s = 0.01s * F_s\]
+            \[2\pi/(0.01s * F_s)\] 
+            Og lad mig finde et udtryk for forskellen mellem de to frekvenser, men i det diskrete univers. 
+            \[\omega_1 = 2\pi * 1200/f_s\]
+            \[\omega_2 = 2\pi * 1300/f_s\]
+            \[\Delta\omega = \omega_2 - \omega_1\]
+            \[\Delta\omega = 2\pi * 1300/f_s - 2\pi * 1200/f_s\] 
+            \[\Delta\omega = 2\pi * (100/f_s)\]
+            \[2\pi/(0.01s * F_s) < \Delta\omega \] 
+            \[2\pi/(0.01s * F_s) < 2\pi * 1300/F_s - 2\pi * 1200/F_s\] 
+            \[2\pi/(0.01s * F_s) < 2\pi/F_s * (1300 - 1200)\] 
+            \[2\pi/(0.01s * F_s) < 2\pi/F_s * 100\] 
+            \[200\pi/F_s < 200\pi/F_s\] 
+            Øhh. 
+            Jeg har kludret i den. 
+            Jeg har fundet formel 7.169 hvor det bliver beskrevet. 
+            Han beskriver det godt nok ud fra at han bruger et vindue. 
+            \[T_0 \geq \frac{1}{F_2 - F_1} = \frac{1}{1300 - 1200}\]
+            \[F_s = 1/T_0 = F_2 - F_1\]
+            Som minimum
+            \[F_s = 100Hz\] 
+            Det var godt nok ikke meget. Det kan kun være en fejl. 
+            
+            \[\Delta F = 100Hz\]
+            \[2\pi/N = 2\pi * 100Hz\]
+            \[N = 1/100\]
+            \[0.01s * F_s = 1/100\]
+            \[F_s = 1\]
+
+
+
+
+
+
+
+        \end{UnderOpgave}
+        
+    \end{eksamensOpgave}
+\end{rubrik}\setcounter{eksamensOpgave}{0}
+
+\begin{rubrik}[Eksamenssæt2024 Ordinær - Nyt forsøg]
+    \begin{eksamensOpgave}[Convolution og egenskaber]
+        Strategi, forklar convolution men beregn med software. ( Hvor jeg ikke er blevet bedt om at gøre det i hånden, altså)
+        \[h[n] = [3, 2, -1], \tab{0} n = -1, 0, 1\]
+        \begin{UnderOpgave}[Opskriv det analytiske udtryk for at beregne y1 og angiv hvor mange multiplikationer og additioner beregninger kræver]
+            Her skal jeg have gang i convolution summen. 
+            \[y[n] = \sum_{k = -\infty}^{\infty}{x[k]h[n - k]}\]
+            \[y[1] = \sum_{k = -\infty}^{\infty}{x[k]h[1 - k]}\]
+            \[==================================\]
+            \[y[1] = x[0]h[1] + x[1]h[0] + x[2]h[-1]\]
+            \[\text{Så outputtet vil kræve 3 multiplikationer og 2 additioner}\]
+            \[==================================\]
+
+        \end{UnderOpgave}
+        Antag at signalet xn er givet ved 
+        \[x[n] = [4, 5, -6], \tab{0} n = 0, 1, 2\]
+        \begin{UnderOpgave}[Beregn y1 for det xn signal]
+            \[================================\]
+            \[y[1] = 4 * (-1) + 5 * 2 + (-6) * 3 = -4 + 10 - 18 = -12\] 
+            \[================================\]
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Redegor for kausalitets- og stabilitetsegenskaberne af impulsresponset hn]
+            hn har antikausalitet.
+            Dens stabilitet kan beskrives ud fra summen af dens impulser. 
+            Den har et endeligt antal impulser og derfor er den stabil.             
+        \end{UnderOpgave}
+        Antag at xn sendes gennem LTI systemet to gange. 
+        \begin{UnderOpgave}[Beregn det totale impulsrespons for systemet]
+            Her kan man bruge system egenskaberne for LTI systemer. I z domænet kan man beskrive det samlede system ved at gange dem på hinanden. 
+            I tids domæne kan man finde det samlede system som convolutionen af dem begge.
+            \[h_2[n] = h[n]\star h[n] = \sum_{k = -\infty}^{\infty}{h[k]h[n - k]}\] 
+            Da impuls responsen har index i n = -1, men også en i n = 1, så vil det første index være i n = -2. 
+            \[h_2[-2] = h[-1]h[-2 - (-1)] = h[-1]h[-1] = 3*3 = 9\]
+            \[h_2[-1] = h[-1]h[-1 - (-1)] + h[0]h[-1 + 0] = 3 * 2 + 2 * 3 = 12\]
+            \[h_2[0] = h[-1]h[0 - (-1)] + h[0]h[0] + h[1]h[0 - 1] = 3 * (-1) + 2 * 2 + (-1) * 3 = 4 - 6 = -2\]
+            \[h_2[1] = h[0]h[1 - 0] + h[1]h[1 - 1] = 2 * (-1) + (-1) * 2 = -4\]
+            \[h_2[2] = h[1]h[2 - 1] = (-1) * (-1) = 2\]
+            \[=========================\]
+            \[h[n] = [9, 12, -2, -4, 2], \tab{0} n = -2, -1, 0, 1, 2\]
+            \[=========================\]
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[System design]
+        LTI systemet 
+        \[H(z) = 1 + \alpha z^{-1}\]
+
+        Der sendes et signal gennem: 
+        \[x[n] = cos(\pi/4 * n), \tab{0} -\infty < n < \infty\]
+        \begin{UnderOpgave}[Beregn alpha således at amplituden af signalet halveres efter passage af filteret]
+            Ligningen der skal løses her: 
+            \[solve(|H(z)| = |1 + \alpha z^{-1}| = (0.5), \alpha)\]
+            Evalueret i $z = e^{j\pi/4}$
+            \[|H(e^{j\pi/4})| = |1 + \alpha e^{-j\pi/4}| = (0.5)\]
+            I den frekvens er $cos(\theta) = -sin(\theta) = \sqrt{2}/2$. 
+            \[|H(e^{j\pi/4})| = |1 + \sqrt{2\alpha}/2 - j\sqrt{2\alpha}/2| = (0.5)\]
+            \[|H(e^{j\pi/4})|^2 = (1 + \alpha\sqrt{2}/2)^2 + (\alpha\sqrt{2}/2)^2 = (0.5)^2\]
+            \[c = sqrt{2}/2\]
+            \[|H(e^{j\pi/4})|^2 = (1 + \alpha c)^2 + (\alpha c)^2 = (0.5)^2\]
+            \[|H(e^{j\pi/4})|^2 = 1^2 + \alpha^2c^2 + 2\alpha c + \alpha^2c^2 = 0.25\]
+            \[u = \alpha c\]
+            \[|H(e^{j\pi/4})|^2 = 1 + 2u + 2u^2 = 0.25\]
+            \[u = -0.5 \pm 0.353j\]
+            \[\alpha = \frac{u}{c}\]
+            Jeg løser for det, finder magnituden og vinklen og så har jeg.
+            \[==========\] 
+            \[\alpha \approx 0.433*e^{\pm * \frac{13}{16} \pi}\]
+            \[==========\]
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Hvordan påvirkes fasen af signalet gennem LTI systemet]
+            Inputtet til $n = 0$ er upåvirket, men signalet $n = 1$ oplever en fase ændring på $\theta_0 = \frac{13}{16}\pi$.                       
+        \end{UnderOpgave}
+        Antag at signalet ikke er uendelig langt, men derimod starter til $n = 0$ dvs
+        \[x[n] = cos(\pi/4 * n)u[n]\]
+        
+        \begin{UnderOpgave}[Estimer hvor mange samples den transiente forvrænging varer]
+            Den transiente forvrængning kommer på grund af, at convolutionen varmer op. Først når den mindste liste i den konvolution er fuldt beregnet i konvolutionen, så vil outputtet være i steady state.
+            For det her tilfælde er x meget større end h. 
+            \[h[n] = \delta[k] + \alpha \delta[k - 1] \transformation{Z} 1 + \alpha z^{-1}\]
+            Så vil jeg efter $n = 0, 1$ have inputtet fuldt konvolueret med filteret. 
+            Derfor regner jeg med, at det vil tage en sample at få den i steady state.
+            \figtooghalvfems{0.3}\\
+            Og det er det jeg ser. 
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[LTI system i parallel kobling af to to 1. ordens filtre]
+        "Billede i opgavesættet"
+        \begin{UnderOpgave}[Hvilke krav er der på \text{$\alpha_1, \alpha_2$} for at systemet er stabilt]
+            Systemerne kan ses som 2 DF I systemer, og det vil jeg bruge senere. 
+            \[y_1[n] = x[n] - \alpha_1y_1[n - 1]\]
+            \[y_2[n] = x[n] - \alpha_2y_2[n - 1]\]
+            \[y[n] = y_1[n] + y_2[n]\]
+            Hvad jeg så umiddelbart vil sige her om stabiliteten er, at for $|\alpha_i| < 1$, så vil outputtet ikke påvirke det næste til en uendelighed. 
+            Så vil gå mod en endelig værdi for inputtet begrænset til en endelig værdi. 
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Beregn systemfunktionen, H, og impulsresponset h]
+            \[H = H_1 + H_2\]
+            \[H_1 : Y_1(z)*(1 + \alpha_1z^{-1}) = X(z)\]
+            \[H_1 = Y_1(z)/X(z) = \frac{1}{(1 + \alpha_1z^{-1})}\]
+            \[H_2 : Y(z)*(1 + \alpha_2z^{-1}) = X(z)\]
+            \[H_2 = Y_2(z)/X(z) = \frac{1}{(1 + \alpha_2z^{-1})}\]
+            \[H = \frac{1}{(1 + \alpha_1z^{-1})} + \frac{1}{(1 + \alpha_2z^{-1})}\]
+            Så det er to eksponentielle funktioner. Jeg antager, at systemet er kausult. 
+            \[\sum_{n = -\infty}^{\infty}(a)^nu[n] = \frac{1}{1 - a}\]
+            \[\sum_{n = 0}^{\infty}(a)^n = \frac{1}{1 - a}\]
+            \[h[n] = (-\alpha_1)^nu[n] + (-\alpha_2)^nu[n]\]
+            Kriteriet er, som jeg også før snakkede om, at størrelsen af alphaerne er mindre end 1. \\
+            Mine resultater: 
+            \[==================\]
+            \[H = \frac{1}{(1 + \alpha_1z^{-1})} + \frac{1}{(1 + \alpha_2z^{-1})}\]
+            \[h[n] = (-\alpha_1)^nu[n] + (-\alpha_2)^nu[n]\]
+            \[==================\]
+            
+            
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Tegn den direkte form II der svarer til LTI systemet]
+            Måske kan man beskrive det som et samlet system? 
+            Ellers så vil det bare være i et parallelt system som det her. 
+            Jeg brug sympy til at udvide udtrykket så jeg får.
+            \[H(z) = \frac{2 + (\alpha_1 + \alpha_2)* z^{-1}}{1 + (\alpha_1 + \alpha_2)z^{-1} + \alpha_1\alpha_2 z^{-2}}\]
+            Jeg kan beskrive systemet så som: 
+            \[b = [2, (\alpha_1 + \alpha_2), 0]\]
+            \[a = [1, (\alpha_1 + \alpha_2), \alpha_1\alpha_2]\]
+            Med den opsætning, så laver jeg systemet. 
+            \figtreoghalvfems{0.4}\vspace{100pt}       
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+    \begin{eksamensOpgave}[LTI system karakteristikker]
+        \[S: y[n] = 0.5y[n - 1] - 0.5x[n] + x[n - 1]\]
+        \[x[n] = (-1)^n, \tab{0} n \geq 0\]
+        \begin{UnderOpgave}[Beregn y1, y2 og y3]
+            \[y[1] = 0 - 0.5(-1)^1 + (-1)^0 = 3/2\]
+            \[y[2] = 1/2 * 3/2 - 0.5 * (-1)^2 + (-1)^1 = 3/4 - 1/2 - 1 = -3/4\]        
+            \[y[3] = 1/2*(-3/4) - 0.5 * (-1)^3 + (-1)^2 = -3/8 + 1/2 + 1 = 9/8\]
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Beregn z transformationen H for overføringsfunktionen S, inklusiv dens ROC]
+            \[Y(z)*(1 - 0.5z^{-1}) = X(z)*(-0.5 + z^{-1})\]
+            \[H(z) = \frac{-0.5 + z^{-1}}{1 - 0.5z^{-1}}\]
+            Jeg laver partial fraction for at bedre kunne beskrive dens transformationer.
+            \[H(z) = 1.5 * \frac{1}{1 - 0.5z^{-1}} - 2\]
+            Så har jeg en DC værdi, som kommer fra en impuls. Det er FIR og har ROC i alle z. 
+            En eksponentiel funktion. Systemet er kausult, så får den gælder der at 
+            \[ROC: |z| > 0.5\]
+            \[H(z) = \frac{-0.5 + z^{-1}}{1 - 0.5z^{-1}} = 1.5 * \frac{1}{1 - 0.5z^{-1}} - 2, \tab{0} ROC: |z| > 0.5\]
+            Systemets feedback har en værdi under 1, så den vil aftage med tiden. Med det in mente, så er den stabil så længe inputtet er stabilt. 
+
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Skitser magnituden evalueret i $z=e^{j\omega}$]
+            \figfireoghalvfems{0.4}
+            Jeg plottede også lige for fasen. Filterets magnitude er konstant men fasen ændres.
+        \end{UnderOpgave}
+        Et nyt system 
+        \[T\colon y[n]=x[n]+\alpha\cdot x[n - 1],\]
+        \begin{UnderOpgave}[Findes der en alpha der gør at T og S i en kaskade kobling resulterer i et system med en endelig impuls]
+            Endelig mener her IIR -> FIR filter. 
+            Det kan sagtens være. Kaskadekobling i frekvens spektret medføre multiplikation. 
+            \[H_2 : Y(z) = X(z)*(1 + \alpha z^{-1})\]
+            \[H_2 = 1 + \alpha z^{-1}\]
+            \[H_3 = H * H_2 = \frac{-0.5 + z^{-1}}{1 - 0.5z^{-1}} * (1 + \alpha z^{-1})\]
+            Så ja det kan den sagtens. For at det skal ske, så skal nævneren udlignes. Altså det nye nulpunkt skal sættes så polen udlignes. 
+            Og det gør den for
+            \[\alpha = -0.5\]
+            Hvor 
+            \[H_3(z) = -0.5 + z^{-1}, \tab{0} \alpha = -0.5\]
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+
+    \begin{eksamensOpgave}[Sampling, vindue og DFT]
+        Et analogt signal xc(t) er en superposition af 2 rene sinustoner, med samme amplitude. De to toner har frekvenser på helholdsvis 
+        \[F_1 = 1200Hz, F_2 = 1300Hz\]
+        Der samples i $T_0 = 10ms$
+        \begin{UnderOpgave}[Hvilken samplingfrekvens vil jeg anbefale for at man kan adskille de to sinustoner i frekvensspektret]
+            \[\Delta F = F_2 - F_1 = 100Hz\]
+            Spektret er over $F: [-1, 1]$ normaliseret. 
+            Og den er opdelt i N samples 
+            \[N = T_0 * F_s\]
+            Så resolutionen er 
+            \[(1 - (-1))/(T_0 * F_s)\]
+            Hvad er afstanden i det normaliserede spekter? 
+            \[\Delta_F/F_S\] 
+            Og så burde det, og jeg lægger vægt på burde, kunne skrives sådan her.
+            \[(2)/(T_0 * F_s) = \Delta_F/F_S\]
+            Men jeg ser, at det er to udtryk fra samme ligning, så de går ud. 
+            
+        \end{UnderOpgave}
+        \begin{UnderOpgave}[Hvilken indflydelse vil et vinduesfunktion have på mit svar i spg. 1. Hvilket vindue kan jeg anbefale?]
+            For en vindue så vil den bredde spektret. Det gør den på grund af den modelerede måde de bliver lavet på. 
+            For Hann husker jeg den som en impuls i 0 og ellers $\pm$ frekvens fra cos funktion. 
+            For hver sinustone vil jeg så have modulation ud fra den nye moduleringsfrekvens. Så var det måske smart at visualisere det, for så at svare på det. 
+        \end{UnderOpgave}
+    \end{eksamensOpgave}
+\end{rubrik}
+
