@@ -179,6 +179,69 @@ function Opgave10_10()
     grid on
 end 
 
-Opgave10_10()
+function M = Eksempel10_7()
+    f = [0.25, 0.35]; 
 
+    function gain = gain(db)
+        gain = 10^(db/20);
+    end
+    function db = db(gain)
+        db = 20*log10(gain)
+    end
+    % Gain dB 
+    Ap = 0.1
+    As = 50
+    
+    % Til gain 
+    deltap = (10^(Ap/20) - 1)/2
+    % Til dB
+    deltasdB = db(1 + deltap) - As
+    % Til gain 
+    deltas = gain(deltasdB)
+    
+    A = [1, 0];                         % Ideelt
+    delt = [deltap, deltas];            % dp, ds
+    [M,fo,ao,W] = firpmord(f, A, delt);
+    [h, delta] = firpm(M, fo, ao, W);
+    freqz(h, 1); 
+    % Ikke tilstrækkeligt
+    while true
+        M = M + 1
+        [h, delta] = firpm(M, fo, ao, W);
+        freqz(h, 1);
+        waitforbuttonpress();
+    end
+    M = 50; % Virker 
+end 
 
+function M = Eksempel10_8()
+    % Eksempel med absolutte værdier givet som grænser.
+    function dB = dB(gain)
+        dB = 20 * log10(gain)
+    end 
+    deltas1 = 0.01
+    deltap  = 1.01 - 1
+    deltas2 = 0.01
+
+    % Krav oversat til dB 
+    As = dB(1 + deltap) - dB(deltas2)
+
+    ws1 = 0.2*pi; 
+    wp1 = 0.3*pi; 
+    wp2 = 0.7*pi; 
+    ws2 = 0.78*pi; 
+    f = [ws1, wp1, wp2, ws2]/pi;                 % Normaliseret
+    
+    A = [0, 1, 0]; 
+    dev = [deltas1, deltap, deltas2];
+    [M, fo, ao, W] = firpmord(f, A, dev);
+    M = M + 1
+    [h, delta] = firpm(M, fo, ao);              % Fir coefficienter
+    freqz(h, 1);
+
+end 
+
+M = Eksempel10_8()
+
+w = hann(124)
+freqz(w, [1])

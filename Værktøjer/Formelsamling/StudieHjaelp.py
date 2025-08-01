@@ -1,10 +1,17 @@
+import shutil 
+import inspect
 from sympy import * 
+from scipy import constants
+from sympy.parsing.sympy_parser import parse_expr
+init_printing(pretty_print = True, use_latex=True, wrap_line = True, )
+
 
 class Opgave: 
     # ? Erstatning 
     def __new__(cls, *args, **kwargs):
         instance = super().__new__(cls)  # Create instance
-        if "beskrivelse" in cls.__dict__.keys(): pprint(cls.__dict__["beskrivelse"])  
+        pprint("\n\n\n")
+        if "beskrivelse" in cls.__dict__.keys(): pprint(cls.__dict__["beskrivelse"]) 
         cls.__sorterResultater__(cls, cls.__dict__)
         return instance  # Return the created instance
     
@@ -18,15 +25,162 @@ class Opgave:
         resultater = {k.split("_")[1] : v for k, v in variabler.items() if k.startswith('res')}
         if resultater == {}: return
         self.__printResultater__(self, resultater)
-    
+        
     def __printResultater__(self, resultater): 
-        pprint("\n"); pprint("="*80)
+        columns = shutil.get_terminal_size().columns if shutil.get_terminal_size().columns < 100 else 100  # Get terminal width
+        pprint("\n"); pprint("="*columns)
         for noegle in resultater.keys():
+            print("\n")
             vaerdi = resultater[noegle]
-            pprint(f"{noegle:^80}")
-            #pprint("\n ||\n\n") 
-            pprint(f"{vaerdi:^80}")
-        pprint(""); pprint("="*80) 
+            # pprint(f"{noegle:^{columns}}")
+            
+            formatted_expr = pretty(vaerdi)
+            for line in formatted_expr.split("\n"):
+                print(line.center(columns))
+            print("\n")
+            
+        pprint(""); pprint("="*columns) 
+        
+class Beregning(Opgave): 
+    """
+    Udvidelse til Opgave klassen
+    Printer funktioner ud pænt. 
+    
+    Opsætning 
+    --------
+    res_...             <- Vil blive evalueret ud fra konstanter givet til sidst\\
+    Konstanter = {      <- Vil være konstanter som bliver substitueret når resultaterne printes. 
+        "a" : b, \\
+        "b" : c \\
+    } \\
+    
+    
+    class Opgave(Beregning): 
+        konstanter = {
+            "a" : 20, 
+            "b" : 10
+        }
+        
+        H = lambda z : (symbols("a") + symbols("a") * z**(-1))/(1 - symbols("b") * symbols("h") * z**(-1))
+        res_w = H(1)
+    
+    opg = Opgave()\\
+    \\
+    fysiske konstanter gælder også, der er enkelte defineret, her var plancks konstant defineret. 
+    """
+
+    def __udskiftSymboler__(self, *args, **kwargs): 
+        """
+        Udskifter symboler            
+        
+        ARGS
+        ----- 
+        fysisk : Bool <- Udskifter symboler med fysiske konstanter
+        
+        KWARGS
+        ----- 
+        y           : ax + ?        <- Ligningen som skal have sine symboler udskiftet
+        navn        : ...           <- Navn på det resultat
+        """
+        
+        # ? Fysiske konstanter
+        konstanter = {
+            "h" : constants.h
+        }       
+        
+        
+        # Udskift symboler med givne konstanter.
+        y = kwargs["y"]
+        try :
+            symboler = self.konstanter 
+            y = y.subs(symboler)
+        except : 
+            pprint(f"Kunne ikke ændre symboler for {kwargs["navn"] if "navn" in kwargs else "Ukendt"}")
+                
+        # Udskift sidste symboler med fysiske konstanter
+        if "fysisk" in args:     
+            try: 
+                y = y.subs(konstanter)
+            except: 
+                pprint(f"Kunne ikke ændre fysiske syboler for {kwargs["navn"] if "navn" in kwargs else "Ukendt"}")
+        return y
+    
+    def __sorterResultater__(self, variabler): 
+        """
+        Overridet funktion som også tager in mente, at værdierne er symbolske og skal substitueres. 
+        """
+        resultater = {}
+        for k, v in variabler.items(): 
+            if k.startswith('res') == False: continue
+            resultat = k.split("_")[1] 
+            res_num = self.__udskiftSymboler__(self, "fysisk", y = v, navn = resultat)
+            resultater[resultat] = Eq(symbols(resultat), res_num) # Eq(resultat, )
+            
+        if resultater == {}: return
+        self.__printResultater__(self, resultater) 
+         
+    def __new__(cls, *args, **kwargs):
+        # instance = super().__new__(cls)  # Create instance            # Har kommenteret det her ud, da den printede resultater ud 2 gange.
+        # ? Print funktionerne ud 
+        liste = cls.__dict__.copy()
+        print("Brugte metoder:")
+        for name, method in liste.items():
+            if name.startswith("_") or not callable(method):
+                continue
+            try : 
+                sig = inspect.signature(method)
+                params = list(sig.parameters.values())
+                if len(params) > 1 : continue       # Flere end en parameter 
+                
+                # x
+                x = symbols(str(params[0]))
+                
+                # y(x) = ...
+                y = Function(name)(x)
+                rhs = method(x)
+                eq = Eq(y, method(x))
+                pprint(eq)
+                pprint("\n")
+            except :
+                pprint(f"Kunne ikke beskrive {name} som en matematisk en funktion")
+            # Få parametre 
+            
+
+        print("Metoder med mere end en parameter er ikke tilgængelig for nu, måske senere. For nu vil det blive uberørte.")
+        # ? Print resultaterne.
+        cls.__sorterResultater__(cls, cls.__dict__)  
+        # return instance
+    """
+    def __ændreClassMetoder__():
+        For at ændre metoder :
+        for name, method in cls.__dict__.items():
+            if name.startswith("_") or not callable(method):
+                continue
+            # Få parametre 
+            sig = inspect.signature(method)
+            params = list(sig.parameters.values())
+            if len(params) > 1 : continue       # Flere end en parameter 
+            
+            
+            x = symbols(str(params[0]))
+            # print(x)
+            
+            # y(x) = ...
+            y = Function(name)(x)
+            rhs = method(x)
+            eq = Eq(y, method(x))
+            pprint(eq)
+            try: 
+                eq = instance.udskiftSymboler("fysisk", y = eq, konstanter = instance.__dict__["konstanter"])
+            except: 
+                eq = instance.udskiftSymboler("fysisk", y = eq)
+            
+            # pprint(eq.rhs)
+            # pprint(x)
+            instance.__setattr__(name, lambdify(x, eq.rhs))
+    """
+            
+           
         
 class Ligning(): 
     """
@@ -95,8 +249,8 @@ def partialFraction(b, a, *args):
     
     if "DT" in args: 
         z, w = symbols("z w") # exp(-jw)
-        taeller = Poly(b, z).args[0]
-        naevner = Poly(a, z).args[0]
+        taeller = sum([b[i]*(z**(-i)) for i in range(len(b))])  #  Poly(b, z).args[0]¨
+        naevner = sum([a[i]*(z**(-i)) for i in range(len(a))])  #  Poly(a, z).args[0]
         ligning = taeller/naevner
         return apart(ligning, z)
     if "CT" in args: 

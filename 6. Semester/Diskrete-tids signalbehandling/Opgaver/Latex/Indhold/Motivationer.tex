@@ -1,0 +1,39 @@
+\begin{Motivationer}
+    \begin{Motivation}[Vinduer]
+        Det kræver meget af et filter, hvis den skal være præcis.\\
+        Det kan blive meget krævende for filteret at være præcis, da det vil kræve en stor mængde sampling.\\
+        Derfor tydede man til at beskrive vinduer, som anvender modulering til at videregive nogle frekenskomponenter og attenuere andre. \\
+        Det er bestemt for overgange hvor, at vinduen kan attenuere de frekvenser som sørger for overshooting. 
+        Alt afhængigt af hvilket vindue det er, så omdanner den energien forskelligt. 
+        På den måde så kan man undgå meget krævende mængder af samples. 
+    \end{Motivation}
+
+    \begin{Motivation}[Frekvens sampling]
+        At kunne designe lineære filtre er måske ikke helt så simple, men her kan man ud fra nogle krav sørge for at lave en lineært filter.
+        Ideen er, at man plukker sit ideele frekvens ud til bestemte frekvenser. Dem kommer man så i $A \in R^{1xN}$.
+        Så designer man så for en faser som sikre sig at de amplituder bliver tildelt den rigtige frekvens. 
+        \[H = A[k] * e^{\Psi[k]}\]\\
+
+        Tricket er så at få den til en impuls respons. 
+        Med impulsresponsen kan vi så få et vindue på, så filtret kan forbedres. \\\\
+        
+        Så kan vi så tage Fourier transformationen på den igen, måske med noget padding for bedre resolution. 
+        Og så har vi det praktiske filter som vi har realiseret. \\\\
+
+        Alt efter hvilke krav vi stillede undervejs, så har vi måske opnået lineær fase
+        
+    \end{Motivation}
+    \begin{Motivation}[Equiriple filtrering]
+        Hvor at vinduer løste noget af den størrelse af samples, så kræver det stadigvæk noget, hvor at et vindue typisk også kræver 40 - 70 samples. 
+        Det skulle man kunne ændre med equiriple filtres. Jeg er ikke helt skarp på det, men det er sådan lidt statistical learning metoden der bliver taget i brug. 
+        Vi ønsker at kunne estimere et ideelt spektrum. Vi beskriver fejlene på den og det polynomium vi har valgt. Men hvor at nogle vil løse efter least squares, så er det ikke summen af fejl vi ønsker minimum. 
+        Vi ønsker at find det mindste maximum på fejlene
+        \[min max |e(x)|\]
+        Og på den måde så sikre man, at spektret kommer til at kunne beskrives ved diskrete værdier. 
+        \[\delta = ...\]
+        \[|H| = [A + \delta: A - \delta, \delta : -\delta]\]
+        Og det kan have nogle fordele, hvis man ønsker meget nøjagtige grænser af værdier.
+        For at komme tilbage til motivationen med vinduer og deres stadigvæk store mængde, så kræver den her metode kun antallet af ordener i polynomiet plus en delta faktor. 
+        Dermed er den endnu mindre krævende end vinduer og den sørger for stabile spektre, som kan være på godt og ondt.        
+    \end{Motivation}
+\end{Motivationer}

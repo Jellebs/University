@@ -339,11 +339,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
-OUTPUT build/Oplæsning.toc
-INPUT ./Indhold/Opgaver2.tex
-INPUT ./Indhold/Opgaver2.tex
-INPUT Indhold/Opgaver2.tex
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
@@ -352,102 +347,497 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
-INPUT ./Indhold/Billeder/Opgave 7.1.png
-INPUT ./Indhold/Billeder/Opgave 7.1.png
-INPUT ./Indhold/Billeder/Opgave 7.1.png
-INPUT ./Indhold/Billeder/Opgave 7.1.png
-INPUT ./Indhold/Billeder/Opgave 7.1.c.png
-INPUT ./Indhold/Billeder/Opgave 7.1.c.png
-INPUT ./Indhold/Billeder/Opgave 7.1.c.png
-INPUT ./Indhold/Billeder/Opgave 7.1.c.png
-INPUT ./Indhold/Billeder/Opgave 7.3.b.png
-INPUT ./Indhold/Billeder/Opgave 7.3.b.png
-INPUT ./Indhold/Billeder/Opgave 7.3.b.png
-INPUT ./Indhold/Billeder/Opgave 7.3.b.png
-INPUT ./Indhold/Billeder/Opgave 7.3.c.png
-INPUT ./Indhold/Billeder/Opgave 7.3.c.png
-INPUT ./Indhold/Billeder/Opgave 7.3.c.png
-INPUT ./Indhold/Billeder/Opgave 7.3.c.png
-INPUT ./Indhold/Billeder/Opgave 7.3.d.png
-INPUT ./Indhold/Billeder/Opgave 7.3.d.png
-INPUT ./Indhold/Billeder/Opgave 7.3.d.png
-INPUT ./Indhold/Billeder/Opgave 7.3.d.png
-INPUT ./Indhold/Billeder/Opgave 7.5.png
-INPUT ./Indhold/Billeder/Opgave 7.5.png
-INPUT ./Indhold/Billeder/Opgave 7.5.png
-INPUT ./Indhold/Billeder/Opgave 7.5.png
-INPUT ./Indhold/Billeder/Opgave 8. KeyboardMatrix.png
-INPUT ./Indhold/Billeder/Opgave 8. KeyboardMatrix.png
-INPUT ./Indhold/Billeder/Opgave 8. KeyboardMatrix.png
-INPUT ./Indhold/Billeder/Opgave 8. KeyboardMatrix.png
-INPUT ./Indhold/Billeder/Opgave 8.48.png
-INPUT ./Indhold/Billeder/Opgave 8.48.png
-INPUT ./Indhold/Billeder/Opgave 8.48.png
-INPUT ./Indhold/Billeder/Opgave 8.48.png
-INPUT ./Indhold/Billeder/Opgave 9.1.png
-INPUT ./Indhold/Billeder/Opgave 9.1.png
-INPUT ./Indhold/Billeder/Opgave 9.1.png
-INPUT ./Indhold/Billeder/Opgave 9.1.png
-INPUT ./Indhold/Billeder/Opgave 9.2.png
-INPUT ./Indhold/Billeder/Opgave 9.2.png
-INPUT ./Indhold/Billeder/Opgave 9.2.png
-INPUT ./Indhold/Billeder/Opgave 9.2.png
-INPUT ./Indhold/Billeder/Opgave 9.3.png
-INPUT ./Indhold/Billeder/Opgave 9.3.png
-INPUT ./Indhold/Billeder/Opgave 9.3.png
-INPUT ./Indhold/Billeder/Opgave 9.3.png
-INPUT ./Indhold/Billeder/Opgave 9.8.png
-INPUT ./Indhold/Billeder/Opgave 9.8.png
-INPUT ./Indhold/Billeder/Opgave 9.8.png
-INPUT ./Indhold/Billeder/Opgave 9.8.png
-INPUT ./Indhold/Billeder/Opgave 9.12c.png
-INPUT ./Indhold/Billeder/Opgave 9.12c.png
-INPUT ./Indhold/Billeder/Opgave 9.12c.png
-INPUT ./Indhold/Billeder/Opgave 9.12c.png
-INPUT ./Indhold/Billeder/Opgave 9.28.png
-INPUT ./Indhold/Billeder/Opgave 9.28.png
-INPUT ./Indhold/Billeder/Opgave 9.28.png
-INPUT ./Indhold/Billeder/Opgave 9.28.png
+OUTPUT build/Oplæsning.toc
+INPUT ./Indhold/Motivationer.tex
+INPUT ./Indhold/Motivationer.tex
+INPUT Indhold/Motivationer.tex
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT ./Indhold/Udledninger.tex
+INPUT ./Indhold/Udledninger.tex
+INPUT Indhold/Udledninger.tex
+INPUT ./Indhold/Billeder/Blokdiagram kapitel 2.png
+INPUT ./Indhold/Billeder/Blokdiagram kapitel 2.png
+INPUT ./Indhold/Billeder/Blokdiagram kapitel 2.png
+INPUT ./Indhold/Billeder/Blokdiagram kapitel 2.png
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib6.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 INPUT ./Indhold/Billeder/Opgave 9.29.png
 INPUT ./Indhold/Billeder/Opgave 9.29.png
 INPUT ./Indhold/Billeder/Opgave 9.29.png
 INPUT ./Indhold/Billeder/Opgave 9.29.png
-INPUT ./Indhold/Billeder/Opgave 9.29.png
-INPUT ./Indhold/Billeder/Opgave 9.29.png
-INPUT ./Indhold/Billeder/Opgave 9.29.png
-INPUT ./Indhold/Billeder/Opgave 10.4.png
-INPUT ./Indhold/Billeder/Opgave 10.4.png
-INPUT ./Indhold/Billeder/Opgave 10.4.png
-INPUT ./Indhold/Billeder/Opgave 10.4.png
-INPUT ./Indhold/Billeder/Opgave 10.10.a.png
-INPUT ./Indhold/Billeder/Opgave 10.10.a.png
-INPUT ./Indhold/Billeder/Opgave 10.10.a.png
-INPUT ./Indhold/Billeder/Opgave 10.10.a.png
-INPUT ./Indhold/Billeder/Opgave 10.10.b.png
-INPUT ./Indhold/Billeder/Opgave 10.10.b.png
-INPUT ./Indhold/Billeder/Opgave 10.10.b.png
-INPUT ./Indhold/Billeder/Opgave 10.10.b.png
-INPUT ./Indhold/Billeder/Opgave 10.10.setup.png
-INPUT ./Indhold/Billeder/Opgave 10.10.setup.png
-INPUT ./Indhold/Billeder/Opgave 10.10.setup.png
-INPUT ./Indhold/Billeder/Opgave 10.10.setup.png
-INPUT ./Indhold/Billeder/Opgave 10.10.resultat.png
-INPUT ./Indhold/Billeder/Opgave 10.10.resultat.png
-INPUT ./Indhold/Billeder/Opgave 10.10.resultat.png
-INPUT ./Indhold/Billeder/Opgave 10.10.resultat.png
-INPUT ./Indhold/Billeder/Opgave 10.10.praktisk.png
-INPUT ./Indhold/Billeder/Opgave 10.10.praktisk.png
-INPUT ./Indhold/Billeder/Opgave 10.10.praktisk.png
-INPUT ./Indhold/Billeder/Opgave 10.10.praktisk.png
-INPUT ./Indhold/Billeder/Opgave 10.10.Scipy.png
-INPUT ./Indhold/Billeder/Opgave 10.10.Scipy.png
-INPUT ./Indhold/Billeder/Opgave 10.10.Scipy.png
-INPUT ./Indhold/Billeder/Opgave 10.10.Scipy.png
-INPUT ./Indhold/Billeder/Opgave 10.10.Matlab.png
-INPUT ./Indhold/Billeder/Opgave 10.10.Matlab.png
-INPUT ./Indhold/Billeder/Opgave 10.10.Matlab.png
-INPUT ./Indhold/Billeder/Opgave 10.10.Matlab.png
+INPUT ./Indhold/Formler.tex
+INPUT ./Indhold/Formler.tex
+INPUT Indhold/Formler.tex
+INPUT ./Indhold/Billeder/Z transformations egenskaber.png
+INPUT ./Indhold/Billeder/Z transformations egenskaber.png
+INPUT ./Indhold/Billeder/Z transformations egenskaber.png
+INPUT ./Indhold/Billeder/Z transformations egenskaber.png
+INPUT ./Indhold/Øvelser.tex
+INPUT ./Indhold/Øvelser.tex
+INPUT Indhold/Øvelser.tex
+INPUT ./Indhold/Billeder/Z transformations egenskaber.png
+INPUT ./Indhold/Billeder/Z transformations egenskaber.png
+INPUT ./Indhold/Billeder/Z transformations egenskaber.png
+INPUT ./Indhold/Billeder/Opgave 2.33.png
+INPUT ./Indhold/Billeder/Opgave 2.33.png
+INPUT ./Indhold/Billeder/Opgave 2.33.png
+INPUT ./Indhold/Billeder/Opgave 2.33.png
+INPUT ./Indhold/Billeder/SløretBillede.png
+INPUT ./Indhold/Billeder/SløretBillede.png
+INPUT ./Indhold/Billeder/SløretBillede.png
+INPUT ./Indhold/Billeder/SløretBillede.png
+INPUT ./Indhold/Billeder/AfsløretsFilter.png
+INPUT ./Indhold/Billeder/AfsløretsFilter.png
+INPUT ./Indhold/Billeder/AfsløretsFilter.png
+INPUT ./Indhold/Billeder/AfsløretsFilter.png
+INPUT ./Indhold/Billeder/EKGdata.png
+INPUT ./Indhold/Billeder/EKGdata.png
+INPUT ./Indhold/Billeder/EKGdata.png
+INPUT ./Indhold/Billeder/EKGdata.png
+INPUT ./Indhold/Billeder/EKGfrekvenspektrum.png
+INPUT ./Indhold/Billeder/EKGfrekvenspektrum.png
+INPUT ./Indhold/Billeder/EKGfrekvenspektrum.png
+INPUT ./Indhold/Billeder/EKGfrekvenspektrum.png
+INPUT ./Indhold/Billeder/EKGnotchfilterAnalyse.png
+INPUT ./Indhold/Billeder/EKGnotchfilterAnalyse.png
+INPUT ./Indhold/Billeder/EKGnotchfilterAnalyse.png
+INPUT ./Indhold/Billeder/EKGnotchfilterAnalyse.png
+INPUT ./Indhold/Billeder/EKGnotchfilterPZmap.png
+INPUT ./Indhold/Billeder/EKGnotchfilterPZmap.png
+INPUT ./Indhold/Billeder/EKGnotchfilterPZmap.png
+INPUT ./Indhold/Billeder/EKGnotchfilterPZmap.png
+INPUT ./Indhold/Billeder/EKGsignalfiltreret.png
+INPUT ./Indhold/Billeder/EKGsignalfiltreret.png
+INPUT ./Indhold/Billeder/EKGsignalfiltreret.png
+INPUT ./Indhold/Billeder/EKGsignalfiltreret.png
+INPUT ./Indhold/Billeder/EKGforbedretNotchfilterAnalyse.png
+INPUT ./Indhold/Billeder/EKGforbedretNotchfilterAnalyse.png
+INPUT ./Indhold/Billeder/EKGforbedretNotchfilterAnalyse.png
+INPUT ./Indhold/Billeder/EKGforbedretNotchfilterAnalyse.png
+INPUT ./Indhold/Billeder/EKGforbedretNotchfilterPZmap.png
+INPUT ./Indhold/Billeder/EKGforbedretNotchfilterPZmap.png
+INPUT ./Indhold/Billeder/EKGforbedretNotchfilterPZmap.png
+INPUT ./Indhold/Billeder/EKGforbedretNotchfilterPZmap.png
+INPUT ./Indhold/Billeder/EKGforbedretSignalFiltrering.png
+INPUT ./Indhold/Billeder/EKGforbedretSignalFiltrering.png
+INPUT ./Indhold/Billeder/EKGforbedretSignalFiltrering.png
+INPUT ./Indhold/Billeder/EKGforbedretSignalFiltrering.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdata.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdata.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdata.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdata.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdataFiltreret.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdataFiltreret.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdataFiltreret.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdataFiltreret.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdataFilteranalyse.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdataFilteranalyse.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdataFilteranalyse.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdataFilteranalyse.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdataIIRFiltermodFIRFilter.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdataIIRFiltermodFIRFilter.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdataIIRFiltermodFIRFilter.png
+INPUT ./Indhold/Billeder/SignalbehandlingTemperaturdataIIRFiltermodFIRFilter.png
+INPUT ./Indhold/Billeder/Signalbehandling3DAudioelev50H50e096a.png
+INPUT ./Indhold/Billeder/Signalbehandling3DAudioelev50H50e096a.png
+INPUT ./Indhold/Billeder/Signalbehandling3DAudioelev50H50e096a.png
+INPUT ./Indhold/Billeder/Signalbehandling3DAudioelev50H50e096a.png
+INPUT ./Indhold/Billeder/FilterStabilitet.png
+INPUT ./Indhold/Billeder/FilterStabilitet.png
+INPUT ./Indhold/Billeder/FilterStabilitet.png
+INPUT ./Indhold/Billeder/FilterStabilitet.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.2.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.2.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.2.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.2.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.3.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.3.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.3.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.3.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.4.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.4.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.4.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.4.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.5.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.5.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.5.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.5.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.6.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.6.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.6.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.6.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.7.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.7.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.7.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.7.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.8.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.8.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.8.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.8.png
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT ./Indhold/Billeder/Øvelse 10.4.9.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.9.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.9.png
+INPUT ./Indhold/Billeder/Øvelse 10.4.9.png
+INPUT ./Indhold/Billeder/Eksempel 10.5.a.png
+INPUT ./Indhold/Billeder/Eksempel 10.5.a.png
+INPUT ./Indhold/Billeder/Eksempel 10.5.a.png
+INPUT ./Indhold/Billeder/Eksempel 10.5.a.png
+INPUT ./Indhold/Billeder/Eksempel 10.5.b.png
+INPUT ./Indhold/Billeder/Eksempel 10.5.b.png
+INPUT ./Indhold/Billeder/Eksempel 10.5.b.png
+INPUT ./Indhold/Billeder/Eksempel 10.5.b.png
+INPUT ./Indhold/Billeder/Eksempel 10.7.png
+INPUT ./Indhold/Billeder/Eksempel 10.7.png
+INPUT ./Indhold/Billeder/Eksempel 10.7.png
+INPUT ./Indhold/Billeder/Eksempel 10.7.png
+INPUT ./Indhold/Billeder/Eksempel 10.7.1.png
+INPUT ./Indhold/Billeder/Eksempel 10.7.1.png
+INPUT ./Indhold/Billeder/Eksempel 10.7.1.png
+INPUT ./Indhold/Billeder/Eksempel 10.7.1.png
+INPUT ./Indhold/Billeder/Eksempel 10.8.png
+INPUT ./Indhold/Billeder/Eksempel 10.8.png
+INPUT ./Indhold/Billeder/Eksempel 10.8.png
+INPUT ./Indhold/Billeder/Eksempel 10.8.png
+INPUT ./Indhold/EksamensOpgaver.tex
+INPUT ./Indhold/EksamensOpgaver.tex
+INPUT Indhold/EksamensOpgaver.tex
+INPUT ./Indhold/Billeder/Eksamenssæt2021.1.3.png
+INPUT ./Indhold/Billeder/Eksamenssæt2021.1.3.png
+INPUT ./Indhold/Billeder/Eksamenssæt2021.1.3.png
+INPUT ./Indhold/Billeder/Eksamenssæt2021.1.3.png
+INPUT ./Indhold/Billeder/Eksamenssæt2021.4.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2021.4.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2021.4.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2021.4.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2021.4.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2021.4.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2021.4.2.png
+INPUT ./Indhold/Billeder/Eksamensopgavesæt2022.2.png
+INPUT ./Indhold/Billeder/Eksamensopgavesæt2022.2.png
+INPUT ./Indhold/Billeder/Eksamensopgavesæt2022.2.png
+INPUT ./Indhold/Billeder/Eksamensopgavesæt2022.2.png
+INPUT ./Indhold/Billeder/Eksamensopgavesæt2024.3.png
+INPUT ./Indhold/Billeder/Eksamensopgavesæt2024.3.png
+INPUT ./Indhold/Billeder/Eksamensopgavesæt2024.3.png
+INPUT ./Indhold/Billeder/Eksamensopgavesæt2024.3.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.4.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.4.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.4.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.4.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.3.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.3.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.3.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.3.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.4.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.4.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.4.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.4.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.4.4.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.4.4.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.4.4.2.png
+INPUT ./Indhold/Billeder/Eksamenssæt2024.ord.4.4.2.png
+INPUT ./Indhold/Opgaver.tex
+INPUT ./Indhold/Opgaver.tex
+INPUT Indhold/Opgaver.tex
+INPUT ./Indhold/Billeder/Opgave 2.5.png
+INPUT ./Indhold/Billeder/Opgave 2.5.png
+INPUT ./Indhold/Billeder/Opgave 2.5.png
+INPUT ./Indhold/Billeder/Opgave 2.5.png
+INPUT ./Indhold/Billeder/Feedback system.svg
+INPUT ./Indhold/Billeder/Feedback system.svg
+INPUT ./Indhold/Billeder/Feedback system.svg
+INPUT ./svg-inkscape/Feedback system_svg-tex.pdf
+INPUT ./svg-inkscape/Feedback system_svg-tex.pdf_tex
+INPUT ./svg-inkscape/Feedback system_svg-tex.pdf_tex
+INPUT ./svg-inkscape/Feedback system_svg-tex.pdf
+INPUT ./svg-inkscape/Feedback system_svg-tex.pdf
+INPUT ./svg-inkscape/Feedback system_svg-tex.pdf_tex
+INPUT ./svg-inkscape/Feedback system_svg-tex.pdf_tex
+INPUT ./svg-inkscape/Feedback system_svg-tex.pdf
+INPUT ./svg-inkscape/Feedback system_svg-tex.pdf_tex
+INPUT ./svg-inkscape/Feedback system_svg-tex.pdf
+INPUT ./svg-inkscape/Feedback system_svg-tex.pdf
+INPUT ./Indhold/Billeder/Opgave 2.1.png
+INPUT ./Indhold/Billeder/Opgave 2.1.png
+INPUT ./Indhold/Billeder/Opgave 2.1.png
+INPUT ./Indhold/Billeder/Opgave 2.1.png
+INPUT ./Indhold/Billeder/Opgave 2.3.png
+INPUT ./Indhold/Billeder/Opgave 2.3.png
+INPUT ./Indhold/Billeder/Opgave 2.3.png
+INPUT ./Indhold/Billeder/Opgave 2.3.png
+INPUT ./Indhold/Billeder/Opgave til kapitel 2.png
+INPUT ./Indhold/Billeder/Opgave til kapitel 2.png
+INPUT ./Indhold/Billeder/Opgave til kapitel 2.png
+INPUT ./Indhold/Billeder/Opgave til kapitel 2.png
+INPUT ./Indhold/Billeder/Opgave 2.17.a.png
+INPUT ./Indhold/Billeder/Opgave 2.17.a.png
+INPUT ./Indhold/Billeder/Opgave 2.17.a.png
+INPUT ./Indhold/Billeder/Opgave 2.17.a.png
+INPUT ./Indhold/Billeder/Opgave 2.17.b.png
+INPUT ./Indhold/Billeder/Opgave 2.17.b.png
+INPUT ./Indhold/Billeder/Opgave 2.17.b.png
+INPUT ./Indhold/Billeder/Opgave 2.17.b.png
+INPUT ./Indhold/Billeder/Opgave 2.17.c.png
+INPUT ./Indhold/Billeder/Opgave 2.17.c.png
+INPUT ./Indhold/Billeder/Opgave 2.17.c.png
+INPUT ./Indhold/Billeder/Opgave 2.17.c.png
+INPUT ./Indhold/Billeder/Opgave 2.17.png
+INPUT ./Indhold/Billeder/Opgave 2.17.png
+INPUT ./Indhold/Billeder/Opgave 2.17.png
+INPUT ./Indhold/Billeder/Opgave 2.17.png
+INPUT ./Indhold/Billeder/Opgave 2.33.png
+INPUT ./Indhold/Billeder/Opgave 2.33.png
+INPUT ./Indhold/Billeder/Opgave 2.33.png
+INPUT ./Indhold/Billeder/Opgave 2.50.svg
+INPUT ./Indhold/Billeder/Opgave 2.50.svg
+INPUT ./Indhold/Billeder/Opgave 2.50.svg
+INPUT ./svg-inkscape/Opgave 2.50_svg-tex.pdf
+INPUT ./svg-inkscape/Opgave 2.50_svg-tex.pdf_tex
+INPUT ./svg-inkscape/Opgave 2.50_svg-tex.pdf_tex
+INPUT ./svg-inkscape/Opgave 2.50_svg-tex.pdf
+INPUT ./svg-inkscape/Opgave 2.50_svg-tex.pdf
+INPUT ./svg-inkscape/Opgave 2.50_svg-tex.pdf_tex
+INPUT ./svg-inkscape/Opgave 2.50_svg-tex.pdf_tex
+INPUT ./svg-inkscape/Opgave 2.50_svg-tex.pdf
+INPUT ./svg-inkscape/Opgave 2.50_svg-tex.pdf_tex
+INPUT ./svg-inkscape/Opgave 2.50_svg-tex.pdf
+INPUT ./svg-inkscape/Opgave 2.50_svg-tex.pdf
+INPUT ./Indhold/Billeder/Opgave 2.50.png
+INPUT ./Indhold/Billeder/Opgave 2.50.png
+INPUT ./Indhold/Billeder/Opgave 2.50.png
+INPUT ./Indhold/Billeder/Opgave 2.50.png
+INPUT ./Indhold/Billeder/Opgave 3.1.a.png
+INPUT ./Indhold/Billeder/Opgave 3.1.a.png
+INPUT ./Indhold/Billeder/Opgave 3.1.a.png
+INPUT ./Indhold/Billeder/Opgave 3.1.a.png
+INPUT ./Indhold/Billeder/Opgave 3.1.b.png
+INPUT ./Indhold/Billeder/Opgave 3.1.b.png
+INPUT ./Indhold/Billeder/Opgave 3.1.b.png
+INPUT ./Indhold/Billeder/Opgave 3.1.b.png
+INPUT ./Indhold/Billeder/Z transformations egenskaber.png
+INPUT ./Indhold/Billeder/Z transformations egenskaber.png
+INPUT ./Indhold/Billeder/Z transformations egenskaber.png
+INPUT ./Indhold/Billeder/Opgave 3.15.png
+INPUT ./Indhold/Billeder/Opgave 3.15.png
+INPUT ./Indhold/Billeder/Opgave 3.15.png
+INPUT ./Indhold/Billeder/Opgave 3.15.png
+INPUT ./Indhold/Billeder/Opgave 3.16.png
+INPUT ./Indhold/Billeder/Opgave 3.16.png
+INPUT ./Indhold/Billeder/Opgave 3.16.png
+INPUT ./Indhold/Billeder/Opgave 3.16.png
+INPUT ./Indhold/Billeder/Opgave 3.19 - pzmap.png
+INPUT ./Indhold/Billeder/Opgave 3.19 - pzmap.png
+INPUT ./Indhold/Billeder/Opgave 3.19 - pzmap.png
+INPUT ./Indhold/Billeder/Opgave 3.19 - pzmap.png
+INPUT ./Indhold/Billeder/Opgave 3.19 - Respons.png
+INPUT ./Indhold/Billeder/Opgave 3.19 - Respons.png
+INPUT ./Indhold/Billeder/Opgave 3.19 - Respons.png
+INPUT ./Indhold/Billeder/Opgave 3.19 - Respons.png
+INPUT ./Indhold/Billeder/Opgave 5.2.png
+INPUT ./Indhold/Billeder/Opgave 5.2.png
+INPUT ./Indhold/Billeder/Opgave 5.2.png
+INPUT ./Indhold/Billeder/Opgave 5.2.png
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcbx1000.tfm
+INPUT ./Indhold/Billeder/Opgave 5.2.png
+INPUT ./Indhold/Billeder/Opgave 5.2.png
+INPUT ./Indhold/Billeder/Opgave 5.2.png
+INPUT ./Indhold/Billeder/Opgave 5.2.png
+INPUT ./Indhold/Billeder/Opgave 5.2.png
+INPUT ./Indhold/Billeder/Opgave 5.2.png
+INPUT ./Indhold/Billeder/Opgave 5.2.e.png
+INPUT ./Indhold/Billeder/Opgave 5.2.e.png
+INPUT ./Indhold/Billeder/Opgave 5.2.e.png
+INPUT ./Indhold/Billeder/Opgave 5.2.e.png
+INPUT ./Indhold/Billeder/Opgave 5.16.png
+INPUT ./Indhold/Billeder/Opgave 5.16.png
+INPUT ./Indhold/Billeder/Opgave 5.16.png
+INPUT ./Indhold/Billeder/Opgave 5.16.png
+INPUT ./Indhold/Billeder/Opgave 5.30.png
+INPUT ./Indhold/Billeder/Opgave 5.30.png
+INPUT ./Indhold/Billeder/Opgave 5.30.png
+INPUT ./Indhold/Billeder/Opgave 5.30.png
+INPUT ./Indhold/Billeder/Opgave 5.31b.png
+INPUT ./Indhold/Billeder/Opgave 5.31b.png
+INPUT ./Indhold/Billeder/Opgave 5.31b.png
+INPUT ./Indhold/Billeder/Opgave 5.31b.png
+INPUT ./Indhold/Billeder/Opgave 5.31c.png
+INPUT ./Indhold/Billeder/Opgave 5.31c.png
+INPUT ./Indhold/Billeder/Opgave 5.31c.png
+INPUT ./Indhold/Billeder/Opgave 5.31c.png
+INPUT ./Indhold/Billeder/Opgave 5.38.b.png
+INPUT ./Indhold/Billeder/Opgave 5.38.b.png
+INPUT ./Indhold/Billeder/Opgave 5.38.b.png
+INPUT ./Indhold/Billeder/Opgave 5.38.b.png
+INPUT ./Indhold/Billeder/Opgave 5.38.c.png
+INPUT ./Indhold/Billeder/Opgave 5.38.c.png
+INPUT ./Indhold/Billeder/Opgave 5.38.c.png
+INPUT ./Indhold/Billeder/Opgave 5.38.c.png
+INPUT ./Indhold/Billeder/Opgave 5.39.a.png
+INPUT ./Indhold/Billeder/Opgave 5.39.a.png
+INPUT ./Indhold/Billeder/Opgave 5.39.a.png
+INPUT ./Indhold/Billeder/Opgave 5.39.a.png
+INPUT ./Indhold/Billeder/Opgave 5.39.b.png
+INPUT ./Indhold/Billeder/Opgave 5.39.b.png
+INPUT ./Indhold/Billeder/Opgave 5.39.b.png
+INPUT ./Indhold/Billeder/Opgave 5.39.b.png
+INPUT ./Indhold/Billeder/Opgave 5.39.c.png
+INPUT ./Indhold/Billeder/Opgave 5.39.c.png
+INPUT ./Indhold/Billeder/Opgave 5.39.c.png
+INPUT ./Indhold/Billeder/Opgave 5.39.c.png
+INPUT ./Indhold/Billeder/Opgave 5.39.d.png
+INPUT ./Indhold/Billeder/Opgave 5.39.d.png
+INPUT ./Indhold/Billeder/Opgave 5.39.d.png
+INPUT ./Indhold/Billeder/Opgave 5.39.d.png
+INPUT ./Indhold/Billeder/Opgave 5.48.png
+INPUT ./Indhold/Billeder/Opgave 5.48.png
+INPUT ./Indhold/Billeder/Opgave 5.48.png
+INPUT ./Indhold/Billeder/Opgave 5.48.png
+INPUT ./Indhold/Billeder/Opgave 5.48.2.png
+INPUT ./Indhold/Billeder/Opgave 5.48.2.png
+INPUT ./Indhold/Billeder/Opgave 5.48.2.png
+INPUT ./Indhold/Billeder/Opgave 5.48.2.png
+INPUT ./Indhold/Billeder/Opgave 5.55.a.png
+INPUT ./Indhold/Billeder/Opgave 5.55.a.png
+INPUT ./Indhold/Billeder/Opgave 5.55.a.png
+INPUT ./Indhold/Billeder/Opgave 5.55.a.png
+INPUT ./Indhold/Billeder/Opgave 5.55.b.png
+INPUT ./Indhold/Billeder/Opgave 5.55.b.png
+INPUT ./Indhold/Billeder/Opgave 5.55.b.png
+INPUT ./Indhold/Billeder/Opgave 5.55.b.png
+INPUT ./Indhold/Billeder/Opgave 5.55.c.png
+INPUT ./Indhold/Billeder/Opgave 5.55.c.png
+INPUT ./Indhold/Billeder/Opgave 5.55.c.png
+INPUT ./Indhold/Billeder/Opgave 5.55.c.png
+INPUT ./Indhold/Billeder/Opgave 5.55.d.png
+INPUT ./Indhold/Billeder/Opgave 5.55.d.png
+INPUT ./Indhold/Billeder/Opgave 5.55.d.png
+INPUT ./Indhold/Billeder/Opgave 5.55.d.png
+INPUT ./Indhold/Billeder/Opgave 6.2.a.png
+INPUT ./Indhold/Billeder/Opgave 6.2.a.png
+INPUT ./Indhold/Billeder/Opgave 6.2.a.png
+INPUT ./Indhold/Billeder/Opgave 6.2.a.png
+INPUT ./Indhold/Billeder/Opgave 6.2.b.png
+INPUT ./Indhold/Billeder/Opgave 6.2.b.png
+INPUT ./Indhold/Billeder/Opgave 6.2.b.png
+INPUT ./Indhold/Billeder/Opgave 6.2.b.png
+INPUT ./Indhold/Billeder/Opgave 6.2.c.png
+INPUT ./Indhold/Billeder/Opgave 6.2.c.png
+INPUT ./Indhold/Billeder/Opgave 6.2.c.png
+INPUT ./Indhold/Billeder/Opgave 6.2.c.png
+INPUT ./Indhold/Billeder/Opgave 6.12.png
+INPUT ./Indhold/Billeder/Opgave 6.12.png
+INPUT ./Indhold/Billeder/Opgave 6.12.png
+INPUT ./Indhold/Billeder/Opgave 6.12.png
+INPUT ./Indhold/Billeder/Opgave 6.12.Rekonstruering.png
+INPUT ./Indhold/Billeder/Opgave 6.12.Rekonstruering.png
+INPUT ./Indhold/Billeder/Opgave 6.12.Rekonstruering.png
+INPUT ./Indhold/Billeder/Opgave 6.12.Rekonstruering.png
+INPUT ./Indhold/Billeder/Opgave 7.1.png
+INPUT ./Indhold/Billeder/Opgave 7.1.png
+INPUT ./Indhold/Billeder/Opgave 7.1.png
+INPUT ./Indhold/Billeder/Opgave 7.1.png
+INPUT ./Indhold/Billeder/Opgave 7.1.c.png
+INPUT ./Indhold/Billeder/Opgave 7.1.c.png
+INPUT ./Indhold/Billeder/Opgave 7.1.c.png
+INPUT ./Indhold/Billeder/Opgave 7.1.c.png
+INPUT ./Indhold/Billeder/Opgave 7.3.b.png
+INPUT ./Indhold/Billeder/Opgave 7.3.b.png
+INPUT ./Indhold/Billeder/Opgave 7.3.b.png
+INPUT ./Indhold/Billeder/Opgave 7.3.b.png
+INPUT ./Indhold/Billeder/Opgave 7.3.c.png
+INPUT ./Indhold/Billeder/Opgave 7.3.c.png
+INPUT ./Indhold/Billeder/Opgave 7.3.c.png
+INPUT ./Indhold/Billeder/Opgave 7.3.c.png
+INPUT ./Indhold/Billeder/Opgave 7.3.d.png
+INPUT ./Indhold/Billeder/Opgave 7.3.d.png
+INPUT ./Indhold/Billeder/Opgave 7.3.d.png
+INPUT ./Indhold/Billeder/Opgave 7.3.d.png
+INPUT ./Indhold/Billeder/Opgave 7.5.png
+INPUT ./Indhold/Billeder/Opgave 7.5.png
+INPUT ./Indhold/Billeder/Opgave 7.5.png
+INPUT ./Indhold/Billeder/Opgave 7.5.png
+INPUT ./Indhold/Billeder/Opgave 8. KeyboardMatrix.png
+INPUT ./Indhold/Billeder/Opgave 8. KeyboardMatrix.png
+INPUT ./Indhold/Billeder/Opgave 8. KeyboardMatrix.png
+INPUT ./Indhold/Billeder/Opgave 8. KeyboardMatrix.png
+INPUT ./Indhold/Billeder/Opgave 8.48.png
+INPUT ./Indhold/Billeder/Opgave 8.48.png
+INPUT ./Indhold/Billeder/Opgave 8.48.png
+INPUT ./Indhold/Billeder/Opgave 8.48.png
+INPUT ./Indhold/Billeder/Opgave 9.1.png
+INPUT ./Indhold/Billeder/Opgave 9.1.png
+INPUT ./Indhold/Billeder/Opgave 9.1.png
+INPUT ./Indhold/Billeder/Opgave 9.1.png
+INPUT ./Indhold/Billeder/Opgave 9.2.png
+INPUT ./Indhold/Billeder/Opgave 9.2.png
+INPUT ./Indhold/Billeder/Opgave 9.2.png
+INPUT ./Indhold/Billeder/Opgave 9.2.png
+INPUT ./Indhold/Billeder/Opgave 9.3.png
+INPUT ./Indhold/Billeder/Opgave 9.3.png
+INPUT ./Indhold/Billeder/Opgave 9.3.png
+INPUT ./Indhold/Billeder/Opgave 9.3.png
+INPUT ./Indhold/Billeder/Opgave 9.8.png
+INPUT ./Indhold/Billeder/Opgave 9.8.png
+INPUT ./Indhold/Billeder/Opgave 9.8.png
+INPUT ./Indhold/Billeder/Opgave 9.8.png
+INPUT ./Indhold/Billeder/Opgave 9.12c.png
+INPUT ./Indhold/Billeder/Opgave 9.12c.png
+INPUT ./Indhold/Billeder/Opgave 9.12c.png
+INPUT ./Indhold/Billeder/Opgave 9.12c.png
+INPUT ./Indhold/Billeder/Opgave 9.28.png
+INPUT ./Indhold/Billeder/Opgave 9.28.png
+INPUT ./Indhold/Billeder/Opgave 9.28.png
+INPUT ./Indhold/Billeder/Opgave 9.28.png
+INPUT ./Indhold/Billeder/Opgave 9.29.png
+INPUT ./Indhold/Billeder/Opgave 9.29.png
+INPUT ./Indhold/Billeder/Opgave 9.29.png
+INPUT ./Indhold/Billeder/Opgave 9.29.png
+INPUT ./Indhold/Billeder/Opgave 9.29.png
+INPUT ./Indhold/Billeder/Opgave 9.29.png
+INPUT ./Indhold/Billeder/Opgave 10.4.png
+INPUT ./Indhold/Billeder/Opgave 10.4.png
+INPUT ./Indhold/Billeder/Opgave 10.4.png
+INPUT ./Indhold/Billeder/Opgave 10.4.png
+INPUT ./Indhold/Billeder/Opgave 10.10.a.png
+INPUT ./Indhold/Billeder/Opgave 10.10.a.png
+INPUT ./Indhold/Billeder/Opgave 10.10.a.png
+INPUT ./Indhold/Billeder/Opgave 10.10.a.png
+INPUT ./Indhold/Billeder/Opgave 10.10.b.png
+INPUT ./Indhold/Billeder/Opgave 10.10.b.png
+INPUT ./Indhold/Billeder/Opgave 10.10.b.png
+INPUT ./Indhold/Billeder/Opgave 10.10.b.png
+INPUT ./Indhold/Billeder/Opgave 10.10.setup.png
+INPUT ./Indhold/Billeder/Opgave 10.10.setup.png
+INPUT ./Indhold/Billeder/Opgave 10.10.setup.png
+INPUT ./Indhold/Billeder/Opgave 10.10.setup.png
+INPUT ./Indhold/Billeder/Opgave 10.10.resultat.png
+INPUT ./Indhold/Billeder/Opgave 10.10.resultat.png
+INPUT ./Indhold/Billeder/Opgave 10.10.resultat.png
+INPUT ./Indhold/Billeder/Opgave 10.10.resultat.png
+INPUT ./Indhold/Billeder/Opgave 10.10.praktisk.png
+INPUT ./Indhold/Billeder/Opgave 10.10.praktisk.png
+INPUT ./Indhold/Billeder/Opgave 10.10.praktisk.png
+INPUT ./Indhold/Billeder/Opgave 10.10.praktisk.png
+INPUT ./Indhold/Billeder/Opgave 10.10.Scipy.png
+INPUT ./Indhold/Billeder/Opgave 10.10.Scipy.png
+INPUT ./Indhold/Billeder/Opgave 10.10.Scipy.png
+INPUT ./Indhold/Billeder/Opgave 10.10.Scipy.png
+INPUT ./Indhold/Billeder/Opgave 10.10.Matlab.png
+INPUT ./Indhold/Billeder/Opgave 10.10.Matlab.png
+INPUT ./Indhold/Billeder/Opgave 10.10.Matlab.png
+INPUT ./Indhold/Billeder/Opgave 10.10.Matlab.png
 INPUT ./Indhold/Billeder/Opgave 10.11.png
 INPUT ./Indhold/Billeder/Opgave 10.11.png
 INPUT ./Indhold/Billeder/Opgave 10.11.png
@@ -468,9 +858,11 @@ INPUT build/Oplæsning.aux
 INPUT build/Oplæsning.out
 INPUT build/Oplæsning.out
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy5.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
@@ -481,6 +873,7 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pf
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
@@ -490,5 +883,7 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb

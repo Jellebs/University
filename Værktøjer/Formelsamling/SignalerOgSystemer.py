@@ -124,7 +124,7 @@ class SignalerOgSystemer:
         Z_mag = np.abs(Z)                                                                               # |z| 
         
         # ROC 
-        pole_radius = max(np.abs(poles))                                                                # Hvilke punkter skal plottes?
+        pole_radius = 0 if poles.shape[0] == 0 else max(np.abs(poles))                                                                # Hvilke punkter skal plottes?
         ROC = 0
         print(Z_mag.shape)
         if roc_interval is not None: 

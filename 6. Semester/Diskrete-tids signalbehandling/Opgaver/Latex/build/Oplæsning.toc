@@ -1,26 +1,104 @@
-\contentsline {section}{Opgaver}{3}{section*.2}%
-\contentsline {subsection}{Opgave 7.1 - FT og system beskrivelse, beregning mod fft (Vigtig !)}{4}{section*.4}%
-\contentsline {subsection}{Opgave 7.3 - DTFT mod FFT}{6}{section*.8}%
-\contentsline {subsection}{Opgave 7.4 - Matrix beregning (Kommet hertil, har ikke kunnet bevise bevis)}{8}{section*.13}%
-\contentsline {subsection}{Opgave 7.5 Determine the N point DFTs of the following sequences defined over \text {$0\geq n\geq N$}}{11}{section*.17}%
-\contentsline {subsection}{Opgave 7.6 - Show that the DFT coefficients...}{12}{section*.18}%
-\contentsline {subsection}{Opgave 7.24 - Udledning af velkendte vinduer ud fra den generelle vindue formel}{13}{section*.19}%
-\contentsline {subsection}{Twiddle factors}{15}{section*.23}%
-\contentsline {subsection}{Dual-tone multifrequency (DTMF) analysis}{18}{section*.29}%
-\contentsline {subsection}{Opgave 9.1}{21}{section*.36}%
-\contentsline {subsection}{Opgave 9.2 - Sammenlign flowcharts}{22}{section*.39}%
-\contentsline {subsection}{Opgave 9.3}{23}{section*.41}%
-\contentsline {subsection}{Opgave 9.8 - System strukturer: Kaskade SOS i DF}{26}{section*.44}%
-\contentsline {subsection}{Opgave 9.12c - System struktur : Linær fase form}{27}{section*.45}%
-\contentsline {subsection}{Opgave 9.28}{27}{section*.46}%
-\contentsline {subsection}{Opgave 9.29 - Udledning af differens ligninger af to systemer}{30}{section*.49}%
-\contentsline {subsection}{Opgave 9.29 - (Ny ) Udledning af differens ligninger af to systemer}{33}{section*.50}%
-\contentsline {subsection}{Opgave 10.1 - Filter krav}{36}{section*.52}%
-\contentsline {subsection}{Opgave 10.4 - Frekvens response mod frekvenssamplings ækvivalente}{37}{section*.55}%
-\contentsline {subsection}{Opgave 10.10}{39}{section*.58}%
-\contentsline {subsection}{Opgave 10.10 - (Nyt forsøg)}{40}{section*.60}%
-\contentsline {subsection}{Opgave 10.10 - (Nyt nyt forsøg)}{41}{section*.62}%
-\contentsline {subsection}{Opgave 10.11 - Consider an ideal lowpass filter with cutoff frequency \text {$w_c = \pi /2$}}{46}{section*.65}%
-\contentsline {subsection}{Opgave 10.13 - Chebyshev polynomials}{49}{section*.69}%
-\contentsline {subsection}{Opgave 10.14 - Fejl estimering}{50}{section*.73}%
-\contentsline {subsection}{Opgave 10.25 - Hann vinduet bedre forstået}{52}{section*.76}%
+\contentsline {section}{Motivation}{5}{section*.2}%
+\contentsline {subsection}{Vinduer}{5}{section*.3}%
+\contentsline {subsection}{Frekvens sampling}{5}{section*.4}%
+\contentsline {subsection}{Equiriple filtrering}{5}{section*.5}%
+\contentsline {section}{Udledninger}{7}{section*.6}%
+\contentsline {subsection}{Fra convolution til differens ligning}{7}{section*.7}%
+\contentsline {subsection}{Z transformation - Kompleks konjugerede poler}{8}{section*.8}%
+\contentsline {subsection}{Z transformation - Kompleks konjugerede poler og koefficienter}{8}{section*.9}%
+\contentsline {subsection}{Z transformation - Egenskaber}{10}{section*.10}%
+\contentsline {subsection}{}{10}{section*.11}%
+\contentsline {subsection}{Z transformation - Egenfunktioner}{10}{section*.12}%
+\contentsline {subsection}{Z transformation - Kausulitet}{11}{section*.13}%
+\contentsline {subsection}{Z transformation - Eksponentiel aftagende}{11}{section*.14}%
+\contentsline {subsection}{Z transformation - Anti kausul eksponentiel aftagende}{12}{section*.15}%
+\contentsline {subsection}{Z transformation - Anti kausul eksponentiel}{13}{section*.16}%
+\contentsline {subsection}{Z evaluering - Egenfunktion brugt til at evaluere harmonisk signal på simpel vis}{14}{section*.17}%
+\contentsline {subsection}{DTFT - \text {\boldmath {$n*(a)^nu[n]$}}}{15}{section*.18}%
+\contentsline {subsection}{Filter strukturer - Direct Form II i z domæne}{17}{section*.19}%
+\contentsline {section}{Formelsamling}{18}{section*.20}%
+\contentsline {subsection}{Z transformation - Eksponentielle funktioner}{18}{section*.21}%
+\contentsline {subsection}{Z transformation - Egenskaber}{18}{section*.22}%
+\contentsline {section}{Øvelser}{19}{section*.23}%
+\contentsline {subsection}{Blokdiagrammer}{20}{section*.25}%
+\contentsline {subsection}{Sløring og afsløring af billede}{22}{section*.28}%
+\contentsline {subsection}{Hjaerte impulser, opgave om EKG data}{27}{section*.31}%
+\contentsline {subsection}{Temperaturer, opgave om moving average filtrering}{33}{section*.32}%
+\contentsline {subsection}{3D audio, opgave om at bruge signalprocessering til at styre hvor lyden kommer fra}{38}{section*.33}%
+\contentsline {subsection}{Eksempel 10.4 - Vindue design ud fra et kaiser vindue}{44}{section*.39}%
+\contentsline {subsection}{Eksempel 10.4 - (På ny) Vindue design ud fra et kaiser vindue}{48}{section*.40}%
+\contentsline {subsection}{Eksempel 10.5 - Frekvens sampling og overgange.}{53}{section*.41}%
+\contentsline {subsection}{Eksempel 10.7 - Lavpass lineært fase filter}{53}{section*.42}%
+\contentsline {subsection}{Eksempel 10.8 - Båndpass filter lavet i eksempel 10.4 nu med equiriple filter}{56}{section*.43}%
+\contentsline {section}{Eksamensopgaver}{58}{section*.44}%
+\contentsline {subsection}{Eksamenssæt 2021}{58}{section*.45}%
+\contentsline {subsection}{Eksamenssæt 2021 - Rettet}{63}{section*.59}%
+\contentsline {subsection}{Eksamenssæt 2022}{66}{section*.71}%
+\contentsline {subsection}{Eksamenssæt 2022 - Forbedringer}{73}{section*.90}%
+\contentsline {subsection}{Eksamenssæt 2024 Ordinær}{76}{section*.102}%
+\contentsline {subsection}{Eksamenssæt 2024 Ordinær - Nyt forsøg}{83}{section*.123}%
+\contentsline {section}{Opgaver}{92}{section*.145}%
+\contentsline {subsection}{Opgave til kapitel 2 - Convolution plot}{94}{section*.148}%
+\contentsline {subsection}{Opgave 2.1 - Plots af funktioner}{97}{section*.149}%
+\contentsline {subsection}{Opgave 2.3 - Tidsforsinkelser og tidsmodsætninger}{97}{section*.150}%
+\contentsline {subsection}{Opgave 2.4 - Sekvenser}{98}{section*.151}%
+\contentsline {subsection}{Opgave 2.5 - Periodicitet i signaler}{98}{section*.152}%
+\contentsline {subsection}{Opgave 2.11 - Egenskaber i konvolution til at finde y uden x (Vigtig $\sqrt {}$)}{99}{section*.156}%
+\contentsline {subsection}{Opgave 2.17 - A discrete-Time system by difference equation}{101}{section*.159}%
+\contentsline {subsection}{Opgave 2.19 - Recursive filter på lydfil}{104}{section*.164}%
+\contentsline {subsection}{Opgave 2.33 - Filtrer givne signaler}{105}{section*.166}%
+\contentsline {subsection}{Opgave 2.40 - System egenskaber ud fra differens ligning}{106}{section*.170}%
+\contentsline {subsection}{Opgave 2.50 - Recursive System}{106}{section*.171}%
+\contentsline {subsection}{Opgave 3.1 - Determine the z-transform and sketch the pole-zero plot with the ROC for each of the following sequences}{110}{section*.177}%
+\contentsline {subsection}{Opgave 3.3 - Bevis det følgende z transformerede par \% forkert}{115}{section*.182}%
+\contentsline {subsection}{Opgave 3.4 - Partial fraction til inverse Z transformation}{117}{section*.183}%
+\contentsline {subsection}{}{117}{section*.184}%
+\contentsline {subsection}{Opgave 3.6 - Z-transform ud fra egenskaber}{120}{section*.191}%
+\contentsline {subsection}{Opgave 3.11 - Beregn konvolutionen}{122}{section*.198}%
+\contentsline {subsection}{Opgave 3.14 - Given a causal system, compute its response to inputs}{122}{section*.201}%
+\contentsline {subsection}{Opgave 3.15 - Consider a LTI described by differensequation}{126}{section*.206}%
+\contentsline {subsection}{\text {Opgave 3.16 - Response of a LTI system}}{129}{section*.211}%
+\contentsline {subsection}{Opgave 3.19 - Consider a causal LTI system}{132}{section*.215}%
+\contentsline {subsection}{\text {Opgave 3.20 - Consider a causal system with input $x[n]$ and output $y[n]$}}{135}{section*.220}%
+\contentsline {subsection}{}{139}{section*.225}%
+\contentsline {subsection}{Opgave 5.2 - LTI system ud fra differensligning}{139}{section*.226}%
+\contentsline {subsection}{Opgave 5.2 - LTI system ud fra differensligning (ny)}{140}{section*.232}%
+\contentsline {subsection}{}{142}{section*.236}%
+\contentsline {subsection}{\text {Opgave 5.2 - LTI system ud fra differensligning (ny ny vigtig $\sqrt {}$)}}{145}{section*.240}%
+\contentsline {subsection}{Opgave 5.4 - Givet y og x kan jeg sige, at det er et LTI system? mm...}{149}{section*.246}%
+\contentsline {subsection}{Opgave 5.16 - Modulation til at vise at en lavpass kan blive til et højpass filter}{151}{section*.250}%
+\contentsline {subsection}{Opgave 5.30 - Consider a signal}{153}{section*.253}%
+\contentsline {subsection}{Opgave 5.31 - Båndpass}{156}{section*.258}%
+\contentsline {subsection}{Opgave 5.35 - Gruppe forsinkelse}{159}{section*.262}%
+\contentsline {subsection}{Opgave 5.38 - Filter design ud fra ønsker}{160}{section*.266}%
+\contentsline {subsection}{Opgave 5.39 - FIR Notch filtrering}{163}{section*.270}%
+\contentsline {subsection}{Opgave 5.48 - Systems indvirkning på signal}{167}{section*.275}%
+\contentsline {subsection}{Opgave 5.55 - System analyse og teori ud fra pzmap (Vigtig!)}{171}{section*.276}%
+\contentsline {subsection}{Opgave 6.1 - Spectrum of sampled discrete signal \text {$x[n]$}}{176}{section*.282}%
+\contentsline {subsection}{Opgave 6.2 - Aliasing test}{177}{section*.286}%
+\contentsline {subsection}{Opgave 6.12 - Praktisk rekonstruering (Vigtig !)}{180}{section*.291}%
+\contentsline {subsection}{Opgave 7.1 - FT og system beskrivelse, beregning mod fft (Vigtig !)}{185}{section*.297}%
+\contentsline {subsection}{Opgave 7.3 - DTFT mod FFT}{187}{section*.301}%
+\contentsline {subsection}{Opgave 7.4 - Matrix beregning (Kommet hertil, har ikke kunnet bevise bevis)}{189}{section*.306}%
+\contentsline {subsection}{Opgave 7.5 Determine the N point DFTs of the following sequences defined over \text {$0\geq n\geq N$}}{192}{section*.310}%
+\contentsline {subsection}{Opgave 7.6 - Show that the DFT coefficients...}{193}{section*.311}%
+\contentsline {subsection}{Opgave 7.24 - Udledning af velkendte vinduer ud fra den generelle vindue formel}{194}{section*.312}%
+\contentsline {subsection}{Twiddle factors}{196}{section*.316}%
+\contentsline {subsection}{Dual-tone multifrequency (DTMF) analysis}{199}{section*.322}%
+\contentsline {subsection}{Opgave 9.1}{202}{section*.329}%
+\contentsline {subsection}{Opgave 9.2 - Sammenlign flowcharts}{203}{section*.332}%
+\contentsline {subsection}{Opgave 9.3}{204}{section*.334}%
+\contentsline {subsection}{Opgave 9.8 - System strukturer: Kaskade SOS i DF}{207}{section*.337}%
+\contentsline {subsection}{Opgave 9.12c - System struktur : Linær fase form}{208}{section*.338}%
+\contentsline {subsection}{Opgave 9.28}{208}{section*.339}%
+\contentsline {subsection}{Opgave 9.29 - Udledning af differens ligninger af to systemer}{211}{section*.342}%
+\contentsline {subsection}{Opgave 9.29 - (Ny ) Udledning af differens ligninger af to systemer}{214}{section*.343}%
+\contentsline {subsection}{Opgave 10.1 - Filter krav}{217}{section*.345}%
+\contentsline {subsection}{Opgave 10.4 - Frekvens response mod frekvenssamplings ækvivalente}{218}{section*.348}%
+\contentsline {subsection}{Opgave 10.10}{220}{section*.351}%
+\contentsline {subsection}{Opgave 10.10 - (Nyt forsøg)}{221}{section*.353}%
+\contentsline {subsection}{Opgave 10.10 - (Nyt nyt forsøg)}{222}{section*.355}%
+\contentsline {subsection}{Opgave 10.11 - Consider an ideal lowpass filter with cutoff frequency \text {$w_c = \pi /2$}}{227}{section*.358}%
+\contentsline {subsection}{Opgave 10.13 - Chebyshev polynomials}{230}{section*.362}%
+\contentsline {subsection}{Opgave 10.14 - Fejl estimering}{231}{section*.366}%
+\contentsline {subsection}{Opgave 10.25 - Hann vinduet bedre forstået}{234}{section*.369}%

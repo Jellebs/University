@@ -308,7 +308,75 @@
             hvor vindue metoden hurtigere falder mod et konstant stopbånd.
 
             \figotteoghalvfjerds{0.55}
-        \end{Øvelse}        
-    \end{kapitel}
-    
+        \end{Øvelse}
+        \begin{Øvelse}[Eksempel 10.7 - Lavpass lineært fase filter]
+            \[\omega_p = 0.25\pi, \tab{0} \omega_s = 0.35\pi, \tab{0} A_p = 0.1dB, \tab{0} A_s = 50dB\]
+            Her skal jeg prøve kræfter med et equirriple filter vha. Paul McClennan og remez metoden. 
+            Jeg har set at scipy har remez funktionen og matlab har firpmord og firpm. 
+            Der er nemlig det, at remez og firpm funktionener itererer sig frem til de rigtige koefficienter. 
+            Det kræver bare, at man ved hvor lang filteret skal være. 
+            Python har en til at beregne ordnen af et kaiser vindue, men det skulle ikke være det samme. 
+            Matlab har en funktion bare til den her metode, firpmord. \\\\
+
+            For kaiserordnen kan jeg i det her eksempel ikke beregne den, da ripplen er for lille. \\
+            Matlab estimere den til at M = 48. 
+            Jeg har så prøvet at lave den i matlab og i python: 
+            \figethundredeogti{0.35}
+            \figethundredeogeleve{0.67}\vspace{100pt}\\\\\\
+            Filtrene minder om hinanden, men de er lavet en lille smule forskelligt.\\
+            I python ønsker den en sampling frekvens, for at den kan godtage cutofffrekvenserne. 
+            Jeg har ikke lige dykket så meget ind i det. Den vil have en fs som opfylder at være 2 gange den yderste grænse.
+            Min frekvens grænse var blevet sat op fra 0 til 1. Derfor satte jeg bare fs til at være 2. 
+            Jeg ved ikke hvad det har haft af betydning. Så den er lidt usikker. 
+            Derudover så har jeg hellere ikke helt ramt design kravet ud fra det. 
+            Det har jeg hellere ikke i matlab, men den er tættere på. 
+            Det var så hellere ikke nødvendigvis meningen. Hvis M ikke er beregnet tilstrækkeligt, så forøges den. 
+            Her lavede jeg bare et while script hvor den skippede når jeg trykkede på en knap. Så blev jeg ved med at forøge, indtil den var god.
+            \[M = 50\] dækker kravene. 
+            Jeg tror jeg vil vælge matlab til sådan nogle opgaver.            
+        \end{Øvelse}  
+        \begin{Øvelse}[Eksempel 10.8 - Båndpass filter lavet i eksempel 10.4 nu med equiriple filter]
+            Design kravene var dengang. 
+            \[ 
+            \begin{cases}
+            \tab{2}\left| H(e^{i\omega}) \right| \leq 0.01, & |\omega| < 0.2\pi \\
+            0.99 \leq \left| H(e^{i\omega}) \right| \leq 1.01, & 0.3\pi \leq |\omega| \leq 0.7\pi \\
+            \tab{2}\left| H(e^{i\omega}) \right| \leq 0.01, & 0.78\pi \leq |\omega| \leq \pi
+            \end{cases}
+            \]
+            Og det er de stadigvæk. 
+            \[\delta_{s1} = 0.01\]
+            \[\delta_{p} = (1.01 - 0.99)/2 = 0.01\]
+            \[\delta_{s2} = 0.01\]
+            \[\omega_{s1} = 0.2\pi\]
+            \[\omega_{p1} = 0.3\pi\]
+            \[\omega_{p2} = 0.7\pi\]
+            \[\omega_{s2} = 0.78\pi\]
+
+            Og så får jeg brug for at tjekke filteret senere
+            \[dB(1 + \delta_p) - dB(1 - \delta_p) = A_{p_{dB}}\]
+            \[dB(1 + \delta_p) - dB(\delta_s) = A_{s_{dB}}\]
+            Så til designet. 
+            \begin{verbatim}
+                f = [ws1, wp1, wp2, ws2]/pi;    % Normaliseret
+                A = [0, 1, 0]; 
+                dev = [deltas1, deltap, deltas2];
+                [M, fo, ao, W] = firpmord(f, A, dev); 
+                [h, delta] = firpm(M, fo, ao);  % Fir coefficienter
+                freqz(h, 1);
+            \end{verbatim}
+            \[A_{s_{dB}} = 40.1dB\]
+            Jeg fik M = 49, men det var ikke tilstrækkeligt. 
+            M = 50 dB var tilstrækkeligt til at opfylde kravene. 
+            \figethundredeogtretten{0.6}\\
+            Mere kravede det ikke. Så metoden her er egentlig super simpel... Der sker selvfølgelig meget bag facaden. 
+
+
+
+
+
+
+            
+        \end{Øvelse}      
+    \end{kapitel}  
 \end{Øvelser}

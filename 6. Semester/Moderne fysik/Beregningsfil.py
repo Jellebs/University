@@ -234,9 +234,7 @@ class Opgave35_61(Opgave):
         ax.plot(x, y, label= fr"a = {N(a, 3)}, b = {N(b, 3)}")
         fig.legend()
         plt.show()
-    
-   
-    
+      
 class Opgave36_40(Opgave): 
     h = constants.h 
     J = symbols("J")
@@ -261,7 +259,6 @@ class Opgave36_75(Opgave):
         ax.plot(self.atomNumre, self.atomVolume, 'o')
         plt.show()
 
-
 class Opgave37_40(Beregning): 
     konstanter = {
         "pi" : np.pi,
@@ -281,9 +278,168 @@ class Opgave37_40(Beregning):
     resultat_In = Eq(symbols("In"), In) 
     resultat_w = Eq(symbols("omega"), w)
     
+class Opgave37_40ny(Beregning): 
+    # Konstanter som vil blive erstattet i resultateren med deres numeriske værdier når de printes.
+    konstanter = {
+        "h" : constants.Planck, 
+        "eV" : constants.electron_volt
+    }
+    Erot = lambda l : ( ( (symbols("h") / (2 * pi)) ** 2 ) / ( 2 * symbols("I")) ) * l * (l + 1)
+    Evib = lambda n : (n + 0.5) * (symbols("h")/(2 * pi)) * symbols("omega")
+    Emol = lambda energyeV : energyeV * symbols("eV")   # eV -> J
     
-opg = Opgave37_40()
+    Erot = lambda l : ( ( (symbols("h") / (2 * pi)) ** 2 ) / ( 2 * symbols("I")) ) * l * (l + 1)
+    dErot = lambda l1, l0 : Opgave37_40ny.Erot(1) - Opgave37_40ny.Erot(0) 
+    # Changes in the molecule 
+    dErot1 = Erot(1) - Erot(0) 
+    dEvib1 = Evib(1) - Evib(0)
+    E1 = Emol(0.19653)
+
+    dErot2 = Erot(2) - Erot(1)
+    dEvib2 = Evib(0) - Evib(1) 
+    E2 = Emol(-0.19546)
+    
+    eq1 = dErot1 + dEvib1 - E1 # E1 = dErot1 + dEvib1
+    eq2 = dErot2 + dEvib2 - E2 # E2 = dErot2 + dEvib2
+    
+    sol = solve([eq1, eq2], [symbols("omega"), symbols("I")])
+    res_omega = sol[0][0]
+    res_v = res_omega / ( 2 * np.pi )
+    res_I = sol[0][1]
+    
+class Opgave37_40nyny(Beregning):
+    # Konstanter som vil blive substitueret ved print.  
+    konstanter = {
+        "h" : constants.Planck, 
+        "eV" : constants.electron_volt
+    }
+
+    
+    # Tjek af ligninger, ved print printes de ud i læseligt format.
+    Erot = lambda l : ( ((symbols("h") / (2 * pi)) ** 2) / (2 * symbols("I")) ) * l * (l + 1)       # Erot
+    Evib = lambda n : (n + 0.5) * (symbols("h") / (2 * pi)) * symbols("omega")                      # Evib
+       
+
+    # Funktioner til beregning 
+    def dErot(l1, l0):                                                                              # ∆Erot
+        Erot = lambda l : ( ((symbols("h") / (2 * pi)) ** 2) / (2 * symbols("I")) ) * l * (l + 1)  
+        return Erot(l1) - Erot(l0)
+    
+    def dEvib(n1, n0):                                                                              # ∆Evib
+        Evib = lambda n : (n + 0.5) * (symbols("h") / (2 * pi)) * symbols("omega")
+        return Evib(n1) - Evib(n0)
+        
+    def E(energyeV): return energyeV * symbols("eV")                                                # Enhedssikring
+    
+    
+    # System of equations
+    E1 = E(0.19653)
+    E2 = E(-0.19546)    
+    eq1 = dErot(1, 0) + dEvib(1, 0) - E1                                                            # ∆Erot + ∆Evib - ∆E = 0          
+    eq2 = dErot(2, 1) + dEvib(0, 1) - E2  
+    sol = solve([eq1, eq2], [symbols("omega"), symbols("I")])      
+    res_omega = sol[0][0]
+    res_v = res_omega / ( 2 * np.pi )
+    res_I = sol[0][1]
+    
+class Opgave37_43(Beregning):
+    # Konstanter som vil blive substitueret ved print.  
+    konstanter = {
+        "h" : constants.Planck, 
+        "eV" : constants.electron_volt, 
+        "c" : constants.speed_of_light,
+        "I" : 2.43e-45 
+    }
+
+    
+    # Tjek af ligninger, ved print printes de ud i læseligt format.
+    Erot = lambda l : ( ((symbols("h") / (2 * pi)) ** 2) / (2 * symbols("I")) ) * l * (l + 1)       # Erot
+    Evib = lambda n : (n + 0.5) * (symbols("h") / (2 * pi)) * symbols("omega")                      # Evib
+    Efoton = lambda wl : symbols("h") * symbols("c") * 1 / wl                                       # Efoton = h * f
 
 
+    # Funktioner til beregning 
+    def dErot(l1, l0):                                                                              # ∆Erot
+        Erot = lambda l : ( ((symbols("h") / (2 * pi)) ** 2) / (2 * symbols("I")) ) * l * (l + 1)  
+        return Erot(l1) - Erot(l0)
+    
+    def dEvib(n1, n0):                                                                              # ∆Evib
+        Evib = lambda n : (n + 0.5) * (symbols("h") / (2 * pi)) * symbols("omega")
+        return Evib(n1) - Evib(n0)
+        
+    def E(energyeV): return energyeV * symbols("eV")                                                # Enhedssikring
+    
+    
+    # Løsning
+    E = Efoton(35.8e-6) # 35.8um 
+    eq = dErot(1, 0) + dEvib(1, 0) - E                                                            # ∆Erot + ∆Evib - ∆E = 0          
+    sol = solve(eq, symbols("omega"))
+    res_omega = sol[0]
+    res_v = res_omega / (2 * np.pi)
 
+class Opgave37_66(Opgave): 
+    h = constants.Planck
+    c = constants.speed_of_light
+    
+    l = np.arange(2, 7)
+    lamb = np.array([0.24, 0.17, 0.12, 0.095, 0.078])*1e-3
+    y = (h * c)/lamb
+    x = l
+    def __init__(self):
+        reg = linregress(self.x, self.y) 
+        a, b = (reg.slope, reg.intercept)
+        fig, ax = plt.subplots()
+        ax.plot(self.x, y, 'o')
+        y = a*self.x + b
+        ax.plot(self.x, y, label = f"y = {N(a,4)}x + {N(b,4)}")
+        fig.legend()
+        plt.show()
 
+class Opgave3OmLasere(Opgave): 
+    def plot(self): 
+        z = np.linspace(0.00, 0.20, 100)
+        w0 = 55e-6
+        lamb = 532e-9
+        w = w0 * np.sqrt(( 1 + (lamb * z / ( np.pi * (w0**2) ))**2  ))
+        w2 = lamb * z / ( np.pi * w0 )
+        fig, ax = plt.subplots(1)
+        plot1 = ax.plot(z, w, label = r"$w(z)$")
+        plot2 = ax.plot(z, w2, label = r"$w(z), \quad z >> z_r$")
+        fig.legend()
+        plt.show()
+    def __init__(self):
+        self.plot()
+
+class Eksamen2024(Opgave): 
+    T = 4500
+    h = constants.Planck
+    c = constants.speed_of_light
+    k = constants.Boltzmann
+    el = constants.elementary_charge
+    
+    wl = np.linspace(400e-9, 700e-9, 100)
+    R = (2 * np.pi * h * (c**2)) / ( (wl**5) * (np.exp( (h*c) / ( wl * k * T) ) - 1))
+    
+    wlavg = np.average(R)
+    fig, ax = plt.subplots()
+    ax.plot(wl, R, label = rf"$\lambda_{{avg}} = {N(wlavg, 4)}$")
+    fig.legend()
+    plt.show()
+    
+    wl = np.array([200, 250, 300, 325, 375, 450])*1e-9
+    v = ((h * c)/(el)) * 1/wl 
+    V = np.array([3.9, 2.66, 1.84, 1.52, 1.01, 0.46])
+    
+    x = 1/wl
+    reg = linregress(x, V)
+    (a, b) = (reg.slope, reg.intercept)
+    y = a*x + b
+    fig, ax = plt.subplots()
+    ax.plot(x, V, 'o')
+    ax.plot(x, y, label = f"a = {a}, b = {b}")
+    fig.legend()
+    plt.show()
+
+import sys
+print(print(sys.path))
+# Opgave3OmLasere()

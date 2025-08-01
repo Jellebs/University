@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.4)  12 JUN 2025 01:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.4)  12 JUN 2025 16:37
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -558,6 +558,27 @@ File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box78
 ) (build/Oplæsning.aux
 
+LaTeX Warning: Label `fig:Z transformations egenskaber' multiply defined.
+
+
+LaTeX Warning: Label `fig:Eksamenssæt2021.4.2.png' multiply defined.
+
+
+LaTeX Warning: Label `fig:Opgave 2.33.png' multiply defined.
+
+
+LaTeX Warning: Label `fig:Z transformations egenskaber' multiply defined.
+
+
+LaTeX Warning: Label `fig:Opgave 5.2.png' multiply defined.
+
+
+LaTeX Warning: Label `fig:Opgave 5.2.png' multiply defined.
+
+
+LaTeX Warning: Label `fig:Opgave 9.29.png' multiply defined.
+
+
 LaTeX Warning: Label `fig:Opgave 9.29.png' multiply defined.
 
 )
@@ -622,51 +643,2866 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 33.
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (build/Oplæsning.toc)
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (build/Oplæsning.toc [2
+
+]
+Overfull \hbox (1.50995pt too wide) in paragraph at lines 62--62
+ [][] [][][] [][]  
+ []
+
+[3])
 \tf@toc=\write5
 \openout5 = `Oplæsning.toc'.
 
- [2
-
-] (./Indhold/Opgaver2.tex [3
-
-
-] [4
-
-]
-
-LaTeX Warning: Command \textemdash invalid in math mode on input line 29.
-
-<Indhold/Billeder/Opgave 7.1.png, id=181, 1092.7224pt x 557.9244pt>
-File: Indhold/Billeder/Opgave 7.1.png Graphic file (type png)
-<use Indhold/Billeder/Opgave 7.1.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 7.1.png  used on input line 30.
-(pdftex.def)             Requested size: 273.17993pt x 139.48074pt.
-<Indhold/Billeder/Opgave 7.1.c.png, id=183, 1090.5543pt x 557.2017pt>
-File: Indhold/Billeder/Opgave 7.1.c.png Graphic file (type png)
-<use Indhold/Billeder/Opgave 7.1.c.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 7.1.c.png  used on input line 43.
-(pdftex.def)             Requested size: 327.16882pt x 167.16179pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 34--53
+ [4] (./Indhold/Motivationer.tex
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
-[5 <./Indhold/Billeder/Opgave 7.1.png> <./Indhold/Billeder/Opgave 7.1.c.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--22
+
+ []
+
+[5
+
+
+]) (./Indhold/Udledninger.tex [6]
+<Indhold/Billeder/Blokdiagram kapitel 2.png, id=577, 763.85374pt x 293.095pt>
+File: Indhold/Billeder/Blokdiagram kapitel 2.png Graphic file (type png)
+<use Indhold/Billeder/Blokdiagram kapitel 2.png>
+Package pdftex.def Info: Indhold/Billeder/Blokdiagram kapitel 2.png  used on input line 10.
+(pdftex.def)             Requested size: 763.85187pt x 293.09427pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--12
+
+ []
+
+[7
+
+ <./Indhold/Billeder/Blokdiagram kapitel 2.png>] [8] [9] [10] [11] [12]
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 160.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 160.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 160.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 160.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 160.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 160.
+
+Missing character: There is no � in font cmr10!
+Missing character: There is no � in font cmr7!
+Missing character: There is no � in font cmr7!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 161.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 161.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 161.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 161.
+
+Missing character: There is no � in font cmr7!
+Missing character: There is no � in font cmr7!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 162.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 162.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 162.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 162.
+
+Missing character: There is no � in font cmr7!
+Missing character: There is no � in font cmr7!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 163.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 163.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 163.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 163.
+
+Missing character: There is no � in font cmr7!
+Missing character: There is no � in font cmr7!
+[13]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 180.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 180.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 180.
+
+[14]
+Overfull \hbox (3.41736pt too wide) in paragraph at lines 189--191
+\OT1/cmr/m/n/10 Den kom-pleks ek-spo-nen-tielle funk-tion har al-tid l^^Zng-den 1 s^^Wa det er kun afh^^Zngigt
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
+
+ []
+
+[15] [16]
+<Indhold/Billeder/Opgave 9.29.png, id=629, 529.98pt x 291.0875pt>
+File: Indhold/Billeder/Opgave 9.29.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 9.29.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.29.png  used on input line 229.
+(pdftex.def)             Requested size: 211.98824pt x 116.43292pt.
+) (./Indhold/Formler.tex [17
+
+ <./Indhold/Billeder/Opgave 9.29.png>]
+<Indhold/Billeder/Z transformations egenskaber.png, id=636, 586.19pt x 390.45876pt>
+File: Indhold/Billeder/Z transformations egenskaber.png Graphic file (type png)
+<use Indhold/Billeder/Z transformations egenskaber.png>
+Package pdftex.def Info: Indhold/Billeder/Z transformations egenskaber.png  used on input line 10.
+(pdftex.def)             Requested size: 293.09428pt x 195.2289pt.
+) (./Indhold/Øvelser.tex [18
+
+ <./Indhold/Billeder/Z transformations egenskaber.png>] [19
+
+]
+File: Indhold/Billeder/Z transformations egenskaber.png Graphic file (type png)
+<use Indhold/Billeder/Z transformations egenskaber.png>
+Package pdftex.def Info: Indhold/Billeder/Z transformations egenskaber.png  used on input line 5.
+(pdftex.def)             Requested size: 175.85835pt x 117.13852pt.
+ [20
+
+] [21
+
+]
+<Indhold/Billeder/Opgave 2.33.png, id=662, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Opgave 2.33.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 2.33.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 2.33.png  used on input line 16.
+(pdftex.def)             Requested size: 300.49126pt x 154.41911pt.
+<Indhold/Billeder/SløretBillede.png, id=663, 1734.48pt x 911.405pt>
+File: Indhold/Billeder/SløretBillede.png Graphic file (type png)
+<use Indhold/Billeder/SløretBillede.png>
+Package pdftex.def Info: Indhold/Billeder/SløretBillede.png  used on input line 19.
+(pdftex.def)             Requested size: 346.88986pt x 182.27777pt.
+ [22
+
+ <./Indhold/Billeder/Opgave 2.33.png> <./Indhold/Billeder/SløretBillede.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 25--27
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--29
+
+ []
+
+<Indhold/Billeder/AfsløretsFilter.png, id=673, 1255.69125pt x 241.90375pt>
+File: Indhold/Billeder/AfsløretsFilter.png Graphic file (type png)
+<use Indhold/Billeder/AfsløretsFilter.png>
+Package pdftex.def Info: Indhold/Billeder/AfsløretsFilter.png  used on input line 41.
+(pdftex.def)             Requested size: 376.71028pt x 72.57167pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[23] [24 <./Indhold/Billeder/AfsløretsFilter.png>] [25
+
+] [26
+
+]
+<Indhold/Billeder/EKGdata.png, id=695, 1156.32pt x 560.0925pt>
+File: Indhold/Billeder/EKGdata.png Graphic file (type png)
+<use Indhold/Billeder/EKGdata.png>
+Package pdftex.def Info: Indhold/Billeder/EKGdata.png  used on input line 78.
+(pdftex.def)             Requested size: 578.15858pt x 280.04556pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--79
+
+ []
+
+<Indhold/Billeder/EKGfrekvenspektrum.png, id=696, 1156.32pt x 560.0925pt>
+File: Indhold/Billeder/EKGfrekvenspektrum.png Graphic file (type png)
+<use Indhold/Billeder/EKGfrekvenspektrum.png>
+Package pdftex.def Info: Indhold/Billeder/EKGfrekvenspektrum.png  used on input line 81.
+(pdftex.def)             Requested size: 578.15858pt x 280.04556pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--83
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--83
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[27
+
+ <./Indhold/Billeder/EKGdata.png>] [28 <./Indhold/Billeder/EKGfrekvenspektrum.png>]
+<Indhold/Billeder/EKGnotchfilterAnalyse.png, id=711, 1092.7224pt x 565.1514pt>
+File: Indhold/Billeder/EKGnotchfilterAnalyse.png Graphic file (type png)
+<use Indhold/Billeder/EKGnotchfilterAnalyse.png>
+Package pdftex.def Info: Indhold/Billeder/EKGnotchfilterAnalyse.png  used on input line 91.
+(pdftex.def)             Requested size: 437.08122pt x 226.05655pt.
+<Indhold/Billeder/EKGnotchfilterPZmap.png, id=712, 433.62pt x 433.62pt>
+File: Indhold/Billeder/EKGnotchfilterPZmap.png Graphic file (type png)
+<use Indhold/Billeder/EKGnotchfilterPZmap.png>
+Package pdftex.def Info: Indhold/Billeder/EKGnotchfilterPZmap.png  used on input line 92.
+(pdftex.def)             Requested size: 130.087pt x 130.087pt.
+ [29
+
+ <./Indhold/Billeder/EKGnotchfilterAnalyse.png> <./Indhold/Billeder/EKGnotchfilterPZmap.png>]
+<Indhold/Billeder/EKGsignalfiltreret.png, id=721, 462.528pt x 346.896pt>
+File: Indhold/Billeder/EKGsignalfiltreret.png Graphic file (type png)
+<use Indhold/Billeder/EKGsignalfiltreret.png>
+Package pdftex.def Info: Indhold/Billeder/EKGsignalfiltreret.png  used on input line 96.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--98
+
+ []
+
+[30
+
+ <./Indhold/Billeder/EKGsignalfiltreret.png>]
+<Indhold/Billeder/EKGforbedretNotchfilterAnalyse.png, id=728, 1092.7224pt x 565.1514pt>
+File: Indhold/Billeder/EKGforbedretNotchfilterAnalyse.png Graphic file (type png)
+<use Indhold/Billeder/EKGforbedretNotchfilterAnalyse.png>
+Package pdftex.def Info: Indhold/Billeder/EKGforbedretNotchfilterAnalyse.png  used on input line 108.
+(pdftex.def)             Requested size: 437.08122pt x 226.05655pt.
+<Indhold/Billeder/EKGforbedretNotchfilterPZmap.png, id=729, 591.8913pt x 564.4287pt>
+File: Indhold/Billeder/EKGforbedretNotchfilterPZmap.png Graphic file (type png)
+<use Indhold/Billeder/EKGforbedretNotchfilterPZmap.png>
+Package pdftex.def Info: Indhold/Billeder/EKGforbedretNotchfilterPZmap.png  used on input line 109.
+(pdftex.def)             Requested size: 236.75232pt x 225.76747pt.
+<Indhold/Billeder/EKGforbedretSignalFiltrering.png, id=730, 462.528pt x 346.896pt>
+File: Indhold/Billeder/EKGforbedretSignalFiltrering.png Graphic file (type png)
+<use Indhold/Billeder/EKGforbedretSignalFiltrering.png>
+Package pdftex.def Info: Indhold/Billeder/EKGforbedretSignalFiltrering.png  used on input line 112.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ [31
+
+ <./Indhold/Billeder/EKGforbedretNotchfilterAnalyse.png> <./Indhold/Billeder/EKGforbedretNotchfilterPZmap.png>] [32 <./Indhold/Billeder/EKGforbedretSignalFiltrering.png>]
+<Indhold/Billeder/SignalbehandlingTemperaturdata.png, id=746, 1156.32pt x 560.0925pt>
+File: Indhold/Billeder/SignalbehandlingTemperaturdata.png Graphic file (type png)
+<use Indhold/Billeder/SignalbehandlingTemperaturdata.png>
+Package pdftex.def Info: Indhold/Billeder/SignalbehandlingTemperaturdata.png  used on input line 120.
+(pdftex.def)             Requested size: 462.5198pt x 224.03302pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--123
+
+ []
+
+<Indhold/Billeder/SignalbehandlingTemperaturdataFiltreret.png, id=747, 1156.32pt x 560.0925pt>
+File: Indhold/Billeder/SignalbehandlingTemperaturdataFiltreret.png Graphic file (type png)
+<use Indhold/Billeder/SignalbehandlingTemperaturdataFiltreret.png>
+Package pdftex.def Info: Indhold/Billeder/SignalbehandlingTemperaturdataFiltreret.png  used on input line 134.
+(pdftex.def)             Requested size: 578.15858pt x 280.04556pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+
+ []
+
+[33
+
+ <./Indhold/Billeder/SignalbehandlingTemperaturdata.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 140--143
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--143
+
+ []
+
+[34 <./Indhold/Billeder/SignalbehandlingTemperaturdataFiltreret.png>]
+<Indhold/Billeder/SignalbehandlingTemperaturdataFilteranalyse.png, id=760, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/SignalbehandlingTemperaturdataFilteranalyse.png Graphic file (type png)
+<use Indhold/Billeder/SignalbehandlingTemperaturdataFilteranalyse.png>
+Package pdftex.def Info: Indhold/Billeder/SignalbehandlingTemperaturdataFilteranalyse.png  used on input line 145.
+(pdftex.def)             Requested size: 546.35986pt x 280.76826pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--153
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--153
+
+ []
+
+[35 <./Indhold/Billeder/SignalbehandlingTemperaturdataFilteranalyse.png>]
+<Indhold/Billeder/SignalbehandlingTemperaturdataIIRFiltermodFIRFilter.png, id=767, 555.07375pt x 363.3575pt>
+File: Indhold/Billeder/SignalbehandlingTemperaturdataIIRFiltermodFIRFilter.png Graphic file (type png)
+<use Indhold/Billeder/SignalbehandlingTemperaturdataIIRFiltermodFIRFilter.png>
+Package pdftex.def Info: Indhold/Billeder/SignalbehandlingTemperaturdataIIRFiltermodFIRFilter.png  used on input line 168.
+(pdftex.def)             Requested size: 277.53618pt x 181.6783pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--174
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--174
+
+ []
+
+[36 <./Indhold/Billeder/SignalbehandlingTemperaturdataIIRFiltermodFIRFilter.png>] [37]
+<Indhold/Billeder/Signalbehandling3DAudioelev50H50e096a.png, id=779, 1092.7224pt x 560.0925pt>
+File: Indhold/Billeder/Signalbehandling3DAudioelev50H50e096a.png Graphic file (type png)
+<use Indhold/Billeder/Signalbehandling3DAudioelev50H50e096a.png>
+Package pdftex.def Info: Indhold/Billeder/Signalbehandling3DAudioelev50H50e096a.png  used on input line 184.
+(pdftex.def)             Requested size: 546.35986pt x 280.04556pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--189
+
+ []
+
+[38
+
+ <./Indhold/Billeder/Signalbehandling3DAudioelev50H50e096a.png>]
+<Indhold/Billeder/FilterStabilitet.png, id=786, 693.59125pt x 578.16pt>
+File: Indhold/Billeder/FilterStabilitet.png Graphic file (type png)
+<use Indhold/Billeder/FilterStabilitet.png>
+Package pdftex.def Info: Indhold/Billeder/FilterStabilitet.png  used on input line 190.
+(pdftex.def)             Requested size: 346.79477pt x 289.07928pt.
+ [39
+
+ <./Indhold/Billeder/FilterStabilitet.png>] [40
+
+] [41
+
+] [42
+
+] [43
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 219--221
+
+ []
+
+<Indhold/Billeder/Øvelse 10.4.png, id=819, 318.18875pt x 425.59pt>
+File: Indhold/Billeder/Øvelse 10.4.png Graphic file (type png)
+<use Indhold/Billeder/Øvelse 10.4.png>
+Package pdftex.def Info: Indhold/Billeder/Øvelse 10.4.png  used on input line 226.
+(pdftex.def)             Requested size: 206.82022pt x 276.6302pt.
+<Indhold/Billeder/Øvelse 10.4.2.png, id=820, 559.08875pt x 753.81625pt>
+File: Indhold/Billeder/Øvelse 10.4.2.png Graphic file (type png)
+<use Indhold/Billeder/Øvelse 10.4.2.png>
+Package pdftex.def Info: Indhold/Billeder/Øvelse 10.4.2.png  used on input line 229.
+(pdftex.def)             Requested size: 223.63153pt x 301.52116pt.
+<Indhold/Billeder/Øvelse 10.4.3.png, id=821, 1092.7224pt x 555.0336pt>
+File: Indhold/Billeder/Øvelse 10.4.3.png Graphic file (type png)
+<use Indhold/Billeder/Øvelse 10.4.3.png>
+Package pdftex.def Info: Indhold/Billeder/Øvelse 10.4.3.png  used on input line 233.
+(pdftex.def)             Requested size: 546.35986pt x 277.51611pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[44
+
+] [45 <./Indhold/Billeder/Øvelse 10.4.png>] [46 <./Indhold/Billeder/Øvelse 10.4.2.png>] [47 <./Indhold/Billeder/Øvelse 10.4.3.png>]
+<Indhold/Billeder/Øvelse 10.4.4.png, id=846, 1049.3604pt x 277.5168pt>
+File: Indhold/Billeder/Øvelse 10.4.4.png Graphic file (type png)
+<use Indhold/Billeder/Øvelse 10.4.4.png>
+Package pdftex.def Info: Indhold/Billeder/Øvelse 10.4.4.png  used on input line 256.
+(pdftex.def)             Requested size: 661.10056pt x 174.8365pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--259
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[48
+
+]
+<Indhold/Billeder/Øvelse 10.4.5.png, id=851, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Øvelse 10.4.5.png Graphic file (type png)
+<use Indhold/Billeder/Øvelse 10.4.5.png>
+Package pdftex.def Info: Indhold/Billeder/Øvelse 10.4.5.png  used on input line 274.
+(pdftex.def)             Requested size: 327.81924pt x 168.46266pt.
+<Indhold/Billeder/Øvelse 10.4.6.png, id=852, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Øvelse 10.4.6.png Graphic file (type png)
+<use Indhold/Billeder/Øvelse 10.4.6.png>
+Package pdftex.def Info: Indhold/Billeder/Øvelse 10.4.6.png  used on input line 275.
+(pdftex.def)             Requested size: 437.08122pt x 224.61118pt.
+<Indhold/Billeder/Øvelse 10.4.7.png, id=853, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Øvelse 10.4.7.png Graphic file (type png)
+<use Indhold/Billeder/Øvelse 10.4.7.png>
+Package pdftex.def Info: Indhold/Billeder/Øvelse 10.4.7.png  used on input line 278.
+(pdftex.def)             Requested size: 327.81924pt x 168.46266pt.
+<Indhold/Billeder/Øvelse 10.4.8.png, id=854, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Øvelse 10.4.8.png Graphic file (type png)
+<use Indhold/Billeder/Øvelse 10.4.8.png>
+Package pdftex.def Info: Indhold/Billeder/Øvelse 10.4.8.png  used on input line 279.
+(pdftex.def)             Requested size: 437.08122pt x 224.61118pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 273--282
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 273--282
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 273--282
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[49 <./Indhold/Billeder/Øvelse 10.4.4.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[50 <./Indhold/Billeder/Øvelse 10.4.5.png> <./Indhold/Billeder/Øvelse 10.4.6.png>] [51 <./Indhold/Billeder/Øvelse 10.4.7.png> <./Indhold/Billeder/Øvelse 10.4.8.png>]
+<Indhold/Billeder/Øvelse 10.4.9.png, id=879, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Øvelse 10.4.9.png Graphic file (type png)
+<use Indhold/Billeder/Øvelse 10.4.9.png>
+Package pdftex.def Info: Indhold/Billeder/Øvelse 10.4.9.png  used on input line 292.
+(pdftex.def)             Requested size: 546.35986pt x 280.76826pt.
+ [52 <./Indhold/Billeder/Øvelse 10.4.9.png>]
+<Indhold/Billeder/Eksempel 10.5.a.png, id=886, 1092.7224pt x 565.1514pt>
+File: Indhold/Billeder/Eksempel 10.5.a.png Graphic file (type png)
+<use Indhold/Billeder/Eksempel 10.5.a.png>
+Package pdftex.def Info: Indhold/Billeder/Eksempel 10.5.a.png  used on input line 304.
+(pdftex.def)             Requested size: 600.99919pt x 310.83423pt.
+<Indhold/Billeder/Eksempel 10.5.b.png, id=887, 1092.7224pt x 565.1514pt>
+File: Indhold/Billeder/Eksempel 10.5.b.png Graphic file (type png)
+<use Indhold/Billeder/Eksempel 10.5.b.png>
+Package pdftex.def Info: Indhold/Billeder/Eksempel 10.5.b.png  used on input line 310.
+(pdftex.def)             Requested size: 600.99919pt x 310.83423pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 313--320
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 313--320
+
+ []
+
+[53
+
+ <./Indhold/Billeder/Eksempel 10.5.a.png>]
+<Indhold/Billeder/Eksempel 10.7.png, id=894, 1092.7224pt x 565.1514pt>
+File: Indhold/Billeder/Eksempel 10.7.png Graphic file (type png)
+<use Indhold/Billeder/Eksempel 10.7.png>
+Package pdftex.def Info: Indhold/Billeder/Eksempel 10.7.png  used on input line 324.
+(pdftex.def)             Requested size: 382.45857pt x 197.80594pt.
+<Indhold/Billeder/Eksempel 10.7.1.png, id=895, 619.31375pt x 331.2375pt>
+File: Indhold/Billeder/Eksempel 10.7.1.png Graphic file (type png)
+<use Indhold/Billeder/Eksempel 10.7.1.png>
+Package pdftex.def Info: Indhold/Billeder/Eksempel 10.7.1.png  used on input line 325.
+(pdftex.def)             Requested size: 414.93806pt x 221.92796pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 321--335
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 321--335
+
+ []
+
+
+Overfull \hbox (14.19405pt too wide) in paragraph at lines 321--335
+\OT1/cmr/m/n/10 I python ^^\nsker den en sam-pling frekvens, for at den kan god-tage cut-off-frekvenserne.
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[54 <./Indhold/Billeder/Eksempel 10.5.b.png>] [55 <./Indhold/Billeder/Eksempel 10.7.png> <./Indhold/Billeder/Eksempel 10.7.1.png>]
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 367--367
+[]                \OT1/cmtt/m/n/10 [h, delta] = firpm(M, fo, ao);  % Fir coefficienter[] 
+ []
+
+<Indhold/Billeder/Eksempel 10.8.png, id=911, 799.98875pt x 357.335pt>
+File: Indhold/Billeder/Eksempel 10.8.png Graphic file (type png)
+<use Indhold/Billeder/Eksempel 10.8.png>
+Package pdftex.def Info: Indhold/Billeder/Eksempel 10.8.png  used on input line 371.
+(pdftex.def)             Requested size: 479.99695pt x 214.40265pt.
+[56]) (./Indhold/EksamensOpgaver.tex [57 <./Indhold/Billeder/Eksempel 10.8.png>] [58
+
+]
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.55 ...\tilde{X}(e^{j\omega})$} of \text{$x[n]$}]
+l.47 ...e}[Bestem differensligningen for filteret]
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.64 ...ose first N = 20 samples of \text{$x[n]$}]
+l.54 ...n{UnderOpgave}[Sketch signal flow graphen]
                                                   
-<Indhold/Billeder/Opgave 7.3.b.png, id=196, 1092.7224pt x 560.0925pt>
+<Indhold/Billeder/Eksamenssæt2021.1.3.png, id=933, 462.528pt x 346.896pt>
+File: Indhold/Billeder/Eksamenssæt2021.1.3.png Graphic file (type png)
+<use Indhold/Billeder/Eksamenssæt2021.1.3.png>
+Package pdftex.def Info: Indhold/Billeder/Eksamenssæt2021.1.3.png  used on input line 60.
+(pdftex.def)             Requested size: 106.3792pt x 79.7844pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.67 ...det rekonstruerede signal \text{$y_r(t)$}]
+                                                   [59 <./Indhold/Billeder/Eksamenssæt2021.1.3.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.78 ...X(z) og redegør for konvergensen af X(z)]
+                                                   [60]
+<Indhold/Billeder/Eksamenssæt2021.4.2.png, id=958, 1092.7224pt x 568.0422pt>
+File: Indhold/Billeder/Eksamenssæt2021.4.2.png Graphic file (type png)
+<use Indhold/Billeder/Eksamenssæt2021.4.2.png>
+Package pdftex.def Info: Indhold/Billeder/Eksamenssæt2021.4.2.png  used on input line 111.
+(pdftex.def)             Requested size: 437.08122pt x 227.21284pt.
+ [61 <./Indhold/Billeder/Eksamenssæt2021.4.2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 116--121
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.126 ...to toppe i frekvensspektret af signalet?]
+                                                  
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.146 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.149 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.152 
+       [62] [63]
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.155 ...ensOpgave}[Lad et signal være givet ved]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.157 ...(z) og redegør for konvergensen af X(z)]
+                                                  
+Underfull \hbox (badness 10000) in paragraph at lines 164--166
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.168 ...periodisk eller ikke-periodisk funktion?]
+                                                  
+File: Indhold/Billeder/Eksamenssæt2021.4.2.png Graphic file (type png)
+<use Indhold/Billeder/Eksamenssæt2021.4.2.png>
+Package pdftex.def Info: Indhold/Billeder/Eksamenssæt2021.4.2.png  used on input line 170.
+(pdftex.def)             Requested size: 251.32086pt x 130.64696pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.173 ...t{$x_2[n]$} har Fourier-transformationen]
+                                                  
+Underfull \hbox (badness 10000) in paragraph at lines 169--173
+
+ []
+
+[64
+
+]
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.201 ...pektre, resolution og flere frekvensdele]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.205 ...ext{$\Delta F$} hvor begge toppe kan ses]
+                                                   [65]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.214 ...�ende sig, hvis signalets længde øget?]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.220 ...ion på signalet inden frekvensanalysen?]
+                                                  
+Overfull \hbox (5.89018pt too wide) in paragraph at lines 220--220
+[][]\OT1/cmr/bx/n/10 c. Hvilken in-d-virkn-ing har det p^^Wa svarene p^^Wa ovenst^^Waende to sp^^\rgsm^^Wal,
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.228 ...eksamensOpgave}[Convolution i LTI system]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.232         \begin{UnderOpgave}[Beregn y0 og y1]
+                                                   [66]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.242 ...og \text{$h[n] \star x_2[n]$} relateret?]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.252 ... \begin{eksamensOpgave}[Signal flow graf]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.253 ...ningen og bestem z transformationen af h]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.261 ...tallet af poler og nulpunkter i filteret]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.265 ...ændret eller forstærket efter filteret]
+                                                  
+<Indhold/Billeder/Eksamensopgavesæt2022.2.png, id=1002, 1092.7224pt x 565.1514pt>
+File: Indhold/Billeder/Eksamensopgavesæt2022.2.png Graphic file (type png)
+<use Indhold/Billeder/Eksamensopgavesæt2022.2.png>
+Package pdftex.def Info: Indhold/Billeder/Eksamensopgavesæt2022.2.png  used on input line 266.
+(pdftex.def)             Requested size: 327.81924pt x 169.54672pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.271 ...}[System karakteristikker af to systemer]
+                                                   [67]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.274 ...degør for om systemerne er LTI systemer]
+                                                   [68 <./Indhold/Billeder/Eksamensopgavesæt2022.2.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.308 ...or om systemet er et lineær fase filter]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.313 ...amensOpgave}[ADC (mangler sidste opgave)]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.316 ...at det samplede signal kan beskrives ved]
+                                                   [69]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.326 ...nderOpgave}[Argumenter for peridiciteten]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.347 ...stone og bestem sinustones frekvens i Hz]
+                                                   [70]
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.359         \begin{eksamensOpgave}[DFT ]
+                                          
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.360 ...erefter DFT transformationen af signalet]
+                                                  
+Underfull \hbox (badness 10000) in paragraph at lines 361--363
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--363
+
+ []
+
+[71]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.399 ...begin{UnderOpgave}[Beregn y og kommenter]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.407 ...or mere effektive algoritmer, såsom fft]
+                                                  
+Underfull \hbox (badness 10000) in paragraph at lines 408--416
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.418 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.420 ...eksamensOpgave}[LTI system i signal flow]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.421 ...n{UnderOpgave}[Opstil differensligningen]
+                                                   [72]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.425 ...gør for antallet af poler og nulpunkter]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.430 ...et. Dæmpet, uændret eller forstærket?]
+                                                   [73]
+
+LaTeX Warning: Command \ae invalid in math mode on input line 452.
+
+
+LaTeX Warning: Command \ae invalid in math mode on input line 452.
+
+
+LaTeX Warning: Command \ae invalid in math mode on input line 455.
+
+
+LaTeX Warning: Command \ae invalid in math mode on input line 456.
+
+
+LaTeX Warning: Command \ae invalid in math mode on input line 457.
+
+
+LaTeX Warning: Command \ae invalid in math mode on input line 457.
+
+
+LaTeX Warning: Command \ae invalid in math mode on input line 458.
+
+
+LaTeX Warning: Command \ae invalid in math mode on input line 459.
+
+
+LaTeX Warning: Command \ae invalid in math mode on input line 460.
+
+
+LaTeX Warning: Command \ae invalid in math mode on input line 460.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.466 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.468 ...in{eksamensOpgave}[Sampling med aliasing]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.469 ...at det samplede signal kan beskrives med]
+                                                   [74]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.487 ...  \begin{UnderOpgave}[Bevis periodicitet]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.490 ... ren sinustone og bestem frekvensen i Hz]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.506 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.511         \begin
+                    {UnderOpgave}[Opskriv det analytiske udtryk for at bereg...
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.511 ...tioner og additioner beregningen kræver]
+                                                   [75]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.521 ...    \begin{UnderOpgave}[Beregn y1 for xn]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.525 ...bilitets egenskaberne af impulsresponset]
+                                                  
+Missing character: There is no z in font rsfs7!
+[76]
+Overfull \hbox (77.18134pt too wide) detected at line 546
+\OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = [\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [1]\OML/cmm/m/it/10 ; h\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [0] + \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [0]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1]\OML/cmm/m/it/10 ; h\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [1] + \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [0]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [0] + \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [1]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1]\OML/cmm/m/it/10 ; h\OT1/cmr/m/n/10 [0]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [1] + \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [1]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [0]\OML/cmm/m/it/10 ; h\OT1/cmr/m/n/10 [1]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [1]]
+ []
+
+
+Overfull \hbox (35.48659pt too wide) detected at line 556
+\OML/cmm/m/it/10 y[]\OT1/cmr/m/n/10 [0] = \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [0]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [0] + \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [1]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1] + \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [2]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 2] = 4 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 2) + 5 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (12) + (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 6) \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 3) = \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 8 + 60 + 18 = 70
+ []
+
+
+Overfull \hbox (40.4866pt too wide) detected at line 557
+\OML/cmm/m/it/10 y[]\OT1/cmr/m/n/10 [1] = \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [0]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [1] + \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [1]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [0] + \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [2]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1] = 4 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 4) + 5 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 2) + (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 6) \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (12) = \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 16 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 10 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 72 = \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 98
+ []
+
+
+Overfull \hbox (2.15315pt too wide) detected at line 558
+\OML/cmm/m/it/10 y[]\OT1/cmr/m/n/10 [2] = \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [0]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [2] + \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [1]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [1] + \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [2]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [0] = 4 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 1 + 5 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 4) + (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 6) \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 2) = 4 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 20 + 12 = \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 4
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.567 ... design, mangler transient response svar]
+                                                   [77]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.573 ...nalet halveres efter passage af filteret]
+                                                  
+Overfull \hbox (1.10654pt too wide) in paragraph at lines 575--577
+\OT1/cmr/m/n/10 S^^Wa ud-vider jeg eu-ler re-la-tio-nen. Jeg ud-nyt-ter sam-tidig, at $\OML/cmm/m/it/10 cos\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Y=\OT1/cmr/m/n/10 4) = \OML/cmm/m/it/10 sin\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Y=\OT1/cmr/m/n/10 4) =
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.584 ...s fasen af signalet gennem LTI systemet?]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.593 ...sampels den transiente forvræning varer]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.598 ...arallelkobling af to 1.ordens IIR filtre]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.599 ...1, \alpha_2$} for at systemet er stabilt]
+                                                   [78]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.613 ...regn systemfunktionen og impulsresponsen]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.620 ... udtrykt ved \text{$\alpha_1, \alpha_2$}]
+                                                  
+<Indhold/Billeder/Eksamensopgavesæt2024.3.png, id=1094, 391.4625pt x 221.82875pt>
+File: Indhold/Billeder/Eksamensopgavesæt2024.3.png Graphic file (type png)
+<use Indhold/Billeder/Eksamensopgavesæt2024.3.png>
+Package pdftex.def Info: Indhold/Billeder/Eksamensopgavesæt2024.3.png  used on input line 627.
+(pdftex.def)             Requested size: 313.17041pt x 177.46321pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 625--628
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.631 ...e}[Z transformation og fourier evalueret]
+                                                   [79]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.638 ...egin{UnderOpgave}[Beregn for n = 1, 2, 3]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.643 ...rføringsfunktionen S, inkluder dens ROC]
+                                                   [80 <./Indhold/Billeder/Eksamensopgavesæt2024.3.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.660 ...de responsen for \text{$H(e^{j\omega})$}]
+                                                  
+<Indhold/Billeder/Eksamenssæt2024.ord.4.png, id=1114, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Eksamenssæt2024.ord.4.png Graphic file (type png)
+<use Indhold/Billeder/Eksamenssæt2024.ord.4.png>
+Package pdftex.def Info: Indhold/Billeder/Eksamenssæt2024.ord.4.png  used on input line 661.
+(pdftex.def)             Requested size: 327.81924pt x 168.46266pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.667 ... S er et system med endeligt impuls svar]
+                                                   [81 <./Indhold/Billeder/Eksamenssæt2024.ord.4.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.679 ...n{eksamensOpgave}[Sampling og resolution]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.681 ...nustoner når de ses i frekvensspektret?]
+                                                   [82]
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.725 ...ksamensOpgave}[Convolution og egenskaber]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.728 ...tioner og additioner beregninger kræver]
+                                                   [83]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.740 ...UnderOpgave}[Beregn y1 for det xn signal]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.745 ...litetsegenskaberne af impulsresponset hn]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.751 ...gn det totale impulsrespons for systemet]
+                                                  
+Overfull \hbox (13.70644pt too wide) detected at line 758
+\OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10 [0] = \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [0 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1)] + \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [0]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [0] + \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [1]\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [0 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] = 3 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1) + 2 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 2 + (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 3 = 4 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 6 = \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 2
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.766 ...    \begin{eksamensOpgave}[System design]
+                                                   [84]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.772 ...nalet halveres efter passage af filteret]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.792 ...es fasen af signalet gennem LTI systemet]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.798 ...amples den transiente forvrænging varer]
+                                                   [85]
+<Indhold/Billeder/Eksamenssæt2024.ord.3.2.png, id=1149, 1443.3925pt x 734.745pt>
+File: Indhold/Billeder/Eksamenssæt2024.ord.3.2.png Graphic file (type png)
+<use Indhold/Billeder/Eksamenssæt2024.ord.3.2.png>
+Package pdftex.def Info: Indhold/Billeder/Eksamenssæt2024.ord.3.2.png  used on input line 804.
+(pdftex.def)             Requested size: 433.02109pt x 220.42519pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.808 ...rallel kobling af to to 1. ordens filtre]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.810 ...1, \alpha_2$} for at systemet er stabilt]
+                                                   [86 <./Indhold/Billeder/Eksamenssæt2024.ord.3.2.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.818 ...ystemfunktionen, H, og impulsresponset h]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.838 ...ekte form II der svarer til LTI systemet]
+                                                   [87]
+<Indhold/Billeder/Eksamenssæt2024.ord.4.2.png, id=1165, 1054.94125pt x 550.055pt>
+File: Indhold/Billeder/Eksamenssæt2024.ord.4.2.png Graphic file (type png)
+<use Indhold/Billeder/Eksamenssæt2024.ord.4.2.png>
+Package pdftex.def Info: Indhold/Billeder/Eksamenssæt2024.ord.4.2.png  used on input line 847.
+(pdftex.def)             Requested size: 421.96902pt x 220.0181pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.850 ...amensOpgave}[LTI system karakteristikker]
+                                                   [88 <./Indhold/Billeder/Eksamenssæt2024.ord.4.2.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.853 ... \begin{UnderOpgave}[Beregn y1, y2 og y3]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.858 ...rføringsfunktionen S, inklusiv dens ROC]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.870 ...r magnituden evalueret i $z=e^{j\omega}$]
+                                                  
+<Indhold/Billeder/Eksamenssæt2024.ord.4.4.2.png, id=1173, 462.528pt x 346.896pt>
+File: Indhold/Billeder/Eksamenssæt2024.ord.4.4.2.png Graphic file (type png)
+<use Indhold/Billeder/Eksamenssæt2024.ord.4.4.2.png>
+Package pdftex.def Info: Indhold/Billeder/Eksamenssæt2024.ord.4.4.2.png  used on input line 871.
+(pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.876 ...lterer i et system med en endelig impuls]
+                                                   [89]
+pdfTeX warning (ext4): destination with the same identifier (name{eksamensOpgave.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.890 ...{eksamensOpgave}[Sampling, vindue og DFT]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.894 ...ille de to sinustoner i frekvensspektret]
+                                                   [90 <./Indhold/Billeder/Eksamenssæt2024.ord.4.4.2.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.908 ...spg. 1. Hvilket vindue kan jeg anbefale?]
+                                                  ) (./Indhold/Opgaver.tex [91] [92
+
+]
+pdfTeX warning (ext4): destination with the same identifier (name{kapitel.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.4     \begin{kapitel}[Introduktion]
+                                      [93
+
+]
+pdfTeX warning (ext4): destination with the same identifier (name{kapitel.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.6 ...apitel}[Diskrete-tids signaler og systemer]
+                                                   [94
+
+]
+<Indhold/Billeder/Opgave 2.5.png, id=1213, 1390.19376pt x 718.685pt>
+File: Indhold/Billeder/Opgave 2.5.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 2.5.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 2.5.png  used on input line 38.
+(pdftex.def)             Requested size: 973.12901pt x 503.07607pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[95
+
+]
+
+LaTeX Warning: Text page 96 contains only floats.
+
+
+Overfull \vbox (3.02051pt too high) has occurred while \output is active []
+
+ [96 <./Indhold/Billeder/Opgave 2.5.png>]
+Package svg Info: Last page of `./svg-inkscape/Feedback system_svg-tex.pdf' is 1 on input line 42.
+ (./svg-inkscape/Feedback system_svg-tex.pdf_tex
+<./svg-inkscape/Feedback system_svg-tex.pdf, id=1225, page=1, 276.3085pt x 152.1889pt>
+File: ./svg-inkscape/Feedback system_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/Feedback system_svg-tex.pdf, page 1>
+Package pdftex.def Info: ./svg-inkscape/Feedback system_svg-tex.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 110.5217pt x 60.87447pt.
+)
+<Indhold/Billeder/Opgave 2.1.png, id=1226, 1092.7224pt x 650.43pt>
+File: Indhold/Billeder/Opgave 2.1.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 2.1.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 2.1.png  used on input line 47.
+(pdftex.def)             Requested size: 300.49126pt x 178.86383pt.
+ [97
+
+ <./svg-inkscape/Feedback system_svg-tex.pdf> <./Indhold/Billeder/Opgave 2.1.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.58             \begin{UnderOpgave}[Bevis det]
+                                               
+Overfull \hbox (101.76866pt too wide) detected at line 70
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ![] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ) = [1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ;  \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 8\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 ;  \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 8\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ;  \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 8\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 4\OML/cmm/m/it/10 ;  \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 9\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ;  \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 ;  \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 9\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ;  \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 ]
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.76 ... jeg konkludere periodicitet ud fra plot?]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.79 ... jeg konkludere periodicitet ud fra plot?]
+                                                  
+<Indhold/Billeder/Opgave 2.3.png, id=1237, 1283.79625pt x 695.59875pt>
+File: Indhold/Billeder/Opgave 2.3.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 2.3.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 2.3.png  used on input line 83.
+(pdftex.def)             Requested size: 385.14185pt x 208.68123pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[98]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 88.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 88.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 88.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.91 ...�kvivalente system hvor at $y=conv(h, x)$]
+                                                   [99 <./Indhold/Billeder/Opgave 2.3.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.107 ... to ækvivalente system representationer]
+                                                  
+Overfull \hbox (153.24191pt too wide) detected at line 119
+\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 15\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] + 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 7\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 25 \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4] + 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 18\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] + 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] + 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 3\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3] + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 18\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4]
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.121 ...nd plot the impulse response \text{h[n]}]
+                                                   [100]
+Underfull \hbox (badness 10000) in paragraph at lines 128--131
+
+ []
+
+<Indhold/Billeder/Opgave til kapitel 2.png, id=1257, 462.528pt x 346.896pt>
+File: Indhold/Billeder/Opgave til kapitel 2.png Graphic file (type png)
+<use Indhold/Billeder/Opgave til kapitel 2.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave til kapitel 2.png  used on input line 143.
+(pdftex.def)             Requested size: 115.63171pt x 86.72379pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.145 ...gn og plot output med \text{x[n] = u[n]}]
+                                                  
+Underfull \hbox (badness 10000) in paragraph at lines 131--145
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Indhold/Billeder/Opgave 2.17.a.png, id=1258, 1251.67625pt x 762.85pt>
+File: Indhold/Billeder/Opgave 2.17.a.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 2.17.a.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 2.17.a.png  used on input line 158.
+(pdftex.def)             Requested size: 312.91829pt x 190.71204pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--159
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--159
+
+ []
+
+[101] [102 <./Indhold/Billeder/Opgave til kapitel 2.png> <./Indhold/Billeder/Opgave 2.17.a.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.160 ...}[Beregn og plot, men nu med convolution]
+                                                  
+<Indhold/Billeder/Opgave 2.17.b.png, id=1273, 1235.61626pt x 765.86125pt>
+File: Indhold/Billeder/Opgave 2.17.b.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 2.17.b.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 2.17.b.png  used on input line 162.
+(pdftex.def)             Requested size: 327.43675pt x 202.95226pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.164 ...te og sammenlign med de andre løsninger]
+                                                  
+<Indhold/Billeder/Opgave 2.17.c.png, id=1274, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Opgave 2.17.c.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 2.17.c.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 2.17.c.png  used on input line 166.
+(pdftex.def)             Requested size: 300.49126pt x 154.41911pt.
+ [103
+
+ <./Indhold/Billeder/Opgave 2.17.b.png> <./Indhold/Billeder/Opgave 2.17.c.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.177 ...g den til at processere handel lydfilen.]
+                                                   [104]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.193 ...}[\text{$x[n] = 10*(u[n+10] - u[n-20])$}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.198 ...-10]) + (20 - n) * (u[n-10] - u[n-20])$}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.202 ...cos(\pi*n/5 - \pi/2) * (u[n]- u[n-40])$}]
+                                                  
+<Indhold/Billeder/Opgave 2.17.png, id=1291, 1416.29124pt x 704.6325pt>
+File: Indhold/Billeder/Opgave 2.17.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 2.17.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 2.17.png  used on input line 205.
+(pdftex.def)             Requested size: 566.50647pt x 281.848pt.
+ [105 <./Indhold/Billeder/Opgave 2.17.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 221--225
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--225
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--235
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.240 ...kellen på den her og den i formel 2.103]
+                                                   [106] [107]
+File: Indhold/Billeder/Opgave 2.33.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 2.33.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 2.33.png  used on input line 246.
+(pdftex.def)             Requested size: 382.45857pt x 196.5412pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.249             \begin{UnderOpgave}\end
+                                         {UnderOpgave}
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.250 ...{UnderOpgave}[Beregn og plot for a = 0.7]
+                                                  
+Package svg Info: Last page of `./svg-inkscape/Opgave 2.50_svg-tex.pdf' is 1 on input line 253.
+ (./svg-inkscape/Opgave 2.50_svg-tex.pdf_tex
+<./svg-inkscape/Opgave 2.50_svg-tex.pdf, id=1311, page=1, 5427.17186pt x 3277.75787pt>
+File: ./svg-inkscape/Opgave 2.50_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/Opgave 2.50_svg-tex.pdf, page 1>
+Package pdftex.def Info: ./svg-inkscape/Opgave 2.50_svg-tex.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 407.02132pt x 245.82123pt.
+)
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.255 ...ed dette nye reverb filter og sammenlign]
+                                                  
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[108
+
+] [109 <./svg-inkscape/Opgave 2.50_svg-tex.pdf>]
+pdfTeX warning (ext4): destination with the same identifier (name{kapitel.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.261     \begin{kapitel}[Z transformation]
+                                           
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.265 ...= (\frac{1}{2})^n * (u[n] - u[n - 10])$}]
+                                                  
+<Indhold/Billeder/Opgave 2.50.png, id=1329, 1092.7224pt x 557.9244pt>
+File: Indhold/Billeder/Opgave 2.50.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 2.50.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 2.50.png  used on input line 274.
+(pdftex.def)             Requested size: 546.35986pt x 278.9615pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.276 ...pgave}[\text{$x[n] = \frac{1}{2}^{|n|}$}]
+                                                  
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 277--280
+
+ []
+
+[110
+
+] [111 <./Indhold/Billeder/Opgave 2.50.png>]
+<Indhold/Billeder/Opgave 3.1.a.png, id=1344, 548.5293pt x 560.8152pt>
+File: Indhold/Billeder/Opgave 3.1.a.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 3.1.a.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 3.1.a.png  used on input line 294.
+(pdftex.def)             Requested size: 219.40782pt x 224.3221pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.296 ...gin{UnderOpgave}[\text{$x[n] = 5^{|n|}$}]
+                                                  
+Underfull \hbox (badness 10000) in paragraph at lines 297--299
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--302
+
+ []
+
+[112 <./Indhold/Billeder/Opgave 3.1.a.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.311 ...(1/2)^n * cos(\pi * n/3)*u[n]$}, forkert]
+                                                  
+Overfull \hbox (6.0148pt too wide) detected at line 313
+\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) = [] []  \OMS/cmsy/m/n/10    []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 ) = []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--320
+
+ []
+
+[113]
+<Indhold/Billeder/Opgave 3.1.b.png, id=1357, 548.5293pt x 560.8152pt>
+File: Indhold/Billeder/Opgave 3.1.b.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 3.1.b.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 3.1.b.png  used on input line 326.
+(pdftex.def)             Requested size: 274.26398pt x 280.4069pt.
+
+Overfull \hbox (19.03233pt too wide) detected at line 330
+\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = (\OML/cmm/m/it/10 r[] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 sin\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ![] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ]) [] \OML/cmm/m/it/10 X\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) = []\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 > r
+ []
+
+[114 <./Indhold/Billeder/Opgave 3.1.b.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 346--349
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 346--349
+
+ []
+
+[115]
+Overfull \hbox (121.9021pt too wide) detected at line 360
+\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) = [] \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 ([] \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 )
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.369 ...-1/3}{1, 1, -2}$, ROC er hele spektret?}]
+                                                   [116]
+Underfull \hbox (badness 10000) in paragraph at lines 372--374
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.381 ...1, -1}{1, 0.25}, \tab{0}$x[n] is causal}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.387 ...5},\tab{0}$ x[n] is absolutely summable}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.397 ...-1/3}{1, 1, -2}$, Alle ROCs skal findes}]
+                                                   [117]
+Overfull \hbox (23.45593pt too wide) detected at line 410
+\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = \OMS/cmsy/m/n/10 ^^@[] ^^C \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 2)[] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 ^^@ [] ^^C \OT1/cmr/m/n/10 1[] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ;  ROC \OT1/cmr/m/n/10 : \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 < \OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10 \ j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 < \OT1/cmr/m/n/10 1  \OMS/cmsy/m/n/10 !  j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 < \OT1/cmr/m/n/10 1
+ []
+
+
+Overfull \hbox (28.178pt too wide) detected at line 412
+\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = [] \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 2)[] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 ^^@ [] ^^C \OT1/cmr/m/n/10 1[] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ;  ROC \OT1/cmr/m/n/10 : \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10 \ j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 < \OT1/cmr/m/n/10 1  \OMS/cmsy/m/n/10 !  \OT1/cmr/m/n/10 1 \OML/cmm/m/it/10 > \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 2 ?
+ []
+
+
+Overfull \hbox (21.23355pt too wide) detected at line 414
+\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = \OMS/cmsy/m/n/10 ^^@[] ^^C \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 2)[] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] + [] \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 1[] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ;  ROC \OT1/cmr/m/n/10 : \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 < \OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10 \ j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 1  \OMS/cmsy/m/n/10 !  \OT1/cmr/m/n/10 2 \OML/cmm/m/it/10 > \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 1
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 416--418
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 416--418
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 416--418
+
+ []
+
+
+Overfull \hbox (20.55667pt too wide) detected at line 418
+\OT1/cmr/m/n/10 ===============================================
+ []
+
+
+Overfull \hbox (23.45593pt too wide) detected at line 420
+\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = \OMS/cmsy/m/n/10 ^^@[] ^^C \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 2)[] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 ^^@ [] ^^C \OT1/cmr/m/n/10 1[] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ;  ROC \OT1/cmr/m/n/10 : \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 < \OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10 \ j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 < \OT1/cmr/m/n/10 1  \OMS/cmsy/m/n/10 !  j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 < \OT1/cmr/m/n/10 1
+ []
+
+
+Overfull \hbox (21.23355pt too wide) detected at line 421
+\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = \OMS/cmsy/m/n/10 ^^@[] ^^C \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 2)[] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] + [] \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 1[] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ;  ROC \OT1/cmr/m/n/10 : \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 < \OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10 \ j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 1  \OMS/cmsy/m/n/10 !  \OT1/cmr/m/n/10 2 \OML/cmm/m/it/10 > \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 1
+ []
+
+[118]
+Overfull \hbox (20.55667pt too wide) detected at line 422
+\OT1/cmr/m/n/10 ===============================================
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.424 ...-1}{1, -0.25}, \tab{0} x[n]$ er kausul.}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.431 ...})}, \tab{0} x[n]$ er absolute summable}]
+                                                   [119]
+File: Indhold/Billeder/Z transformations egenskaber.png Graphic file (type png)
+<use Indhold/Billeder/Z transformations egenskaber.png>
+Package pdftex.def Info: Indhold/Billeder/Z transformations egenskaber.png  used on input line 450.
+(pdftex.def)             Requested size: 293.09428pt x 195.2289pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.451 ...in{UnderOpgave}[\text{$y[n] = x[n - 3]$}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.457 ...}[\text{$y[n] = (\frac{1}{3})^n * x[n]$}]
+                                                   [120]
+Missing character: There is no z in font rsfs7!
+Missing character: There is no z in font rsfs7!
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.464 ...in{UnderOpgave}[\text{y[n] = x[n]*x[-n]}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.471 ...begin{UnderOpgave}[\text{y[n] = n*x[-n]}]
+                                                  
+Missing character: There is no z in font rsfs7!
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.489 ...tab{0} x[n] = b^nu[n], \tab{0} a\neq b$}]
+                                                   [121]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.497 ...[n],\tab{0} x[n] = b^nu[n],\tab{0} a=b$}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.511 ...\pi * n}, \tab{0} -\infty < n < \infty$}]
+                                                   [122]
+Underfull \hbox (badness 10000) in paragraph at lines 514--517
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 514--517
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.533 ...}[\text{$x[n] = e^{j*0.25*\pi * n}u[n]$}]
+                                                   [123]
+Underfull \hbox (badness 10000) in paragraph at lines 550--551
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 550--551
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.570 ... = (-1)^n,\tab{0} -\infty < n < \infty$}]
+                                                   [124]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.590 ...{UnderOpgave}[\text{$x[n] = (-1)^nu[n]$}]
+                                                  
+Underfull \hbox (badness 10000) in paragraph at lines 596--600
+
+ []
+
+[125]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.613 ... and check whether the system is stable.]
+                                                   [126]
+Underfull \hbox (badness 10000) in paragraph at lines 620--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 622--623
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.630 ...the impulse response h[n] of the system}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.637 ...ne the step response s[n] of the system}]
+                                                   [127]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.654 ...nd (c) and compare with function filter}]
+                                                  
+Overfull \hbox (117.97813pt too wide) in paragraph at lines 654--654
+[][]\OT1/cmr/bx/n/10 d. [] 
+ []
+
+<Indhold/Billeder/Opgave 3.15.png, id=1445, 493.845pt x 55.20625pt>
+File: Indhold/Billeder/Opgave 3.15.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 3.15.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 3.15.png  used on input line 665.
+(pdftex.def)             Requested size: 444.45638pt x 49.68515pt.
+[128 <./Indhold/Billeder/Opgave 3.15.png>]
+Overfull \hbox (75.85158pt too wide) in paragraph at lines 689--693
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 689--693
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.695 ...he impulse response h[n] of the system.}]
+                                                   [129]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.711 ...n]$ for the input $x[n] = (1/2)^nu[n]$.}]
+                                                   [130]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.735 ... (a) and (b) using the function filter.}]
+                                                  
+<Indhold/Billeder/Opgave 3.16.png, id=1464, 550.055pt x 42.1575pt>
+File: Indhold/Billeder/Opgave 3.16.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 3.16.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 3.16.png  used on input line 738.
+(pdftex.def)             Requested size: 440.04459pt x 33.72603pt.
+
+Missing character: There is no z in font rsfs7!
+
+Underfull \hbox (badness 10000) in paragraph at lines 748--756
+
+ []
+
+[131 <./Indhold/Billeder/Opgave 3.16.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.763 ...zero pattern using the function zplane.}]
+                                                  
+Overfull \hbox (142.15898pt too wide) in paragraph at lines 763--763
+[][]\OT1/cmr/bx/n/10 a. [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 764--765
+
+ []
+
+<Indhold/Billeder/Opgave 3.19 - pzmap.png, id=1472, 433.62pt x 433.62pt>
+File: Indhold/Billeder/Opgave 3.19 - pzmap.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 3.19 - pzmap.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 3.19 - pzmap.png  used on input line 771.
+(pdftex.def)             Requested size: 195.1272pt x 195.1272pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 766--773
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 766--773
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 766--773
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 766--773
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.774 ...mpulse response of the system using impz]
+                                                  
+<Indhold/Billeder/Opgave 3.19 - Respons.png, id=1473, 462.528pt x 346.896pt>
+File: Indhold/Billeder/Opgave 3.19 - Respons.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 3.19 - Respons.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 3.19 - Respons.png  used on input line 777.
+(pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
+ [132]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.780 ...h[n]$ using the pole-zero pattern plot.}]
+                                                   [133 <./Indhold/Billeder/Opgave 3.19 - pzmap.png> <./Indhold/Billeder/Opgave 3.19 - Respons.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.791 ...ation for the description of the system.]
+                                                  
+Underfull \hbox (badness 10000) in paragraph at lines 799--809
+
+ []
+
+[134]
+Overfull \hbox (74.91418pt too wide) in paragraph at lines 809--809
+[][][] 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 809.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 809.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 809.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 809.
+
+
+LaTeX Warning: Command \textemdash invalid in math mode on input line 811.
+
+
+LaTeX Warning: Command \textemdash invalid in math mode on input line 811.
+
+
+LaTeX Warning: Command \textemdash invalid in math mode on input line 811.
+
+
+LaTeX Warning: Command \textemdash invalid in math mode on input line 811.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.814 ...mine the z-transform of the input x[n].}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.823 ... for the impulse response of the system.]
+                                                  
+Underfull \hbox (badness 10000) in paragraph at lines 824--826
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 831--833
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 831--833
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 831--833
+
+ []
+
+[135] [136] [137]
+pdfTeX warning (ext4): destination with the same identifier (name{kapitel.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.864 ...pitel}[Fourier representation of signals]
+                                                   [138
+
+]
+pdfTeX warning (ext4): destination with the same identifier (name{kapitel.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.867 ...pitel}[Transform analysis of LTI systems]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.873 ...{j\omega})$ of the system in terms of b.]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.880 .... Plot the resulting magnitude response.]
+                                                  
+<Indhold/Billeder/Opgave 5.2.png, id=1515, 1092.7224pt x 560.0925pt>
+File: Indhold/Billeder/Opgave 5.2.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.2.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.2.png  used on input line 897.
+(pdftex.def)             Requested size: 437.08122pt x 224.03302pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.900 ...e unwrapped phase responses in one plot.]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.905 ...the input $x[n] = 2 cos(0.52n + 60°)$.}]
+                                                   [139
+
+]
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 905.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 905.
+
+Missing character: There is no � in font cmbx10!
+
+Overfull \hbox (65.66272pt too wide) in paragraph at lines 905--905
+[][]\OT1/cmr/bx/n/10 d. [] 
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.909 ...se to x[n] above and verify your result}]
+                                                  
+Overfull \hbox (112.05214pt too wide) in paragraph at lines 909--909
+[][]\OT1/cmr/bx/n/10 e. [] 
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.919 ...{j\omega})$ of the system in terms of b.]
+                                                   [140 <./Indhold/Billeder/Opgave 5.2.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.927 .... Plot the resulting magnitude response.]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.948 ...e unwrapped phase responses in one plot.]
+                                                  
+File: Indhold/Billeder/Opgave 5.2.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.2.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.2.png  used on input line 949.
+(pdftex.def)             Requested size: 491.72054pt x 252.03929pt.
+ [141]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.952 ...the input $x[n] = 2 cos(0.52n + 60°)$.}]
+                                                  
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 952.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 952.
+
+Missing character: There is no � in font cmbx10!
+
+Overfull \hbox (65.66272pt too wide) in paragraph at lines 952--952
+[][]\OT1/cmr/bx/n/10 d. [] 
+ []
+
+[142] [143]
+Overfull \hbox (5.74203pt too wide) detected at line 983
+           \OML/cmm/m/it/10 e[] \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 ([] + [] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1))
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.987 ...the input $x[n] = 2 cos(0.52n + 60°)$.}]
+                                                  
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 987.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 987.
+
+Missing character: There is no � in font cmbx10!
+
+Overfull \hbox (64.38495pt too wide) in paragraph at lines 987--987
+[][]\OT1/cmr/bx/n/10 c. [] 
+ []
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 990.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 990.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 990.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 990.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 990.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 990.
+
+Missing character: There is no � in font cmr10!
+Missing character: There is no � in font cmr7!
+Missing character: There is no � in font cmr7!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 991.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 991.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 991.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 991.
+
+Missing character: There is no � in font cmr7!
+Missing character: There is no � in font cmr7!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 992.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 992.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 992.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 992.
+
+Missing character: There is no � in font cmr7!
+Missing character: There is no � in font cmr7!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 993.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 993.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 993.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 993.
+
+Missing character: There is no � in font cmr7!
+Missing character: There is no � in font cmr7!
+[144]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1025 ...to $x[n]$ above and verify your result}]
+                                                  
+Overfull \hbox (114.4318pt too wide) in paragraph at lines 1025--1025
+[][]\OT1/cmr/bx/n/10 d. [] 
+ []
+
+
+Overfull \hbox (34.68336pt too wide) in paragraph at lines 1028--1028
+[][][] 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1028.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 1028.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1028.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1030 ...j\omega)$ of the system in terms of b.}]
+                                                  
+Overfull \hbox (25.94441pt too wide) in paragraph at lines 1030--1030
+[][]\OT1/cmr/bx/n/10 a. [] 
+ []
+
+[145]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1039 ... Plot the resulting magnitude response.]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1054 ...nd unwrapped phase response in one plot]
+                                                  
+File: Indhold/Billeder/Opgave 5.2.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.2.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.2.png  used on input line 1055.
+(pdftex.def)             Requested size: 437.08122pt x 224.03302pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1057 ...nput $x[n] = 2*cos(0.5*pi*n + 60\deg)$}]
+                                                  
+Overfull \hbox (118.84468pt too wide) in paragraph at lines 1057--1057
+[][]\OT1/cmr/bx/n/10 d. [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1059
+
+ []
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1059.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1059.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1059.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1059.
+
+Missing character: There is no � in font cmr7!
+Missing character: There is no � in font cmr7!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1060.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1060.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1060.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 1060.
+
+Missing character: There is no � in font cmr7!
+Missing character: There is no � in font cmr7!
+[146]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1075 ...to $x[n]$ above and verify your result}]
+                                                  
+Overfull \hbox (113.31375pt too wide) in paragraph at lines 1075--1075
+[][]\OT1/cmr/bx/n/10 e. [] 
+ []
+
+<Indhold/Billeder/Opgave 5.2.e.png, id=1570, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Opgave 5.2.e.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.2.e.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.2.e.png  used on input line 1076.
+(pdftex.def)             Requested size: 458.94028pt x 235.8443pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[147] [148 <./Indhold/Billeder/Opgave 5.2.e.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1096 ...^nu[n] \rightarrow y[n] = (1/3)^nu[n]$}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1114 ...} \rightarrow y[n] = 2 * e^{j\pi n/3}$}]
+                                                  
+Overfull \hbox (15.13966pt too wide) in paragraph at lines 1109--1114
+\OT1/cmr/m/n/10 ved out-put-tet, hvor en p^^Wavirking p^^Wa in-put-tet ikke har den samme di-rekte p^^Wavirkning.
+ []
+
+[149]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1127 ...w y[n] = \frac{sin(0.5 \pi n)}{\pi n}$}]
+                                                   [150]
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1164
+
+ []
+
+[151]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1167 ...c{1}{M} \sum_{k = 0}^{M - 1} x[n - k]$}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1174 ...}{1-1.57z^{-1}+1.264z^{-2}-0.4z^{-3}}$}]
+                                                  
+<Indhold/Billeder/Opgave 5.16.png, id=1600, 1092.7224pt x 560.0925pt>
+File: Indhold/Billeder/Opgave 5.16.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.16.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.16.png  used on input line 1178.
+(pdftex.def)             Requested size: 437.08122pt x 224.03302pt.
+ [152 <./Indhold/Billeder/Opgave 5.16.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1189 ...t{h[n] = [1,-2,3,—4,0,4, —3,2, -1]}]
+                                                  
+
+LaTeX Warning: Command \textemdash invalid in math mode on input line 1210.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1212 ...2z^{-1} + 3z^{-2} + 2z^{-3} + z^{-4})$}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1221 ...Opgave}[\text{$h[n] = {1, -1.1756, 1}$}]
+                                                   [153
+
+]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1238 ..., 0, 3.1605}{1, 0, 0.5625, 0, 0.3164}$}]
+                                                   [154]
+<Indhold/Billeder/Opgave 5.30.png, id=1621, 1092.7224pt x 557.9244pt>
+File: Indhold/Billeder/Opgave 5.30.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.30.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.30.png  used on input line 1281.
+(pdftex.def)             Requested size: 284.10112pt x 145.05692pt.
+ [155 <./Indhold/Billeder/Opgave 5.30.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1293 ...mine the impulse response of the filter]
+                                                   [156
+
+]
+Overfull \hbox (150.9307pt too wide) detected at line 1313
+\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = [][] \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 sin\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 125\OML/cmm/m/it/10 ^^Y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 sin\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 250\OML/cmm/m/it/10 ^^Y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 ))) + [][] \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 sin\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 875\OML/cmm/m/it/10 ^^Y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 sin\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 625\OML/cmm/m/it/10 ^^Y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )))
+ []
+
+
+Overfull \hbox (118.95975pt too wide) detected at line 1314
+\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = [][] \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 sin\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 125\OML/cmm/m/it/10 ^^Y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 sin\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 250\OML/cmm/m/it/10 ^^Y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )) + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 sin\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 875\OML/cmm/m/it/10 ^^Y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )) \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 sin\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 625\OML/cmm/m/it/10 ^^Y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )))
+ []
+
+[157]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1322 ...for $n_d = 0$ for $-100\leq n \leq 100$]
+                                                  
+<Indhold/Billeder/Opgave 5.31b.png, id=1638, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Opgave 5.31b.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.31b.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.31b.png  used on input line 1323.
+(pdftex.def)             Requested size: 327.81924pt x 168.46266pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1326 ...pare it with the ideal filter response.]
+                                                  
+<Indhold/Billeder/Opgave 5.31c.png, id=1639, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Opgave 5.31c.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.31c.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.31c.png  used on input line 1327.
+(pdftex.def)             Requested size: 382.45857pt x 196.5412pt.
+
+Overfull \hbox (4.95425pt too wide) in paragraph at lines 1329--1336
+[]\OT1/cmr/m/n/10 Synes jeg at re-sul-tatet giver mening? Det synes jeg vel egentlig. Frekvensspek-
+ []
+
+[158
+
+ <./Indhold/Billeder/Opgave 5.31b.png> <./Indhold/Billeder/Opgave 5.31c.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1340 ...ave}[\text{$y[n] = x[n]-\alpha x[n-1]$}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1356 ...pgave}[\text{$y[n]=\alpha y[n-1]+x[n]$}]
+                                                   [159]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1371 ...\cos\phi y[n-1]-\alpha^{2}y[n-2]+x[n]$}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1380 ...d then compute its system function H(z)]
+                                                  
+Underfull \hbox (badness 10000) in paragraph at lines 1376--1380
+
+ []
+
+[160]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1400 ...ilter and verify the given requirements]
+                                                  
+<Indhold/Billeder/Opgave 5.38.b.png, id=1662, 462.528pt x 346.896pt>
+File: Indhold/Billeder/Opgave 5.38.b.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.38.b.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.38.b.png  used on input line 1401.
+(pdftex.def)             Requested size: 127.19205pt x 95.39404pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1405 ...e and group-delay responses in one plot]
+                                                   [161 <./Indhold/Billeder/Opgave 5.38.b.png>]
+<Indhold/Billeder/Opgave 5.38.c.png, id=1671, 1092.7224pt x 555.0336pt>
+File: Indhold/Billeder/Opgave 5.38.c.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.38.c.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.38.c.png  used on input line 1408.
+(pdftex.def)             Requested size: 437.08122pt x 222.0095pt.
+ [162 <./Indhold/Billeder/Opgave 5.38.c.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1419 ...ng på 1. Plot derefter magnituden i dB]
+                                                  
+Overfull \hbox (28.46327pt too wide) detected at line 1430
+\OML/cmm/m/it/10 min\OT1/cmr/m/n/10 ([])
+ []
+
+
+Overfull \hbox (394.4624pt too wide) detected at line 1431
+\OML/cmm/m/it/10 min\OT1/cmr/m/n/10 ([])
+ []
+
+
+Overfull \hbox (260.44858pt too wide) detected at line 1432
+\OML/cmm/m/it/10 min\OT1/cmr/m/n/10 ([])
+ []
+
+
+Overfull \hbox (44.57419pt too wide) detected at line 1433
+\OML/cmm/m/it/10 min\OT1/cmr/m/n/10 ([])
+ []
+
+[163
+
+]
+<Indhold/Billeder/Opgave 5.39.a.png, id=1685, 1092.7224pt x 557.9244pt>
+File: Indhold/Billeder/Opgave 5.39.a.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.39.a.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.39.a.png  used on input line 1452.
+(pdftex.def)             Requested size: 273.17993pt x 139.48074pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1454 ...a) using r =1. Comment on your results.]
+                                                  
+<Indhold/Billeder/Opgave 5.39.b.png, id=1686, 1092.7224pt x 557.9244pt>
+File: Indhold/Billeder/Opgave 5.39.b.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.39.b.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.39.b.png  used on input line 1459.
+(pdftex.def)             Requested size: 273.17993pt x 139.48074pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1464 ...{0}\prod_{k=-1}^{1}H_k(z)$} of the form]
+                                                  
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (11.87048pt too wide) in paragraph at lines 1464--1464
+[][]\OT1/cmr/bx/n/10 c. Now con-sider a cas-cade of 3 FIR notch fil-ters, []
+ []
+
+[164 <./Indhold/Billeder/Opgave 5.39.a.png>]
+<Indhold/Billeder/Opgave 5.39.c.png, id=1694, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Opgave 5.39.c.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.39.c.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.39.c.png  used on input line 1472.
+(pdftex.def)             Requested size: 284.10112pt x 145.9964pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1477 ...n your plot in terms of stopband width.]
+                                                  
+Underfull \hbox (badness 10000) in paragraph at lines 1471--1477
+
+ []
+
+[165 <./Indhold/Billeder/Opgave 5.39.b.png> <./Indhold/Billeder/Opgave 5.39.c.png>]
+<Indhold/Billeder/Opgave 5.39.d.png, id=1704, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Opgave 5.39.d.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.39.d.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.39.d.png  used on input line 1478.
+(pdftex.def)             Requested size: 327.81924pt x 168.46266pt.
+ [166 <./Indhold/Billeder/Opgave 5.39.d.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1488--1493
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1498--1499
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1498--1499
+
+ []
+
+<Indhold/Billeder/Opgave 5.48.png, id=1712, 1092.7224pt x 561.5379pt>
+File: Indhold/Billeder/Opgave 5.48.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.48.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.48.png  used on input line 1502.
+(pdftex.def)             Requested size: 710.26115pt x 364.99532pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1500--1503
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1505--1507
+
+ []
+
+
+Overfull \hbox (56.18813pt too wide) in paragraph at lines 1508--1514
+\OT1/cmr/m/n/10 Fase forsinkelsen? $\OMS/cmsy/m/n/10 ^^@[]$\OT1/cmr/m/n/10 . Fasen falder i alt omkring $500 [] \OMS/cmsy/m/n/10 ^^Y \OT1/cmr/m/n/10 8\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 72\OML/cmm/m/it/10 rad;  faseforsinkelse \OMS/cmsy/m/n/10 ^^Y
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1508--1514
+
+ []
+
+
+Overfull \hbox (0.70717pt too wide) in paragraph at lines 1515--1521
+\OT1/cmr/m/n/10 forsinkelse? Fasen falder i alt omkring $1400 [] \OMS/cmsy/m/n/10 ^^Y \OT1/cmr/m/n/10 22\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 rad;  faseforsinkelse \OMS/cmsy/m/n/10 ^^Y
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1515--1521
+
+ []
+
+[167]
+Underfull \hbox (badness 10000) in paragraph at lines 1522--1524
+
+ []
+
+[168 <./Indhold/Billeder/Opgave 5.48.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1525--1532
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1533--1536
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1533--1536
+
+ []
+
+
+Overfull \hbox (5.79703pt too wide) in paragraph at lines 1537--1539
+[]\OT1/cmr/m/n/10 Matematisk in-tu-ition til det fork-lar-ing af fasernes p^^Wavirkning. Fase-forsinkelsen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1541--1545
+
+ []
+
+[169]
+<Indhold/Billeder/Opgave 5.48.2.png, id=1729, 1092.7224pt x 565.1514pt>
+File: Indhold/Billeder/Opgave 5.48.2.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.48.2.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.48.2.png  used on input line 1562.
+(pdftex.def)             Requested size: 600.99919pt x 310.83423pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (4.57361pt too wide) in paragraph at lines 1567--1567
+[][]\OT1/cmr/bx/n/12 Opgave 5.55 - Sys-tem anal-yse og teori ud fra pzmap (Vigtig!) 
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1570 ...y[n] = x[n] - x[n - 2] - 0.81y[n - 2]$}]
+                                                   [170]
+Underfull \hbox (badness 10000) in paragraph at lines 1573--1577
+
+ []
+
+[171 <./Indhold/Billeder/Opgave 5.48.2.png>]
+<Indhold/Billeder/Opgave 5.55.a.png, id=1741, 1329.96875pt x 585.18625pt>
+File: Indhold/Billeder/Opgave 5.55.a.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.55.a.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.55.a.png  used on input line 1582.
+(pdftex.def)             Requested size: 398.9937pt x 175.55722pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1592 ...n] = x[n] - x[n - 4] + 0.6561y[n - 4]$}]
+                                                  
+<Indhold/Billeder/Opgave 5.55.b.png, id=1742, 1325.95375pt x 593.21625pt>
+File: Indhold/Billeder/Opgave 5.55.b.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.55.b.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.55.b.png  used on input line 1595.
+(pdftex.def)             Requested size: 397.7892pt x 177.96625pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1602 ...n] = x[n] - x[n - 4] - 0.6561y[n - 4]$}]
+                                                  
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[172 <./Indhold/Billeder/Opgave 5.55.a.png>]
+<Indhold/Billeder/Opgave 5.55.c.png, id=1750, 1347.0325pt x 598.235pt>
+File: Indhold/Billeder/Opgave 5.55.c.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.55.c.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.55.c.png  used on input line 1606.
+(pdftex.def)             Requested size: 404.11287pt x 179.47188pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1615 ... - 1] + 0.99y[n - 1] - 0.9801y[n - 2]$}]
+                                                  
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[173 <./Indhold/Billeder/Opgave 5.55.b.png>]
+<Indhold/Billeder/Opgave 5.55.d.png, id=1758, 1406.25375pt x 618.31pt>
+File: Indhold/Billeder/Opgave 5.55.d.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 5.55.d.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 5.55.d.png  used on input line 1618.
+(pdftex.def)             Requested size: 351.56258pt x 154.57712pt.
+ [174 <./Indhold/Billeder/Opgave 5.55.c.png> <./Indhold/Billeder/Opgave 5.55.d.png>] [175]
+pdfTeX warning (ext4): destination with the same identifier (name{kapitel.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1634 ...el}[Sampling of continuous-time signals]
+                                                  
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1635.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1635.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1639 ... signal xc(t) can be recovered from x[n]
+                                                  ]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1665 ...egin{UnderOpgave}[Gentag for Fs = 500Hz]
+                                                   [176
+
+]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1669 ...egin{UnderOpgave}[Gentag for Fs = 100Hz]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1679 ...        \text{$ — 150 < F < 150 Hz.$}]
+                                                  
+
+LaTeX Warning: Command \textemdash invalid in math mode on input line 1679.
+
+<Indhold/Billeder/Opgave 6.2.a.png, id=1779, 1092.7224pt x 557.9244pt>
+File: Indhold/Billeder/Opgave 6.2.a.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 6.2.a.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 6.2.a.png  used on input line 1685.
+(pdftex.def)             Requested size: 327.81924pt x 167.3786pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1687 ...begin{UnderOpgave}[Gentag for Fs = 50Hz]
+                                                  
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[177]
+<Indhold/Billeder/Opgave 6.2.b.png, id=1787, 1092.7224pt x 557.9244pt>
+File: Indhold/Billeder/Opgave 6.2.b.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 6.2.b.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 6.2.b.png  used on input line 1688.
+(pdftex.def)             Requested size: 327.81924pt x 167.3786pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1691 ...begin{UnderOpgave}[Gentag for Fs = 25Hz]
+                                                  
+<Indhold/Billeder/Opgave 6.2.c.png, id=1788, 1092.7224pt x 557.9244pt>
+File: Indhold/Billeder/Opgave 6.2.c.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 6.2.c.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 6.2.c.png  used on input line 1693.
+(pdftex.def)             Requested size: 546.35986pt x 278.9615pt.
+ [178 <./Indhold/Billeder/Opgave 6.2.a.png> <./Indhold/Billeder/Opgave 6.2.b.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1695 ... blive rekonstrueret sådan nogenlunde?]
+                                                   [179 <./Indhold/Billeder/Opgave 6.2.c.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1708 ...gave}[The quantizer resolution(or step)]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1713 ...     \begin{UnderOpgave}[The SQNR in dB]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1729 ... folding frequency and the Nyquist rate]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1737 ...he reconstructed signal \text{$y_c(t)$}]
+                                                   [180] [181]
+Overfull \hbox (124.37pt too wide) detected at line 1770
+\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 e[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ^^Y \OMS/cmsy/m/n/10 ^^C [] []
+ []
+
+<Indhold/Billeder/Opgave 6.12.png, id=1819, 1092.7224pt x 371.4678pt>
+File: Indhold/Billeder/Opgave 6.12.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 6.12.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 6.12.png  used on input line 1775.
+(pdftex.def)             Requested size: 546.35986pt x 185.73344pt.
+[182 <./Indhold/Billeder/Opgave 6.12.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1784--1787
+
+ []
+
+
+Overfull \hbox (24.82469pt too wide) in paragraph at lines 1799--1804
+\OT1/cmr/m/n/10 Jeg pr^^\ver bare at tr^^Zkke frekvenserne ud og s^^Wa lave funk-tion-erne der-fra. Frekvenserne
+ []
+
+[183]
+<Indhold/Billeder/Opgave 6.12.Rekonstruering.png, id=1830, 1092.7224pt x 565.1514pt>
+File: Indhold/Billeder/Opgave 6.12.Rekonstruering.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 6.12.Rekonstruering.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 6.12.Rekonstruering.png  used on input line 1824.
+(pdftex.def)             Requested size: 327.81924pt x 169.54672pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1821--1829
+
+ []
+
+[184 <./Indhold/Billeder/Opgave 6.12.Rekonstruering.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{kapitel.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1829 ...kapitel}[The Discrete Fourier Transform]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1832 ...the CTFT \text{$X_c(j2\pi F)$ of xc(t)}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1854 ...pi F)$ over \text{$—50 < F < 50$} Hz}]
+                                                   [185
+
+]
+
+LaTeX Warning: Command \textemdash invalid in math mode on input line 1854.
+
+<Indhold/Billeder/Opgave 7.1.png, id=1843, 1092.7224pt x 557.9244pt>
+File: Indhold/Billeder/Opgave 7.1.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 7.1.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 7.1.png  used on input line 1855.
+(pdftex.def)             Requested size: 273.17993pt x 139.48074pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1858 ...ion to approximate the CTFT computation]
+                                                  
+<Indhold/Billeder/Opgave 7.1.c.png, id=1844, 1090.5543pt x 557.2017pt>
+File: Indhold/Billeder/Opgave 7.1.c.png Graphic file (type png)
+<use Indhold/Billeder/Opgave 7.1.c.png>
+Package pdftex.def Info: Indhold/Billeder/Opgave 7.1.c.png  used on input line 1868.
+(pdftex.def)             Requested size: 327.16882pt x 167.16179pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1859--1878
+
+ []
+
+[186 <./Indhold/Billeder/Opgave 7.1.png> <./Indhold/Billeder/Opgave 7.1.c.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1880 ...ilde{X}(e^{j\omega})$} of \text{$x[n]$}]
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1889 ...e first N = 20 samples of \text{$x[n]$}]
+                                                  
+<Indhold/Billeder/Opgave 7.3.b.png, id=1855, 1092.7224pt x 560.0925pt>
 File: Indhold/Billeder/Opgave 7.3.b.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 7.3.b.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 7.3.b.png  used on input line 68.
+Package pdftex.def Info: Indhold/Billeder/Opgave 7.3.b.png  used on input line 1893.
 (pdftex.def)             Requested size: 327.81924pt x 168.02904pt.
 
 
@@ -676,65 +3512,70 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.74 ...nderOpgave}[Repeat part (b) using N = 50.]
+l.1899 ...erOpgave}[Repeat part (b) using N = 50.]
                                                   
-<Indhold/Billeder/Opgave 7.3.c.png, id=197, 1092.7224pt x 560.0925pt>
+<Indhold/Billeder/Opgave 7.3.c.png, id=1856, 1092.7224pt x 560.0925pt>
 File: Indhold/Billeder/Opgave 7.3.c.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 7.3.c.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 7.3.c.png  used on input line 75.
+Package pdftex.def Info: Indhold/Billeder/Opgave 7.3.c.png  used on input line 1900.
 (pdftex.def)             Requested size: 327.81924pt x 168.02904pt.
- [6]
-<Indhold/Billeder/Opgave 7.3.d.png, id=204, 1092.7224pt x 560.0925pt>
+ [187]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1903 ...rOpgave}[Repeat part (b) using N = 100.]
+                                                  
+<Indhold/Billeder/Opgave 7.3.d.png, id=1865, 1092.7224pt x 560.0925pt>
 File: Indhold/Billeder/Opgave 7.3.d.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 7.3.d.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 7.3.d.png  used on input line 79.
+Package pdftex.def Info: Indhold/Billeder/Opgave 7.3.d.png  used on input line 1904.
 (pdftex.def)             Requested size: 327.81924pt x 168.02904pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7 <./Indhold/Billeder/Opgave 7.3.b.png> <./Indhold/Billeder/Opgave 7.3.c.png>]
+[188 <./Indhold/Billeder/Opgave 7.3.b.png> <./Indhold/Billeder/Opgave 7.3.c.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.89 ...x and its effect on \text{$J_x$} product.]
-                                                   [8 <./Indhold/Billeder/Opgave 7.3.d.png>]
-Overfull \hbox (238.29378pt too wide) detected at line 130
+l.1914 ...and its effect on \text{$J_x$} product.]
+                                                   [189 <./Indhold/Billeder/Opgave 7.3.d.png>]
+Overfull \hbox (238.29378pt too wide) detected at line 1955
 \OML/cmm/m/it/10 W[] \OT1/cmr/m/n/10 = [] @ [] = []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 132--135
+Underfull \hbox (badness 10000) in paragraph at lines 1957--1960
 
  []
 
 
-Overfull \hbox (43.79657pt too wide) detected at line 145
+Overfull \hbox (43.79657pt too wide) detected at line 1970
 [] \OT1/cmr/m/n/10 = []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
+Underfull \hbox (badness 10000) in paragraph at lines 1982--1983
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
+Underfull \hbox (badness 10000) in paragraph at lines 1982--1983
 
  []
 
 
-Overfull \hbox (43.79657pt too wide) detected at line 171
+Overfull \hbox (43.79657pt too wide) detected at line 1996
 [] \OT1/cmr/m/n/10 = []
  []
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+[190]
+Underfull \hbox (badness 10000) in paragraph at lines 2007--2008
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+Underfull \hbox (badness 10000) in paragraph at lines 2007--2008
 
  []
 
@@ -742,41 +3583,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 182--183
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.209 ... Explain the implication of this result.]
+l.2034 ...Explain the implication of this result.]
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.227 ...         eigenvalues as a function of N?]
-                                                   [10]
+l.2052 ...        eigenvalues as a function of N?]
+                                                   [191]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 232.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\geq' on input line 232.
+(hyperref)                removing `math shift' on input line 2057.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\geq' on input line 232.
+(hyperref)                removing `\geq' on input line 2057.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 232.
+(hyperref)                removing `\geq' on input line 2057.
 
-<Indhold/Billeder/Opgave 7.5.png, id=235, 1092.7224pt x 561.5379pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2057.
+
+<Indhold/Billeder/Opgave 7.5.png, id=1892, 1092.7224pt x 561.5379pt>
 File: Indhold/Billeder/Opgave 7.5.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 7.5.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 7.5.png  used on input line 244.
+Package pdftex.def Info: Indhold/Billeder/Opgave 7.5.png  used on input line 2069.
 (pdftex.def)             Requested size: 327.81924pt x 168.46266pt.
-[11 <./Indhold/Billeder/Opgave 7.5.png>]
+[192 <./Indhold/Billeder/Opgave 7.5.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.267 ...  window function is given by eq. 7.190.]
-                                                   [12]
-Overfull \hbox (4.63957pt too wide) in paragraph at lines 286--291
+l.2092 ... window function is given by eq. 7.190.]
+                                                   [193]
+Overfull \hbox (4.63957pt too wide) in paragraph at lines 2111--2116
 \OT1/cmr/m/n/10 Som var den ko-ef-fi-cient jeg fik for vin-due-funk-tio-nen, s^^Wa den burde v^^Zre tilstr^^Zkke-
  []
 
@@ -784,332 +3625,351 @@ Overfull \hbox (4.63957pt too wide) in paragraph at lines 286--291
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.293 ...ng window function is given by eq. 7.191]
-                                                   [13] [14]
+l.2118 ...g window function is given by eq. 7.191]
+                                                   [194] [195]
+pdfTeX warning (ext4): destination with the same identifier (name{kapitel.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2141 ...ation of the Discrete Fourier Transform]
+                                                  
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.318 ...gave}[Confirm equations (8.5) and (8.6).]
-                                                   [15
+l.2143 ...ave}[Confirm equations (8.5) and (8.6).]
+                                                   [196
 
 ]
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.359 ...$} similar to equations (8.5) and (8.6).]
+l.2184 ...} similar to equations (8.5) and (8.6).]
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.370 ...{UnderOpgave}[Compute \text{$W_N^{N/2}$}]
+l.2195 ...UnderOpgave}[Compute \text{$W_N^{N/2}$}]
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.377 ...{$W_N^2$}, and \text{$W_{N/2}$} related?]
-                                                   [16] [17]
-<Indhold/Billeder/Opgave 8. KeyboardMatrix.png, id=281, 591.20876pt x 337.26pt>
+l.2202 ...$W_N^2$}, and \text{$W_{N/2}$} related?]
+                                                   [197]
+pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2210 ...6}$}? Can this relation be generalized?]
+                                                   [198]
+<Indhold/Billeder/Opgave 8. KeyboardMatrix.png, id=1934, 591.20876pt x 337.26pt>
 File: Indhold/Billeder/Opgave 8. KeyboardMatrix.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 8. KeyboardMatrix.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 8. KeyboardMatrix.png  used on input line 406.
+Package pdftex.def Info: Indhold/Billeder/Opgave 8. KeyboardMatrix.png  used on input line 2231.
 (pdftex.def)             Requested size: 177.36398pt x 101.17877pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.411     second duration given a symbol “S”]
-                                                 
+l.2236     second duration given a symbol “S”]
+                                                  
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.418 ...put. Comment on the sounds you can hear.]
-                                                   [18 <./Indhold/Billeder/Opgave 8. KeyboardMatrix.png>]
+l.2243 ...ut. Comment on the sounds you can hear.]
+                                                   [199 <./Indhold/Billeder/Opgave 8. KeyboardMatrix.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.428 ...nce or an small segment of the sequence.]
+l.2253 ...ce or an small segment of the sequence.]
                                                   
-<Indhold/Billeder/Opgave 8.48.png, id=289, 1092.7224pt x 248.6088pt>
+<Indhold/Billeder/Opgave 8.48.png, id=1943, 1092.7224pt x 248.6088pt>
 File: Indhold/Billeder/Opgave 8.48.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 8.48.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 8.48.png  used on input line 429.
+Package pdftex.def Info: Indhold/Billeder/Opgave 8.48.png  used on input line 2254.
 (pdftex.def)             Requested size: 437.08122pt x 99.44174pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--452
+Underfull \hbox (badness 10000) in paragraph at lines 2255--2277
 
  []
 
-[19 <./Indhold/Billeder/Opgave 8.48.png>]
+[200 <./Indhold/Billeder/Opgave 8.48.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.455 ...nt the implementation works as intended.]
+l.2280 ...t the implementation works as intended.]
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.462     the message within.]
-                               [20]
-<Indhold/Billeder/Opgave 9.1.png, id=305, 414.54875pt x 138.5175pt>
+l.2287     the message within.]
+                                [201]
+pdfTeX warning (ext4): destination with the same identifier (name{kapitel.9}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2293 ...l}[Structures for discrete-time systems]
+                                                  
+<Indhold/Billeder/Opgave 9.1.png, id=1958, 414.54875pt x 138.5175pt>
 File: Indhold/Billeder/Opgave 9.1.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 9.1.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 9.1.png  used on input line 472.
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.1.png  used on input line 2297.
 (pdftex.def)             Requested size: 124.36557pt x 41.55556pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.473 ...ation relating output yn to the input xn]
+l.2298 ...tion relating output yn to the input xn]
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.490 ...rmine the impulse response of the system]
-                                                   [21
+l.2315 ...mine the impulse response of the system]
+                                                   [202
 
  <./Indhold/Billeder/Opgave 9.1.png>]
-<Indhold/Billeder/Opgave 9.2.png, id=317, 848.16875pt x 209.78375pt>
+<Indhold/Billeder/Opgave 9.2.png, id=1968, 848.16875pt x 209.78375pt>
 File: Indhold/Billeder/Opgave 9.2.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 9.2.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 9.2.png  used on input line 504.
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.2.png  used on input line 2329.
 (pdftex.def)             Requested size: 254.45258pt x 62.9356pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.505 ...nkluder om de repræsentere samme system]
-                                                   [22 <./Indhold/Billeder/Opgave 9.2.png>]
+l.2330 ...kluder om de repræsentere samme system]
+                                                   [203 <./Indhold/Billeder/Opgave 9.2.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.527 ...in{UnderOpgave}[Direct form I ( normal )]
+l.2352 ...n{UnderOpgave}[Direct form I ( normal )]
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.542 ...n{UnderOpgave}[Direct form II ( normal )]
-                                                   [23]
-Overfull \hbox (12.98712pt too wide) detected at line 550
+l.2367 ...{UnderOpgave}[Direct form II ( normal )]
+                                                   [204]
+Overfull \hbox (12.98712pt too wide) detected at line 2375
 \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = 3 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 ([1\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] + 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1]] + (1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] + 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2]) + ((1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 9)\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] + 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3])
  []
 
 
-Overfull \hbox (37.83452pt too wide) detected at line 551
+Overfull \hbox (37.83452pt too wide) detected at line 2376
   \OT1/cmr/m/n/10 +(1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 27\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3] + 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4]) + (1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 81\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4] + 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 5]) + (1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 243\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 5] + 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 6]))
  []
 
-<Indhold/Billeder/Opgave 9.3.png, id=331, 834.11626pt x 686.565pt>
+<Indhold/Billeder/Opgave 9.3.png, id=1981, 834.11626pt x 686.565pt>
 File: Indhold/Billeder/Opgave 9.3.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 9.3.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 9.3.png  used on input line 555.
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.3.png  used on input line 2380.
 (pdftex.def)             Requested size: 583.87741pt x 480.59222pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[24] [25 <./Indhold/Billeder/Opgave 9.3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 560--566
+[205] [206 <./Indhold/Billeder/Opgave 9.3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2385--2391
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 567--571
+Underfull \hbox (badness 10000) in paragraph at lines 2392--2396
 
  []
 
-<Indhold/Billeder/Opgave 9.8.png, id=344, 1153.30875pt x 673.51625pt>
+<Indhold/Billeder/Opgave 9.8.png, id=1995, 1153.30875pt x 673.51625pt>
 File: Indhold/Billeder/Opgave 9.8.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 9.8.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 9.8.png  used on input line 580.
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.8.png  used on input line 2405.
 (pdftex.def)             Requested size: 405.96945pt x 237.0805pt.
-[26
+[207
 
  <./Indhold/Billeder/Opgave 9.8.png>]
-<Indhold/Billeder/Opgave 9.12c.png, id=351, 454.69875pt x 301.125pt>
+<Indhold/Billeder/Opgave 9.12c.png, id=2002, 454.69875pt x 301.125pt>
 File: Indhold/Billeder/Opgave 9.12c.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 9.12c.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 9.12c.png  used on input line 591.
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.12c.png  used on input line 2416.
 (pdftex.def)             Requested size: 227.34882pt x 150.56212pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.595 ...{UnderOpgave}[Bestem differens ligningen]
-                                                   [27 <./Indhold/Billeder/Opgave 9.12c.png>]
-<Indhold/Billeder/Opgave 9.28.png, id=358, 1244.65pt x 544.0325pt>
+l.2420 ...UnderOpgave}[Bestem differens ligningen]
+                                                   [208 <./Indhold/Billeder/Opgave 9.12c.png>]
+<Indhold/Billeder/Opgave 9.28.png, id=2009, 1244.65pt x 544.0325pt>
 File: Indhold/Billeder/Opgave 9.28.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 9.28.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 9.28.png  used on input line 603.
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.28.png  used on input line 2428.
 (pdftex.def)             Requested size: 373.39787pt x 163.211pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.605 ...ave}[Bestem impuls responsen af systemet]
-                                                   [28 <./Indhold/Billeder/Opgave 9.28.png>]
-Overfull \hbox (47.93706pt too wide) detected at line 638
+l.2430 ...ve}[Bestem impuls responsen af systemet]
+                                                   [209 <./Indhold/Billeder/Opgave 9.28.png>]
+Overfull \hbox (47.93706pt too wide) detected at line 2463
 \OML/cmm/m/it/10 y[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = \OMS/cmsy/m/n/10 ^^@ [] \OML/cmm/m/it/10 b[]\OT1/cmr/m/n/10 ([] \OML/cmm/m/it/10 a[]w\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 k \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 l\OT1/cmr/m/n/10 ] + \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 k\OT1/cmr/m/n/10 ]) = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 a[]b[]w\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 a[]b[]w\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 b[]x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 b[]x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ]
  []
 
-[29]
-<Indhold/Billeder/Opgave 9.29.png, id=371, 529.98pt x 291.0875pt>
+[210]
 File: Indhold/Billeder/Opgave 9.29.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 9.29.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 9.29.png  used on input line 653.
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.29.png  used on input line 2478.
 (pdftex.def)             Requested size: 317.99043pt x 174.65384pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 674--675
+Underfull \hbox (badness 10000) in paragraph at lines 2499--2500
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 674--675
+Underfull \hbox (badness 10000) in paragraph at lines 2499--2500
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 674--675
+Underfull \hbox (badness 10000) in paragraph at lines 2499--2500
 
  []
 
-[30]
-Overfull \hbox (128.39014pt too wide) detected at line 685
+[211]
+Overfull \hbox (128.39014pt too wide) detected at line 2510
 \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] + 2\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 9\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2]) + (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] + 2\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 9\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3]) + 4 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3] + 2\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 9\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4])
  []
 
 
-Overfull \hbox (35.96396pt too wide) detected at line 687
+Overfull \hbox (35.96396pt too wide) detected at line 2512
 \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] + \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3 + 1) + \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 9 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3 + 4) + \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3] \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 9 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 3) + \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4] \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 8\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 9
  []
 
-[31 <./Indhold/Billeder/Opgave 9.29.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 695--696
+[212]
+Underfull \hbox (badness 10000) in paragraph at lines 2520--2521
 
  []
 
 
-Overfull \hbox (18.57233pt too wide) detected at line 708
+Overfull \hbox (18.57233pt too wide) detected at line 2533
 \OML/cmm/m/it/10 y[] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 : [] \OMS/cmsy/m/n/10 ^^C [] \OML/cmm/m/it/10 : [] \OMS/cmsy/m/n/10 ^^C [] \OML/cmm/m/it/10 : [] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ]
  []
 
 
-Overfull \hbox (184.50142pt too wide) detected at line 712
+Overfull \hbox (184.50142pt too wide) detected at line 2537
 \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 5\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 4\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 792\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 0833\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3] + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 701\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 944\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 5] + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 938\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 6] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 444\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 7] + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 167\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 8]
  []
 
-[32]
+[213]
 File: Indhold/Billeder/Opgave 9.29.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 9.29.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 9.29.png  used on input line 717.
+Package pdftex.def Info: Indhold/Billeder/Opgave 9.29.png  used on input line 2542.
 (pdftex.def)             Requested size: 317.99043pt x 174.65384pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 716--720
+Underfull \hbox (badness 10000) in paragraph at lines 2541--2545
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 716--720
+Underfull \hbox (badness 10000) in paragraph at lines 2541--2545
 
  []
 
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 741--742
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 741--742
+[214]
+Underfull \hbox (badness 10000) in paragraph at lines 2566--2567
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 741--742
+Underfull \hbox (badness 10000) in paragraph at lines 2566--2567
 
  []
 
-[34]
-Overfull \hbox (21.3714pt too wide) detected at line 768
+
+Underfull \hbox (badness 10000) in paragraph at lines 2566--2567
+
+ []
+
+[215]
+Overfull \hbox (21.3714pt too wide) detected at line 2593
 \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 278\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 764\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] + 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 8\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4] = \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] + 7\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3]) + 2\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4]
  []
 
 
-Overfull \hbox (36.11227pt too wide) detected at line 769
+Overfull \hbox (36.11227pt too wide) detected at line 2594
 \OT1/cmr/m/n/10 =================================================
  []
 
 
-Overfull \hbox (21.3714pt too wide) detected at line 770
+Overfull \hbox (21.3714pt too wide) detected at line 2595
 \OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] = \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ] + 7\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3]) + 2\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4] + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 278\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1] + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 764\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 8\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 4]
  []
 
 
-Overfull \hbox (36.11227pt too wide) detected at line 771
+Overfull \hbox (36.11227pt too wide) detected at line 2596
 \OT1/cmr/m/n/10 =================================================
  []
 
-[35]
+[216]
+pdfTeX warning (ext4): destination with the same identifier (name{kapitel.10}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2601     \begin{kapitel}[Design of FIR filters]
+                                                 
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.778 ..., hvad er Ap, As, \text{$\epsilon$} og A]
+l.2603 ... hvad er Ap, As, \text{$\epsilon$} og A]
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.793 ...cifikationer \text{$\delta_p, \delta_s$}]
+l.2618 ...ifikationer \text{$\delta_p, \delta_s$}]
                                                   
-Overfull \hbox (0.63031pt too wide) in paragraph at lines 794--796
+Overfull \hbox (0.63031pt too wide) in paragraph at lines 2619--2621
 \OT1/cmr/m/n/10 Jeg fandt ud af, at jeg reg-nede fork-ert ud fra de analoge speci-fik-ta-tioner. Formlen
  []
 
-[36
+[217
 
 ]
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.816 ...gave}[Beregn og plot magnitude responsen]
+l.2641 ...ave}[Beregn og plot magnitude responsen]
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.822 ...e responsen og sammenlign med magnituden]
-                                                   [37]
-<Indhold/Billeder/Opgave 10.4.png, id=415, 1092.7224pt x 555.0336pt>
+l.2647 ... responsen og sammenlign med magnituden]
+                                                   [218]
+<Indhold/Billeder/Opgave 10.4.png, id=2063, 1092.7224pt x 555.0336pt>
 File: Indhold/Billeder/Opgave 10.4.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 10.4.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 10.4.png  used on input line 837.
+Package pdftex.def Info: Indhold/Billeder/Opgave 10.4.png  used on input line 2662.
 (pdftex.def)             Requested size: 600.99919pt x 305.26942pt.
- [38 <./Indhold/Billeder/Opgave 10.4.png>]
+ [219 <./Indhold/Billeder/Opgave 10.4.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.844 ...ain a minimum length linear phase filter]
+l.2669 ...in a minimum length linear phase filter]
                                                   
-Underfull \hbox (badness 10000) in paragraph at lines 845--846
+Underfull \hbox (badness 10000) in paragraph at lines 2670--2671
 
  []
 
-[39]
+[220]
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.879 ...ain a minimum length linear phase filter]
+l.2704 ...in a minimum length linear phase filter]
                                                   
 Missing character: There is no 1 in font rsfs5!
-[40]
-<Indhold/Billeder/Opgave 10.10.a.png, id=432, 1092.7224pt x 561.5379pt>
+[221]
+<Indhold/Billeder/Opgave 10.10.a.png, id=2080, 1092.7224pt x 561.5379pt>
 File: Indhold/Billeder/Opgave 10.10.a.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 10.10.a.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.a.png  used on input line 914.
+Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.a.png  used on input line 2739.
 (pdftex.def)             Requested size: 437.08122pt x 224.61118pt.
-<Indhold/Billeder/Opgave 10.10.b.png, id=433, 462.528pt x 346.896pt>
+<Indhold/Billeder/Opgave 10.10.b.png, id=2081, 462.528pt x 346.896pt>
 File: Indhold/Billeder/Opgave 10.10.b.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 10.10.b.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.b.png  used on input line 915.
+Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.b.png  used on input line 2740.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
 
 
@@ -1119,30 +3979,30 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.925 ...ain a minimum length linear phase filter]
-                                                   [41 <./Indhold/Billeder/Opgave 10.10.a.png>]
+l.2750 ...in a minimum length linear phase filter]
+                                                   [222 <./Indhold/Billeder/Opgave 10.10.a.png>]
 Missing character: There is no 1 in font rsfs7!
-[42 <./Indhold/Billeder/Opgave 10.10.b.png>]
-<Indhold/Billeder/Opgave 10.10.setup.png, id=448, 462.528pt x 346.896pt>
+[223 <./Indhold/Billeder/Opgave 10.10.b.png>]
+<Indhold/Billeder/Opgave 10.10.setup.png, id=2096, 462.528pt x 346.896pt>
 File: Indhold/Billeder/Opgave 10.10.setup.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 10.10.setup.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.setup.png  used on input line 960.
+Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.setup.png  used on input line 2785.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
-<Indhold/Billeder/Opgave 10.10.resultat.png, id=449, 1092.7224pt x 557.9244pt>
+<Indhold/Billeder/Opgave 10.10.resultat.png, id=2097, 1092.7224pt x 557.9244pt>
 File: Indhold/Billeder/Opgave 10.10.resultat.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 10.10.resultat.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.resultat.png  used on input line 961.
+Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.resultat.png  used on input line 2786.
 (pdftex.def)             Requested size: 437.08122pt x 223.1658pt.
-<Indhold/Billeder/Opgave 10.10.praktisk.png, id=450, 1092.7224pt x 557.9244pt>
+<Indhold/Billeder/Opgave 10.10.praktisk.png, id=2098, 1092.7224pt x 557.9244pt>
 File: Indhold/Billeder/Opgave 10.10.praktisk.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 10.10.praktisk.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.praktisk.png  used on input line 970.
+Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.praktisk.png  used on input line 2795.
 (pdftex.def)             Requested size: 437.08122pt x 223.1658pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.973 ...{UnderOpgave}[Brug en førlavet funktion]
+l.2798 ...UnderOpgave}[Brug en førlavet funktion]
                                                   
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1150,166 +4010,166 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Indhold/Billeder/Opgave 10.10.Scipy.png, id=451, 462.528pt x 346.896pt>
+<Indhold/Billeder/Opgave 10.10.Scipy.png, id=2099, 462.528pt x 346.896pt>
 File: Indhold/Billeder/Opgave 10.10.Scipy.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 10.10.Scipy.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.Scipy.png  used on input line 975.
+Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.Scipy.png  used on input line 2800.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
-<Indhold/Billeder/Opgave 10.10.Matlab.png, id=452, 509.905pt x 406.51875pt>
+<Indhold/Billeder/Opgave 10.10.Matlab.png, id=2100, 509.905pt x 406.51875pt>
 File: Indhold/Billeder/Opgave 10.10.Matlab.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 10.10.Matlab.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.Matlab.png  used on input line 981.
+Package pdftex.def Info: Indhold/Billeder/Opgave 10.10.Matlab.png  used on input line 2806.
 (pdftex.def)             Requested size: 203.95837pt x 162.60461pt.
-[43 <./Indhold/Billeder/Opgave 10.10.setup.png>]
+[224 <./Indhold/Billeder/Opgave 10.10.setup.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[44 <./Indhold/Billeder/Opgave 10.10.resultat.png> <./Indhold/Billeder/Opgave 10.10.praktisk.png>] [45 <./Indhold/Billeder/Opgave 10.10.Scipy.png> <./Indhold/Billeder/Opgave 10.10.Matlab.png>]
+[225 <./Indhold/Billeder/Opgave 10.10.resultat.png> <./Indhold/Billeder/Opgave 10.10.praktisk.png>] [226 <./Indhold/Billeder/Opgave 10.10.Scipy.png> <./Indhold/Billeder/Opgave 10.10.Matlab.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 988.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 988.
+(hyperref)                removing `math shift' on input line 2813.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\pi' on input line 988.
+(hyperref)                removing `subscript' on input line 2813.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 988.
+(hyperref)                removing `\pi' on input line 2813.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2813.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.989 ...esponse hn using the rectangular window.]
+l.2814 ...sponse hn using the rectangular window.]
                                                   
-Underfull \hbox (badness 10000) in paragraph at lines 990--994
+Underfull \hbox (badness 10000) in paragraph at lines 2815--2819
 
  []
 
 
-Overfull \hbox (64.49643pt too wide) in paragraph at lines 1005--1005
+Overfull \hbox (64.49643pt too wide) in paragraph at lines 2830--2830
 []                    \OT1/cmtt/m/n/10 Ad = np.zeros(alpha)                    # Frequency values[] 
  []
 
 
-Overfull \hbox (32.9967pt too wide) in paragraph at lines 1005--1005
+Overfull \hbox (32.9967pt too wide) in paragraph at lines 2830--2830
 []                    \OT1/cmtt/m/n/10 idxlp = np.where(w_k <= np.pi/2)        # Lp indices[] 
  []
 
 
-Overfull \hbox (80.24629pt too wide) in paragraph at lines 1005--1005
+Overfull \hbox (80.24629pt too wide) in paragraph at lines 2830--2830
 []                    \OT1/cmtt/m/n/10 Ad = np.hstack([Ad, 0, Ad[::-1][:9]])   # -pi : 0 == pi : 2pi[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1006--1007
+Underfull \hbox (badness 10000) in paragraph at lines 2831--2832
 
  []
 
 
-Overfull \hbox (132.74583pt too wide) in paragraph at lines 1017--1017
+Overfull \hbox (132.74583pt too wide) in paragraph at lines 2842--2842
 []                                     \OT1/cmtt/m/n/10 np.arange(-(Q + 1), 0, 1)]) # Index manipulation for k[] 
  []
 
 
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 1017--1017
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 2842--2842
 []                    \OT1/cmtt/m/n/10 # k = 0, ...Q; -(L - k) = -20 + 10, ... -20 + 19[] 
  []
 
 
-Overfull \hbox (127.49588pt too wide) in paragraph at lines 1017--1017
+Overfull \hbox (127.49588pt too wide) in paragraph at lines 2842--2842
 []                    \OT1/cmtt/m/n/10 psidk = - Q * C * kid                        # q = 0 (type I, type II)[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1021--1024
+Underfull \hbox (badness 10000) in paragraph at lines 2846--2849
 
  []
 
-<Indhold/Billeder/Opgave 10.11.png, id=477, 1092.7224pt x 561.5379pt>
+<Indhold/Billeder/Opgave 10.11.png, id=2124, 1092.7224pt x 561.5379pt>
 File: Indhold/Billeder/Opgave 10.11.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 10.11.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 10.11.png  used on input line 1030.
+Package pdftex.def Info: Indhold/Billeder/Opgave 10.11.png  used on input line 2855.
 (pdftex.def)             Requested size: 349.67831pt x 179.6958pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1032 ... og sammenlign med tidligere resultater]
-                                                   [46]
-<Indhold/Billeder/Opgave 10.11.1.png, id=485, 1092.7224pt x 561.5379pt>
+l.2857 ... og sammenlign med tidligere resultater]
+                                                   [227]
+<Indhold/Billeder/Opgave 10.11.1.png, id=2132, 1092.7224pt x 561.5379pt>
 File: Indhold/Billeder/Opgave 10.11.1.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 10.11.1.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 10.11.1.png  used on input line 1033.
+Package pdftex.def Info: Indhold/Billeder/Opgave 10.11.1.png  used on input line 2858.
 (pdftex.def)             Requested size: 382.45857pt x 196.5412pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1040 ...iv opgave b, men med hamming som vindue]
-                                                   [47 <./Indhold/Billeder/Opgave 10.11.png> <./Indhold/Billeder/Opgave 10.11.1.png>]
-<Indhold/Billeder/Opgave 10.11.2.png, id=495, 1092.7224pt x 561.5379pt>
+l.2865 ...iv opgave b, men med hamming som vindue]
+                                                   [228 <./Indhold/Billeder/Opgave 10.11.png> <./Indhold/Billeder/Opgave 10.11.1.png>]
+<Indhold/Billeder/Opgave 10.11.2.png, id=2142, 1092.7224pt x 561.5379pt>
 File: Indhold/Billeder/Opgave 10.11.2.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 10.11.2.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 10.11.2.png  used on input line 1041.
+Package pdftex.def Info: Indhold/Billeder/Opgave 10.11.2.png  used on input line 2866.
 (pdftex.def)             Requested size: 655.6385pt x 336.92534pt.
- [48 <./Indhold/Billeder/Opgave 10.11.2.png>]
+ [229 <./Indhold/Billeder/Opgave 10.11.2.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1047 ...= cos(A)cos(B) - sin(A)sin(B) show that]
+l.2872 ...= cos(A)cos(B) - sin(A)sin(B) show that]
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1060 ... derive the following recursive formula]
+l.2885 ... derive the following recursive formula]
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1067 ...e the first five Chebyshev polynomials.]
+l.2892 ...e the first five Chebyshev polynomials.]
                                                   
-Underfull \hbox (badness 10000) in paragraph at lines 1068--1070
+Underfull \hbox (badness 10000) in paragraph at lines 2893--2895
 
  []
 
 
-Overfull \hbox (143.24574pt too wide) in paragraph at lines 1077--1077
+Overfull \hbox (143.24574pt too wide) in paragraph at lines 2902--2902
 []                    \OT1/cmtt/m/n/10 poly = 2*cos(w)*self.chebyshev(n-1, w, Tn) - self.chebyshev(n-2, w, Tn)\\[] 
  []
 
-[49]
-Underfull \hbox (badness 10000) in paragraph at lines 1082--1083
+[230]
+Underfull \hbox (badness 10000) in paragraph at lines 2907--2908
 
  []
 
 
-LaTeX Warning: Command \textemdash invalid in math mode on input line 1094.
+LaTeX Warning: Command \textemdash invalid in math mode on input line 2919.
 
 
-LaTeX Warning: Command \textemdash invalid in math mode on input line 1098.
+LaTeX Warning: Command \textemdash invalid in math mode on input line 2923.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1100 ..._{k=0}^{3}$} as 0, 1/3, 2/3, and 1, ...]
-                                                   [50] [51]
-<Indhold/Billeder/Opgave 10.14.png, id=520, 462.528pt x 346.896pt>
+l.2925 ..._{k=0}^{3}$} as 0, 1/3, 2/3, and 1, ...]
+                                                   [231] [232]
+<Indhold/Billeder/Opgave 10.14.png, id=2167, 462.528pt x 346.896pt>
 File: Indhold/Billeder/Opgave 10.14.png Graphic file (type png)
 <use Indhold/Billeder/Opgave 10.14.png>
-Package pdftex.def Info: Indhold/Billeder/Opgave 10.14.png  used on input line 1172.
+Package pdftex.def Info: Indhold/Billeder/Opgave 10.14.png  used on input line 2997.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1174 ...uiripple er fundet i det fulde interval]
+l.2999 ...uiripple er fundet i det fulde interval]
                                                   
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1318,13 +4178,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1184 ...he DTFT of w in terms of the DTFT of wR]
-                                                   [52]
+l.3013 ...he DTFT of w in terms of the DTFT of wR]
+                                                   [233]
 pdfTeX warning (ext4): destination with the same identifier (name{alfabetTabular.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1196 ...e rectangular window of the same length]
-                                                   [53 <./Indhold/Billeder/Opgave 10.14.png>]) [54] (build/Oplæsning.aux)
+l.3025 ...e rectangular window of the same length]
+                                                   [234 <./Indhold/Billeder/Opgave 10.14.png>]) [235] (build/Oplæsning.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1334,21 +4194,21 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Oplæsning.out' has not changed.
-(rerunfilecheck)             Checksum: 9237ECBC7F3931B97323EFDF4BB295F3;7292.
+(rerunfilecheck)             Checksum: 3E4FEA63B0382078EDE1DB072946E2CB;28659.
  ) 
 Here is how much of TeX's memory you used:
- 26432 strings out of 474116
- 548212 string characters out of 5743683
- 1949187 words of memory out of 5000000
- 48177 multiletter control sequences out of 15000+600000
- 569538 words of font info for 82 fonts, out of 8000000 for 9000
+ 28314 strings out of 474116
+ 596085 string characters out of 5743683
+ 1950187 words of memory out of 5000000
+ 49458 multiletter control sequences out of 15000+600000
+ 572675 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,9n,93p,646b,1043s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb>
-Output written on build/Oplæsning.pdf (54 pages, 2686108 bytes).
+ 94i,12n,106p,849b,1129s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb>
+Output written on build/Oplæsning.pdf (235 pages, 10920326 bytes).
 PDF statistics:
- 682 PDF objects out of 1000 (max. 8388607)
- 516 compressed objects within 6 object streams
- 170 named destinations out of 1000 (max. 500000)
- 356 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2475 PDF objects out of 2487 (max. 8388607)
+ 1943 compressed objects within 20 object streams
+ 745 named destinations out of 1000 (max. 500000)
+ 1395 words of extra memory for PDF output out of 10000 (max. 10000000)
 

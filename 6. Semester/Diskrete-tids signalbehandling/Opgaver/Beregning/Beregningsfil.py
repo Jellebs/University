@@ -2650,6 +2650,25 @@ class Opgave_kapitel10_2(Beregning):
     def __init__(self): 
         self.frekvensResponseAfProcess()
 
+class Opgave_kapitel10_3(Opgave): 
+    d = 0.0116                      # Ripple
+    domega = np.pi * (0.35 - 0.25)
+    # res_M = sig.kaiserord(d, domega)
+    M = 50
+    f = [0, 0.25, 0.35, 1]
+    As = 50  # dB
+    Ap = 0.1 # dB
+    gain = lambda dB : 10**(dB/20)
+    dB = lambda gain : 20*np.log10(gain)
+    def __init__(self):   
+        taps = sig.remez(self.M, self.f, [1, 0], fs = 2)    # Finder fir coefficienter 
+        w, H = sig.freqz(taps, [1], worN=2000)      
+        fig, ax = plt.subplots(sharex = True)
+        w /= np.pi
+        frekvensResponseTo(fig, ax, w, {"H": H}, "Magnitude", "Unormaliseret", "dB")
+        plt.show()
+        # gemBillede("Eksempel 10.7.png", fig)
+    
 class Opgave10_4(Opgave): 
     N = 1001
     w = np.linspace(-np.pi, np.pi, N)
@@ -2902,8 +2921,6 @@ class Opgave10_14(Opgave):
         
         return np.linalg.solve(A, b)
     
-    a0, a1, a2, delt = solveForCoeffs([0, 1/3, 2/3, 1])
-    
     # * Graf 
     def plot(coeffs): 
         a0, a1, a2, delt = coeffs
@@ -2922,27 +2939,23 @@ class Opgave10_14(Opgave):
         plt.show()
         # gemBillede("Opgave 10.14.png", fig)
     
-    plot([a0, a1, a2, delt])
-    
-    
-    # * Forsæt indtil equiripple.
-    # Se på extremerne, så at [del+, del-, del+, del-]
-    coeffs = solveForCoeffs([0, 0.236, 0.736, 1])        # +-0.07
-    plot(coeffs)
-    res_coeffs = coeffs
-    
-    
-    # Chatten fandt de endelige værdier. 
-    coeffs = solveForCoeffs([0, 0.2632, 0.7368, 1])
-    coeffs[:3] = np.array([0.938, -0.875, 1])[:, np.newaxis]
-    plot(coeffs)
-    
-    
-    
-    
-    
-Opgave10_14()
-
+    def __init__(self):
+        a0, a1, a2, delt = self.solveForCoeffs([0, 1/3, 2/3, 1])
+        self.plot([a0, a1, a2, delt])
+        
+        
+        # * Forsæt indtil equiripple.
+        # Se på extremerne, så at [del+, del-, del+, del-]
+        coeffs = self.solveForCoeffs([0, 0.236, 0.736, 1])        # +-0.07
+        self.plot(coeffs)
+        res_coeffs = coeffs
+        
+        
+        # Chatten fandt de endelige værdier. 
+        coeffs = self.solveForCoeffs([0, 0.2632, 0.7368, 1])
+        coeffs[:3] = np.array([0.938, -0.875, 1])[:, np.newaxis]
+        self.plot(coeffs)
+        
 class eksamensOpgave2021_1(Opgave): 
     N = 1000
     w = np.linspace(-np.pi, np.pi, N)
@@ -3191,3 +3204,54 @@ class EksamensOpgave2024_re_5(Opgave):
     x = np.array([1, 2])
     res_y = np.inner(Wn, x)
 
+class EksamensOpgave2025_ord_2(Opgave): 
+    x = np.array([90, -27, 22, -83, -22, -115, -42, -123, -38, -107, -10, -67, 42, -3, 118, 85])
+    n = np.arange(len(x))
+    y2 = lambda x : np.array([0.25 * x[n] + 0.5*x[n - 1] + 0.25*x[n - 2] for n in range(2, len(x))])
+    y0 = 0.25 * x[0]
+    y1 = 0.25 * x[1] + 0.5 * x[0]
+    res_y2 = np.hstack([y0, y1, y2(x)])
+    res_y22 = sig.lfilter([0.25, 0.5, 0.25], [1], x)
+    def __init__(self):
+        fig, ax = plt.subplots()
+        funktioner = {
+            r"$x[n]$" : self.x,
+            r"$y_2[n]$" : self.res_y2
+        }
+        diskretePlotAfFunktioner(fig, ax, self.n, funktioner)
+    
+class EksamensOpgave2025_ord_3(Opgave): 
+    M = 123
+    w = sig.windows.hann(M)
+    fig, ax = plt.subplots(1, 2)
+    n = np.arange(len(w))
+    
+    pprint(w)
+    # vindueAnalyse(fig, ax, n, {r"$w_{hann}$" : w}, "Impuls", "Magnitude")
+    L = M + 1
+    # w2 = sig.firwin(L , [0, 0.3, 0.35, 1],  window = "Hann")
+    W = 0.325 * np.pi
+    
+    
+    n = np.arange(-floor(M/2), ceiling(M/2), dtype= float)       
+    
+    hd = np.sinc(W * n / np.pi)                         # sin(W n)/(pi n) = W/np.pi * np.sinc(W * n / np.pi) => rect(w/W)
+    # hd = np.hstack([hd[np.int64(M/2):], hd[:np.int64(floor(M/2))]])
+    hd = hd * W / np.pi
+    w_hann = hd * w
+    H = np.fft.fft(hd, 1024)
+    
+    vinduer = {
+        r"$w_{hann}[n]$" : w_hann, 
+    }
+    w = np.linspace(-1, 1, 1024)
+    # frekvensResponseTo(fig, ax, w, vinduer, "Magnitude", "Fase")
+    vindueAnalyse(fig, ax, n, vinduer, "Impuls", "Magnitude")
+    
+class EksamensOpgave2025_ord_4(Opgave): 
+    b = [1]
+    a = [1, -0.75, 0.25]
+    res_rpk = sig.residuez(b, a)
+    SOS.pzplotZ([1], [1, -3/4, 1/4], "ydre")
+    
+EksamensOpgave2025_ord_4()

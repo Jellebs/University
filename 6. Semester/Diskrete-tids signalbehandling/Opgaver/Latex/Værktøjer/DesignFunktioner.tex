@@ -31,27 +31,31 @@
     \addcontentsline{toc}{subsection}{#1}
 }{}
 
-% Eksamensopgave context 
-\newenvironment{eksamensOpgave}[1][]{
-    \refstepcounter{eksamensOpgave} % Increment counter first
-    \subsection*{Opgave \theeksamensOpgave: #1}
-    \setcounter{alfabetTabular}{0}
-}{}
-
 
 
 % Indhold
 \newenvironment{Formelsamling}{\begin{rubrik}[Formelsamling]\end{rubrik}}{}
 \newenvironment{Udledninger}{\begin{rubrik}[Udledninger]\end{rubrik}}{}
-
+\newenvironment{Motivationer}{\begin{rubrik}[Motivation]\end{rubrik}}{}
+\newenvironment{Øvelser}{\begin{rubrik}[Øvelser]\end{rubrik}}{}
 \newenvironment{Opgaver}{\begin{rubrik}[Opgaver]\end{rubrik}}{}
+\newenvironment{EksamensOpgaver}{\begin{rubrik}[Eksamensopgaver]\end{rubrik}}{}
+
+\newenvironment{Eksamenssæt}[1][]{\begin{underrubrik}[Eksamenssæt #1]\end{underrubrik}\setcounter{eksamensOpgave}{0}}{}
 \newenvironment{Opgave}[1][]{\begin{underrubrik}[#1]\end{underrubrik}\setcounter{alfabetTabular}{0}}{\vspace{100pt}}
+\newenvironment{Øvelse}[1][]{\begin{underrubrik}[#1]\end{underrubrik}}{}
+\newenvironment{Motivation}[1][]{\begin{underrubrik}[#1]\end{underrubrik}}{}
+
+% Eksamensopgave context 
+\newenvironment{eksamensOpgave}[1][]{
+    \setcounter{alfabetTabular}{0}
+    \refstepcounter{eksamensOpgave}
+    \subsubsection*{\boldmath{Opgave \theeksamensOpgave: #1}}}{ % \refstepcounter{eksamensOpgave} % Increment counter first % \subsection*{Opgave \theeksamensOpgave: #1} %\setcounter{alfabetTabular}{0}
+}{}
+
 \newenvironment{UnderOpgave}[1][]{
     \refstepcounter{alfabetTabular}
     \subsubsection*{\boldmath{\thealfabetTabular. #1}}}{}
-
-\newenvironment{Øvelser}{\begin{rubrik}[Øvelser]\end{rubrik}}{}
-\newenvironment{Øvelse}[1][]{\begin{underrubrik}[#1]\end{underrubrik}}{}
 
 \newenvironment{Udklip}{\color{red}\begin{underrubrik}\end{underrubrik}}{}              % Skal bruges til når jeg retter opgaver, så fletter jeg de forkerte ind i det her. 
 
