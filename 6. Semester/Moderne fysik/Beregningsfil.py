@@ -411,35 +411,152 @@ class Opgave3OmLasere(Opgave):
         self.plot()
 
 class Eksamen2024(Opgave): 
-    T = 4500
-    h = constants.Planck
-    c = constants.speed_of_light
-    k = constants.Boltzmann
-    el = constants.elementary_charge
-    
-    wl = np.linspace(400e-9, 700e-9, 100)
-    R = (2 * np.pi * h * (c**2)) / ( (wl**5) * (np.exp( (h*c) / ( wl * k * T) ) - 1))
-    
-    wlavg = np.average(R)
-    fig, ax = plt.subplots()
-    ax.plot(wl, R, label = rf"$\lambda_{{avg}} = {N(wlavg, 4)}$")
-    fig.legend()
-    plt.show()
-    
-    wl = np.array([200, 250, 300, 325, 375, 450])*1e-9
-    v = ((h * c)/(el)) * 1/wl 
-    V = np.array([3.9, 2.66, 1.84, 1.52, 1.01, 0.46])
-    
-    x = 1/wl
-    reg = linregress(x, V)
-    (a, b) = (reg.slope, reg.intercept)
-    y = a*x + b
-    fig, ax = plt.subplots()
-    ax.plot(x, V, 'o')
-    ax.plot(x, y, label = f"a = {a}, b = {b}")
-    fig.legend()
-    plt.show()
+    def __init__(self):
+        T = 4500
+        h = constants.Planck
+        c = constants.speed_of_light
+        k = constants.Boltzmann
+        el = constants.elementary_charge
+        
+        wl = np.linspace(400e-9, 700e-9, 100)
+        R = (2 * np.pi * h * (c**2)) / ( (wl**5) * (np.exp( (h*c) / ( wl * k * T) ) - 1))
+        
+        wlavg = np.average(R)
+        fig, ax = plt.subplots()
+        ax.plot(wl, R, label = rf"$\lambda_{{avg}} = {N(wlavg, 4)}$")
+        fig.legend()
+        plt.show()
+        
+        wl = np.array([200, 250, 300, 325, 375, 450])*1e-9
+        v = ((h * c)/(el)) * 1/wl 
+        V = np.array([3.9, 2.66, 1.84, 1.52, 1.01, 0.46])
+        
+        x = 1/wl
+        reg = linregress(x, V)
+        (a, b) = (reg.slope, reg.intercept)
+        y = a*x + b
+        fig, ax = plt.subplots()
+        ax.plot(x, V, 'o')
+        ax.plot(x, y, label = f"a = {a}, b = {b}")
+        fig.legend()
+        plt.show()
 
-import sys
-print(print(sys.path))
-# Opgave3OmLasere()
+class Eksamen2024ny(Opgave): 
+    def dataOpgave(self): 
+        c = constants.speed_of_light
+        wl = np.array([200, 250, 300, 325, 375, 450]) * 1e-9
+        Vs = np.array([3.9, 2.66, 1.84, 1.52, 1.01, 0.46])
+        f = c/wl
+        
+        reg = linregress(f, Vs)
+        (a, b) = (reg.slope, reg.intercept)
+        
+        
+        x = np.linspace(-1e3, 1.5e15, 1000)
+        y = a*x + b 
+        
+        # Plot 
+        fig, ax = plt.subplots()
+        ax.plot(f, Vs, "o")
+        ax.plot(x, y, label = f"a = {N(a, 2)}, b = {N(b, 2)}")
+        fig.legend()
+        plt.show()
+        
+    def sortLegeme(self): 
+        T = 4500
+        c = constants.speed_of_light
+        h = constants.Planck
+        k = constants.Boltzmann
+        
+        wl = np.linspace(400e-9, 700e-9, 300)
+        R = (2 * np.pi * h * (c**2)) / ( (wl**5) * ( np.exp( (h*c) / (wl * k * T) ) - 1))
+        fig, ax = plt.subplots()
+        res_Ravg = np.average(R)
+        ax.plot(wl, R, label = rf"$R_{{avg}} = {N(res_Ravg, 3)}$")
+        fig.legend()
+        plt.show()
+        print(wl)
+        print(R)
+    
+    def __init__(self):
+        self.sortLegeme()
+        
+class Eksamen2023ny(Opgave): 
+    def sortLegeme(self): 
+        T = 4500
+        c = constants.speed_of_light
+        h = constants.Planck
+        k = constants.Boltzmann
+        
+        wl = np.linspace(400e-9, 700e-9, 300)
+        R = (2 * np.pi * h * (c**2)) / ( (wl**5) * ( np.exp( (h*c) / (wl * k * T) ) - 1))
+        fig, ax = plt.subplots()
+        res_Ravg = np.average(R)
+        ax.plot(wl, R, label = rf"$R_{{avg}} = {N(res_Ravg, 3)}$")
+        fig.legend()
+        plt.show()
+        # print(wl)
+        # print(R)
+        
+    def __init__(self):
+        self.sortLegeme()
+
+class Eksamen2024nyny(Opgave): 
+    def regression(self): 
+        h = constants.Planck
+        c = constants.speed_of_light
+        wl = np.array([200, 250, 300, 325, 375, 450]) * 1e-9
+        Vs = np.array([3.9, 2.66, 1.84, 1.52, 1.01, 0.46])
+        f = (h * c)/wl 
+        
+        reg = linregress(f, Vs) 
+        (a, b) = (reg.slope, reg.intercept)
+        y = a*f + b
+        fig, ax = plt.subplots()
+        ax.plot(f, Vs, "o")
+        ax.plot(f, y, label = f"a = {N(a, 3)}, b = {N(b, 3)}")
+        
+        ax.set_ylabel(r"$Vs \quad[V]$")
+        ax.set_xlabel(r"$f \quad[1/s]$")
+        fig.legend()
+        plt.show()
+    def __init__(self):
+        self.regression()
+    
+class Eksamen2025(Opgave):
+    def regression(self): 
+        h = constants.Planck
+        c = constants.speed_of_light
+        wl = np.array([200, 250, 300, 325, 375, 450]) * 1e-9
+        Vs = np.array([3.9, 2.66, 1.84, 1.52, 1.01, 0.46])
+        f = (h * c)/wl 
+        
+        reg = linregress(f, Vs) 
+        (a, b) = (reg.slope, reg.intercept)
+        y = a*f + b
+        fig, ax = plt.subplots()
+        ax.plot(f, Vs, "o")
+        ax.plot(f, y, label = f"a = {N(a, 3)}, b = {N(b, 3)}")
+        
+        ax.set_ylabel(r"$Vs \quad[V]$")
+        ax.set_xlabel(r"$f \quad[1/s]$")
+        fig.legend()
+        plt.show()
+    def sortLegeme(self): 
+        T = 4500
+        c = constants.speed_of_light
+        h = constants.Planck
+        k = constants.Boltzmann
+        
+        wl = np.linspace(400e-9, 700e-9, 300)
+        R = (2 * np.pi * h * (c**2)) / ( (wl**5) * ( np.exp( (h*c) / (wl * k * T) ) - 1))
+        fig, ax = plt.subplots()
+        res_Ravg = np.average(R)
+        ax.plot(wl, R, label = rf"$R_{{avg}} = {N(res_Ravg, 3)}$")
+        fig.legend()
+        plt.show()
+        # print(wl)
+        # print(R)
+    def __init__(self):
+        ""
+Eksamen2025()

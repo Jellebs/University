@@ -206,12 +206,12 @@ V = ([
 
 
 _ = ([
-    "            ", 
-    "            ", 
-    "            ", 
-    "            ", 
-    "            ", 
-    "            ", 
+    "       ", 
+    "       ", 
+    "       ", 
+    "       ", 
+    "       ", 
+    "       ", 
 ])
 
 def skrivBogstav(bogstav: str, indeks):
@@ -285,5 +285,5 @@ def printText(text, linjestarter = "#"):
         fil.write(rækker)
     print(len(rækker)/len(E))
     print(rækker)
-
-printText("Konfigurationer", "#?")
+printText("Fourier Serie Af Billede")
+# printText("Konfigurationer", "#?")
