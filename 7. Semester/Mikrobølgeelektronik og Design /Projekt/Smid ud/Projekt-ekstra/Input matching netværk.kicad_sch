@@ -1,0 +1,50 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "c95ace29-349b-4662-be84-8bdca16d1b44")
+	(paper "A4")
+	(lib_symbols)
+	(text "Mikrostrip matching netværk i PCB editoren\n"
+		(exclude_from_sim no)
+		(at 132.842 94.742 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9b6b4d60-c26a-4011-8a0e-bae961a95c9d")
+	)
+	(wire
+		(pts
+			(xy 127 101.6) (xy 139.7 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "01e0f1fa-fcd1-4253-9c84-34ac40c5e290")
+	)
+	(hierarchical_label "Output"
+		(shape output)
+		(at 139.7 101.6 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "64f1dad0-4f34-4f72-82c3-a32c56fb0741")
+	)
+	(hierarchical_label "Input"
+		(shape input)
+		(at 127 101.6 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "9fc67407-3992-4768-b67f-5233525565c0")
+	)
+)

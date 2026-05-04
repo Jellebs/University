@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Transistor")(type "KiCad")(uri "${KIPRJMOD}/Transistor.pretty")(options "")(descr ""))
+)

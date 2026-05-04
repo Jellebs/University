@@ -17,7 +17,8 @@ d1=523.92; %µm,     thickness of the reference substrate
 d2= 495.8; %µm,     thickness of the SAMPLE substrate
 d = 6e-6; % Thin-film thickness in meters (10 nm example)
 
-
+% d2 = 496.8; 
+% d = 7e-6;
 
 %% Data
 figure 

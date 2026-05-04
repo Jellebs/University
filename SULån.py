@@ -11,7 +11,7 @@ måneder = 24
 månedligAfbetaling = 7000
 rente = 0.04
 
-beløbOmMåneden = [1000, 1500, 2000, 2500, 3000]
+beløbOmMåneden = [1000, 1500, 2000, 2500, 3000, 9000]
 
 def opsætKolonne(df, alleBeløb):
     i = 1 
@@ -54,5 +54,5 @@ opsætKolonne(df, beløbOmMåneden)
 opdaterRækker(df, beløbOmMåneden)
 afbetaling(df, beløbOmMåneden)
 
-fil = "SULån.xlsx"
+fil = "SULån2.xlsx"
 df.to_excel(fil, index=False)
