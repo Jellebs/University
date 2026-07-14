@@ -1,22 +1,49 @@
 clear all
 close all
 
-function TyndfilmsRefrakativIndeks(sample) 
+function TyndfilmsRefrakativIndeks(sample, args) 
     % Function that for every section will have a plot if wanted.
     % Comment it if unwanted
 
     %% Hardcoded type parameters:
     PARAMETERS = containers.Map;
+
+    
+    % MEASURED VALUES
     %   Type                d_ref[µm]  d_sam[µm]   d_thinfilm
     PARAMETERS('16_21') = {   523.92,     518.9,     1.1e-6}; 
     PARAMETERS('16_22') = {   523.92,     519.6,       2e-6};
     PARAMETERS('16_23') = {   523.92,     495.8,       6e-6}; 
     PARAMETERS('16_24') = {   523.92,     510.4,       9e-6};
     PARAMETERS('16_25') = {   523.92,     496.8,       7e-6}; 
-    % PARAMETERS('16_26') = {   523.92,     501.2,     5.5e-6}; 
-    % PARAMETERS('16_26') = {   543.92,     481.2,     5e-6};     % Max
-    PARAMETERS('16_26') = {   513.92,     481.2,     6e-6};     % Min
-     
+    PARAMETERS('16_26') = {   523.92,     501.2,     5.5e-6}; 
+
+    if exist('args', 'var')                                                 % If arguments has been given to the functiion
+        if args == 'Min'
+            % CALCULATED MIN VALUES
+            PARAMETERS('16_21') = {   513.92,     498.9,     1.6e-6};       % Min
+            PARAMETERS('16_22') = {   513.92,     499.6,     2.5e-6};       % Min
+            PARAMETERS('16_23') = {   503.92,     475.8,     6.5e-6};       % Min
+            PARAMETERS('16_24') = {   523.92,     500.4,     9.5e-6};       % Min
+            PARAMETERS('16_25') = {   513.92,     506.8,     7.5e-6};       % Min
+            PARAMETERS('16_26') = {   513.92,     481.2,     6e-6};         % Min
+        elseif args == 'Max'
+            % CALCULATED MAX VALUES
+            PARAMETERS('16_21') = {   543.92,     498.9,     0.6e-6};       % Max
+            PARAMETERS('16_22') = {   543.92,     499.6,     1.5e-6};       % Max
+            PARAMETERS('16_23') = {   533.92,     475.8,     5.5e-6};       % Max
+            PARAMETERS('16_24') = {   543.92,     490.4,     8.5e-6};       % Max
+            PARAMETERS('16_25') = {   523.92,     476.8,     6.5e-6};       % Max
+            PARAMETERS('16_26') = {   543.92,     481.2,     5e-6};         % Max
+        end
+    end 
+    
+    
+    
+    
+
+    
+    
     
     
     % Unload parameters 
@@ -33,7 +60,8 @@ function TyndfilmsRefrakativIndeks(sample)
     PurgeRef = importfileT2(data_dir + "ren_silicium525_2_scan1.pulse.csv");
     PurgeAir = importfileT2(data_dir + "luft_500middel.pulse.csv");
     PurgeSam = importfileT2(data_dir + "proeve" + sample + '_scan' + 1 + '.pulse.csv'); 
-    for i = 2: 5
+
+    for i = 2: 4
         path = data_dir + "proeve" + sample + '_scan' + string(i) + '.pulse.csv';   % "Data/Profiler/proeve16_26_scan1.pulse.csv", ...    
         data = importfileT2(path);
         PurgeSam = [PurgeSam, data(:, 2)];          % Time reference is the same for the rest.
@@ -42,14 +70,17 @@ function TyndfilmsRefrakativIndeks(sample)
     function plotSignaler()
         figure 
         hold on
-        plot(PurgeRef(:,1),PurgeRef(:,2));
         plot(PurgeRef(:,1),PurgeAir(:,2));
+        plot(PurgeRef(:,1),PurgeRef(:,2));
+        legends = []; 
         for s = 2:6
+            legends = [legends, "Scan " + string(s - 1)]
             plot(PurgeSam(:,1),PurgeSam(:,s)); 
         end 
+        xlim([1622, 1624])
         xlabel('Time [ps]');
         ylabel('E [arb. units]'); 
-        legend('Air','Reference', 'black Si'); 
+        legend(['Air','Reference', legends]); 
         title('Signals ( ' + sample + " )", 'Interpreter','none');  % Keeps the text as is, without formatting 
         hold off
         box on
@@ -71,8 +102,8 @@ function TyndfilmsRefrakativIndeks(sample)
     function plotWindowedSignal()
         figure 
         hold on
-        plot(PurgeRef(:,1),PurgeAir(:,2) , 'k','LineWidth',2); 
-        plot(PurgeRef(:,1),PurgeRef(:,2) , 'r','LineWidth',2); 
+        % plot(PurgeRef(:,1),PurgeAir(:,2) , 'k','LineWidth',2); 
+        % plot(PurgeRef(:,1),PurgeRef(:,2) , 'r','LineWidth',2); 
         legends = []; 
         for s = 2:6 
             plot(PurgeSam(:,1),PurgeSam(:,s), 'LineWidth',2); 
@@ -80,7 +111,7 @@ function TyndfilmsRefrakativIndeks(sample)
         end 
         xlabel('Time [ps]')
         ylabel('E [arb. units]')
-        legend(['Air', 'Reference', legends])
+        legend(legends) % legend(['Air', 'Reference', legends])
         x_limit = [0.05, 2];
         title('Windowed signals ( ' + sample + " )", 'Interpreter','none')
         hold off
@@ -95,7 +126,7 @@ function TyndfilmsRefrakativIndeks(sample)
     step_size=PurgeRef(3,1)-PurgeRef(2,1); %ps
     df = 1/(N*step_size);
     freq = (linspace(0,N-1,N).*df)';
-    data_fft = conj(fft(PurgeSam(:,2:6),N));
+    data_fft = conj(fft(PurgeSam(:,2:5),N));
     ref_fft = conj(fft(PurgeRef(:,2),N));
     air_fft = conj(fft(PurgeAir(:,2),N));
 
@@ -123,8 +154,8 @@ function TyndfilmsRefrakativIndeks(sample)
         legend(['Reference', legends])
         hold off;
     end
-    
     % plotPhaseResponse()
+
     function plotTransmissionFunctions()
         figure;
         hold on;
@@ -143,14 +174,12 @@ function TyndfilmsRefrakativIndeks(sample)
         legend(['Reference', legends])
         hold off;
     end
-    
     % plotTransmissionFunctions()
     
     %% Uniform refraktive indices
     c=300; %µm/ps
     n  = 1+(phi.*c)./(2*pi.*freq.*d1);
     n1  = 1+(phi1.*c)./(2*pi.*freq.*d2);
-
     function plotUniformRefaktiveIndex()
         figure
         hold on 
@@ -172,8 +201,7 @@ function TyndfilmsRefrakativIndeks(sample)
         hold off 
         box on
     end 
-    
-    plotUniformRefaktiveIndex()
+    % plotUniformRefaktiveIndex()
     
 
     %% Thinfilm refraktive indices
@@ -212,9 +240,64 @@ function TyndfilmsRefrakativIndeks(sample)
         legend(['Reference', legends])
     end 
 
-    plotThinFilmRefraktiveIndex()
+    function plotMinMaxThinFilmRefraktiveIndex()
+        if args == 'Min' 
+            figure;
+            hold on
+            plot(freq, n , 'k','LineWidth',2);
+        end 
+        
+        
+  
+        legends = []; 
+        set(gcf,'Position',[0 1920 800 600])
+        set(gca,'ColorOrderIndex',2)            % Ensures, that every color corresponds to the sample of the same scan. "Reference" takes colorindex 1, the scans comes after. 
+        colororder(lines(6))                    % 6 plots before plotting for the same scans. Ensures same color for same scan.
+        for s = 1:length(n_f_eq_5_6(1, :))
+            legends = [legends, 'Srface Layer ( Sample ' + string(s) + " )"];
+            
+            plot(freq, real(n_f_eq_5_6(:, s)),'LineWidth',2);
+        end 
+
+        if args == 'Max'
+            hold off
+            title('Refraktive Index ( ' + sample + " )", 'Interpreter','none');
+            xlabel('Frequency [THz]');
+            ylabel('Refractive Index');
+            xlim(x_limit); box on;
+            legend(['Reference', legends])
+        end 
+    end 
+    % plotMinMaxThinFilmRefraktiveIndex()
     
-    
+    function plotGaussianDistributedRefraktiveIndices() 
+        figure;
+        hold on
+        set(gcf,'Position',[0 1920 800 600]); 
+        plot(freq, n , 'k','LineWidth',2);
+        df = 20/40000;  
+        nfspectra = real(n_f_eq_5_6); 
+        nfspectra = nfspectra(0.8/df: 1.15/df, :); 
+        
+        
+        [muhat, sigmahat] = normfit(nfspectra.'); 
+        
+        x = 0.8:df:1.15;
+        upper = muhat + 2 * sigmahat; 
+        lower = muhat - 2 * sigmahat;
+        fill([x, fliplr(x)], [upper, fliplr(lower)], 'magenta', 'FaceAlpha', 0.4); 
+      
+        title('Refraktive Index ( ' + sample + " )", 'Interpreter','none');
+        xlabel('Frequency [THz]');
+        ylabel('Refractive Index');
+        xlim(x_limit); box on;
+        legend({'Reference', ...
+        '95\% interval: $\hat{x}\pm2\hat{\sigma}$'}, ...
+        'Interpreter','latex');
+        
+    end 
+    plotGaussianDistributedRefraktiveIndices() 
+
     %% Volume fraction
     eps_Si = (n).^2;
     eps_CM = (real(n_f_eq_5_6)).^2;
@@ -240,9 +323,24 @@ function TyndfilmsRefrakativIndeks(sample)
     % plotVolumeFraction()
 end 
 
-% TyndfilmsRefrakativIndeks("16_21")
-% TyndfilmsRefrakativIndeks("16_22")
+% Testing measured sizes
+TyndfilmsRefrakativIndeks("16_21")
+TyndfilmsRefrakativIndeks("16_22")
 % TyndfilmsRefrakativIndeks("16_23")
-% TyndfilmsRefrakativIndeks("16_24")
-% TyndfilmsRefrakativIndeks("16_25")
+TyndfilmsRefrakativIndeks("16_24")
+TyndfilmsRefrakativIndeks("16_25")
 TyndfilmsRefrakativIndeks("16_26")
+% % 
+% % Testing uncertainty sizes equaling the minimum and maximum values
+% TyndfilmsRefrakativIndeks("16_21", 'Min')
+% TyndfilmsRefrakativIndeks("16_21", 'Max')
+% TyndfilmsRefrakativIndeks("16_22", 'Min')
+% TyndfilmsRefrakativIndeks("16_22", 'Max')
+% % TyndfilmsRefrakativIndeks("16_23", 'Min')
+% % TyndfilmsRefrakativIndeks("16_23", 'Max')
+% TyndfilmsRefrakativIndeks("16_24", 'Min')
+% TyndfilmsRefrakativIndeks("16_24", 'Max')
+% TyndfilmsRefrakativIndeks("16_25", 'Min')
+% TyndfilmsRefrakativIndeks("16_25", 'Max')
+% TyndfilmsRefrakativIndeks("16_26", 'Min')
+% TyndfilmsRefrakativIndeks("16_26", 'Max')

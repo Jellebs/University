@@ -125,26 +125,50 @@ end
 
 %% Process data
 function results = process(nf, volFrac)
+    gaussianResults = nan(6, 4)                 % Results as a gaussian distribution
     results = nan(6, 6)
     for l = 1: 6                                % For every type
-        results(l, 1) = round(max(nf(:, :, :, :, l), [], 'all', 'omitnan')     , 3);
-        results(l, 2) = round(mean(nf(:, :, :, :, l), 'all', 'omitnan')        , 3);
-        results(l, 3) = round(min(nf(:, :, :, :, l), [], 'all', 'omitnan')     , 3); % Skal ændres. Da jeg ikke sætter nogle værdier for type 3 scan 5, så er de 0 og skal ikke regnes med. 
-        results(l, 4) = round(max(volFrac(:, :, :, :, l), [], 'all', 'omitnan'), 3);
-        results(l, 5) = round(mean(volFrac(:, :, :, :, l), 'all', 'omitnan')   , 3);
-        results(l, 6) = round(min(volFrac(:, :, :, :, l), [], 'all', 'omitnan'), 3);
-    end 
-    
+        nfType = nf(:, :, :, :, l)
+        nfType = nfType(~isnan(nfType))
+        volFracType = volFrac(:, :, :, :, l)
+        volFracType = volFracType(~isnan(nfType))
+        results(l, 1) = round(max(nfType(:), [], 'all', 'omitnan')     , 3);
+        results(l, 2) = round(mean(nfType(:), 'all', 'omitnan')        , 3);
+        results(l, 3) = round(min(nfType(:), [], 'all', 'omitnan')     , 3); % Skal ændres. Da jeg ikke sætter nogle værdier for type 3 scan 5, så er de 0 og skal ikke regnes med. 
+        results(l, 4) = round(max(volFracType(:), [], 'all', 'omitnan'), 3);
+        results(l, 5) = round(mean(volFracType(:), 'all', 'omitnan')   , 3);
+        results(l, 6) = round(min(volFracType(:), [], 'all', 'omitnan'), 3);
+        [muHat1, SigmaHat1] = normfit(nfType(:));
+        [muHat2, SigmaHat2] = normfit(volFracType(:));
+        gaussianResults(l, 1) = muHat1; 
+        gaussianResults(l, 2) = SigmaHat1; 
+        gaussianResults(l, 3) = muHat2; 
+        gaussianResults(l, 4) = SigmaHat2; 
+        
+    end     
     T = array2table(results, ...
         'VariableNames', { ...
             'nf_max','nf_mean','nf_min', ...
             'volFrac_max','volFrac_mean','volFrac_min' ...
         });
-    T.Typer = (1:6).';         % or your real names: ["typeA"; "typeB"; ...]
+    T.Typer = (1:6).';         
     T = movevars(T, 'Typer', 'before', 1);
     writetable(T, 'results.xlsx');
     save('Resultat n_f.mat', "nf")
+    
+    H = array2table(gaussianResults, ...
+        'VariableNames', { ...
+            'x̂_nf','σ̂_nf', ...
+            'x̂_volFrac','σ̂_volFrac' ...
+        });
+   
+    H.Typer = (1:6).';       
+    H = movevars(H, 'Typer', 'before', 1);
+    writetable(H, 'GaussianResults.xlsx');
+    
+    
 end 
+
 
 load('Resultat Volume Fraction.mat')        % Otherwise load data
 load('Resultat n_f.mat')
@@ -161,6 +185,7 @@ function plotResults(results)
     % nf plot
     figure; 
     hold on 
+    set(gcf,'Position',[0 1920 800 600])
     for type = 1:L                              % Iterating to make them change color
         errorbar(type, results(type, 2), errnfLower(type), errnfUpper(type), 'o', 'LineWidth', 2.5);
     end 
@@ -174,6 +199,7 @@ function plotResults(results)
     % Volume Fraction plot
     figure; 
     hold on 
+    set(gcf,'Position',[0 1920 800 600])
     for type = 1:L                              % Iterating to make them change color
         errorbar(type, results(type, 5), errvolFracLower(type), errvolFracUpper(type), 'o', 'LineWidth', 2.5);
     end 
@@ -194,31 +220,47 @@ plotResults(results)
 
 
 
+%% Min max calculations
+maxvaerdier = []
+minvaerdier = []
 
+function [indicesMin, indicesMax] = retrieveIndicesMinMax(fiveDArray)
+    % Find the min max indices of the last of the 5 dimensions
+    % array = zeros(K, K, K, M, L) : [(var(d's), scans, types]
+    % last dimensions of the array = Iteration over the types, L.
+    
+    
+    % Returns 3D matrix in R^(L, 3)
+    % indicesMin = [(idxmindsam_1, idxmind_1, idxminref_1),
+    %               (                ...                 ), 
+    %               [(idxmindsam_L, idxmind_L, idxminref_L)] 
+    % indicesMax = [(idxmaxdsam_1, idxmaxd_1, idxmaxref_1),
+    %               (                ...                 ), 
+    %               [(idxmaxdsam_L, idxmaxd_L, idxmaxref_L)] 
+    
+    L = 6; % Amount of types 
 
-% maxVals = []
-% minVals = []
-% 
-% %% Min max calculations
-% maxvaerdier = []
-% minvaerdier = []
-% 
-% [valMax, idxmax] = max(nf(:));
-% [idxmaxdsam, idxmaxd, idxmaxref] = ind2sub(size(nf), idxmax);
-% 
-% [valMin, idxmin] = min(nf(:));
-% [idxmindsam, idxmind, idxminref] = ind2sub(size(nf), idxmin);
-% 
-% maxvaerdier = [maxvaerdier, valMax]
-% minvaerdier = [minvaerdier, valMin]
-% 
-% maxVals = [maxVals, max(maxvaerdier)]
-% minVals = [minVals, min(minvaerdier)]
-% 
-% 
+    indicesMin = nan(L, 3);
+    indicesMax = nan(L, 3);
+    function [idxMin, idxMax] = indicesForType(type)
+        type = fiveDArray(:, :, :, :, type); 
+        [~, indexMax] = max(type(:));
+        [~, indexMin] = min(type(:));
+        [idxmaxdsam, idxmaxd, idxmaxdref, ~] = ind2sub(size(type), indexMax);
+        [idxmindsam, idxmind, idxmindref, ~] = ind2sub(size(type), indexMin);
+        idxMin = [idxmindref, idxmindsam, idxmind];
+        idxMax = [idxmaxdref, idxmaxdsam, idxmaxd]; 
+    end 
+    
+    
+    for l = 1:L 
+        [minIdx, maxIdx] = indicesForType(l);
+        indicesMin(l, :) = minIdx; 
+        indicesMax(l, :) = maxIdx; 
+    end 
+end 
 
-
-
+[indicesMin, indicesMax] = retrieveIndicesMinMax(nf);
 
 
 

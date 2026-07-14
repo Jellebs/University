@@ -73,8 +73,7 @@ function TyndfilmsRefrakativIndeks(sample)
         hold off
         box on
     end 
-    
-    plotWindowedSignal()
+    % plotWindowedSignal()
     
     
     
@@ -89,7 +88,7 @@ function TyndfilmsRefrakativIndeks(sample)
 
     % Phase response
     data_phase = unwrap(angle(data_fft));
-    air_phase = unwrap(angle(air_fft))
+    air_phase = unwrap(angle(air_fft));
     ref_phase = unwrap(angle(ref_fft));
     phi=unwrap(ref_phase-air_phase);
     phi1=unwrap(data_phase-air_phase);
@@ -106,9 +105,7 @@ function TyndfilmsRefrakativIndeks(sample)
         legend('Sample', 'Reference');
         hold off;
     end
-
     % plotPhaseResponse()
-    
     
     %% Uniform refraktive indices
     c=300; %  [µm/ps]
@@ -128,7 +125,6 @@ function TyndfilmsRefrakativIndeks(sample)
         hold off 
         box on
     end 
-    
     % plotUniformRefaktiveIndex()
 
     %% Thinfilm refraktive indices
@@ -148,16 +144,12 @@ function TyndfilmsRefrakativIndeks(sample)
     
     x_limit = [0.8, 1.15];
     function plotThinFilmRefraktiveIndex()
-        figure;
-        hold on
-        plot(freq, n , 'k','LineWidth',2)
-        plot(freq, real(n_f_eq_5_6) , 'r','LineWidth',2)
-        hold off
+        if sample == "16_21"; 
+            plot(freq, n , 'k','LineWidth',2)
+        end 
+        plot(freq, real(n_f_eq_5_6) , 'LineWidth',2)
         title('Refraktive Index ( ' + sample + " )", 'Interpreter','none');
-        xlabel('Frequency [THz]');
-        ylabel('Refractive Index');
         xlim(x_limit); box on;
-        legend('Reference', 'Srface Layer')
     end 
 
     plotThinFilmRefraktiveIndex()
@@ -181,9 +173,19 @@ function TyndfilmsRefrakativIndeks(sample)
     % plotVolumeFraction()
 end 
 
+% Alt der her taget fra tyndfilms formlen.
+
+figure;
+hold on
+
+xlabel('Frequency [THz]');
+ylabel('Refractive Index');
 TyndfilmsRefrakativIndeks("16_21")
 TyndfilmsRefrakativIndeks("16_22")
 TyndfilmsRefrakativIndeks("16_23")
 TyndfilmsRefrakativIndeks("16_24")
 TyndfilmsRefrakativIndeks("16_25")
 TyndfilmsRefrakativIndeks("16_26")
+legend(["Reference", "Sample " + ["16_{21}", "16_{22}", "16_{23}", "16_{24}", "16_{25}", "16_{26}"]])
+colororder(["Black", "Red", "Green", "Blue"])
+hold off
