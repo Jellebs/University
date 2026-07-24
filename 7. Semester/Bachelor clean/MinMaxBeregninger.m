@@ -64,6 +64,8 @@ end
 
 %% Calculation
 function doCalculations()
+    %% Function effiency ( Time spent calculating ) 
+    t1 = datetime('now'); 
     %% Setup
     % Hardcoded type parameters:
     PARAMETERS = containers.Map;
@@ -77,7 +79,7 @@ function doCalculations()
 
     L = 6;              % Amount of types to calculate for
     M = 5;              % Amount of scans for each type.
-    K = 5;              % Amount of changes made in each size. 
+    K = 10;              % Amount of changes made in each size. 
     
     %% Matrix setup
     % Depends on every size, to every scan, for every type
@@ -89,14 +91,14 @@ function doCalculations()
     volFrac = nan(K, K, K, M, L); % [(var(d's), scans, types]
 
     for l = 1:L                                     % For every type
-        sample = "16_2" + string(l)
-        type = PARAMETERS(sample)
-        dref = type{1};     dsam = type{2};     d = type{3}
+        sample = "16_2" + string(l);
+        type = PARAMETERS(sample);
+        dref = type{1};     dsam = type{2};     d = type{3};
 
         % Array of parameters 
-        d = (d + linspace(-0.5, 0.5, K))*1e-6       % +- 0.5um
-        dsam = (dsam + linspace(-20, 20, K))*1e-6   % +- 20um
-        dref = (dref + linspace(-20, 20, K))*1e-6   % +- 20um
+        d = (d + linspace(-0.5, 0.5, K))*1e-6;      % +- 0.5um
+        dsam = (dsam + linspace(-20, 20, K))*1e-6;  % +- 20um
+        dref = (dref + linspace(-20, 20, K))*1e-6;  % +- 20um
 
         for m = 1:M                                 % For every scan 
 
@@ -109,42 +111,49 @@ function doCalculations()
             for j = 1: K                            % For every change in sizes: 
                 for k = 1: K
                     for i = 1: K
-                        n_tyndfilm = nTyndFilm(sample, m, dref(j), dsam(k), d(i));                             
-                        nf(k, i, j, m, l) = real(mean(n_tyndfilm));                 % Re{avg{nf_kij}
-                        volFrac(k, i, j, m, l) = volumeFraction(mean(n_tyndfilm));  % volFrac(avg{n_f})
+                        n_tyndfilm = nTyndFilm(sample, m, dref(j), dsam(k), d(i));
+                        n_tyndfilm = mean(n_tyndfilm);
+                        nf(k, i, j, m, l) = real(n_tyndfilm);                 % Re{avg{nf_kij}
+                        volFrac(k, i, j, m, l) = volumeFraction(n_tyndfilm);  % volFrac(avg{n_f})
                     end 
                 end 
             end 
+            disp('Done with scan' + string(m));
+            t2 = datetime('now'); 
+            dt = t2-t1;
+            fprintf('Elapsed time: %.3f s\n', seconds(dt));
         end 
+        disp('Done with type' + string(l)); 
+        t2 = datetime('now'); 
+        dt = t2-t1;
+        fprintf('Elapsed time: %.3f s\n', seconds(dt));
     end 
-    save('Resultat n_f.mat', "nf")
-    save('Resultat Volume Fraction.mat', "volFrac")
+    save('Resultat n_f.mat', "nf"); 
+    save('Resultat Volume Fraction.mat', "volFrac"); 
+    
+    t2 = datetime('now'); 
+    dt = t2-t1;
+    fprintf('Elapsed time: %.3f s\n', seconds(dt));
+    % K = 10 took around 3 hours to calculate. 
 end 
 % doCalculations()                            % If calculations hasn't occured yet. 
 
 
 %% Process data
 function results = process(nf, volFrac)
-    gaussianResults = nan(6, 4)                 % Results as a gaussian distribution
     results = nan(6, 6)
-    for l = 1: 6                                % For every type
-        nfType = nf(:, :, :, :, l)
-        nfType = nfType(~isnan(nfType))
+    for l = 1: 6                                                            % For every type
+        nfType = nf(:, :, :, :, l);
+        nfType = nfType(~isnan(nfType));                                    % Array setup, includes nans
+        nfType = nfType(nfType >= 1 & nfType <= 3.43);                      % Boundary constraint, 1 <= nFilm <= nSi
         volFracType = volFrac(:, :, :, :, l)
         volFracType = volFracType(~isnan(nfType))
         results(l, 1) = round(max(nfType(:), [], 'all', 'omitnan')     , 3);
         results(l, 2) = round(mean(nfType(:), 'all', 'omitnan')        , 3);
-        results(l, 3) = round(min(nfType(:), [], 'all', 'omitnan')     , 3); % Skal ændres. Da jeg ikke sætter nogle værdier for type 3 scan 5, så er de 0 og skal ikke regnes med. 
+        results(l, 3) = round(min(nfType(:), [], 'all', 'omitnan')     , 3);% Skal ændres. Da jeg ikke sætter nogle værdier for type 3 scan 5, så er de 0 og skal ikke regnes med. 
         results(l, 4) = round(max(volFracType(:), [], 'all', 'omitnan'), 3);
         results(l, 5) = round(mean(volFracType(:), 'all', 'omitnan')   , 3);
         results(l, 6) = round(min(volFracType(:), [], 'all', 'omitnan'), 3);
-        [muHat1, SigmaHat1] = normfit(nfType(:));
-        [muHat2, SigmaHat2] = normfit(volFracType(:));
-        gaussianResults(l, 1) = muHat1; 
-        gaussianResults(l, 2) = SigmaHat1; 
-        gaussianResults(l, 3) = muHat2; 
-        gaussianResults(l, 4) = SigmaHat2; 
-        
     end     
     T = array2table(results, ...
         'VariableNames', { ...
@@ -155,18 +164,6 @@ function results = process(nf, volFrac)
     T = movevars(T, 'Typer', 'before', 1);
     writetable(T, 'results.xlsx');
     save('Resultat n_f.mat', "nf")
-    
-    H = array2table(gaussianResults, ...
-        'VariableNames', { ...
-            'x̂_nf','σ̂_nf', ...
-            'x̂_volFrac','σ̂_volFrac' ...
-        });
-   
-    H.Typer = (1:6).';       
-    H = movevars(H, 'Typer', 'before', 1);
-    writetable(H, 'GaussianResults.xlsx');
-    
-    
 end 
 
 
@@ -178,10 +175,10 @@ results = process(nf, volFrac)
 %% Visualize data
 function plotResults(results)
     L = 6; 
-    errnfUpper = results(:, 1) - results(:, 2)    % Max - Mu 
-    errnfLower = results(:, 2) - results(:, 3)    % Mu - Min
-    errvolFracUpper = results(:, 4) - results(:, 5)    % Max - Mu 
-    errvolFracLower = results(:, 5) - results(:, 6)    % Mu - Min
+    errnfUpper = results(:, 1) - results(:, 2)          % Max - Mu 
+    errnfLower = results(:, 2) - results(:, 3)          % Mu - Min
+    errvolFracUpper = results(:, 4) - results(:, 5)     % Max - Mu 
+    errvolFracLower = results(:, 5) - results(:, 6)     % Mu - Min
     % nf plot
     figure; 
     hold on 

@@ -4,7 +4,6 @@ close all
 function TyndfilmsRefrakativIndeks(sample, args) 
     % Function that for every section will have a plot if wanted.
     % Comment it if unwanted
-
     %% Hardcoded type parameters:
     PARAMETERS = containers.Map;
 
@@ -19,6 +18,7 @@ function TyndfilmsRefrakativIndeks(sample, args)
     PARAMETERS('16_26') = {   523.92,     501.2,     5.5e-6}; 
 
     if exist('args', 'var')                                                 % If arguments has been given to the functiion
+        print("hej"); 
         if args == 'Min'
             % CALCULATED MIN VALUES
             PARAMETERS('16_21') = {   513.92,     498.9,     1.6e-6};       % Min
@@ -61,7 +61,7 @@ function TyndfilmsRefrakativIndeks(sample, args)
     PurgeAir = importfileT2(data_dir + "luft_500middel.pulse.csv");
     PurgeSam = importfileT2(data_dir + "proeve" + sample + '_scan' + 1 + '.pulse.csv'); 
 
-    for i = 2: 4
+    for i = 2: 5                                    % 1 has already been put into the array. 
         path = data_dir + "proeve" + sample + '_scan' + string(i) + '.pulse.csv';   % "Data/Profiler/proeve16_26_scan1.pulse.csv", ...    
         data = importfileT2(path);
         PurgeSam = [PurgeSam, data(:, 2)];          % Time reference is the same for the rest.
@@ -85,11 +85,9 @@ function TyndfilmsRefrakativIndeks(sample, args)
         hold off
         box on
     end 
-
     % plotSignaler()
-    
    
-    %%  Vindue 
+    %%  Window 
     s1=117;
     p1=307;
     PurgeAir = PurgeAir (s1:p1,:);
@@ -117,7 +115,6 @@ function TyndfilmsRefrakativIndeks(sample, args)
         hold off
         box on
     end 
-    
     % plotWindowedSignal()
     
     
@@ -126,7 +123,7 @@ function TyndfilmsRefrakativIndeks(sample, args)
     step_size=PurgeRef(3,1)-PurgeRef(2,1); %ps
     df = 1/(N*step_size);
     freq = (linspace(0,N-1,N).*df)';
-    data_fft = conj(fft(PurgeSam(:,2:5),N));
+    data_fft = conj(fft(PurgeSam(:,2:6),N));
     ref_fft = conj(fft(PurgeRef(:,2),N));
     air_fft = conj(fft(PurgeAir(:,2),N));
 
@@ -275,22 +272,46 @@ function TyndfilmsRefrakativIndeks(sample, args)
         hold on
         set(gcf,'Position',[0 1920 800 600]); 
         plot(freq, n , 'k','LineWidth',2);
-        df = 20/40000;  
+        df = 20/40000;                              % 20 THz by 40000 frequency points. 
         nfspectra = real(n_f_eq_5_6); 
-        nfspectra = nfspectra(0.8/df: 1.15/df, :); 
-        
-        
+        nfspectra = nfspectra(0.8/df: 1.15/df, :);
         [muhat, sigmahat] = normfit(nfspectra.'); 
-        
-        x = 0.8:df:1.15;
-        upper = muhat + 2 * sigmahat; 
+
+        % Visualize the 95% confidence interval from the gaussian distribution 
+        N = int16((1.15 - 0.8)/df);            
+        K = 50;                         % Arbitrary amount of steps for every gaussian distribution. 
+        upper = muhat + 2 * sigmahat;
         lower = muhat - 2 * sigmahat;
-        fill([x, fliplr(x)], [upper, fliplr(lower)], 'magenta', 'FaceAlpha', 0.4); 
-      
+        Ny = NaN(N, K); 
+        Z = NaN(N, K); 
+        for n = 1:N
+            y = linspace(lower(n), upper(n), K); 
+            px = ( 1/(sigmahat(n) * sqrt(2*pi)) ) ...
+                 * exp( - ( (y - muhat(n)).^2 )/( 2*sigmahat(n)^2 ) );      % The normal probability distribution function
+            px = px/max(px);                                                % Normalized for the color gradient to go from 0:1
+            Z(n, :) = px; 
+            Ny(n, :) = y;
+        end 
+        X = repmat(linspace(0.8, 1.15, N), K, 1).';                         % Ensures a (N, K) grid. 
+        C = ones(size(X));                                                  % The gradient of the colors should be none existing but be constant.
+        
+        size(X), size(Z), size(C)
+        s = surf(X, Ny, Z, C);                                              % Surface plot
+        
+        alpha_data = Z;                                                     % Going from fully opaque towards transparent. 
+        set(s,...
+            'AlphaData',alpha_data,...
+            'FaceColor',[3/252, 252/252, 177/252], ...
+            'EdgeColor', 'none', ...
+            'FaceAlpha','interp',...
+            'AlphaDataMapping','none');
+
+        view(2);
         title('Refraktive Index ( ' + sample + " )", 'Interpreter','none');
         xlabel('Frequency [THz]');
         ylabel('Refractive Index');
         xlim(x_limit); box on;
+        ylim([0, 7]); 
         legend({'Reference', ...
         '95\% interval: $\hat{x}\pm2\hat{\sigma}$'}, ...
         'Interpreter','latex');
@@ -330,8 +351,8 @@ TyndfilmsRefrakativIndeks("16_22")
 TyndfilmsRefrakativIndeks("16_24")
 TyndfilmsRefrakativIndeks("16_25")
 TyndfilmsRefrakativIndeks("16_26")
-% % 
-% % Testing uncertainty sizes equaling the minimum and maximum values
+
+% Testing uncertainty sizes equaling the minimum and maximum values
 % TyndfilmsRefrakativIndeks("16_21", 'Min')
 % TyndfilmsRefrakativIndeks("16_21", 'Max')
 % TyndfilmsRefrakativIndeks("16_22", 'Min')
