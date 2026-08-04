@@ -119,13 +119,14 @@ function TyndfilmsRefrakativIndeks(sample, args)
     
     
     %% Frequency response
+    x_limit = [0.5, 2.5];
     N = 40000;
     step_size=PurgeRef(3,1)-PurgeRef(2,1); %ps
     df = 1/(N*step_size);
     freq = (linspace(0,N-1,N).*df)';
-    data_fft = conj(fft(PurgeSam(:,2:6),N));
-    ref_fft = conj(fft(PurgeRef(:,2),N));
-    air_fft = conj(fft(PurgeAir(:,2),N));
+    data_fft = fft(PurgeSam(:,2:6),N); % conj(fft(PurgeSam(:,2:6),N));
+    ref_fft = fft(PurgeRef(:,2),N); % conj(fft(PurgeRef(:,2),N));
+    air_fft = fft(PurgeAir(:,2),N); %  conj(fft(PurgeAir(:,2),N));
 
     % Phase response
     data_phase = unwrap(angle(data_fft));
@@ -192,7 +193,6 @@ function TyndfilmsRefrakativIndeks(sample, args)
         xlabel('Frequency [THz]')
         ylabel('Refractive index')
         title('Refraktive equation for uniform materials ( ' + sample + " )", 'Interpreter','none');
-        x_limit = [0.8, 1.15];
         xlim(x_limit); box on;
         legend(['Reference', legends]);
         hold off 
@@ -210,13 +210,26 @@ function TyndfilmsRefrakativIndeks(sample, args)
     p_ref = d1*1e-6;                % Reference substrate thickness in meters (525 µm example)
     T_data = data_fft ./ ref_fft;   % Compute complex transmission function T
     
-    delta_2 = omega .* n .* (p_sam - p_ref) ./ c; % Assuming p_sam = p2 and p_ref = p1
+    delta_2 = omega .* n .* (p_ref - p_sam) ./ c; % Assuming p_sam = p2 and p_ref = p1
     T_factor_5_6 = (T_data .* (1 + n - n .* 1i .* omega .* d ./ c)) - (n + 1) .* exp(1i .* delta_2);
     T_denominator_5_6 = T_data .* (1i .* omega .* d ./ c);
     n_f_eq_5_6 = sqrt(T_factor_5_6 ./ T_denominator_5_6);
     
+
+    T = T_data;
+    % Common terms
+    term = 1i .* (c ./ omega) .* ((1 - T) .* (n + 1) ./ (T .* d)) - n;
     
-    x_limit = [0.8, 1.15];
+    nf_plus  = sqrt(term);
+    nf_minus = -sqrt(term);
+    P_air = exp(1i * (omega/c) * (p_sam - p_ref));
+    f = freq * 1e12; 
+    
+    % n_f_eq_5_6 = sqrt((1/d) * (c./omega) .* (n + 1).*(1 +(P_air./T)) - n); 
+    % n_f_eq_5_6 = sqrt(1i*(c./(omega * d)) .* (n + 1).*(1 - P_air./T) - n); 
+    n_f_eq_5_6 = sqrt((c./(1i * omega * d)) .* (n + 1) .* (1 - P_air./T) - n); 
+
+    
     function plotThinFilmRefraktiveIndex()
         figure;
         hold on
@@ -234,8 +247,10 @@ function TyndfilmsRefrakativIndeks(sample, args)
         xlabel('Frequency [THz]');
         ylabel('Refractive Index');
         xlim(x_limit); box on;
+        ylim([0.9, 3.5])
         legend(['Reference', legends])
     end 
+    plotThinFilmRefraktiveIndex()
 
     function plotMinMaxThinFilmRefraktiveIndex()
         if args == 'Min' 
@@ -311,13 +326,13 @@ function TyndfilmsRefrakativIndeks(sample, args)
         xlabel('Frequency [THz]');
         ylabel('Refractive Index');
         xlim(x_limit); box on;
-        ylim([0, 7]); 
+        ylim([0, 3.5]); 
         legend({'Reference', ...
         '95\% interval: $\hat{x}\pm2\hat{\sigma}$'}, ...
         'Interpreter','latex');
         
     end 
-    plotGaussianDistributedRefraktiveIndices() 
+    % plotGaussianDistributedRefraktiveIndices() 
 
     %% Volume fraction
     eps_Si = (n).^2;

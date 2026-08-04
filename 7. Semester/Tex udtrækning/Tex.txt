@@ -1,0 +1,1 @@
+$$E_{sam} = E_{0} \cdot \tau_{12} \cdot e^{\gamma_{f}d_{f}} \cdot \frac{1}{1 - \Gamma_{23} \cdot \Gamma_{21} \cdot e^{2\gamma_{f} \cdot d_{f}}} \cdot \tau_{23} \cdot e^{\gamma_{sub} \cdot d_{sub}} \cdot \tau_{31}$$
