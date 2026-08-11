@@ -145,7 +145,7 @@ function results = process(nf, volFrac)
     for l = 1: 6                                                            % For every type
         nfType = nf(:, :, :, :, l);
         nfType = nfType(~isnan(nfType));                                    % Array setup, includes nans
-        nfType = nfType(nfType >= 1 & nfType <= 3.43);                      % Boundary constraint, 1 <= nFilm <= nSi
+        % nfType = nfType(nfType >= 1 & nfType <= 3.43);                      % Boundary constraint, 1 <= nFilm <= nSi
         volFracType = volFrac(:, :, :, :, l)
         volFracType = volFracType(~isnan(nfType))
         results(l, 1) = round(max(nfType(:), [], 'all', 'omitnan')     , 3);
@@ -169,6 +169,7 @@ end
 
 load('Resultat Volume Fraction.mat')        % Otherwise load data
 load('Resultat n_f.mat')
+
 results = process(nf, volFrac)
 
 
@@ -182,6 +183,7 @@ function plotResults(results)
     % nf plot
     figure; 
     hold on 
+    title("Min, max and avg. distriubtion of the varied depths")
     set(gcf,'Position',[0 1920 800 600])
     for type = 1:L                              % Iterating to make them change color
         errorbar(type, results(type, 2), errnfLower(type), errnfUpper(type), 'o', 'LineWidth', 2.5);
@@ -191,7 +193,11 @@ function plotResults(results)
     ylabel('Refractive index');
     xline(0, 'LineWidth', 1);
     yline(0, 'LineWidth', 1);
+    %ylim([-0.1, 4.1])
+    ax = gca; 
+    ax.FontSize = 15; 
     hold off
+    
     
     % Volume Fraction plot
     figure; 
@@ -205,9 +211,115 @@ function plotResults(results)
     ylabel('Volume Fraction');
     xline(0, 'LineWidth', 1);
     yline(0, 'LineWidth', 1);
+
     hold off
 end 
 
+function plotGaussianDistribution(nf)
+    figure;
+    hold on
+    set(gcf,'Position',[0 1920 800 600]); 
+    L = 6 % Types 
+    mus = NaN(L, 1)
+    sigmas = NaN(L, 1)
+    plot3([-1, 10], [0, 0], [-1, -1], 'Color', 'black', 'LineWidth', 2)
+    % sigmas(3) = 0; mus(3) = 0;
+    for l = 1: L 
+        data = nf(:, :, :, :, l);
+        data = data(~isnan(data));                      % Remove nans 
+        data = data(data >= 1 & data <= 3.43);
+        [mu, sigma] = normfit(data(:));
+        mus(l) = mu; 
+        sigmas(l) = sigma; 
+    end 
+
+    % Visualize the 95% confidence interval from the gaussian distribution 
+    K = 50;                                     % Arbitrary amount of steps for every gaussian distribution. 
+    uppers = mus + 2 * sigmas;
+    lowers = mus - 2 * sigmas;
+    
+    colors = get(gca, 'ColorOrder');
+
+    % Adds bars to my graph. 
+    function bars(barlengths, bary, z)
+        barx = [l - barlengths, l + barlengths]; 
+        barx = [barx; barx]; 
+        surf(barx, bary, z, ...
+            'EdgeColor','none', ...
+            'FaceColor',colors(l + 1, :), ...
+            'FaceAlpha', 'interp', ...
+            'AlphaData',z, ...
+            'AlphaDataMapping','none')
+    end
+    for l=1:L    
+        linewidth = 0.05; 
+        barlengths = 0.3; 
+        y = linspace(lowers(l), uppers(l), K);
+        x = l * ones(K, 1);
+        x = [x.'-linewidth/2; x.'+linewidth/2].'; 
+        y = [y-linewidth/2; y+linewidth/2].'
+        px = 0.025 + (0.975/(sigmas(l) * sqrt(2*pi)) ) ...
+             * exp( - ( (y - mus(l)).^2 )/( 2*sigmas(l)^2 ) );      % The normal probability distribution function
+        px = px./max(px);                                            % Normalized for the color gradient to go from 0:1
+        z = px; 
+        % z = [z; z]; 
+
+        surf(x, y, z, ...
+            'EdgeColor','none', ...
+            'FaceColor', colors(l + 1, :), ... % [3/252, 252/252, 177/252], ...
+            'FaceAlpha', 'interp', ...
+            'AlphaData', z, ...
+            'AlphaDataMapping','none')
+        
+         
+
+        barheight = 2 * linewidth; 
+        % Top bars
+        topbary = [uppers(l)+barheight, uppers(l)+barheight]; 
+        topbary = [topbary; uppers(l)- barheight, uppers(l) - barheight];
+        
+        % Bottom bars
+        bottombary = [lowers(l)+barheight, lowers(l)+barheight]; 
+        bottombary = [bottombary; lowers(l)- barheight, lowers(l) - barheight];
+
+        z2 = z(1:2, 1:2); 
+        bars(0.15, topbary, z2)
+        bars(0.15, bottombary, z2)
+        % surf(barx, bary, z(1:2, 1:2), ...
+        %     'EdgeColor','none', ...
+        %     'FaceColor', colors(l + 1, :), ... % [3/252, 252/252, 177/252], ...
+        %     'FaceAlpha', 1, ...
+        %     'AlphaData', z(1:2, 1:2), ...
+        %     'AlphaDataMapping','none')
+        % 
+    end 
+    view(2);
+    
+    hold off 
+    title("Gaussian distribution of the varied depths")
+    xlabel("types", 'interpreter', 'latex')
+    ylabel("Refractive Index $n_f$", 'Interpreter','latex')
+    ylim([-0.1, 4.1])
+    ax = gca; 
+    grid on
+    
+    ax.FontSize = 15; 
+    
+    % title('Refraktive Index ( ' + sample + " )", 'Interpreter','none');
+    % xlabel('Frequency [THz]');
+    % ylabel('Refractive Index');
+    % % xlim(x_limit); box on;
+    % % ylim([0, 3.5]); 
+    % legend({'Reference', ...
+    % '95\% interval: $\hat{x}\pm2\hat{\sigma}$'}, ...
+    % 'Interpreter','latex');
+    % 
+
+end 
+
+
+
+plotGaussianDistribution(nf)
 plotResults(results)
 
 

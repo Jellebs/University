@@ -60,7 +60,8 @@ function TyndfilmsRefrakativIndeks(sample, args)
     PurgeRef = importfileT2(data_dir + "ren_silicium525_2_scan1.pulse.csv");
     PurgeAir = importfileT2(data_dir + "luft_500middel.pulse.csv");
     PurgeSam = importfileT2(data_dir + "proeve" + sample + '_scan' + 1 + '.pulse.csv'); 
-
+    N = size(PurgeAir, 1);
+    
     for i = 2: 5                                    % 1 has already been put into the array. 
         path = data_dir + "proeve" + sample + '_scan' + string(i) + '.pulse.csv';   % "Data/Profiler/proeve16_26_scan1.pulse.csv", ...    
         data = importfileT2(path);
@@ -87,30 +88,71 @@ function TyndfilmsRefrakativIndeks(sample, args)
     end 
     % plotSignaler()
    
-    %%  Window 
-    s1=117;
-    p1=307;
+    %%  Window  
+    % Førhenværende måde
+    s1 = 117
+    s2 = s1; 
+    p1 = 307; 
+    p2 = p1; 
+
     PurgeAir = PurgeAir (s1:p1,:);
-    
-    s2=117;
-    p2=307;
     PurgeRef = PurgeRef (s2:p2,:);
     PurgeSam = PurgeSam (s2:p2,:);
-    
+
+    % % Finding the offsets: 
+    % [val, argmax] = max(PurgeSam(:, 2:end)); 
+    % [val, argmax1] = max(PurgeAir(:, 2)); 
+    % [val argmax2] = max(PurgeRef(:, 2));
+    % 
+    % [val, argmin] = min(PurgeSam(:, 2:end)); 
+    % [val, argmin1] = min(PurgeAir(:, 2)); 
+    % [val, argmin2] = min(PurgeRef(:, 2)); 
+    % argmax = [argmax1, argmax2, argmax];
+    % argmin = [argmin1, argmin2, argmin];
+    % c = int16((argmax + argmin)/2);
+    % [val, argminc] = min(c)
+    % L = c(2) - c(1);                % Amount of points having been shifted due to the wafer.
+    % M = min(400/2, c(argminc)) * 2; % Width of the window. Can only ever be twice the size of one of the centers,
+    %                                 % unless its larger then 400/2 then I would want a window of length 400. 
+    % O = c - M/2;                    % Offsets to give the windows.
+    % O(O <= 0) = 1; 
+    % % Window creation
+    % H = zeros(N, size(c,2));        % R^{7 x N}
+    % for i=1:size(c, 2)
+    %     offset = O(i);
+    %     H(offset:offset + M-1, i) = tukeywin(M, 0.5); 
+    % end 
+    % function plotWindows()
+    %     figure 
+    %     hold on
+    %     legends = [];
+    %     for i=1:7
+    %         legends = [legends, "Window " + string(i)];
+    %         plot(H(:, i));
+    %     end 
+    %     legend(legends)
+    %     hold off
+    % end 
+    % % plotWindows()
+    % 
+    % % Applying the windows
+    % PurgeAir(:, 2) = PurgeAir(:, 2) .* H(:, 1); 
+    % PurgeRef(:, 2) = PurgeRef(:, 2).* H(:, 2); 
+    % PurgeSam(:, 2:end) = PurgeSam(:, 2:end) .* H(:, 3:end);
     function plotWindowedSignal()
         figure 
         hold on
-        % plot(PurgeRef(:,1),PurgeAir(:,2) , 'k','LineWidth',2); 
-        % plot(PurgeRef(:,1),PurgeRef(:,2) , 'r','LineWidth',2); 
+        plot(PurgeRef(:,1),PurgeAir(:,2) , 'k','LineWidth',2); 
+        plot(PurgeRef(:,1),PurgeRef(:,2) , 'r','LineWidth',2); 
         legends = []; 
         for s = 2:6 
             plot(PurgeSam(:,1),PurgeSam(:,s), 'LineWidth',2); 
             legends = [legends, 'black Si sample ' + string(s - 1)];
         end 
+        % xlim([1622, 1624])
         xlabel('Time [ps]')
         ylabel('E [arb. units]')
-        legend(legends) % legend(['Air', 'Reference', legends])
-        x_limit = [0.05, 2];
+        legend(['Air', 'Reference', legends]) % legend(['Air', 'Reference', legends])
         title('Windowed signals ( ' + sample + " )", 'Interpreter','none')
         hold off
         box on
@@ -119,22 +161,23 @@ function TyndfilmsRefrakativIndeks(sample, args)
     
     
     %% Frequency response
-    x_limit = [0.5, 2.5];
+    x_limit = [0.8, 4];
     N = 40000;
     step_size=PurgeRef(3,1)-PurgeRef(2,1); %ps
     df = 1/(N*step_size);
     freq = (linspace(0,N-1,N).*df)';
-    data_fft = fft(PurgeSam(:,2:6),N); % conj(fft(PurgeSam(:,2:6),N));
-    ref_fft = fft(PurgeRef(:,2),N); % conj(fft(PurgeRef(:,2),N));
-    air_fft = fft(PurgeAir(:,2),N); %  conj(fft(PurgeAir(:,2),N));
+    data_fft = conj(fft(PurgeSam(:,2:6),N)); % conj(fft(PurgeSam(:,2:6),N));
+    ref_fft = conj(fft(PurgeRef(:,2),N)); % conj(fft(PurgeRef(:,2),N));
+    air_fft = conj(fft(PurgeAir(:,2),N)); %  conj(fft(PurgeAir(:,2),N));
 
     % Phase response
     data_phase = unwrap(angle(data_fft));
     air_phase = unwrap(angle(air_fft)); 
     ref_phase = unwrap(angle(ref_fft));
-    phi=unwrap(ref_phase-air_phase);
-    phi1=unwrap(data_phase-air_phase);
-    
+    phi= unwrap(ref_phase-air_phase);
+    phi1= unwrap(data_phase-air_phase);
+    % absolute value for positive convention. 
+
     function plotPhaseResponse()
         figure;
         hold on;
@@ -159,25 +202,25 @@ function TyndfilmsRefrakativIndeks(sample, args)
         hold on;
         legends = []; 
         for s = 1:length(phi1(1, :))
-            T = data_fft./ ref_fft
+            T = data_fft./ ref_fft; 
             legends = [legends, 'Sample ' + string(s)];
-            plot(freq, real(T),'LineWidth',2); 
+            plot(freq, unwrap(angle(T)),'LineWidth',2); 
         end 
         
         title('Transmissions functions ( ' + sample + " )", 'Interpreter','none');
         xlabel('Frequency [THz]');
         ylabel('Phase [radians]');
-        x_limit = [0.8, 1.15]*10^(-12)
-        % xlim(x_limit); box on;
-        legend(['Reference', legends])
+        xlim(x_limit); box on;
+        legend(['Reference', legends]);
         hold off;
     end
     % plotTransmissionFunctions()
     
     %% Uniform refraktive indices
     c=300; %µm/ps
-    n  = 1+(phi.*c)./(2*pi.*freq.*d1);
-    n1  = 1+(phi1.*c)./(2*pi.*freq.*d2);
+    
+    n  = 1+ phi.*c./(2*pi.*freq.*d1);
+    n1  = 1 + phi1.*c./(2*pi.*freq.*d2); 
     function plotUniformRefaktiveIndex()
         figure
         hold on 
@@ -187,19 +230,22 @@ function TyndfilmsRefrakativIndeks(sample, args)
         legends = []; 
         for s = 1:length(phi1(1, :))
             legends = [legends, 'Sample ' + string(s)];
-            plot(freq, n1(:, s) ,'LineWidth',2); 
+            % plot(freq, n1(:, s) ,'LineWidth',2); 
         end 
 
         xlabel('Frequency [THz]')
         ylabel('Refractive index')
-        title('Refraktive equation for uniform materials ( ' + sample + " )", 'Interpreter','none');
+        title('Refraktive equation for one layer uniform wafer')
+        % title('Refraktive equation for uniform materials ( ' + sample + " )", 'Interpreter','none');
         xlim(x_limit); box on;
-        legend(['Reference', legends]);
+        % ylim([3.3, 3.5])
+        legend("n_{si}")
+        % legend(['Reference', legends]);
         hold off 
         box on
     end 
     % plotUniformRefaktiveIndex()
-    
+    nref = 1 + phi.*c./(2*pi.*freq.*d1);
 
     %% Thinfilm refraktive indices
     freq = freq * 1e12;             % Convert from THz to Hz
@@ -208,31 +254,24 @@ function TyndfilmsRefrakativIndeks(sample, args)
     c = 2.99e8;                     % Speed of light in m/s
     p_sam = d2*1e-6;                % Sample substrate thickness in meters (530 µm example)
     p_ref = d1*1e-6;                % Reference substrate thickness in meters (525 µm example)
-    T_data = data_fft ./ ref_fft;   % Compute complex transmission function T
+    T = data_fft ./ ref_fft;        % Compute complex transmission function T
     
-    delta_2 = omega .* n .* (p_ref - p_sam) ./ c; % Assuming p_sam = p2 and p_ref = p1
-    T_factor_5_6 = (T_data .* (1 + n - n .* 1i .* omega .* d ./ c)) - (n + 1) .* exp(1i .* delta_2);
-    T_denominator_5_6 = T_data .* (1i .* omega .* d ./ c);
-    n_f_eq_5_6 = sqrt(T_factor_5_6 ./ T_denominator_5_6);
     
-
-    T = T_data;
-    % Common terms
-    term = 1i .* (c ./ omega) .* ((1 - T) .* (n + 1) ./ (T .* d)) - n;
-    
-    nf_plus  = sqrt(term);
-    nf_minus = -sqrt(term);
-    P_air = exp(1i * (omega/c) * (p_sam - p_ref));
+    %  = n; % = 1 + phi.*c./(2*pi.*freq.*d1);% n; 
+    % P_air = exp(1i * (nref - 1) .* (omega/c) * (p_sam - p_ref)) .* exp(1i * (omega/c) * d); % .* exp(1i .* (omega/c) * (p_ref - p_sam));
+    P_air = exp(1i * (nref - 1) .* (omega/c) * (p_sam - p_ref)) .* exp(1i * (omega/c) * d); % .* exp(1i .* (omega/c) * (p_ref - p_sam)); 
     f = freq * 1e12; 
     
-    % n_f_eq_5_6 = sqrt((1/d) * (c./omega) .* (n + 1).*(1 +(P_air./T)) - n); 
+    % n_f_eq_5_6 = sqrt((1/d) * (c./omega) .* (n + 1).*(1 +(P_air./T)) -
+    % n);                                               3 - 5 - 6 - 4- 1 -2
     % n_f_eq_5_6 = sqrt(1i*(c./(omega * d)) .* (n + 1).*(1 - P_air./T) - n); 
-    n_f_eq_5_6 = sqrt((c./(1i * omega * d)) .* (n + 1) .* (1 - P_air./T) - n); 
+    n_f_eq_5_6 = sqrt((c./(1i * omega * d)) .* (nref + 1) .* (1 - P_air./T) - nref); 
 
     
     function plotThinFilmRefraktiveIndex()
         figure;
         hold on
+        set(gcf,'Position',[0 1920 500 350]); 
         plot(freq, n , 'k','LineWidth',2);
         
         legends = []; 
@@ -247,7 +286,7 @@ function TyndfilmsRefrakativIndeks(sample, args)
         xlabel('Frequency [THz]');
         ylabel('Refractive Index');
         xlim(x_limit); box on;
-        ylim([0.9, 3.5])
+        ylim([-0.1, 4])
         legend(['Reference', legends])
     end 
     plotThinFilmRefraktiveIndex()
@@ -289,12 +328,12 @@ function TyndfilmsRefrakativIndeks(sample, args)
         plot(freq, n , 'k','LineWidth',2);
         df = 20/40000;                              % 20 THz by 40000 frequency points. 
         nfspectra = real(n_f_eq_5_6); 
-        nfspectra = nfspectra(0.8/df: 1.15/df, :);
+        nfspectra = nfspectra(x_limit(1)/df: x_limit(2)/df, :);
         [muhat, sigmahat] = normfit(nfspectra.'); 
 
         % Visualize the 95% confidence interval from the gaussian distribution 
-        N = int16((1.15 - 0.8)/df);            
-        K = 50;                         % Arbitrary amount of steps for every gaussian distribution. 
+        N = int16((x_limit(2) - x_limit(1))/df);            
+        K = 50;                                     % Arbitrary amount of steps for every gaussian distribution. 
         upper = muhat + 2 * sigmahat;
         lower = muhat - 2 * sigmahat;
         Ny = NaN(N, K); 
@@ -307,7 +346,7 @@ function TyndfilmsRefrakativIndeks(sample, args)
             Z(n, :) = px; 
             Ny(n, :) = y;
         end 
-        X = repmat(linspace(0.8, 1.15, N), K, 1).';                         % Ensures a (N, K) grid. 
+        X = repmat(linspace(x_limit(1), x_limit(2), N), K, 1).';                            % Ensures a (N, K) grid. 
         C = ones(size(X));                                                  % The gradient of the colors should be none existing but be constant.
         
         size(X), size(Z), size(C)
