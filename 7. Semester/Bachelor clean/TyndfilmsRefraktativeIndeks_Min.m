@@ -90,55 +90,58 @@ function TyndfilmsRefrakativIndeks(sample, args)
    
     %%  Window  
     % Førhenværende måde
-    s1 = 117
-    s2 = s1; 
-    p1 = 307; 
-    p2 = p1; 
-
-    PurgeAir = PurgeAir (s1:p1,:);
-    PurgeRef = PurgeRef (s2:p2,:);
-    PurgeSam = PurgeSam (s2:p2,:);
-
-    % % Finding the offsets: 
-    % [val, argmax] = max(PurgeSam(:, 2:end)); 
-    % [val, argmax1] = max(PurgeAir(:, 2)); 
-    % [val argmax2] = max(PurgeRef(:, 2));
+    % s1 = 117
+    % s2 = s1; 
+    % p1 = 307; 
+    % p2 = p1; 
     % 
-    % [val, argmin] = min(PurgeSam(:, 2:end)); 
-    % [val, argmin1] = min(PurgeAir(:, 2)); 
-    % [val, argmin2] = min(PurgeRef(:, 2)); 
-    % argmax = [argmax1, argmax2, argmax];
-    % argmin = [argmin1, argmin2, argmin];
-    % c = int16((argmax + argmin)/2);
-    % [val, argminc] = min(c)
-    % L = c(2) - c(1);                % Amount of points having been shifted due to the wafer.
-    % M = min(400/2, c(argminc)) * 2; % Width of the window. Can only ever be twice the size of one of the centers,
-    %                                 % unless its larger then 400/2 then I would want a window of length 400. 
-    % O = c - M/2;                    % Offsets to give the windows.
-    % O(O <= 0) = 1; 
-    % % Window creation
-    % H = zeros(N, size(c,2));        % R^{7 x N}
-    % for i=1:size(c, 2)
-    %     offset = O(i);
-    %     H(offset:offset + M-1, i) = tukeywin(M, 0.5); 
-    % end 
-    % function plotWindows()
-    %     figure 
-    %     hold on
-    %     legends = [];
-    %     for i=1:7
-    %         legends = [legends, "Window " + string(i)];
-    %         plot(H(:, i));
-    %     end 
-    %     legend(legends)
-    %     hold off
-    % end 
-    % % plotWindows()
-    % 
-    % % Applying the windows
-    % PurgeAir(:, 2) = PurgeAir(:, 2) .* H(:, 1); 
-    % PurgeRef(:, 2) = PurgeRef(:, 2).* H(:, 2); 
-    % PurgeSam(:, 2:end) = PurgeSam(:, 2:end) .* H(:, 3:end);
+    % PurgeAir = PurgeAir (s1:p1,:);
+    % PurgeRef = PurgeRef (s2:p2,:);
+    % PurgeSam = PurgeSam (s2:p2,:);
+
+    % Finding the offsets: 
+    [val, argmax] = max(PurgeSam(:, 2:end)); 
+    [val, argmax1] = max(PurgeAir(:, 2)); 
+    [val argmax2] = max(PurgeRef(:, 2));
+
+    [val, argmin] = min(PurgeSam(:, 2:end)); 
+    [val, argmin1] = min(PurgeAir(:, 2)); 
+    [val, argmin2] = min(PurgeRef(:, 2)); 
+    argmax = [argmax1, argmax2, argmax];
+    argmin = [argmin1, argmin2, argmin];
+    c = int16((argmax + argmin)/2);
+    [val, argminc] = min(c)
+    L = c(2) - c(1);                % Amount of points having been shifted due to the wafer.
+    M = min(400/2, c(argminc)) * 2; % Width of the window. Can only ever be twice the size of one of the centers,
+                                    % unless its larger then 400/2 then I would want a window of length 400. 
+    O = c - M/2;                    % Offsets to give the windows.
+    O(O <= 0) = 1; 
+    % Window creation
+    H = zeros(N, size(c,2));        % R^{7 x N}
+    for i=1:size(c, 2)
+        offset = O(i);
+        H(offset:offset + M-1, i) = tukeywin(M, 0.5); 
+    end 
+    function plotWindows()
+        figure 
+        hold on
+        title("Sample " + string(sample), "interpreter", "none");
+        legends = ["Air", "Reference"];
+        for i=1:7
+            if i>=3 
+                legends = [legends, "Window " + string(i - 2)];
+            end 
+            plot(H(:, i), 'LineWidth',2);
+        end 
+        legend(legends)
+        hold off
+    end 
+    plotWindows()
+
+    % Applying the windows
+    PurgeAir(:, 2) = PurgeAir(:, 2) .* H(:, 1); 
+    PurgeRef(:, 2) = PurgeRef(:, 2).* H(:, 2); 
+    PurgeSam(:, 2:end) = PurgeSam(:, 2:end) .* H(:, 3:end);
     function plotWindowedSignal()
         figure 
         hold on
@@ -289,7 +292,7 @@ function TyndfilmsRefrakativIndeks(sample, args)
         ylim([-0.1, 4])
         legend(['Reference', legends])
     end 
-    plotThinFilmRefraktiveIndex()
+    % plotThinFilmRefraktiveIndex()
 
     function plotMinMaxThinFilmRefraktiveIndex()
         if args == 'Min' 
