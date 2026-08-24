@@ -43,7 +43,7 @@ end
 %% Setup
 M = 6;                                      % Amount of scans
 d1 = 523.92                                 % Ref depth [um]
-relPath = "Tjekfiler/Test filer/"
+relPath = "Data/Tjekfiler/Test filer/"
 PurgeAir = importfileT2(relPath + "Luft_middel500.pulse.csv");
 PurgeRef = importfileT2(relPath + 'Ren_sillicium_2_scan' + 1 + '.pulse.csv'); 
 for m = 2:M 

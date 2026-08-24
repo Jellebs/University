@@ -168,7 +168,7 @@ end
 
 
 load('Resultat Volume Fraction.mat')        % Otherwise load data
-load('Resultat n_f.mat')
+load('Resultat n_fK.mat')
 
 results = process(nf, volFrac)
 
@@ -227,7 +227,8 @@ function plotGaussianDistribution(nf)
     for l = 1: L 
         data = nf(:, :, :, :, l);
         data = data(~isnan(data));                      % Remove nans 
-        data = data(data >= 1 & data <= 3.43);
+        % data = data(data >= 1 & data <= 3.43);        % Data is
+                                                        % physically possible
         [mu, sigma] = normfit(data(:));
         mus(l) = mu; 
         sigmas(l) = sigma; 
@@ -320,7 +321,7 @@ end
 
 
 plotGaussianDistribution(nf)
-plotResults(results)
+% plotResults(results)
 
 
 
