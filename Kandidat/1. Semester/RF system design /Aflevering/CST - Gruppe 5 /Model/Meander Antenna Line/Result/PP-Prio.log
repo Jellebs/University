@@ -1,0 +1,18 @@
+=========================================
+== CST Matrix Calculation Priority Log ==
+=========================================
+Priorities are sorted in ascending order beginning with the lowest priority
+ 
+Group | Shape-ID | ShapeName | Material | User-priority | 2D/3D-Geometry | Material-attributes | Shape-attributes | Feature-ID | Schemetype
+1 | 6 | </cst/Boundaries/> Low^X | $CoilMaterial$ | n/a | no | normal.vacuum. | boundary. | n/a | FIT_TD
+1 | 7 | </cst/Boundaries/> Low^Y | $CoilMaterial$ | n/a | no | normal.vacuum. | boundary. | n/a | FIT_TD
+1 | 8 | </cst/Boundaries/> Low^Z | $CoilMaterial$ | n/a | no | normal.vacuum. | boundary. | n/a | FIT_TD
+1 | 9 | </cst/Boundaries/> Up^X | $CoilMaterial$ | n/a | no | normal.vacuum. | boundary. | n/a | FIT_TD
+1 | 10 | </cst/Boundaries/> Up^Y | $CoilMaterial$ | n/a | no | normal.vacuum. | boundary. | n/a | FIT_TD
+1 | 11 | </cst/Boundaries/> Up^Z | $CoilMaterial$ | n/a | no | normal.vacuum. | boundary. | n/a | FIT_TD
+2 | 4 | </cst/Ports/> 1^t0 | PEC | n/a | no | pec. | edge-element.wire. | n/a | FIT_TD
+2 | 5 | </cst/Ports/> 1^t1 | PEC | n/a | no | pec. | edge-element.wire. | n/a | FIT_TD
+3 | 3 | <Mesh/Imported> Antenna:shape2 | Antenna/FR4 | n/a | yes | normal. | mesh-import.sheet. | n/a | FIT_TD
+4 | 1 | component1:Ground plane | PEC | n/a | yes | pec. | solid. | n/a | FIT_TD
+5 | 2 | <Mesh/Imported> Antenna:shape1 | PEC | n/a | yes | pec. | mesh-import.sheet. | n/a | FIT_TD
+=========================================

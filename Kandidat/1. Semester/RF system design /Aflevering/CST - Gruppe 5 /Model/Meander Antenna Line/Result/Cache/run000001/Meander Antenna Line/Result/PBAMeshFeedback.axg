@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CSTAuxiliaryGeometry version="20170928">
+  <Objects>
+    <Object name="Lines" id="3">
+      <LineSet points="80 122 -4 80 122 0 80 2 -4 80 2 0 -200 122 -4 -200 122 0 -200 2 -4 -200 2 0 80 2 0 80 122 0 -200 2 0 -200 122 0 80 2 -4 80 122 -4 -200 2 -4 -200 122 -4 -200 122 0 80 122 0 -200 122 -4 80 122 -4 -200 2 0 80 2 0 -200 2 -4 80 2 -4" stripped="0" material="$CornerCorrectionMaterial$"/>
+    </Object>
+    <Object name="Connected" id="1">
+      <PointSet points="-3.53750038 0.000150752385 32" material="$00f219"/>
+    </Object>
+    <Object name="Dangling" id="2">
+      <PointSet points="3.53750038 0.000150752385 0" material="$d919f2"/>
+    </Object>
+  </Objects>
+  <Materials>
+    <Material name="$00f219">
+      <Drawstyle color="0 0.949019611 0.0980392173" transparency="0" linestrength="3"/>
+    </Material>
+    <Material name="$d919f2">
+      <Drawstyle color="0.850980401 0.0980392173 0.949019611" transparency="0" linestrength="3"/>
+    </Material>
+  </Materials>
+  <Groups>
+    <Group name="Wire Endpoints" type="Undefined" ID="1">
+      <Item name="Connected" type="solid" id="1"/>
+      <Item name="Dangling" type="solid" id="2"/>
+    </Group>
+    <Group name="Corner Correction" type="Undefined" ID="2">
+      <Item name="Lines" type="solid" id="3"/>
+    </Group>
+  </Groups>
+</CSTAuxiliaryGeometry>

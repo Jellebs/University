@@ -1,0 +1,20 @@
+{
+    "parameters": [
+        {
+            "expr": "120e-3",
+            "name": "wl",
+            "value": "120e-3"
+        },
+        {
+            "expr": "32e-3",
+            "name": "h",
+            "value": "32e-3"
+        },
+        {
+            "expr": "0.0*wl",
+            "name": "w",
+            "value": "0"
+        }
+    ],
+    "version": 1
+}

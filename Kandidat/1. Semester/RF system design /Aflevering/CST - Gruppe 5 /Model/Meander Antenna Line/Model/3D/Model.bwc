@@ -1,0 +1,35 @@
+3300 0 5 0           
+13 CST_HEXMESHER 14 ACIS 33.0.1 NT 24 Wed Oct 21 17:20:08 2026 
+1 9.9999999999999995e-07 1e-10 
+T @77 VVHQBXGQHYN_EHZ9P682BTKYE9RMYJPADATVK4767DGVSC66BDU3PE5XA844QRPEQAUKQE767C44R 
+vertex $5 -1 -1 $-1 $-1 $6 #
+vertex $7 -1 -1 $-1 $-1 $8 #
+vertex $9 -1 -1 $-1 $-1 $10 #
+vertex $11 -1 -1 $-1 $-1 $12 #
+vertex $13 -1 -1 $-1 $-1 $14 #
+name_attrib-gen-attrib $-1 -1 $15 $-1 $0 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @25 nmeshshape$Antenna:shape1 #
+point $-1 -1 -1 $-1 3.5375003814697266 0.00015075238479766995 39.075004577636719 #
+name_attrib-gen-attrib $-1 -1 $16 $-1 $1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @25 nmeshshape$Antenna:shape1 #
+point $-1 -1 -1 $-1 -3.5375003814697266 0.00015075238479766995 32 #
+name_attrib-gen-attrib $-1 -1 $17 $-1 $2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @25 nmeshshape$Antenna:shape1 #
+point $-1 -1 -1 $-1 -3.5375003814697266 7.0751404762268066 32 #
+name_attrib-gen-attrib $-1 -1 $18 $-1 $3 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @25 nmeshshape$Antenna:shape1 #
+point $-1 -1 -1 $-1 -3.5375003814697266 0.00015075238479766995 32 #
+name_attrib-gen-attrib $-1 -1 $19 $-1 $4 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @25 nmeshshape$Antenna:shape1 #
+point $-1 -1 -1 $-1 3.5375003814697266 0.00015075238479766995 32 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $20 $5 $0 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @17 backwd_pickNumber 1 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $21 $7 $1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @17 backwd_pickNumber 1 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $22 $9 $2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @17 backwd_pickNumber 1 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $23 $11 $3 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @17 backwd_pickNumber 1 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $24 $13 $4 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @17 backwd_pickNumber 1 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $25 $15 $0 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @18 backwd_blockNumber 8 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $26 $16 $1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @18 backwd_blockNumber 9 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $27 $17 $2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @18 backwd_blockNumber 12 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $28 $18 $3 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @18 backwd_blockNumber 17 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $29 $19 $4 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @18 backwd_blockNumber 18 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $-1 $20 $0 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @9 backwd_id 9 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $-1 $21 $1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @9 backwd_id 1 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $-1 $22 $2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @9 backwd_id 4 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $-1 $23 $3 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @9 backwd_id 1 #
+integer_attrib-name_attrib-gen-attrib $-1 -1 $-1 $24 $4 2 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 @9 backwd_id 10 #
+End-of-ACIS-data 

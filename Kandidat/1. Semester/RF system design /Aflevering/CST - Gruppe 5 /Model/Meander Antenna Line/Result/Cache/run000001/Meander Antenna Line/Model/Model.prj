@@ -1,0 +1,13 @@
+{
+   "Author": "Ad så kom jeg her",
+   "Comment": "",
+   "Last Problem Type": "High Frequency",
+   "Last Solver Type": "HF Time Domain",
+   "Last Solver Type Abb": "t",
+   "Mesh Cells": "182,476",
+   "Mesh Type": "Hexahedral",
+   "Modeler Unique ID": "5:meander antenna line.cst?43fa12de27af75f98875c71c85b708cf?10602:numberofparameters=0:port=1>mode=1>zre=0>zim=0::antenna_1.stl>b51eec1b50d64f71f5e57843fea0ef30>8884",
+   "ProjectVersion": "'# MWS Version: Version 2024.0 - Sep 01 2023 - ACIS 33.0.1 -",
+   "Results": "Time Domain: S-Parameter",
+   "Version": "3"
+}
